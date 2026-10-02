@@ -749,6 +749,13 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
 .lp-board-h { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--fg-muted); margin-bottom: 12px; }
 .lp-board-h .lp-mono { font-size: 11px; margin-left: auto; }
 .lp-flow { display: grid; grid-template-columns: 1fr 26px 1.25fr; gap: 10px; align-items: stretch; }
+.lp-pipe { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.lp-pipe > * { min-width: 0; }
+.lp-pipe .lp-src { white-space: nowrap; overflow: hidden; }
+.lp-src-t { overflow: hidden; text-overflow: ellipsis; }
+.lp-src .lp-plus { margin-left: auto; flex: none; font: 9.5px var(--font-mono); padding: 1px 5px; border-radius: 4px; color: var(--clay); background: color-mix(in srgb, var(--clay) 14%, transparent); }
+.lp-brainstrip { margin-top: 10px; background: var(--bg-sunk); border-radius: 12px; padding: 8px; overflow: hidden; }
+.lp-brainstrip .lp-neuron { margin-bottom: 0; }
 .lp-flow > * { min-width: 0; }
 .lp-col { background: var(--bg-sunk); border-radius: 12px; padding: 8px; }
 .lp-col h4 { margin: 2px 4px 8px; font: 500 10px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--fg-muted); }
@@ -759,9 +766,10 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
 @keyframes lp-compile { 0% { border-color: var(--border); box-shadow: none; } 30%, 70% { border-color: var(--clay); box-shadow: 0 0 0 3px color-mix(in srgb, var(--clay) 22%, transparent); } 100% { border-color: var(--border); box-shadow: none; } }
 @keyframes lp-arrow-go { 0%, 100% { transform: none; opacity: .6; } 50% { transform: translateX(4px); opacity: 1; } }
 .lp-src.is-compiling { animation: lp-compile 1.2s ease; }
+.lp-src.is-new { animation: lp-slide .8s ease; }
 .lp-arrow.is-on svg { animation: lp-arrow-go .6s ease 2; }
 .lp-neuron.is-new { animation: lp-slide .8s ease; }
-@media (prefers-reduced-motion: reduce) { .lp-src.is-compiling, .lp-arrow.is-on svg, .lp-neuron.is-new { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .lp-src.is-compiling, .lp-src.is-new, .lp-arrow.is-on svg, .lp-neuron.is-new { animation: none; } }
 .lp-neuron { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--clay); border-radius: 8px; padding: 8px 9px; margin-bottom: 7px; font-size: 12px; line-height: 1.35; }
 .lp-meta { display: flex; gap: 5px; margin-top: 6px; flex-wrap: wrap; }
 .lp-chip { display: inline-block; font: 10px var(--font-mono); padding: 2px 6px; border-radius: 6px; background: var(--olive-bg); color: var(--olive-d); }
@@ -888,6 +896,8 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
 }
 @media (max-width: 560px) {
   .lp-wrap { padding: 0 16px; }
+  .lp-pipe .lp-k { display: none; }
+  .lp-pipe { gap: 6px; }
   .lp-hero { padding-top: 110px; }
   .lp-hero h1 { font-size: 36px; }
   .lp-flow { grid-template-columns: 1fr; }
@@ -1477,28 +1487,32 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
 })();
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
 (function(){
-  var src = document.querySelector('[data-testid="home-hero-sources"]'), brain = document.querySelector('[data-testid="home-hero-brain"]');
-  if (!src || !brain) return;
+  var pipe = document.querySelector('[data-testid="home-hero-pipeline"]'), strip = document.querySelector('[data-testid="home-hero-brain"]');
+  var tpl = document.querySelector('[data-testid="home-hero-neurons"]');
+  if (!pipe || !strip) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var sources = src.querySelectorAll('.lp-src'), arrow = document.querySelector('[data-testid="home-hero-arrow"]');
-  var pool = Array.prototype.map.call(brain.querySelectorAll('.lp-neuron'), function(n){ return n.cloneNode(true); });
-  if (!sources.length || !pool.length) return;
-  var i = 0, shown = brain.querySelectorAll('.lp-neuron').length;
-  /* Lock the column to its first height: a new Neuron can be taller than the one it replaces, and the board must not grow or shrink. */
-  brain.style.height = brain.offsetHeight + 'px'; brain.style.overflow = 'hidden';
+  var cols = pipe.querySelectorAll('.lp-col'), cards = pipe.querySelectorAll('.lp-src');
+  var pool = tpl ? Array.prototype.slice.call(tpl.content.querySelectorAll('.lp-neuron')) : [];
+  if (cols.length < 2 || !cards.length) return;
+  /* Fixed height: every column can hold every card, so nothing on the page moves when a card does. */
+  var h4 = cols[0].querySelector('h4'), card = cards[0], gap = parseFloat(getComputedStyle(card).marginBottom) || 7;
+  var colH = (h4 ? h4.offsetHeight + 10 : 0) + cards.length * (card.offsetHeight + gap) + 16;
+  cols.forEach(function(c){ c.style.height = colH + 'px'; });
+  strip.style.height = strip.offsetHeight + 'px';
+  var last = cols.length - 1, n = 0;
   var timer = setInterval(function(){
-    if (!document.body.contains(src)) { clearInterval(timer); return; }
+    if (!document.body.contains(pipe)) { clearInterval(timer); return; }
     if (document.hidden) return;
-    var s = sources[i % sources.length];
-    s.classList.remove('is-compiling'); void s.offsetWidth; s.classList.add('is-compiling');
-    if (arrow) { arrow.classList.remove('is-on'); void arrow.offsetWidth; arrow.classList.add('is-on'); }
-    var n = pool[i % pool.length].cloneNode(true); n.classList.add('is-new');
-    var first = brain.querySelector('.lp-neuron');
-    setTimeout(function(){
-      brain.insertBefore(n, first);
-      var all = brain.querySelectorAll('.lp-neuron'); if (all.length > shown) all[all.length - 1].remove();
-    }, 700);
-    i++;
+    var c = cards[Math.floor(Math.random() * cards.length)];
+    var from = Number(c.parentNode.getAttribute('data-stage')), to = from >= last ? 0 : from + 1;
+    var plus = c.querySelector('.lp-plus'); if (plus) plus.remove();
+    c.classList.remove('is-new', 'is-compiling'); void c.offsetWidth;
+    cols[to].appendChild(c); c.classList.add(to === last ? 'is-compiling' : 'is-new');
+    if (to === last && pool.length) {
+      var p = document.createElement('span'); p.className = 'lp-plus'; p.textContent = '+' + (1 + (Number(c.getAttribute('data-i')) % 3)) + ' Neurons'; c.appendChild(p);
+      var nn = pool[n++ % pool.length].cloneNode(true); nn.classList.add('is-new');
+      var old = strip.querySelector('.lp-neuron'); if (old) old.replaceWith(nn); else strip.appendChild(nn);
+    }
   }, 1800);
 })();
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
