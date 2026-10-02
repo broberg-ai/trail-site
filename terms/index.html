@@ -1545,6 +1545,10 @@ courts.</p>
   var app = root.querySelector('[data-testid="demo-app"]'), frame = root.querySelector('[data-testid="demo-frame"]');
   var conv = root.querySelector('[data-testid="demo-stream"]'), ta = root.querySelector('[data-testid="demo-input"]'), form = root.querySelector('[data-testid="demo-composer"]');
   var title = root.querySelector('[data-testid="demo-title"]'), dock = root.querySelector('[data-testid="demo-dock"]'), toastEl = root.querySelector('[data-testid="demo-toast"]');
+  /* The app sits right under the fixed site nav, whatever height the nav has at this width. */
+  var nav = document.querySelector('.nav');
+  function navH(){ if (nav) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px'); }
+  navH(); window.addEventListener('resize', navH);
   var data = []; try { data = JSON.parse(root.querySelector('[data-testid="demo-data"]').textContent); } catch (e) {}
   var byId = {}; data.forEach(function(d){ byId[d.id] = d; });
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
