@@ -548,7 +548,8 @@ body[data-menu-open="true"] { overflow: hidden; }
   margin-top: 0.75rem;
   line-height: 1.5;
 }
-.prose img { max-width: 100%; border-radius: 4px; margin: 1.5rem auto; }
+/* Narrower than the column ⇒ flush with the left margin, not centred (Christian 2026-10-03). */
+.prose img { max-width: 100%; border-radius: 4px; margin: 1.5rem 0; }
 
 /* Footer */
 .footer {
@@ -891,11 +892,30 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
   .lp-stat { padding-left: 0; border-left: 0; border-top: 1px solid var(--border); }
   .lp-stat:first-child { border-top: 0; }
 }
+
+#page { position: relative; }
+html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
+.page-hero-video {
+  position: absolute; top: 0; left: 0; right: 0; height: min(760px, 90vh);
+  overflow: hidden; z-index: 0; pointer-events: none;
+}
+.page-hero-video video { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.6; }
+:root[data-theme="light"] .page-hero-video video { opacity: 0.3; }
+.page-hero-video::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--bg) 30%, transparent) 0%,
+    color-mix(in srgb, var(--bg) 55%, transparent) 60%,
+    var(--bg) 100%);
+}
+.has-hero-video { position: relative; z-index: 1; }
+.nl-wrap { position: relative; display: block; overflow: hidden; width: fit-content; max-width: 100%; }
+.nl-wrap img { display: block; }
+.nl-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: screen; }
 </style>
 
   <!-- webhouse.app enrichment -->
   <meta name="generator" content="webhouse.app" />
-  <link rel="canonical" href="https://www.trailmem.com/tags/compile-time/" />
   <meta property="og:url" content="https://www.trailmem.com/tags/compile-time/" />
   <meta property="og:site_name" content="trail: second brain" />
   <meta name="twitter:card" content="summary" />
@@ -1019,6 +1039,7 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
     function initSvgFullscreen() {
       var figures = document.querySelectorAll('.prose .cms-svg');
       if (!figures.length) return;
+      document.querySelectorAll('.svg-fullscreen').forEach(function (o) { o.remove(); });
       var overlay = document.createElement('div');
       overlay.className = 'svg-fullscreen';
       overlay.setAttribute('data-open', 'false');
@@ -1080,8 +1101,10 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
     } else {
       initSvgFullscreen();
     }
+    /* Re-run after an in-place page swap (page-scripts.ts). */
+    (window.__tp = window.__tp || []).push(initSvgFullscreen);
   </script>
-  <article class="article container"><header class="article-header">
+  <div id="page" data-testid="page-root"><article class="article container"><header class="article-header">
     <div class="article-eyebrow">Tag</div>
     <h1>#compile-time</h1>
     <p class="article-lead">2 items tagged <code>compile-time</code>.</p>
@@ -1095,7 +1118,7 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
     <h3>Niklas Luhmann's Zettelkasten Has Been Waiting Seventy Years for the LLM</h3>
     <p>Luhmann produced 90,000 cards and 500-plus books with a method that has worked for seven decades — but most of his time went into bookkeeping that does not directly contribute to thinking. LLM Neuron trails are the first plausible automation of exactly that bookkeeping. Trail is what it looks like as hosted infrastructure.</p>
     <div class="post-card-meta">Research · May 2, 2026 · 9 min read</div>
-  </a></div></article>
+  </a></div></article></div>
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -1264,7 +1287,7 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
   }
 })();
 </script>
-  <script>
+  <script>(function(){var f=function(){
 (function(){
   var data = document.querySelector('.lp-loop-data'); if (!data) return;
   var stages; try { stages = JSON.parse(data.textContent || '[]'); } catch (e) { return; }
@@ -1277,7 +1300,63 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
       st.surfaces.map(function(x){ return '<div><b>'+e(x.label)+'</b><span>'+e(x.detail)+'</span></div>'; }).join('')+'</div>';
   }); });
 })();
-
+};(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
+  var v = document.querySelector('.page-hero-video video'); if (!v) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); return; }
+  var p = v.play(); if (p && p.catch) p.catch(function(){});
+};(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
+  var root = document.querySelector('[data-image-neurons]'); if (!root) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var imgs = root.querySelectorAll('.article-cover img, .prose img');
+  var layers = [];
+  imgs.forEach(function(img){
+    if (img.parentNode && img.parentNode.classList && img.parentNode.classList.contains('nl-wrap')) return;
+    var wrap = document.createElement('span'); wrap.className = 'nl-wrap';
+    var cs = getComputedStyle(img); wrap.style.marginTop = cs.marginTop; wrap.style.marginBottom = cs.marginBottom; wrap.style.borderRadius = cs.borderRadius;
+    if (img.closest('.article-cover')) wrap.style.width = '100%';
+    img.parentNode.insertBefore(wrap, img); wrap.appendChild(img); img.style.margin = '0';
+    var c = document.createElement('canvas'); c.className = 'nl-canvas'; c.setAttribute('aria-hidden', 'true');
+    wrap.appendChild(c);
+    layers.push({ c: c, ctx: c.getContext('2d'), nodes: [], pulses: [], w: 0, h: 0, visible: false });
+  });
+  if (!layers.length) return;
+  var DPR = Math.min(window.devicePixelRatio || 1, 2), LINK = 120;
+  function size(L){
+    var r = L.c.getBoundingClientRect(); if (!r.width) return;
+    L.w = r.width; L.h = r.height; L.c.width = r.width * DPR; L.c.height = r.height * DPR;
+    L.ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    var n = Math.round(Math.min(60, Math.max(18, r.width * r.height / 9000)));
+    L.nodes = []; for (var i = 0; i < n; i++) L.nodes.push({ x: Math.random() * r.width, y: Math.random() * r.height, vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25, r: 1 + Math.random() * 1.6 });
+    L.pulses = [];
+  }
+  function frame(L){
+    var ctx = L.ctx, N = L.nodes, i, j, a, b, dx, dy, d;
+    ctx.clearRect(0, 0, L.w, L.h);
+    for (i = 0; i < N.length; i++) { a = N[i]; a.x += a.vx; a.y += a.vy; if (a.x < 0 || a.x > L.w) a.vx *= -1; if (a.y < 0 || a.y > L.h) a.vy *= -1; }
+    for (i = 0; i < N.length; i++) for (j = i + 1; j < N.length; j++) {
+      a = N[i]; b = N[j]; dx = a.x - b.x; dy = a.y - b.y; d = Math.sqrt(dx * dx + dy * dy);
+      if (d < LINK) {
+        ctx.strokeStyle = 'rgba(232,168,124,' + (0.35 * (1 - d / LINK)).toFixed(3) + ')'; ctx.lineWidth = 0.8;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        if (L.pulses.length < 14 && Math.random() < 0.0016) L.pulses.push({ a: a, b: b, t: 0 });
+      }
+    }
+    for (i = 0; i < N.length; i++) { a = N[i]; ctx.fillStyle = 'rgba(255,214,186,0.85)'; ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, 6.283); ctx.fill(); }
+    for (i = L.pulses.length - 1; i >= 0; i--) {
+      var p = L.pulses[i]; p.t += 0.018; if (p.t >= 1) { L.pulses.splice(i, 1); continue; }
+      var x = p.a.x + (p.b.x - p.a.x) * p.t, y = p.a.y + (p.b.y - p.a.y) * p.t;
+      var g = ctx.createRadialGradient(x, y, 0, x, y, 7); g.addColorStop(0, 'rgba(255,236,220,0.95)'); g.addColorStop(1, 'rgba(232,168,124,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 7, 0, 6.283); ctx.fill();
+    }
+  }
+  layers.forEach(size);
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ layers.forEach(function(L){ if (L.c === e.target) L.visible = e.isIntersecting; }); }); });
+  layers.forEach(function(L){ io.observe(L.c); });
+  var raf = 0;
+  function tick(){ if (!document.body.contains(layers[0].c)) { io.disconnect(); return; } layers.forEach(function(L){ if (L.visible && !document.hidden) frame(L); }); raf = requestAnimationFrame(tick); }
+  raf = requestAnimationFrame(tick);
+  var t = 0; window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(function(){ layers.forEach(size); }, 150); });
+};(window.__tp=window.__tp||[]).push(f);f();})();
 (function(){
   var btn = document.querySelector('.sound-toggle'); if (!btn) return;
   var KEY = 'trailmem.site.ambient', TARGET = 0.35;
@@ -1296,6 +1375,62 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
   btn.addEventListener('click', function(){ enabled = !enabled; try { localStorage.setItem(KEY, enabled ? 'on' : 'off'); } catch (e) {} sync(); if (enabled) play(); else stop(); });
   document.addEventListener('visibilitychange', function(){ if (!audio) return; if (document.hidden) audio.pause(); else if (enabled && document.documentElement.dataset.ambient === 'playing') audio.play().catch(function(){}); });
   sync();
+})();
+
+(function(){
+  if (!window.fetch || !window.DOMParser || !history.pushState) return;
+  var page = document.getElementById('page'); if (!page) return;
+  var loadedPath = location.pathname, ctrl = null;
+  function target(a, e){
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return null;
+    if ((a.target && a.target !== '_self') || a.hasAttribute('download')) return null;
+    var u = new URL(a.href, location.href);
+    if (u.origin !== location.origin) return null;
+    if (/\.[a-z0-9]{2,5}$/i.test(u.pathname) && !/\.html$/i.test(u.pathname)) return null;
+    if (u.pathname === location.pathname && u.search === location.search) return null; /* same page: let the browser scroll */
+    return u;
+  }
+  function syncHead(doc, sel){
+    var n = doc.head.querySelector(sel), o = document.head.querySelector(sel);
+    if (n && o) o.replaceWith(n.cloneNode(true)); else if (n) document.head.appendChild(n.cloneNode(true)); else if (o) o.remove();
+  }
+  function closeMenus(){
+    document.querySelectorAll('.nav-dd-panel').forEach(function(p){ p.hidden = true; });
+    document.querySelectorAll('.nav-dd-btn').forEach(function(b){ b.setAttribute('aria-expanded', 'false'); });
+  }
+  function go(u, push){
+    if (ctrl) ctrl.abort(); ctrl = new AbortController();
+    document.documentElement.setAttribute('data-navigating', 'true');
+    return fetch(u.pathname + u.search, { signal: ctrl.signal, headers: { Accept: 'text/html' } })
+      .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(function(html){
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var next = doc.getElementById('page'); if (!next) throw new Error('no #page');
+        page.innerHTML = next.innerHTML;
+        document.title = doc.title;
+        ['meta[name="description"]', 'meta[property="og:title"]', 'meta[property="og:description"]', 'meta[property="og:url"]', 'link[rel="canonical"]'].forEach(function(s){ syncHead(doc, s); });
+        if (push) history.pushState({}, '', u.href);
+        loadedPath = u.pathname;
+        closeMenus();
+        var el = u.hash && document.getElementById(decodeURIComponent(u.hash.slice(1)));
+        if (el) el.scrollIntoView(); else if (push) window.scrollTo(0, 0);
+        (window.__tp || []).forEach(function(f){ try { f(); } catch (err) { console.error(err); } });
+        document.documentElement.removeAttribute('data-navigating');
+      })
+      .catch(function(err){
+        if (err && err.name === 'AbortError') return;
+        location.href = u.href; /* anything unexpected: a normal page load still works */
+      });
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest && e.target.closest('a[href]'); if (!a) return;
+    var u = target(a, e); if (!u) return;
+    e.preventDefault(); go(u, true);
+  });
+  window.addEventListener('popstate', function(){
+    if (location.pathname === loadedPath) return; /* hash-only change on the same page */
+    go(new URL(location.href), false);
+  });
 })();
 </script>
   <!-- F291 — @broberg/consent-cookie. categories="" because trailmem.com sets no
