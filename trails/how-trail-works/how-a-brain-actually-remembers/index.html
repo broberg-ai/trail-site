@@ -1797,11 +1797,9 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   raf = requestAnimationFrame(tick);
   var t = 0; window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(function(){ layers.forEach(size); }, 150); });
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
-  var cta = document.querySelector('.nav-cta'), appOrigin = '';
-  try { if (cta) appOrigin = new URL(cta.href, location.href).origin; } catch (e) {}
   document.querySelectorAll('a[href]').forEach(function(a){
     var u; try { u = new URL(a.href, location.href); } catch (e) { return; }
-    if (!/^https?:$/.test(u.protocol) || u.origin === location.origin || u.origin === appOrigin) return;
+    if (!/^https?:$/.test(u.protocol) || u.origin === location.origin) return;
     a.target = '_blank'; a.rel = 'noopener';
   });
 };(window.__tp=window.__tp||[]).push(f);f();})();
