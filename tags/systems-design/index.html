@@ -162,15 +162,6 @@ svg { max-width: 100%; height: auto; }
 
 .nav-actions { display: flex; gap: 0.5rem; align-items: center; }
 @media (min-width: 768px) { .nav-actions { gap: 1rem; } }
-.nav-signin {
-  font-family: var(--font-mono); font-size: 0.8rem; color: var(--fg);
-  border: 1px solid var(--border-strong); border-radius: 9999px; padding: 0.45rem 0.95rem;
-  transition: border-color 0.15s, color 0.15s;
-  display: none;
-}
-.nav-signin:active { transform: scale(0.97); }
-@media (min-width: 768px) { .nav-signin { display: inline; } }
-.nav-signin:hover { border-color: var(--clay); }
 .nav-cta {
   padding: 0.45rem 0.95rem;
   background: var(--slate); color: var(--bg); font-family: var(--font-mono);
@@ -947,7 +938,6 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
       </button>
-      <a href="https://app.trailmem.com" class="nav-signin" data-testid="nav-signin">Sign In</a>
       <a href="https://app.trailmem.com" class="nav-cta" data-testid="nav-cta">Initialize trail <span aria-hidden="true">→</span></a>
       <button type="button" class="nav-toggle" data-testid="nav-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
@@ -962,7 +952,6 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
     <a href="/#proof">Proof</a>
     <div class="nav-mobile-group"><span>Insights</span><a href="/the-1945-concept/">The 1945 Concept</a><a href="/trails/">Trails</a><a href="https://docs.trailmem.com/">Docs</a></div>
     <a href="/#pricing">Pricing</a>
-    <a href="https://app.trailmem.com">Sign In</a>
   </div>
   <script>
     (function () {
