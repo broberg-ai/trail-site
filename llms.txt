@@ -1,6 +1,6 @@
-# trail
+# trail-landing
 
-> A minimalist engine to ingest, connect, and retrieve your organization's collective intelligence. Reimagining Vannevar Bush's 1945 vision with geometric precision.
+> 
 
 ## Pages
 
