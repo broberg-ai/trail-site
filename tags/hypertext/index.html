@@ -798,9 +798,11 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
 .lp-feat span { font-size: 14.5px; color: var(--fg-muted); }
 .lp-hubwrap { position: relative; height: 340px; }
 .lp-hubwrap svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-/* Same motion as cardmem.com/site's fleet: the dashes flow along each spoke. */
-.lp-hubwrap line { stroke: var(--border-strong); stroke-width: 1.2; vector-effect: non-scaling-stroke; stroke-dasharray: 4 5; animation: lp-dash 1.6s linear infinite; }
-@keyframes lp-dash { to { stroke-dashoffset: -18; } }
+/* cardmem.com/site's fleet motion, reversed: cardmem's board sends work OUT to
+   agents; Trail's brain takes knowledge IN, so the dashes run toward the hub
+   (lines are drawn hub → node, so a positive offset moves them inward). */
+.lp-hubwrap line { stroke: var(--border-strong); stroke-width: 1.2; vector-effect: non-scaling-stroke; stroke-dasharray: 4 5; animation: lp-dash-in 1.6s linear infinite; }
+@keyframes lp-dash-in { to { stroke-dashoffset: 18; } }
 .lp-hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 140px; height: 140px; border-radius: 50%; background: var(--bg-card); color: var(--fg); border: 1.5px solid var(--clay); display: grid; place-items: center; text-align: center; box-shadow: 0 0 0 12px color-mix(in srgb, var(--clay) 16%, transparent), 0 0 0 28px color-mix(in srgb, var(--clay) 8%, transparent); animation: lp-breathe 4s ease-in-out infinite; }
 @keyframes lp-breathe { 50% { box-shadow: 0 0 0 16px color-mix(in srgb, var(--clay) 18%, transparent), 0 0 0 34px color-mix(in srgb, var(--clay) 7%, transparent); } }
 .lp-hub b { font-family: var(--font-serif); font-weight: 500; font-size: 22px; }
