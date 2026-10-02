@@ -708,6 +708,29 @@ body[data-menu-open="true"] { overflow: hidden; }
 .post-related a:hover .post-related-arrow { color: var(--accent); transform: translateX(3px); }
 
 
+.lp-contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
+.lp-form { display: flex; flex-direction: column; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+.lp-f2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.lp-field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--fg-muted); }
+.lp-field input, .lp-field textarea { font: inherit; font-size: 15px; color: var(--fg); background: var(--bg-sunk); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; transition: border-color .15s; }
+.lp-field input:focus, .lp-field textarea:focus { outline: none; border-color: var(--clay); }
+.lp-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.lp-pill-opt { font: inherit; font-size: 13px; color: var(--fg); background: var(--bg-sunk); border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; cursor: pointer; transition: border-color .15s, background .15s, transform .1s; }
+.lp-pill-opt:hover { border-color: var(--clay); }
+.lp-pill-opt:active { transform: scale(.97); }
+.lp-pill-opt[aria-checked="true"] { background: color-mix(in srgb, var(--clay) 18%, transparent); border-color: var(--clay); }
+.lp-business { display: none; flex-direction: column; gap: 16px; }
+.lp-form[data-kind="1"] .lp-business { display: flex; }
+.lp-hp { position: absolute; left: -9999px; }
+.lp-form .lp-btn[data-loading] { opacity: .7; pointer-events: none; }
+.lp-form .lp-btn[data-loading]::after { content: ""; width: 14px; height: 14px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: lp-spin .7s linear infinite; }
+@keyframes lp-spin { to { transform: rotate(360deg); } }
+.lp-form-status { margin: 0; font-size: 14px; min-height: 1.2em; }
+.lp-form-status[data-state="ok"] { color: var(--fg); }
+.lp-form-status[data-state="err"] { color: var(--amber-d); }
+.lp-form[data-sent] .lp-form-status { font-size: 16px; }
+@media (max-width: 900px) { .lp-contact-grid { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 560px) { .lp-f2 { grid-template-columns: 1fr; } .lp-form { padding: 16px; } }
 .lp { color: var(--fg); }
 .lp-wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
 .lp-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--clay-d); }
@@ -1421,6 +1444,35 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
       var old = strip.querySelector('.lp-neuron'); if (old) old.replaceWith(nn); else strip.appendChild(nn);
     }
   }, 1800);
+})();
+};(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
+(function(){
+  var f = document.querySelector('[data-testid="contact-form"]'); if (!f) return;
+  if (!document.querySelector('script[data-turnstile]')) { var t = document.createElement('script'); t.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js'; t.async = true; t.defer = true; t.setAttribute('data-turnstile', ''); document.head.appendChild(t); }
+  else if (window.turnstile) { f.querySelectorAll('.cf-turnstile').forEach(function(el){ if (!el.childElementCount) window.turnstile.render(el); }); }
+  f.querySelectorAll('.lp-pills').forEach(function(g){
+    var multi = g.getAttribute('data-multi') === '1';
+    g.addEventListener('click', function(e){
+      var b = e.target.closest('.lp-pill-opt'); if (!b) return;
+      if (!multi) g.querySelectorAll('.lp-pill-opt').forEach(function(x){ if (x !== b) x.setAttribute('aria-checked', 'false'); });
+      b.setAttribute('aria-checked', String(b.getAttribute('aria-checked') !== 'true'));
+      if (g.getAttribute('data-name') === 'kind') f.setAttribute('data-kind', b.getAttribute('aria-checked') === 'true' ? String(Array.prototype.indexOf.call(g.children, b)) : '');
+    });
+  });
+  var status = f.querySelector('[data-testid="contact-status"]'), btn = f.querySelector('[data-testid="contact-submit"]');
+  function picked(name){ return Array.prototype.map.call(f.querySelectorAll('.lp-pills[data-name="' + name + '"] [aria-checked="true"]'), function(b){ return b.getAttribute('data-value'); }); }
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!f.checkValidity()) { f.reportValidity(); return; }
+    var tok = f.querySelector('[name="cf-turnstile-response"]');
+    var body = { name: f.name.value.trim(), email: f.email.value.trim(), kind: picked('kind').join(''), company: f.company.value.trim(), size: picked('size').join(''), uses: picked('uses').join(', '), message: f.message.value.trim(), _hp_email: f._hp_email.value, turnstileToken: tok ? tok.value : '' };
+    btn.disabled = true; btn.setAttribute('data-loading', 'true'); status.textContent = ''; status.removeAttribute('data-state');
+    fetch(f.getAttribute('data-endpoint'), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r; })
+      .then(function(){ f.reset(); f.querySelectorAll('[aria-checked="true"]').forEach(function(b){ b.setAttribute('aria-checked', 'false'); }); f.setAttribute('data-sent', 'true'); status.textContent = status.getAttribute('data-ok'); status.setAttribute('data-state', 'ok'); })
+      .catch(function(){ status.textContent = status.getAttribute('data-err'); status.setAttribute('data-state', 'err'); if (window.turnstile) window.turnstile.reset(); })
+      .finally(function(){ btn.disabled = false; btn.removeAttribute('data-loading'); });
+  });
 })();
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
