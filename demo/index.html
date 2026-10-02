@@ -1020,111 +1020,6 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   .sc-s h2 { font-size: 30px; }
   .sc-hero { padding: 120px 0 48px; }
 }
-
-.dm-page { padding: 88px 24px 24px; }
-.dm { display: grid; grid-template-columns: 280px 1fr; height: calc(100dvh - 112px); min-height: 560px; max-width: 1400px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 40px 100px -40px rgba(0,0,0,.6); }
-.dm:fullscreen, .dm.is-max { height: 100vh; max-width: none; border-radius: 0; border: 0; }
-.dm.is-max { position: fixed; inset: 0; z-index: 100; height: 100dvh; }
-.dm-side { border-right: 1px solid var(--border); background: var(--bg-sunk); padding: 16px 12px; overflow-y: auto; }
-.dm-side-h { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--fg); font-weight: 600; padding: 4px 8px 14px; }
-.dm-seg { margin-bottom: 12px; }
-.dm-seg-l { display: block; font: 500 10px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--fg-muted); padding: 6px 8px; }
-.dm-ex { display: block; width: 100%; text-align: left; font: inherit; font-size: 13.5px; color: var(--fg); background: none; border: 1px solid transparent; border-radius: 9px; padding: 8px 10px; cursor: pointer; transition: background .15s, border-color .15s, transform .1s; }
-.dm-ex:hover { background: var(--bg-card); }
-.dm-ex:active { transform: scale(.98); }
-.dm-ex.is-on { background: color-mix(in srgb, var(--clay) 14%, transparent); border-color: color-mix(in srgb, var(--clay) 45%, transparent); }
-.dm-main { display: flex; flex-direction: column; min-width: 0; }
-.dm-bar { display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-bottom: 1px solid var(--border); }
-.dm-bar-t { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.dm-chip { font: 10px var(--font-mono); padding: 2px 7px; border-radius: 5px; background: var(--bg-sunk); color: var(--fg-muted); white-space: nowrap; }
-.dm-grow { flex: 1; }
-.dm-icon { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 13px; color: var(--fg); background: var(--bg-sunk); border: 1px solid var(--border); border-radius: 9px; padding: 6px 10px; cursor: pointer; transition: border-color .15s, transform .1s; }
-.dm-icon:hover { border-color: var(--clay); }
-.dm-icon:active { transform: scale(.97); }
-.dm-stream { flex: 1; overflow-y: auto; padding: 28px clamp(16px, 4vw, 56px); display: flex; flex-direction: column; gap: 18px; }
-.dm-empty { margin: auto; max-width: 760px; text-align: center; }
-.dm-empty h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.04; margin: 12px 0 16px; }
-.dm-empty p { font-size: 17px; line-height: 1.6; color: var(--fg-muted); margin: 0 auto 26px; max-width: 620px; }
-.dm-suggs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; }
-.dm-sugg { font: inherit; font-size: 14px; color: var(--fg); background: var(--bg-sunk); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; cursor: pointer; transition: border-color .15s, transform .1s; }
-.dm-sugg:hover { border-color: var(--clay); }
-.dm-sugg:active { transform: scale(.98); }
-.dm-sugg span { display: block; font: 10px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--clay); margin-bottom: 4px; }
-.dm-q { align-self: flex-end; max-width: 72%; background: var(--clay-btn); color: var(--fg-on-accent); border-radius: 16px 16px 4px 16px; padding: 12px 16px; font-size: 15px; line-height: 1.5; }
-.dm-think { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--fg-muted); }
-.dm-orbit { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--clay); border-right-color: transparent; animation: lp-spin .8s linear infinite; }
-.dm-think.is-done .dm-orbit { animation: none; border-color: var(--live); }
-.dm-src-chip { display: inline-flex; gap: 6px; align-items: baseline; font-size: 12px; background: var(--bg-sunk); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; animation: lp-slide .4s ease; }
-.dm-src-chip b { font-weight: 600; color: var(--fg); }
-.dm-a { max-width: 860px; background: var(--bg-sunk); border: 1px solid var(--border); border-left: 3px solid var(--clay); border-radius: 4px 16px 16px 16px; padding: 18px 20px; }
-.dm-a-from { display: block; font: 11px var(--font-mono); color: var(--fg-muted); margin-bottom: 10px; }
-.dm-a p { font-size: 15.5px; line-height: 1.65; margin: 0 0 12px; color: var(--fg); }
-.dm-a b { color: var(--fg); }
-.dm-step { opacity: 0; transform: translateY(8px); transition: opacity .45s ease, transform .45s ease; }
-.dm-step.is-in { opacity: 1; transform: none; }
-.dm-cite { display: inline-grid; place-items: center; min-width: 16px; height: 16px; padding: 0 4px; margin: 0 1px; border-radius: 5px; font: 600 10px var(--font-mono); color: var(--clay); background: color-mix(in srgb, var(--clay) 16%, transparent); cursor: pointer; vertical-align: 3px; }
-.dm-chart { margin: 14px 0; padding: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; }
-.dm-chart figcaption { font-size: 12.5px; color: var(--fg-muted); margin-bottom: 12px; }
-.dm-bars { display: flex; flex-direction: column; gap: 9px; }
-.dm-bar-row { display: grid; grid-template-columns: minmax(110px, 34%) 1fr 64px; gap: 10px; align-items: center; font-size: 13px; }
-.dm-bar-k { color: var(--fg-muted); }
-.dm-bar-row.is-hl .dm-bar-k { color: var(--fg); font-weight: 600; }
-.dm-bar-track { height: 12px; background: var(--bg-sunk); border-radius: 6px; overflow: hidden; }
-.dm-bar-track i { display: block; height: 100%; width: 0; border-radius: 6px; background: color-mix(in srgb, var(--clay) 45%, var(--bg-sunk)); transition: width 1s cubic-bezier(.2,.8,.2,1) .15s; }
-.dm-bar-row.is-hl .dm-bar-track i { background: var(--clay); }
-.dm-step.is-in .dm-bar-track i { width: var(--w); }
-.dm-bar-v { font: 12px var(--font-mono); text-align: right; }
-.dm-cols { display: flex; gap: 18px; align-items: flex-end; height: 170px; padding-top: 18px; }
-.dm-col-g { flex: 1; display: flex; flex-direction: column; height: 100%; min-width: 0; }
-.dm-col-bars { flex: 1; display: flex; gap: 6px; align-items: flex-end; justify-content: center; }
-.dm-col-bars i { position: relative; flex: 1; max-width: 34px; height: 0; border-radius: 5px 5px 0 0; transition: height 1s cubic-bezier(.2,.8,.2,1) .15s; }
-.dm-col-bars i span { position: absolute; top: -17px; left: 50%; transform: translateX(-50%); font: 10px var(--font-mono); color: var(--fg-muted); white-space: nowrap; }
-.dm-step.is-in .dm-col-bars i { height: var(--h); }
-.dm-col-l { font-size: 11.5px; color: var(--fg-muted); text-align: center; margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-i.dm-s0 { background: color-mix(in srgb, var(--fg-muted) 55%, var(--bg-sunk)); }
-i.dm-s1 { background: var(--clay); }
-.dm-cols:has(i.dm-s1) i.dm-s0 { background: color-mix(in srgb, var(--fg-muted) 45%, var(--bg-sunk)); }
-.dm-cols:not(:has(i.dm-s1)) i.dm-s0 { background: var(--clay); }
-.dm-legend { display: flex; gap: 14px; margin-top: 10px; font-size: 12px; color: var(--fg-muted); }
-.dm-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
-.dm-line { position: relative; height: 160px; margin-left: 44px; clip-path: inset(-20px 100% -20px -60px); transition: clip-path 1.4s ease .15s; }
-.dm-step.is-in .dm-line { clip-path: inset(-20px -10px -20px -60px); }
-.dm-line svg { width: 100%; height: 100%; overflow: visible; }
-.dm-line polyline { fill: none; stroke: var(--clay); stroke-width: 2.4; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
-.dm-mark { stroke: var(--fg-muted); stroke-width: 1; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
-.dm-mark-l { position: absolute; top: -4px; transform: translateX(6px); font: 10.5px var(--font-mono); color: var(--fg-muted); white-space: nowrap; }
-.dm-line-y { position: absolute; left: -44px; width: 38px; text-align: right; font: 10.5px var(--font-mono); color: var(--fg-muted); }
-.dm-line-hi { top: calc(5 / 40 * 100% - 7px); }
-.dm-line-lo { top: calc(37 / 40 * 100% - 7px); }
-.dm-line-x { display: flex; justify-content: space-between; margin: 6px 0 0 44px; font: 10px var(--font-mono); color: var(--fg-muted); }
-.dm-table { margin: 14px 0; overflow-x: auto; }
-.dm-table table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-.dm-table th { text-align: left; font: 500 10.5px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--fg-muted); padding: 8px 10px; border-bottom: 1px solid var(--border); }
-.dm-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); }
-.dm-table .num { text-align: right; font-family: var(--font-mono); font-size: 12.5px; }
-.dm-table tr.is-hl td { background: color-mix(in srgb, var(--clay) 10%, transparent); }
-.dm-flag { margin: 12px 0; padding: 10px 12px; border-radius: 10px; font-size: 13.5px; line-height: 1.5; color: var(--fg); background: var(--amber-bg); border: 1px solid color-mix(in srgb, var(--amber-d) 40%, transparent); }
-.dm-flag b { color: var(--amber-d); margin-right: 6px; }
-.dm-sources { list-style: none; margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
-.dm-sources li { display: flex; gap: 8px; align-items: baseline; font-size: 13px; padding: 4px 6px; border-radius: 8px; transition: background .3s; }
-.dm-sources li span:last-child { color: var(--fg-muted); font-size: 12px; }
-.dm-sources li.is-ping { background: color-mix(in srgb, var(--clay) 18%, transparent); }
-.dm-src-n { font: 600 10px var(--font-mono); color: var(--clay); min-width: 14px; }
-.dm-input { display: flex; align-items: center; gap: 10px; margin: 0 clamp(16px, 4vw, 56px) 18px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg-sunk); }
-.dm-input-t { flex: 1; font-size: 15px; color: var(--fg-muted); min-height: 1.4em; }
-.dm-send { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px; background: var(--clay-btn); color: var(--fg-on-accent); }
-@media (max-width: 900px) {
-  .dm-page { padding: 80px 12px 12px; }
-  .dm { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: calc(100dvh - 96px); }
-  .dm-side { display: flex; gap: 6px; overflow-x: auto; overflow-y: hidden; border-right: 0; border-bottom: 1px solid var(--border); padding: 10px; }
-  .dm-side-h, .dm-seg-l { display: none; }
-  .dm-seg { display: contents; }
-  .dm-ex { flex: none; width: auto; white-space: nowrap; border-color: var(--border); }
-  .dm-suggs { grid-template-columns: 1fr; }
-  .dm-q { max-width: 90%; }
-  .dm-bar-row { grid-template-columns: 38% 1fr 52px; font-size: 12px; }
-  .dm-icon span { display: none; }
-}
 </style>
 
   <!-- webhouse.app enrichment -->
@@ -1317,26 +1212,607 @@ i.dm-s1 { background: var(--clay); }
     /* Re-run after an in-place page swap (page-scripts.ts). */
     (window.__tp = window.__tp || []).push(initSvgFullscreen);
   </script>
-  <div id="page" data-testid="page-root"><section class="dm-page" data-testid="demo-page"><div class="dm" data-testid="demo-root">
-  <aside class="dm-side" data-testid="demo-sidebar"><div class="dm-side-h"><span class="lp-dot"></span>Ask your business</div><div class="dm-seg"><span class="dm-seg-l">Finance</span><button type="button" class="dm-ex" data-ex="margin" data-testid="demo-example-margin">Why did gross margin drop in Q3?</button></div><div class="dm-seg"><span class="dm-seg-l">SaaS</span><button type="button" class="dm-ex" data-ex="churn" data-testid="demo-example-churn">Why did churn rise in August?</button></div><div class="dm-seg"><span class="dm-seg-l">Retail</span><button type="button" class="dm-ex" data-ex="returns" data-testid="demo-example-returns">What is driving returns this season?</button></div><div class="dm-seg"><span class="dm-seg-l">Manufacturing</span><button type="button" class="dm-ex" data-ex="downtime" data-testid="demo-example-downtime">Where are we losing time on line 2?</button></div><div class="dm-seg"><span class="dm-seg-l">Consulting</span><button type="button" class="dm-ex" data-ex="projects" data-testid="demo-example-projects">Which projects ran over budget?</button></div><div class="dm-seg"><span class="dm-seg-l">Healthcare</span><button type="button" class="dm-ex" data-ex="recovery" data-testid="demo-example-recovery">How fast do shoulder patients recover?</button></div><div class="dm-seg"><span class="dm-seg-l">HR</span><button type="button" class="dm-ex" data-ex="onboarding" data-testid="demo-example-onboarding">Is onboarding getting faster?</button></div><div class="dm-seg"><span class="dm-seg-l">Public sector</span><button type="button" class="dm-ex" data-ex="citizens" data-testid="demo-example-citizens">Which enquiries take longest?</button></div><div class="dm-seg"><span class="dm-seg-l">Real estate</span><button type="button" class="dm-ex" data-ex="energy" data-testid="demo-example-energy">Which buildings use the most energy?</button></div><div class="dm-seg"><span class="dm-seg-l">Legal</span><button type="button" class="dm-ex" data-ex="contracts" data-testid="demo-example-contracts">Which contracts renew soon?</button></div></aside>
-  <main class="dm-main">
-    <div class="dm-bar"><span class="dm-bar-t" data-testid="demo-title">New conversation</span><span class="dm-chip">Illustrative data</span><span class="dm-grow"></span>
-      <button type="button" class="dm-icon" data-testid="demo-fullscreen" aria-label="Full screen"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg><span>Full screen</span></button>
+  <div id="page" data-testid="page-root"><style>.kai .label{font-family:var(--font-sans);font-weight:600;font-size:14px;line-height:18px}
+.kai .app-brand .label{font-stretch:125%;letter-spacing:.1em;text-transform:uppercase;font-size:13px}
+.kai .eyebrow{color:var(--primary);margin-bottom:18px;font-size:15px}
+.kai #sound-toggle.pending{border-color:var(--terra-mark);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 5px color-mix(in srgb,var(--terra-mark) 22%,transparent)}}
+.kai .panel.layer h3.label{font-size:13px;color:var(--sand-foreground);margin-bottom:10px}
+.kai .hub .center-node .label{color:var(--primary)}
+.kai .note-foot{margin:22px auto 0;max-width:60ch;font-size:13px;color:var(--muted-foreground)}
+.kai .chat{background:var(--card);border:1px solid var(--border);border-radius:1rem;box-shadow:var(--shadow);padding:20px;min-height:420px}
+.kai .q{margin-left:auto;max-width:88%;width:fit-content;background:var(--accent);color:var(--accent-foreground);padding:12px 16px;border-radius:1rem 1rem .25rem 1rem;font-size:17px;min-height:44px}
+.kai .q .caret{display:inline-block;width:2px;height:1em;background:currentColor;vertical-align:-2px;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.kai .think{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:16px 0 4px;color:var(--muted-foreground);font-size:14.5px;transition:opacity .3s}
+.kai .chip{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--border);border-radius:999px;padding:4px 12px;font-size:12.5px;color:var(--muted-foreground);background:var(--background)}
+.kai .chip .label{font-size:12px;color:var(--primary)}
+.kai .chip.count{gap:5px}
+.kai .chip.count .label{font-size:inherit;letter-spacing:0}
+.kai .dots i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--terra-mark);margin-right:3px;animation:dot 1s infinite}
+.kai .dots i:nth-child(2){animation-delay:.15s}
+.kai .dots i:nth-child(3){animation-delay:.3s}
+@keyframes dot{50%{opacity:.25}}
+.kai .think-orbit{position:relative;width:28px;height:28px;flex:none;margin:0 6px}
+.kai .think-orbit span{position:absolute;border-radius:50%}
+.kai .think-orbit .to-ring{inset:-2px;border:1.5px solid var(--terra-mark);animation:to-ring 2.4s ease-in-out infinite}
+.kai .think-orbit .to-dot,.kai .think-orbit .to-core{top:50%;left:50%;background:var(--terra-mark)}
+.kai .think-orbit .to-dot{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;animation:to-orbit 1.8s cubic-bezier(.4,0,.2,1) infinite}
+.kai .think-orbit .to-dot:nth-child(3){animation-delay:-.6s}
+.kai .think-orbit .to-dot:nth-child(4){animation-delay:-1.2s}
+.kai .think-orbit .to-core{width:4px;height:4px;margin:-2px 0 0 -2px;opacity:.4}
+@keyframes to-orbit{0%{transform:rotate(0deg) translateX(9px) rotate(0deg);opacity:1}33%{opacity:.6}66%{opacity:1}100%{transform:rotate(360deg) translateX(9px) rotate(-360deg);opacity:1}}
+@keyframes to-ring{0%,100%{transform:scale(.85);opacity:.15}50%{transform:scale(1.1);opacity:.05}}
+@media (prefers-reduced-motion:reduce){.kai .think-orbit span{animation:none}
+.kai .think-orbit .to-ring{opacity:.15}
+.kai .think-orbit .to-dot:nth-child(2){transform:rotate(0deg) translateX(9px)}
+.kai .think-orbit .to-dot:nth-child(3){transform:rotate(120deg) translateX(9px)}
+.kai .think-orbit .to-dot:nth-child(4){transform:rotate(240deg) translateX(9px)}}
+.kai .answer{border-left:2px solid var(--terra-mark);background:var(--background);border-radius:0 .75rem .75rem 0;padding:14px 16px;margin-top:10px}
+.kai .answer p{font-size:17px;margin-bottom:12px}
+.kai .answer p b{font-weight:600}
+.kai .answer .note{font-size:14px;color:var(--muted-foreground);font-style:italic}
+.kai .reveal{opacity:0;transform:translateY(8px);transition:opacity .45s,transform .45s}
+.kai .reveal.in{opacity:1;transform:none}
+.kai .hidden{display:none}
+.kai .tbl{width:100%;border-collapse:collapse;font-size:15.5px;margin:6px 0 12px;background:var(--card);border-radius:.5rem;overflow:hidden}
+.kai .tbl th{font-weight:600;text-align:left;background:var(--muted);padding:9px 12px;font-size:13.5px}
+.kai .tbl td{padding:9px 12px;border-top:1px solid var(--border)}
+.kai .tbl .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kai .tbl tr.hl td{font-weight:600}
+.kai .tbl tfoot td{font-weight:600;border-top:2px solid var(--border)}
+.kai .pt-page.hidden{display:none}
+.kai .pt-actions .btn{padding:8px 14px;font-size:14px}
+.kai .btn{display:inline-flex;gap:8px;align-items:center;white-space:nowrap;flex-shrink:0;border-radius:.5rem;padding:10px 16px;font-size:15.5px;font-weight:500;transition:background .2s,border-color .2s,transform .1s}
+.kai .btn:active{transform:scale(.97)}
+.kai .btn.pri{background:var(--primary);color:var(--primary-foreground)}
+.kai .btn.pri:hover{background:var(--primary-hover)}
+.kai .btn.sec{border:1px solid var(--primary);color:var(--primary)}
+.kai .btn.sec:hover{background:var(--olive-50)}
+:root[data-theme="dark"] .kai .btn.sec:hover{background:var(--olive-800)}
+.kai .btn.busy{opacity:.7;pointer-events:none}
+.kai .draft .label{color:var(--primary);display:block;margin-bottom:8px}
+.kai .answer .saved{display:flex;gap:10px;align-items:flex-start;background:var(--accent);color:var(--accent-foreground);border-radius:.75rem;padding:12px 14px;font-weight:500}
+.kai .answer .saved .ico{width:20px;height:20px;flex:none;margin-top:2px}
+.kai .transcript .label{display:block;margin-bottom:6px}
+.kai .btn.ghost{border:1px solid var(--border);color:var(--foreground);padding:6px 12px;font-size:13px}
+.kai .btn.ghost:hover{border-color:var(--terra-mark);color:var(--terra-text)}
+.kai .btn.ghost.done{border-color:var(--terra-mark);color:var(--terra-text)}
+.kai .jnote .label{color:var(--primary);display:block;margin-bottom:8px}
+.kai .day-label .btn{height:30px;padding:0 10px;font-size:13px;font-weight:500}
+.kai .tbl .day-link{font-weight:inherit}
+.kai .tbl .show-sm{display:none}
+.kai .tbl .day-link:focus-visible{outline:2px solid var(--terra-mark);outline-offset:2px}
+.kai .roi-col .label{color:var(--sand-foreground)}
+.kai .app-frame{background:var(--terra-500);border-radius:1.25rem;padding:18px}
+.kai .app{position:relative;display:grid;grid-template-columns:calc(270px * var(--app-zoom,1)) minmax(0,1fr);background:var(--card);border-radius:.9rem;height:min(680px,calc(100vh - 190px));min-height:520px;overflow:hidden;text-align:left}
+.kai .app-side{background:var(--background);border-right:1px solid var(--border);display:flex;flex-direction:column;padding:16px 12px;min-height:0}
+.kai .app-brand{display:flex;align-items:center;gap:10px;padding:2px 8px 14px}
+.kai .app-brand > svg:first-child{height:34px;width:13px}
+.kai .app-brand .label{color:var(--primary);font-size:14px}
+.kai .app-brand .app-collapse{margin-left:auto;color:var(--muted-foreground);width:18px;height:18px}
+.kai .app-nav{display:grid;gap:2px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.kai .app-nav button,.kai .app-hist button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:8px 10px;border-radius:.5rem;font-size:15px;color:var(--foreground);transition:background .15s}
+.kai .app-nav button:hover,.kai .app-hist button:hover{background:var(--muted)}
+.kai .app-nav button.on{background:var(--accent);color:var(--accent-foreground);font-weight:600}
+.kai .app-nav svg.ico{width:18px;height:18px;color:var(--muted-foreground)}
+.kai .app-hist-title{font-size:13px;color:var(--muted-foreground);padding:14px 10px 6px}
+.kai .app-hist{overflow-y:auto;display:grid;grid-auto-rows:max-content;gap:1px;flex:1;min-height:0}
+.kai .app-hist button{font-size:14px;color:var(--muted-foreground);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;padding:7px 10px}
+.kai .app-side .app-nav{margin-inline:-12px;padding-inline:12px}
+.kai .app-side .app-user{margin-inline:-12px;width:calc(100% + 24px);padding-inline:20px}
+.kai .app-hist button.hist-all{margin-top:4px}
+.kai .app-hist .hist-row > button:first-child::before{content:"";display:inline-block;width:9px;height:9px;margin-right:12px;border:1.5px solid currentColor;border-radius:50%;opacity:.55;vertical-align:1px;box-sizing:border-box}
+.kai .app-hist button.hist-all:active{transform:translateY(1px)}
+.kai .app-hist button.hist-all:focus-visible{outline:2px solid var(--ring,var(--terra-mark));outline-offset:-2px}
+.kai .hl-tools{display:flex;align-items:center;gap:10px;margin:14px 0 8px}
+.kai .hl-search{flex:1;min-width:0;display:flex;align-items:center;gap:8px;height:42px;padding:0 12px;border:1px solid var(--border);border-radius:.7rem;background:var(--card);color:var(--muted-foreground)}
+.kai .hl-search:focus-within{border-color:var(--terra-mark)}
+.kai .hl-search input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:16px;color:var(--foreground);outline:none}
+.kai .hl-tools .btn{flex:none;white-space:nowrap}
+.kai .hl-list{display:grid;grid-template-columns:minmax(0,1fr)}
+.kai .hl-row{display:flex;align-items:center;gap:16px;width:100%;text-align:left;padding:16px 6px;border-bottom:1px solid var(--border);font:inherit;font-size:17px;color:var(--foreground);transition:background .15s}
+.kai .hl-row:hover{background:var(--muted)}
+.kai .hl-row:active{transform:translateY(1px)}
+.kai .hl-row:focus-visible{outline:2px solid var(--terra-mark);outline-offset:-2px}
+.kai .hl-row span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kai .hl-row time{flex:none;color:var(--muted-foreground);font-size:15px}
+.kai .hl-empty{color:var(--muted-foreground);padding:18px 6px}
+.kai .app-hist-group{font-size:12px;color:var(--muted-foreground);padding:10px 10px 3px;opacity:.8}
+.kai .app-hist button.on{background:var(--accent);color:var(--accent-foreground);font-weight:600}
+.kai .app-user{display:flex;align-items:center;gap:10px;padding:12px 8px 2px;border-top:1px solid var(--border);margin-top:8px}
+.kai .app-user .av{width:32px;height:32px;border-radius:50%;background:var(--olive-100);color:var(--olive-700);display:grid;place-items:center;font-weight:600;flex:none}
+.kai .app-user b{display:block;font-size:14px}
+.kai .app-user small{font-size:12.5px;color:var(--muted-foreground)}
+.kai .app-user svg{margin-left:auto;width:16px;height:16px;color:var(--muted-foreground)}
+.kai .app-main{display:flex;flex-direction:column;min-width:0;min-height:0;padding:26px 32px 20px}
+.kai .app-center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:auto}
+.kai .app-title{font-family:var(--font-display);font-weight:400;font-size:30px;line-height:1.2;margin-bottom:6px}
+.kai .app-send{width:42px;height:42px;border-radius:50%;background:var(--terra-500);color:#fff;display:grid;place-items:center;transition:background .2s,transform .1s;flex:none}
+.kai .app-send:hover{background:var(--terra-600)}
+.kai .app-send:active{transform:scale(.94)}
+.kai .app-main.saved{overflow:auto}
+.kai .saved-head .chip{white-space:nowrap;flex-shrink:0}
+.kai .saved-row .btn{flex:none}
+.kai .saved-run [data-hint]::after,.kai .saved-run[data-hint]::after{left:auto;right:0;transform:none}
+.kai .insight .btn{padding:8px 14px;font-size:14px}
+.kai .insight [data-hint]::after{left:auto;right:0;transform:none}
+.kai .insight-tag.done{color:var(--primary)}
+.kai .app-drawer{position:absolute;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--background);border-left:1px solid var(--border);box-shadow:-8px 0 24px rgb(0 0 0 / .08);display:flex;flex-direction:column;z-index:3}
+.kai .dr-foot .btn{justify-content:center}
+.kai .app-drawer.hidden,.kai .dr-pane.hidden{display:none}
+.kai .btn.ghost.saved-on{border-color:var(--primary);color:var(--primary)}
+.kai .answer .actions,.kai .answer .feedback{align-items:center}
+.kai .answer .actions .btn,.kai .answer .feedback .btn{height:34px;padding:0 12px;font-size:13.5px}
+.kai .answer .actions .btn svg,.kai .answer .feedback .btn svg{width:17px;height:17px}
+@media (max-width:980px){.kai .app{grid-template-columns:minmax(0,1fr);height:auto;min-height:560px}
+.kai .app-side{display:none}
+.kai .app-frame{padding:10px}
+.kai .app-main{padding:20px 16px}}
+.kai .app-head-row{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.kai .app-head-row .eyebrow{margin:0}
+.kai .app.app-simple{grid-template-columns:minmax(0,1fr)}
+.kai .app.app-simple .app-side{display:none}
+.kai .app.app-simple.side-open{grid-template-columns:calc(270px * var(--app-zoom,1)) minmax(0,1fr)}
+.kai .app.app-simple.side-open .app-side{display:flex}
+.kai .app-simple .app-main{padding:12px 16px 20px}
+.kai .app-bar{display:flex;align-items:center;gap:6px}
+.kai .app-bar .grow,.kai .app-box-row .grow{flex:1}
+.kai .app-icon-btn{width:40px;height:40px;border-radius:.6rem;display:grid;place-items:center;color:var(--muted-foreground);transition:background .15s,color .15s,transform .1s;flex:none}
+.kai .app-icon-btn:hover{background:var(--muted);color:var(--foreground)}
+.kai .app-icon-btn:active{transform:scale(.94)}
+.kai .notif-pop.hidden,.kai .notif-banner.hidden{display:none}
+.kai .notif-actions .btn,.kai .notif-banner .btn{height:36px;padding:0 12px;font-size:14px}
+.kai .app-icon-btn[aria-pressed="true"]{color:var(--primary);background:var(--accent)}
+.kai .app-icon-btn.nudge{animation:nudge 1.1s ease-in-out 2}
+.kai .app-exit-full{display:none}
+.kai .is-full .app-exit-full{display:grid}
+.kai .app-simple .app-center{justify-content:center;gap:18px;padding:0 8px}
+.kai .app-hello{display:flex;align-items:center;gap:14px;font-family:var(--font-display);font-weight:400;font-size:clamp(30px,3.4vw,44px);line-height:1.1;text-align:center}
+.kai .app-hello svg{height:1.4em;width:auto;flex:none;color:var(--terra-mark)}
+.kai .app-box{width:min(680px,100%);border:1px solid var(--border);border-radius:1.1rem;background:var(--card);box-shadow:var(--shadow);padding:14px 12px 10px 18px;transition:border-color .2s}
+.kai .app-box:focus-within{border-color:var(--primary)}
+.kai .app-box textarea{display:block;width:100%;resize:none;border:0;background:none;font:inherit;font-size:17px;color:var(--foreground);outline:none;min-height:52px}
+.kai .app-box textarea::placeholder{color:var(--muted-foreground)}
+.kai .app-box-row{display:flex;align-items:center;gap:4px;margin-left:-8px}
+.kai .app-mic[aria-pressed="true"]{color:#fff;background:var(--terra-500);animation:micpulse 1.2s ease-in-out infinite}
+.kai .app-box.rec{position:relative}
+.kai .rec-bar{display:none;position:absolute;left:14px;bottom:calc(100% + 8px);align-items:center;gap:8px;white-space:nowrap;font-size:13.5px;color:var(--muted-foreground);background:var(--card);border:1px solid var(--border);border-radius:999px;padding:4px 12px;box-shadow:var(--shadow)}
+.kai .rec-bar i{width:9px;height:9px;border-radius:50%;background:var(--terra-500);animation:recblink 1s steps(2) infinite}
+.kai .rec-bar b{font-weight:600;color:var(--foreground);font-variant-numeric:tabular-nums}
+.kai .app-box.rec .rec-bar{display:inline-flex}
+@keyframes recblink{50%{opacity:.25}}
+@media (max-width:560px){.kai .rec-bar{font-size:12.5px;padding:3px 10px}}
+.kai .q .q-tag{display:block;font-size:13px;color:var(--muted-foreground);margin-bottom:4px}
+.kai .app-srcs{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;width:min(680px,100%)}
+.kai .app-srcs .k{display:flex;align-items:center;gap:6px;font-size:13.5px;color:var(--muted-foreground);margin-right:2px}
+.kai .app-srcs .k svg{width:15px;height:15px}
+.kai .src-wrap{position:relative}
+.kai .src-btn{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted-foreground);padding:6px 12px;border:1px solid var(--border);border-radius:999px;white-space:nowrap;transition:border-color .15s,color .15s,transform .1s}
+.kai .src-btn:hover{border-color:var(--primary);color:var(--foreground)}
+.kai .src-btn:active{transform:scale(.97)}
+.kai .src-btn .ico{width:15px;height:15px}
+.kai .src-btn .chev{transition:transform .15s}
+.kai .src-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.kai .src-count{background:var(--accent);color:var(--accent-foreground);border-radius:999px;padding:1px 8px;font-size:12px;font-weight:600}
+.kai .src-pop{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 8px);width:min(320px,calc(100vw - 48px));background:var(--card);border:1px solid var(--border);border-radius:.9rem;box-shadow:0 12px 32px rgb(0 0 0 / .14);padding:6px;z-index:9;text-align:left}
+.kai .src-pop.hidden{display:none}
+.kai .src-row{display:flex;align-items:center;gap:12px;width:100%;padding:9px 10px;border-radius:.55rem;text-align:left;transition:background .15s}
+.kai .src-row:hover,.kai .src-row:focus-visible{background:var(--muted);outline:none}
+.kai .src-row:active{transform:scale(.99)}
+.kai .src-check{width:20px;height:20px;border-radius:.35rem;border:1.5px solid var(--border);display:grid;place-items:center;flex:none;transition:background .15s,border-color .15s}
+.kai .src-check .ico{width:14px;height:14px;opacity:0}
+.kai .src-row.on .src-check{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.kai .src-row.on .src-check .ico{opacity:1}
+.kai .src-row b{display:block;font-size:14.5px;font-weight:600;color:var(--foreground)}
+.kai .src-row small{display:block;font-size:12.5px;color:var(--muted-foreground)}
+.kai .app-suggest{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:min(680px,100%)}
+.kai .app-suggest.hidden{display:none}
+.kai .app-simple .app-hello{order:0}
+.kai .app-simple .app-suggest{order:1}
+.kai .app-simple .app-box{order:2}
+.kai .app-simple .app-srcs{order:3}
+.kai [data-hint]{position:relative}
+.kai [data-hint]::after{content:attr(data-hint);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--foreground);color:var(--background);font-size:12.5px;font-weight:400;letter-spacing:0;text-transform:none;padding:5px 9px;border-radius:.45rem;opacity:0;pointer-events:none;transition:opacity .15s;z-index:9}
+.kai [data-hint]:hover::after,.kai [data-hint]:focus-visible::after{opacity:1;transition-delay:.35s}
+.kai .hint-start::after{left:0;transform:none}
+.kai .hint-end::after{left:auto;right:0;transform:none}
+.kai .app-ctrl [data-hint]::after{top:50%;left:calc(100% + 8px);right:auto;transform:translateY(-50%)}
+@media (hover:none){.kai [data-hint]:hover:not(:focus-visible)::after{opacity:0}}
+@media (max-width:980px){.kai .app-simple.side-open .app-ctrl [data-hint]::after{display:none}}
+.kai .app-conv{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;padding:8px 4px 4px;display:none}
+.kai .app-simple.conv-on .app-conv{display:block}
+.kai .app-simple.conv-on .app-center{display:none}
+.kai .app-conv .chat{max-width:860px;margin:0 auto;box-shadow:none;min-height:0}
+.kai .app-conv .app-main.saved{padding:6px 8px}
+.kai .share-list.hidden{display:none}
+.kai .share-person .av{width:30px;height:30px;border-radius:50%;background:var(--olive-100);color:var(--olive-700);display:grid;place-items:center;font-weight:600;flex:none}
+.kai .share-person.done{opacity:.6}
+.kai .brand-pick[data-hint]::after{left:auto;right:0;transform:none}
+.kai .app-send.sm{width:36px;height:36px}
+.kai .app-simple .app-box,.kai .app-simple .app-srcs,.kai .app-simple .app-suggest{width:min(920px,100%)}
+.kai .app-disclaimer{display:none;text-align:center;font-size:12.5px;color:var(--muted-foreground)}
+.kai .app-conv-title,.kai .app-share-btn{display:none}
+.kai .app-simple.conv-on .app-conv-title{display:block;font-size:17px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;margin-left:6px}
+.kai .app-simple.conv-on .app-share-btn{display:grid}
+.kai button.app-user{width:100%;text-align:left;transition:background .15s}
+.kai button.app-user:hover{background:var(--muted)}
+.kai button.app-user:active .av{transform:scale(.95)}
+.kai button.app-user svg{transition:transform .15s}
+.kai button.app-user[aria-expanded="true"] svg{transform:rotate(180deg)}
+.kai .user-menu{position:fixed;z-index:96;background:var(--card);color:var(--foreground);border:1px solid var(--border);border-radius:.9rem;box-shadow:0 18px 44px rgb(0 0 0 / .24);padding:6px 0;max-height:calc(100vh - 16px);overflow-y:auto}
+.kai .user-menu.hidden{display:none}
+.kai .um-head{display:flex;gap:12px;align-items:center;padding:12px 16px 12px}
+.kai .um-head .av{width:44px;height:44px;border-radius:50%;background:var(--olive-100);color:var(--olive-700);display:grid;place-items:center;font-weight:600;font-size:18px;flex:none}
+.kai .av.av-photo{background:url(data:image/jpeg;base64,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) center/cover no-repeat,var(--olive-100);color:transparent}
+.kai .um-head b{display:block;font-size:16px}
+.kai .um-head small{display:block;font-size:13px;color:var(--muted-foreground)}
+.kai .um-org{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted-foreground);margin-top:4px}
+.kai .um-org .ico{width:14px;height:14px}
+.kai .um-sep{height:1px;background:var(--border);margin:6px 0}
+.kai .um-item{display:flex;align-items:center;gap:12px;width:calc(100% - 12px);margin:0 6px;padding:10px;border-radius:.55rem;font-size:15px;text-align:left;transition:background .12s}
+.kai .um-item:hover,.kai .um-item:focus-visible{background:var(--muted);outline:none}
+.kai .um-item:active{transform:scale(.98)}
+.kai .um-item .ico{width:18px;height:18px;color:var(--muted-foreground);flex:none}
+.kai .um-item kbd{margin-left:auto;font:inherit;font-size:12.5px;color:var(--muted-foreground)}
+.kai .um-item .um-chev{margin-left:auto;width:16px;height:16px}
+.kai .um-label{padding:8px 16px 4px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground)}
+.kai .um-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 16px;font-size:14.5px}
+.kai .um-seg,.kai .um-zoom{display:flex;align-items:center;border:1px solid var(--border);border-radius:.6rem;padding:2px;background:var(--background)}
+.kai .um-seg button{display:flex;align-items:center;gap:5px;padding:5px 8px;border-radius:.45rem;font-size:13px;color:var(--muted-foreground);transition:background .12s,color .12s}
+.kai .um-seg button .ico{width:14px;height:14px}
+.kai .um-seg button:hover,.kai .um-seg button:focus-visible{color:var(--foreground);outline:none}
+.kai .um-seg button:active{transform:scale(.96)}
+.kai .um-seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-foreground)}
+.kai .um-zoom button{width:30px;height:28px;display:grid;place-items:center;border-radius:.45rem;font-size:16px;transition:background .12s}
+.kai .um-zoom button:hover,.kai .um-zoom button:focus-visible{background:var(--muted);outline:none}
+.kai .um-zoom button:active{transform:scale(.94)}
+.kai .um-zoom button[aria-disabled="true"]{opacity:.4;cursor:default}
+.kai .um-zoom output{min-width:52px;text-align:center;font-size:13.5px;font-variant-numeric:tabular-nums}
+.kai .um-out,.kai .um-out .ico{color:var(--terra-text)}
+.kai .app > *{zoom:var(--app-zoom,1)}
+.kai .app-ctrl{display:flex;align-items:center;gap:2px;flex:none}
+.kai .app-nav-btn{display:none}
+.kai .app-nav-btn[aria-disabled="true"]{opacity:.4;cursor:default}
+.kai .app-nav-btn[aria-disabled="true"]:hover{background:none;color:var(--muted-foreground)}
+.kai .app-nav-btn[aria-disabled="true"]:active{transform:none}
+.kai .app-title-wrap{display:none;align-items:center;gap:2px;min-width:0;margin-left:6px}
+.kai .app-simple.conv-on .app-title-wrap{display:flex}
+.kai .app-simple.conv-on .app-title-wrap .app-conv-title{margin-left:0}
+.kai .app-title-menu{width:32px;height:32px}
+.kai .app-title-menu[hidden]{display:none}
+.kai .app-title-menu[aria-expanded="true"]::after{opacity:0}
+.kai .app-simple .app-nav-btn{display:grid}
+.kai .app-simple .app-brand{display:none}
+.kai .app-simple .app-side{padding-top:64px}
+@media (min-width:981px){.kai .app-simple.side-open .app-ctrl{position:absolute;top:0;left:-270px;width:270px;padding:12px 16px;background:var(--background);border-right:1px solid var(--border);z-index:5}}
+.kai .app-simple .app-main{position:relative}
+.kai .app-simple.conv-on .app-conv{padding:8px 3% calc(var(--dock-h, 150px) + 12px)}
+.kai .app-simple.conv-on .app-conv .chat{max-width:1060px;margin:0 auto;border:0;background:none;box-shadow:none;padding:0;min-height:0}
+.kai .app-simple.conv-on .app-conv .chat + .chat{margin-top:40px}
+.kai .app-simple.conv-on .app-conv .answer{border-left:0;background:none;border-radius:0;padding:4px 0 0;margin-top:6px}
+.kai .app-simple.conv-on .app-center{display:flex;position:absolute;left:0;right:0;bottom:0;z-index:2;justify-content:flex-end;gap:8px;padding:28px calc(2% + 16px) 16px;overflow:visible;background:linear-gradient(to bottom,transparent,var(--card) 26px)}
+.kai .app-simple.conv-on .app-hello{display:none}
+.kai .app-simple.conv-on .think.done{display:none}
+.kai .q.pending{display:none}
+.kai .app-simple.conv-on .app-srcs,.kai .app-simple.conv-on .app-suggest{width:100%;max-width:1110px}
+.kai .app-simple.conv-on .app-disclaimer{display:block;order:9}
+.kai .app-simple.conv-on .app-box{width:100%;max-width:1110px;display:flex;align-items:center;gap:8px;min-height:68px;padding:12px 12px 12px 14px;border-radius:1.2rem}
+.kai .app-simple.conv-on .app-box-row{display:contents}
+.kai .app-simple.conv-on .app-box-row .grow{display:none}
+.kai .app-simple.conv-on .app-plus{order:0}
+.kai .app-simple.conv-on .app-box textarea{order:1;flex:1;min-height:0;height:30px;padding:3px 6px;overflow:hidden;font-size:19px}
+.kai .app-simple.conv-on .app-plus .app-icon-btn svg{width:24px;height:24px}
+.kai .app-box.two-lines textarea{min-height:58px}
+.kai .app-simple.conv-on .app-box.two-lines textarea{height:58px;overflow:auto}
+.kai .app-simple.conv-on .app-box.two-lines{align-items:flex-end}
+.kai .app-simple.conv-on .app-mic{order:2}
+.kai .app-simple.conv-on .app-send{order:3}
+@media (max-width:980px){.kai .app-simple.conv-on .app-conv{padding:6px 2px calc(var(--dock-h, 150px) + 10px)}
+.kai .app-simple.conv-on .app-center{padding:24px 12px 10px}}
+@media (min-width:981px){.kai .app.app-simple.help-open{grid-template-columns:minmax(0,1fr) calc(360px * var(--app-zoom,1))}
+.kai .app.app-simple.side-open.help-open{grid-template-columns:calc(270px * var(--app-zoom,1)) minmax(0,1fr) calc(360px * var(--app-zoom,1))}
+.kai .app-simple .app-help{position:static;width:auto;box-shadow:none;min-height:0}}
+.kai .app-frame.is-full{position:fixed;inset:0;z-index:60;border-radius:0;padding:0}
+.kai .kai-embed .app-exit-full{display:none!important}
+.kai .app-plus{position:relative}
+.kai .plus-pop{position:absolute;left:-8px;bottom:calc(100% + 10px);max-height:min(430px,58vh);overflow:auto;width:min(330px,calc(100vw - 90px));background:var(--card);border:1px solid var(--border);border-radius:.9rem;box-shadow:0 12px 32px rgb(0 0 0 / .14);padding:8px;z-index:8;text-align:left}
+.kai .plus-pop.hidden{display:none}
+.kai .pp-item{display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border-radius:.55rem;font-size:14.5px;transition:background .15s}
+.kai .pp-item:hover{background:var(--muted)}
+.kai .pp-item svg{width:18px;height:18px;color:var(--muted-foreground)}
+.kai .pp-item small{margin-left:auto;font-size:12.5px;color:var(--muted-foreground)}
+.kai .pp-head{font-size:12.5px;color:var(--muted-foreground);padding:10px 10px 4px;border-top:1px solid var(--border);margin-top:6px}
+.kai .pp-note{display:flex;gap:8px;font-size:12.5px;color:var(--muted-foreground);padding:4px 10px 8px}
+.kai .pp-note svg{width:16px;height:16px;flex:none}
+.kai .app-frame.is-full .app{height:100%;min-height:0;border-radius:0}
+.kai .app-frame.is-full .app-simple.conv-on .app-center{padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+.kai .app-frame.is-full .app-simple:not(.conv-on) .app-main{padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+.kai .app-full-btn:active{transform:scale(.97)}
+@media (max-width:980px){.kai .app.app-simple,.kai .app.app-simple.side-open{grid-template-columns:minmax(0,1fr)}
+.kai .app.app-simple{height:min(680px,calc(100dvh - 230px));min-height:500px}
+.kai .app-frame.is-full .app.app-simple{height:100%;min-height:0}
+.kai .app.app-simple.side-open .app-side{position:absolute;inset:0 auto 0 0;width:min(280px,86%);z-index:4;box-shadow:8px 0 24px rgb(0 0 0 / .12)}
+.kai .app-simple.side-open .app-ctrl{position:absolute;top:0;left:0;width:min(280px,86%);padding:10px 12px;background:var(--background);z-index:5}
+.kai .app-simple:not(.side-open) .app-nav-btn{display:none}
+.kai .app-simple .app-main{padding:10px 12px 16px}
+.kai .app-hello{font-size:28px}}
+.kai .viz .tbl{margin:0}
+.kai .viz-chart.hidden,.kai .viz-table.hidden{display:none}
+.kai .app-simple .app-nav button{font-size:18px;padding:9px 12px}
+.kai .app-simple .app-nav svg.ico{width:20px;height:20px}
+.kai .app-simple .app-hist-title{font-size:15px}
+.kai .app-simple .app-hist-group{font-size:13.5px}
+.kai .app-simple .app-hist button{font-size:16.5px;padding:8px 12px}
+.kai .app-simple .app-user b{font-size:16px}
+.kai .app-simple .app-user small{font-size:14px}
+.kai .app-simple .app-brand .label{font-size:22px;line-height:1}
+.kai .app-brand .brand-alt{display:none;flex-direction:column;gap:3px}
+.kai .app-brand .brand-alt svg{width:128px;height:auto}
+.kai .app-brand .brand-alt small{font-size:11.5px;color:var(--muted-foreground);letter-spacing:.02em}
+.kai .app-frame.brand-fd .brand-alt{display:flex}
+.kai .app-frame.brand-fd .app-brand > svg:first-child,.kai .app-frame.brand-fd .app-brand .label,.kai .app-frame.brand-fd .app-hello svg{display:none}
+.kai .app-frame.brand-fd,.kai .user-menu.brand-fd{--terra-50:#F1F8E9;--terra-100:#E3F0D3;--terra-200:#C9E3A8;--terra-500:#76B82A;--terra-600:#5E9A1C;--terra-700:#4A7A16;--terra-mark:#76B82A;--terra-text:#4A7A16;--primary:#6B6A69;--primary-hover:#575655;--accent:#E3F0D3;--accent-foreground:#4A7A16;--ring:#76B82A;--s1:#6B6A69;--s2:#76B82A}
+.kai .app-brand .brand-aidan,.kai .app-frame:not(.brand-aidan) .aidan-hello{display:none}
+.kai .app-frame.brand-aidan .brand-aidan{display:flex;align-items:center;gap:10px}
+.kai .app-frame.brand-aidan .aidan-hello{display:inline-grid}
+.kai .app-frame.brand-aidan .app-brand > svg:first-child,.kai .app-frame.brand-aidan .app-brand .label,.kai .app-frame.brand-aidan .app-hello > svg{display:none}
+.kai .aidan-av{width:44px;height:44px;display:inline-grid;place-items:center;flex:none}
+.kai .aidan-av svg{width:100%;height:100%}
+.kai .aidan-hello{width:64px;height:64px;margin-right:10px;vertical-align:middle}
+.kai .brand-aidan .an{font-family:var(--font-display);font-size:24px;line-height:1;color:var(--foreground);display:flex;flex-direction:column;gap:4px}
+.kai .brand-aidan .an small{font-family:var(--font-sans);font-size:11.5px;color:var(--muted-foreground)}
+.kai .app-frame.brand-aidan,.kai .user-menu.brand-aidan{--terra-50:#FDF4E8;--terra-100:#FBE6CC;--terra-200:#F7CE9A;--terra-500:#EA8F1F;--terra-600:#DF5416;--terra-700:#A5360F;--terra-mark:#DF5416;--terra-text:#A5360F;--primary:#2B2A26;--primary-hover:#030202;--accent:#FBE6CC;--accent-foreground:#A5360F;--ring:#EA8F1F;--s1:#2B2A26;--s2:#EA8F1F}
+:root[data-theme="dark"] .kai .app-frame.brand-aidan,:root[data-theme="dark"] .kai .user-menu.brand-aidan{--s1:#CFC6B4;--primary:#F7BD64;--primary-hover:#F9DE8D;--primary-foreground:#1C1F17;--terra-text:#F7BD64;--accent:#3A2A18;--accent-foreground:#F7BD64}
+:root[data-theme="dark"] .kai .app-frame.brand-fd,:root[data-theme="dark"] .kai .user-menu.brand-fd{--s1:#B8B7B5;--primary:#C9C8C6;--primary-hover:#E0DFDD;--primary-foreground:#1C1F17;--terra-text:#9BD15A;--accent:#2E3A20;--accent-foreground:#9BD15A}
+.kai .app-simple.conv-on .app-conv-title{font-size:20px}
+.kai .app-simple .q{font-size:19px;padding:14px 18px}
+.kai .app-simple .think{font-size:16px}
+.kai .app-simple .chip{font-size:14px}
+.kai .app-simple .answer p{font-size:19px;line-height:1.55}
+.kai .app-simple .answer .note{font-size:16px}
+.kai .app-simple .tbl{font-size:17.5px}
+.kai .app-simple .tbl th{font-size:15.5px;padding:11px 14px}
+.kai .app-simple .tbl td{padding:11px 14px}
+.kai .app-simple .stat b{font-size:40px}
+.kai .app-simple .stat span{font-size:16px}
+@media (max-width:520px){.kai .app-simple .stat span{font-size:14px}}
+.kai .app-simple .todo li{font-size:18px}
+.kai .app-simple .todo li small{font-size:16px}
+.kai .app-simple .chart text{font-size:15px}
+.kai .app-simple .chart-title{font-size:16.5px}
+.kai .app-simple .legend{font-size:16px}
+.kai .app-simple .viz-head b{font-size:20px}
+.kai .app-simple .viz-head small{font-size:17px}
+.kai .app-simple .tip{font-size:15px}
+.kai .app-simple .tip-r b{font-size:17px}
+.kai .app-simple .answer .actions .btn,.kai .app-simple .answer .feedback .btn{height:38px;font-size:15.5px}
+.kai .app-simple .app-disclaimer{font-size:14.5px}
+.kai .app-simple .src-btn{font-size:15px}
+.kai .app-simple .app-srcs .k{font-size:15px}
+.kai .app-simple .sug{font-size:16px}
+.kai .app-simple .app-box textarea{font-size:19px}
+.kai .app-simple.conv-on .app-box textarea{font-size:21px;height:32px}
+.kai .app-simple .help-switch b,.kai .app-simple .help-row b{font-size:16.5px}
+.kai .app-simple .help-switch small,.kai .app-simple .help-row small,.kai .app-simple .help-tip{font-size:15px}
+.kai .app-simple .help-topic{font-size:15px}
+.kai .app-simple .dr-title{font-size:18px}
+.kai .app-more-wrap{position:relative}
+.kai .app-nav .app-more{color:var(--muted-foreground)}
+.kai .app-more[aria-expanded="true"] svg{transform:rotate(180deg)}
+.kai .more-pop{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:6;background:var(--card);border:1px solid var(--border);border-radius:.75rem;box-shadow:0 10px 28px rgb(0 0 0 / .16);padding:6px}
+.kai .more-pop.hidden{display:none}
+.kai .app-pin-head{display:flex;align-items:center;gap:6px;width:100%;padding:14px 10px 6px;font-size:13px;color:var(--muted-foreground);text-align:left;transition:color .15s}
+.kai .app-pin-head:hover{color:var(--foreground)}
+.kai .app-pin-head svg{width:14px;height:14px;transition:transform .2s}
+.kai .app-pin-head[aria-expanded="true"] svg{transform:rotate(90deg)}
+.kai .app-pins{display:grid;gap:1px}
+.kai .app-pins.hidden{display:none}
+.kai .app-pins button{display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:7px 10px;border-radius:.5rem;font-size:14px;color:var(--foreground);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .15s}
+.kai .app-pins button:hover{background:var(--muted)}
+.kai .app-pins button svg{width:15px;height:15px;color:var(--terra-mark);flex:none}
+.kai .app-simple .app-pin-head{font-size:15px}
+.kai .app-simple .app-side{overflow-y:auto;overscroll-behavior:contain;padding-bottom:0}
+.kai .app-simple .app-hist{flex:none;overflow:visible}
+.kai .app-simple .app-user{position:sticky;bottom:0;margin-top:auto;background:var(--background);padding-bottom:16px}
+.kai .app-simple .app-pins button{font-size:16.5px;padding:8px 12px}
+.kai .hist-row{position:relative;display:flex;align-items:center;border-radius:.5rem;min-width:0}
+.kai .app-hist,.kai .app-pins{grid-template-columns:minmax(0,1fr)}
+.kai .app-simple .app-side{overflow-x:hidden}
+.kai .hist-row > button:first-child{flex:1;min-width:0}
+.kai .app-hist .hist-more,.kai .app-pins .hist-more,.kai .app-simple .app-hist .hist-more,.kai .app-simple .app-pins .hist-more{flex:none;width:30px;height:30px;padding:0;display:grid;place-items:center;border-radius:.4rem;color:var(--muted-foreground);opacity:0;transition:opacity .15s,background .15s}
+.kai .hist-more .ico{width:17px;height:17px;color:currentColor}
+.kai .hist-row:hover .hist-more,.kai .hist-row:focus-within .hist-more,.kai .hist-more[aria-expanded="true"]{opacity:1}
+.kai .app-hist .hist-more:hover,.kai .app-pins .hist-more:hover,.kai .hist-more[aria-expanded="true"]{background:var(--muted);color:var(--foreground)}
+.kai .hist-more:active{transform:scale(.92)}
+.kai .hist-more[data-hint]::after{left:auto;right:0;transform:none}
+@media (hover:none){.kai .app-hist .hist-more,.kai .app-pins .hist-more,.kai .app-simple .app-hist .hist-more,.kai .app-simple .app-pins .hist-more{opacity:1}}
+.kai .hist-row.removed{display:none}
+.kai .hist-rename{flex:1;min-width:0;font:inherit;font-size:15px;color:var(--foreground);background:var(--card);border:1px solid var(--ring);border-radius:.4rem;padding:6px 8px;outline:none}
+.kai .row-menu.hidden,.kai .rm-view.hidden{display:none}
+.kai .kai-dialog.hidden{display:none}
+.kai .kd-actions .btn{padding:9px 16px;font-size:14.5px}
+.kai #toast .toast-undo{margin-left:12px;font-weight:600;text-decoration:underline;color:inherit}
+@media (max-width:720px){.kai .chat{padding:14px;min-height:0}
+.kai .tbl{font-size:12.5px}
+.kai .tbl th,.kai .tbl td{padding:7px 6px}
+.kai .tbl .hide-sm{display:none}
+.kai .tbl .day-link{display:inline;padding:0;border:0;background:none;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.kai .tbl .show-sm{display:inline}
+.kai .tbl .day-link .ico{display:none}
+.kai .app-simple .tbl{font-size:14px}
+.kai .app-simple.conv-on .app-box{gap:4px;padding-left:10px}
+.kai .app-simple.conv-on .app-box textarea{font-size:17px}
+.kai .app-simple .tbl th{font-size:12.5px;padding:8px 6px}
+.kai .app-simple .tbl td{padding:8px 6px}}
+.kai .app-brand .label{font-family:var(--font-display);font-stretch:100%;font-weight:700;letter-spacing:.04em;text-transform:none}
+.kai .app-brand > svg:first-child{height:30px;width:30px}
+.kai .app-hello svg{height:1.2em}
+
+.kai { --background: var(--bg); --foreground: var(--fg); --card: var(--bg-card); --muted: var(--bg-sunk); --muted-foreground: var(--fg-muted);
+  --primary: var(--clay-btn); --primary-hover: var(--clay); --primary-foreground: var(--fg-on-accent); --accent: color-mix(in srgb, var(--clay) 22%, transparent); --accent-foreground: var(--clay);
+  --terra-500: var(--clay); --terra-600: var(--clay-btn); --terra-mark: var(--clay); --terra-text: var(--clay); --olive-50: var(--bg-sunk); --olive-100: var(--bg-sunk); --olive-700: var(--fg-muted); --olive-800: var(--bg-sunk);
+  --sand-foreground: var(--fg-muted); --ring: var(--clay); --shadow: 0 18px 44px rgb(0 0 0 / .24); --font-display: var(--font-serif); --font-sans: inherit; --s1: var(--fg-muted); --s2: var(--clay); }
+
+/* The demo is a full-window app; the cookie banner and its reopen button would sit on the composer. This <style> lives only on /demo/. */
+broberg-consent { display: none !important; }
+.dm-page { padding: 84px 20px 20px; }
+.kai .app-frame { max-width: 1440px; margin: 0 auto; padding: 0; background: none; border-radius: 18px; }
+.kai .app { height: calc(100dvh - 108px); min-height: 560px; border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 40px 100px -40px rgba(0,0,0,.6); }
+.kai .app-frame.is-full { padding: 0; background: var(--card); z-index: 200; }
+.kai .app-frame.is-full .app { height: 100dvh; border-radius: 0; border: 0; }
+html.kai-full .nav { visibility: hidden; }
+.kai .dm-illus { font: 10px var(--font-mono); padding: 2px 7px; border-radius: 5px; background: var(--bg-sunk); color: var(--fg-muted); white-space: nowrap; margin-right: 6px; }
+.kai .dm-empty { max-width: 780px; text-align: center; padding: 0 16px; }
+.kai .app-simple.conv-on .dm-empty { display: none; }
+.kai .dm-eyebrow { font: 11px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--clay); }
+.kai .dm-empty h1 { font-family: var(--font-serif); font-size: clamp(34px, 5vw, 56px); line-height: 1.04; margin: 12px 0 14px; }
+.kai .dm-empty p { font-size: 16.5px; line-height: 1.6; color: var(--fg-muted); margin: 0 auto 22px; max-width: 620px; }
+.kai .dm-suggs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; }
+.kai .dm-sugg { font: inherit; font-size: 14px; color: var(--fg); background: var(--bg-sunk); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; cursor: pointer; transition: border-color .15s, transform .1s; }
+.kai .dm-sugg:hover { border-color: var(--clay); }
+.kai .dm-sugg:active { transform: scale(.98); }
+.kai .dm-sugg span { display: block; font: 10px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--clay); margin-bottom: 4px; }
+.kai .app-box { width: min(780px, 100%); }
+.kai .app-srcs { width: min(780px, 100%); display: flex; justify-content: center; }
+.kai .answer .dm-step { opacity: 0; transform: translateY(8px); }
+.kai .answer .dm-step.in { opacity: 1; transform: none; }
+.dm-toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 14px); opacity: 0; pointer-events: none; z-index: 300; max-width: min(90vw, 520px); padding: 12px 18px; border-radius: 14px; background: var(--fg); color: var(--bg); font-size: 14px; transition: opacity .25s, transform .25s; }
+.dm-toast.on { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 980px) { .dm-page { padding: 76px 8px 8px; } .kai .app { height: calc(100dvh - 88px); } .kai .dm-suggs { grid-template-columns: 1fr; } .kai .dm-illus { display: none; } }
+.dm-bar { display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-bottom: 1px solid var(--border); }
+.dm-bar-t { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dm-step { opacity: 0; transform: translateY(8px); transition: opacity .45s ease, transform .45s ease; }
+.dm-step.is-in { opacity: 1; transform: none; }
+.dm-cite { display: inline-grid; place-items: center; min-width: 16px; height: 16px; padding: 0 4px; margin: 0 1px; border-radius: 5px; font: 600 10px var(--font-mono); color: var(--clay); background: color-mix(in srgb, var(--clay) 16%, transparent); cursor: pointer; vertical-align: 3px; }
+.dm-chart { margin: 14px 0; padding: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; }
+.dm-chart figcaption { font-size: 12.5px; color: var(--fg-muted); margin-bottom: 12px; }
+.dm-bars { display: flex; flex-direction: column; gap: 9px; }
+.dm-bar-row { display: grid; grid-template-columns: minmax(110px, 34%) 1fr 64px; gap: 10px; align-items: center; font-size: 13px; }
+.dm-bar-k { color: var(--fg-muted); }
+.dm-bar-row.is-hl .dm-bar-k { color: var(--fg); font-weight: 600; }
+.dm-bar-track { height: 12px; background: var(--bg-sunk); border-radius: 6px; overflow: hidden; }
+.dm-bar-track i { display: block; height: 100%; width: 0; border-radius: 6px; background: color-mix(in srgb, var(--clay) 45%, var(--bg-sunk)); transition: width 1s cubic-bezier(.2,.8,.2,1) .15s; }
+.dm-bar-row.is-hl .dm-bar-track i { background: var(--clay); }
+.dm-step.is-in .dm-bar-track i { width: var(--w); }
+.dm-bar-v { font: 12px var(--font-mono); text-align: right; }
+.dm-cols { display: flex; gap: 18px; align-items: flex-end; height: 170px; padding-top: 18px; }
+.dm-col-g { flex: 1; display: flex; flex-direction: column; height: 100%; min-width: 0; }
+.dm-col-bars { flex: 1; display: flex; gap: 6px; align-items: flex-end; justify-content: center; }
+.dm-col-bars i { position: relative; flex: 1; max-width: 34px; height: 0; border-radius: 5px 5px 0 0; transition: height 1s cubic-bezier(.2,.8,.2,1) .15s; }
+.dm-col-bars i span { position: absolute; top: -17px; left: 50%; transform: translateX(-50%); font: 10px var(--font-mono); color: var(--fg-muted); white-space: nowrap; }
+.dm-step.is-in .dm-col-bars i { height: var(--h); }
+.dm-col-l { font-size: 11.5px; color: var(--fg-muted); text-align: center; margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+i.dm-s0 { background: color-mix(in srgb, var(--fg-muted) 55%, var(--bg-sunk)); }
+i.dm-s1 { background: var(--clay); }
+.dm-cols:has(i.dm-s1) i.dm-s0 { background: color-mix(in srgb, var(--fg-muted) 45%, var(--bg-sunk)); }
+.dm-cols:not(:has(i.dm-s1)) i.dm-s0 { background: var(--clay); }
+.dm-legend { display: flex; gap: 14px; margin-top: 10px; font-size: 12px; color: var(--fg-muted); }
+.dm-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.dm-line { position: relative; height: 160px; margin-left: 44px; clip-path: inset(-20px 100% -20px -60px); transition: clip-path 1.4s ease .15s; }
+.dm-step.is-in .dm-line { clip-path: inset(-20px -10px -20px -60px); }
+.dm-line svg { width: 100%; height: 100%; overflow: visible; }
+.dm-line polyline { fill: none; stroke: var(--clay); stroke-width: 2.4; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.dm-mark { stroke: var(--fg-muted); stroke-width: 1; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
+.dm-mark-l { position: absolute; top: -4px; transform: translateX(6px); font: 10.5px var(--font-mono); color: var(--fg-muted); white-space: nowrap; }
+.dm-line-y { position: absolute; left: -44px; width: 38px; text-align: right; font: 10.5px var(--font-mono); color: var(--fg-muted); }
+.dm-line-hi { top: calc(5 / 40 * 100% - 7px); }
+.dm-line-lo { top: calc(37 / 40 * 100% - 7px); }
+.dm-line-x { display: flex; justify-content: space-between; margin: 6px 0 0 44px; font: 10px var(--font-mono); color: var(--fg-muted); }
+.dm-table { margin: 14px 0; overflow-x: auto; }
+.dm-table table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.dm-table th { text-align: left; font: 500 10.5px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--fg-muted); padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.dm-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); }
+.dm-table .num { text-align: right; font-family: var(--font-mono); font-size: 12.5px; }
+.dm-table tr.is-hl td { background: color-mix(in srgb, var(--clay) 10%, transparent); }
+.dm-flag { margin: 12px 0; padding: 10px 12px; border-radius: 10px; font-size: 13.5px; line-height: 1.5; color: var(--fg); background: var(--amber-bg); border: 1px solid color-mix(in srgb, var(--amber-d) 40%, transparent); }
+.dm-flag b { color: var(--amber-d); margin-right: 6px; }
+.dm-sources { list-style: none; margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
+.dm-sources li { display: flex; gap: 8px; align-items: baseline; font-size: 13px; padding: 4px 6px; border-radius: 8px; transition: background .3s; }
+.dm-sources li span:last-child { color: var(--fg-muted); font-size: 12px; }
+.dm-sources li.is-ping { background: color-mix(in srgb, var(--clay) 18%, transparent); }
+.dm-src-n { font: 600 10px var(--font-mono); color: var(--clay); min-width: 14px; }
+  .dm-bar-row { grid-template-columns: 38% 1fr 52px; font-size: 12px; }
+</style><section class="dm-page" data-testid="demo-page"><div class="kai" data-testid="demo-root">
+<div class="app-frame" data-testid="demo-frame"><div class="app app-simple side-open" data-testid="demo-app">
+  <aside class="app-side" data-testid="demo-sidebar">
+    <nav class="app-nav">
+      <button type="button" data-app="new" class="on" data-testid="demo-nav-new"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>New chat</button>
+      <button type="button" data-app="activity" data-testid="demo-nav-activity"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>Activity</button>
+      <button type="button" data-app="insights" data-testid="demo-nav-insights"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>Insights for you</button>
+      <button type="button" data-app="shared" data-testid="demo-nav-shared"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>Shared chats</button>
+      <button type="button" data-app="saved" data-testid="demo-nav-saved"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>Saved</button>
+      <button type="button" data-app="memory" data-testid="demo-nav-memory"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/></svg>Memory</button>
+      <div class="app-more-wrap"><button type="button" class="app-more" aria-expanded="false" data-testid="demo-nav-more"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>More</button><div class="more-pop hidden" data-testid="demo-more-menu"><button type="button" class="pp-item" data-testid="demo-edit-menu">Edit menu …</button></div></div>
+    </nav>
+    <button type="button" class="app-pin-head" aria-expanded="true" data-testid="demo-pinned-toggle">Pinned<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div class="app-pins" data-testid="demo-pinned"><div class="hist-row"><button type="button" data-goto="margin" data-testid="demo-pin-margin" title="Why did gross margin drop in Q3, and what did the board decide about it?"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>Why did gross margin drop in Q3?</button></div><div class="hist-row"><button type="button" data-goto="churn" data-testid="demo-pin-churn" title="Churn went up in August. Which customers left, and what did they tell us?"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>Why did churn rise in August?</button></div></div>
+    <div class="app-hist-title">History</div>
+    <div class="app-hist">
+      <div class="app-hist-group">Today</div><div class="hist-row"><button type="button" data-goto="margin" data-testid="demo-example-margin" title="Why did gross margin drop in Q3, and what did the board decide about it?">Why did gross margin drop in Q3?</button><button type="button" class="hist-more" aria-label="More options" data-hint="More options" data-testid="demo-hist-more-margin"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button></div><div class="hist-row"><button type="button" data-goto="churn" data-testid="demo-example-churn" title="Churn went up in August. Which customers left, and what did they tell us?">Why did churn rise in August?</button><button type="button" class="hist-more" aria-label="More options" data-hint="More options" data-testid="demo-hist-more-churn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button></div><div class="hist-row"><button type="button" data-goto="returns" data-testid="demo-example-returns" title="Which product categories are driving returns this season, and why are people sending things back?">What is driving returns this season?</button><button type="button" class="hist-more" aria-label="More options" data-hint="More options" data-testid="demo-hist-more-returns"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button></div><div class="hist-row"><button type="button" data-goto="downtime" data-testid="demo-example-downtime" title="Where are we losing time on line 2 since we changed supplier, and what does maintenance say?">Where are we losing time on line 2?</button><button type="button" class="hist-more" aria-label="More options" data-hint="More options" data-testid="demo-hist-more-downtime"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button></div>
+      <div class="app-hist-group">This week</div><div class="hist-row"><button type="button" data-goto="projects" data-testid="demo-example-projects" title="Which client projects ran over budget this year, and what do the project minutes say caused it?">Which projects ran over budget?</button><button type="button" class="hist-more" aria-label="More options" data-hint="More options" data-testid="demo-hist-more-projects"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button></div><div class="hist-row"><button type="button" data-goto="recovery" data-testid="demo-example-recovery" title="How fast did our shoulder patients recover this year, by treatment type?">How fast do shoulder patients recover?</button><button type="button" class="hist-more" aria-label="More options" data-hint="More options" data-testid="demo-hist-more-recovery"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button></div><div class="hist-row"><button type="button" data-goto="onboarding" data-testid="demo-example-onboarding" title="How long does it take new hires to become productive now compared with last year, per department?">Is onboarding getting faster?</button><button type="button" class="hist-more" aria-label="More options" data-hint="More options" data-testid="demo-hist-more-onboarding"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button></div>
+      <div class="app-hist-group">Earlier</div><div class="hist-row"><button type="button" data-goto="citizens" data-testid="demo-example-citizens" title="Which citizen enquiries take longest to resolve, and what is our target according to policy?">Which enquiries take longest?</button><button type="button" class="hist-more" aria-label="More options" data-hint="More options" data-testid="demo-hist-more-citizens"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button></div><div class="hist-row"><button type="button" data-goto="energy" data-testid="demo-example-energy" title="Which of our buildings use the most energy per square metre, and what did the last inspection recommend?">Which buildings use the most energy?</button><button type="button" class="hist-more" aria-label="More options" data-hint="More options" data-testid="demo-hist-more-energy"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button></div><div class="hist-row"><button type="button" data-goto="contracts" data-testid="demo-example-contracts" title="Which supplier contracts renew in the next 90 days, and which of them have price indexation?">Which contracts renew soon?</button><button type="button" class="hist-more" aria-label="More options" data-hint="More options" data-testid="demo-hist-more-contracts"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button></div>
     </div>
-    <div class="dm-stream" data-testid="demo-stream">
-      <div class="dm-empty" data-testid="demo-empty">
-        <span class="lp-eyebrow">Live demo</span>
-        <h1>Dashboards are so last year.</h1>
-        <p>A dashboard shows what someone decided to measure last quarter. Ask your second brain instead — in your own words — and get the figures, the chart and the sources, always current and always cited.</p>
-        <div class="dm-suggs"><button type="button" class="dm-sugg" data-ex="margin" data-testid="demo-suggest-margin"><span>Finance</span>Why did gross margin drop in Q3, and what did the board decide about it?</button><button type="button" class="dm-sugg" data-ex="churn" data-testid="demo-suggest-churn"><span>SaaS</span>Churn went up in August. Which customers left, and what did they tell us?</button><button type="button" class="dm-sugg" data-ex="returns" data-testid="demo-suggest-returns"><span>Retail</span>Which product categories are driving returns this season, and why are people sending things back?</button><button type="button" class="dm-sugg" data-ex="downtime" data-testid="demo-suggest-downtime"><span>Manufacturing</span>Where are we losing time on line 2 since we changed supplier, and what does maintenance say?</button></div>
-      </div>
+    <button type="button" class="app-user" data-testid="demo-user-menu-open" aria-haspopup="menu" aria-expanded="false" aria-label="Menu for Sam T."><span class="av av-photo" role="img" aria-label="Sam T.">S</span><div><b>Sam T.</b><small>COO · Acme Inc.</small></div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+  </aside>
+  <main class="app-main">
+    <div class="app-bar">
+      <span class="app-ctrl"><button type="button" class="app-icon-btn hint-start" data-testid="demo-panel-toggle" aria-pressed="true" aria-label="Hide menu" data-hint="Hide menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg></button><button type="button" class="app-icon-btn hint-start app-nav-btn" data-testid="demo-nav-back" aria-disabled="true" aria-label="Back" data-hint="Nothing to go back to"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></button><button type="button" class="app-icon-btn hint-start app-nav-btn" data-testid="demo-nav-forward" aria-disabled="true" aria-label="Forward" data-hint="Nothing to go forward to"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></span>
+      <span class="app-title-wrap"><span class="app-conv-title" data-testid="demo-title"></span></span>
+      <span class="grow"></span>
+      <span class="dm-illus">Illustrative data</span>
+      <button type="button" class="app-icon-btn app-share-btn hint-end" data-testid="demo-share" aria-label="Share this chat" data-hint="Share this chat"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg></button>
+      <button type="button" class="app-icon-btn hint-end" data-testid="demo-fullscreen" aria-label="Full screen" data-hint="Full screen"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+      <button type="button" class="app-icon-btn app-exit-full hint-end" data-testid="demo-fullscreen-exit" aria-label="Exit full screen" data-hint="Exit full screen (Esc)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></svg></button>
     </div>
-    <div class="dm-input"><span class="dm-input-t" data-testid="demo-input">Pick a question on the left — or one above.</span><span class="dm-send" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    <div class="app-conv" data-testid="demo-stream"></div>
+    <div class="app-center" data-testid="demo-dock">
+      <div class="dm-empty" data-testid="demo-empty"><span class="dm-eyebrow">Live demo · Acme Inc.</span><h1>Dashboards are so last year.</h1><p>A dashboard shows what someone decided to measure last quarter. Ask your second brain instead — in your own words — and get the figures, the chart and the sources. Always current, always cited.</p><div class="dm-suggs"><button type="button" class="dm-sugg" data-goto="margin" data-testid="demo-suggest-margin"><span>Finance</span>Why did gross margin drop in Q3, and what did the board decide about it?</button><button type="button" class="dm-sugg" data-goto="churn" data-testid="demo-suggest-churn"><span>SaaS</span>Churn went up in August. Which customers left, and what did they tell us?</button><button type="button" class="dm-sugg" data-goto="returns" data-testid="demo-suggest-returns"><span>Retail</span>Which product categories are driving returns this season, and why are people sending things back?</button><button type="button" class="dm-sugg" data-goto="downtime" data-testid="demo-suggest-downtime"><span>Manufacturing</span>Where are we losing time on line 2 since we changed supplier, and what does maintenance say?</button></div></div>
+      <form class="app-box" data-testid="demo-composer">
+        <textarea rows="2" placeholder="Ask Acme's brain anything …" aria-label="Ask Trail" data-testid="demo-input"></textarea>
+        <div class="app-box-row">
+          <div class="app-plus"><button type="button" class="app-icon-btn hint-start" data-testid="demo-add" aria-expanded="false" aria-label="Add files and connectors" data-hint="Add files and connectors"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+            <div class="plus-pop hidden" data-testid="demo-plus-menu">
+              <button type="button" class="pp-item" data-testid="demo-plus-files"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Add files or images</button>
+              <div class="pp-head">Connectors &amp; tools</div>
+              <button type="button" class="pp-item" data-conn="Trail" data-testid="demo-conn-trail"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.2" fill="currentColor" stroke="none"/></svg>Trail<small>MCP</small></button>
+              <button type="button" class="pp-item" data-conn="Finance (ERP)" data-testid="demo-conn-erp"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>Finance (ERP)<small>API</small></button>
+              <button type="button" class="pp-item" data-conn="Mail and calendar" data-testid="demo-conn-mail"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Mail and calendar<small>API</small></button>
+              <div class="pp-head">Acme's skills</div>
+              <button type="button" class="pp-item" data-skill="/board-report" data-testid="demo-skill-board"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>/board-report<small>Skill</small></button>
+              <button type="button" class="pp-item" data-conn="+" data-testid="demo-conn-add"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>Connect a connector or skill …</button>
+              <div class="pp-note"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>Acme approves every connector, and it shows whether it can send data out.</div>
+            </div></div>
+          <span class="grow"></span>
+          <button type="button" class="app-icon-btn app-mic hint-end" data-testid="demo-mic" aria-pressed="false" aria-label="Dictate" data-hint="Dictate"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button>
+          <button type="submit" class="app-send" aria-label="Send" data-testid="demo-send"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button>
+        </div>
+      </form>
+      <p class="app-disclaimer" data-testid="demo-disclaimer">Trail is AI and can be wrong. Every answer shows its sources.</p>
+      <div class="app-srcs"><div class="src-wrap">
+        <button type="button" class="src-btn" aria-haspopup="true" aria-expanded="false" data-testid="demo-sources-toggle" data-hint="Choose which data sources Trail may use"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>Data sources<span class="src-count" data-testid="demo-sources-count">6 of 6</span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="src-pop hidden" role="menu" aria-label="Data sources" data-testid="demo-sources-menu"><button type="button" class="src-row on" role="menuitemcheckbox" aria-checked="true" data-src="Trail" data-testid="demo-src-0"><span class="src-check"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Trail</b><small>Acme's compiled knowledge</small></span></button><button type="button" class="src-row on" role="menuitemcheckbox" aria-checked="true" data-src="Finance (ERP)" data-testid="demo-src-1"><span class="src-check"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Finance (ERP)</b><small>Ledger, invoices, budgets</small></span></button><button type="button" class="src-row on" role="menuitemcheckbox" aria-checked="true" data-src="CRM" data-testid="demo-src-2"><span class="src-check"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>CRM</b><small>Customers, deals and churn</small></span></button><button type="button" class="src-row on" role="menuitemcheckbox" aria-checked="true" data-src="Mail" data-testid="demo-src-3"><span class="src-check"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Mail</b><small>Your inbox</small></span></button><button type="button" class="src-row on" role="menuitemcheckbox" aria-checked="true" data-src="Calendar" data-testid="demo-src-4"><span class="src-check"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Calendar</b><small>Your and the team's calendar</small></span></button><button type="button" class="src-row on" role="menuitemcheckbox" aria-checked="true" data-src="Shared drive" data-testid="demo-src-5"><span class="src-check"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Shared drive</b><small>Word, Excel, PDF, decks</small></span></button></div>
+      </div></div>
+    </div>
   </main>
+</div></div>
+<div class="user-menu hidden" role="menu" aria-label="Sam T." data-testid="demo-user-menu">
+  <div class="um-head"><span class="av av-photo" role="img" aria-label="Sam T.">S</span><div><b>Sam T.</b><small class="um-mail">sam@acme.example</small><span class="um-org"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>Acme Inc.</span></div></div>
+  <div class="um-sep" role="separator"></div>
+  <button type="button" class="um-item" role="menuitem" data-testid="demo-um-search"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span>Search</span><kbd>⌘K</kbd></button>
+  <div class="um-sep" role="separator"></div>
+  <button type="button" class="um-item" role="menuitem" data-testid="demo-um-settings"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span>Account settings</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+  <div class="um-sep" role="separator"></div>
+  <div class="um-label">Preferences</div>
+  <div class="um-row"><span>Theme</span><div class="um-seg" role="group" aria-label="Theme"><button type="button" data-theme-mode="light" aria-pressed="false" data-testid="demo-um-theme-light"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>Light</button><button type="button" data-theme-mode="dark" aria-pressed="false" data-testid="demo-um-theme-dark"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>Dark</button><button type="button" data-theme-mode="system" aria-pressed="false" data-testid="demo-um-theme-system"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>System</button></div></div>
+  <div class="um-row"><span>Zoom</span><div class="um-zoom"><button type="button" data-testid="demo-um-zoom-out" aria-label="Smaller">−</button><output data-testid="demo-um-zoom-value">100 %</output><button type="button" data-testid="demo-um-zoom-in" aria-label="Larger">+</button></div></div>
+  <div class="um-sep" role="separator"></div>
+  <button type="button" class="um-item um-out" role="menuitem" data-testid="demo-um-logout"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg><span>Log out</span></button>
 </div>
-<script type="application/json" data-testid="demo-data">[{"id":"margin","segment":"Finance","title":"Why did gross margin drop in Q3?","question":"Why did gross margin drop in Q3, and what did the board decide about it?","sources":[{"label":"Q3 revenue.xlsx","detail":"finance export"},{"label":"Freight invoices","detail":"142 invoices"},{"label":"Board minutes Q3","detail":"PDF, 11 pages"}]},{"id":"churn","segment":"SaaS","title":"Why did churn rise in August?","question":"Churn went up in August. Which customers left, and what did they tell us?","sources":[{"label":"Billing export","detail":"Stripe, 2026"},{"label":"Support tickets","detail":"1,204 tickets"},{"label":"Exit survey","detail":"61 answers"}]},{"id":"returns","segment":"Retail","title":"What is driving returns this season?","question":"Which product categories are driving returns this season, and why are people sending things back?","sources":[{"label":"Returns export","detail":"8,940 returns"},{"label":"Customer reviews","detail":"2,310 reviews"},{"label":"Size guide v3","detail":"web page"}]},{"id":"downtime","segment":"Manufacturing","title":"Where are we losing time on line 2?","question":"Where are we losing time on line 2 since we changed supplier, and what does maintenance say?","sources":[{"label":"MES export","detail":"line 2, 12 weeks"},{"label":"Maintenance log","detail":"87 entries"},{"label":"Supplier contract","detail":"PDF"}]},{"id":"projects","segment":"Consulting","title":"Which projects ran over budget?","question":"Which client projects ran over budget this year, and what do the project minutes say caused it?","sources":[{"label":"Time registration","detail":"14,600 hours"},{"label":"Project minutes","detail":"96 meetings"},{"label":"Contracts","detail":"18 PDFs"}]},{"id":"recovery","segment":"Healthcare","title":"How fast do shoulder patients recover?","question":"How fast did our shoulder patients recover this year, by treatment type?","sources":[{"label":"Patient records","detail":"43 closed cases, anonymised"},{"label":"Clinic guidelines","detail":"2025 edition"}]},{"id":"onboarding","segment":"HR","title":"Is onboarding getting faster?","question":"How long does it take new hires to become productive now compared with last year, per department?","sources":[{"label":"HR system export","detail":"64 hires"},{"label":"Onboarding survey","detail":"52 answers"},{"label":"Handbook","detail":"intranet, 140 pages"}]},{"id":"citizens","segment":"Public sector","title":"Which enquiries take longest?","question":"Which citizen enquiries take longest to resolve, and what is our target according to policy?","sources":[{"label":"Case system export","detail":"6,320 cases"},{"label":"Service policy 2026","detail":"council decision"}]},{"id":"energy","segment":"Real estate","title":"Which buildings use the most energy?","question":"Which of our buildings use the most energy per square metre, and what did the last inspection recommend?","sources":[{"label":"Energy meter data","detail":"12 buildings"},{"label":"Inspection reports","detail":"12 PDFs"},{"label":"Maintenance budget","detail":"2027 draft"}]},{"id":"contracts","segment":"Legal","title":"Which contracts renew soon?","question":"Which supplier contracts renew in the next 90 days, and which of them have price indexation?","sources":[{"label":"Contract archive","detail":"214 contracts"},{"label":"Procurement policy","detail":"2024"}]}]</script>
-<template data-answer="margin"><p class="dm-step">Gross margin fell from <b>41.2 % to 37.9 %</b> in Q3. <b>2.1 points</b> of the drop came from freight: average cost per shipment rose 18 % after the carrier change in July <sup class="dm-cite" data-cite="2">2</sup>.</p><p class="dm-step">Price and product mix explain the rest. The board decided on <b>19 September</b> to renegotiate the carrier contract and add a freight surcharge on orders under €200 <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="dm-chart dm-step"><figcaption>What moved gross margin, Q2 → Q3 (points)</figcaption><div class="dm-bars"><div class="dm-bar-row is-hl"><span class="dm-bar-k">Freight cost</span><span class="dm-bar-track"><i style="--w:100.0%"></i></span><span class="dm-bar-v">2.1 pt</span></div><div class="dm-bar-row"><span class="dm-bar-k">Discounts</span><span class="dm-bar-track"><i style="--w:33.3%"></i></span><span class="dm-bar-v">0.7 pt</span></div><div class="dm-bar-row"><span class="dm-bar-k">Product mix</span><span class="dm-bar-track"><i style="--w:23.8%"></i></span><span class="dm-bar-v">0.5 pt</span></div></div></figure><div class="dm-flag dm-step"><b>Contradiction flagged</b> Q3 revenue.xlsx and the board minutes disagree on Q3 revenue by €42k — the minutes use the preliminary figure.</div><ol class="dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Q3 revenue.xlsx</b><span>finance export</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Freight invoices</b><span>142 invoices</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Board minutes Q3</b><span>PDF, 11 pages</span></li></ol></template><template data-answer="churn"><p class="dm-step">Monthly churn went from <b>2.1 % to 3.4 %</b> in August. <b>71 %</b> of the accounts that left were on the old Starter plan, which lost the export feature on 1 August <sup class="dm-cite" data-cite="1">1</sup>.</p><p class="dm-step"><b>38 of 61</b> exit answers mention exports. Support saw a spike of “where is CSV export?” tickets the same week <sup class="dm-cite" data-cite="2">2</sup> <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="dm-chart dm-step"><figcaption>Monthly churn, 2026</figcaption><div class="dm-line"><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><line class="dm-mark" x1="87.5" x2="87.5" y1="0" y2="40"/><polyline class="dm-s0" points="0.00,34.87 12.50,30.60 25.00,37.00 37.50,32.73 50.00,34.87 62.50,30.60 75.00,32.73 87.50,5.00 100.00,22.07"/></svg><span class="dm-mark-l" style="left:87.5%">Export removed</span><span class="dm-line-y dm-line-hi">3.4 %</span><span class="dm-line-y dm-line-lo">1.9 %</span></div><div class="dm-line-x"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div></figure><ol class="dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Billing export</b><span>Stripe, 2026</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Support tickets</b><span>1,204 tickets</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Exit survey</b><span>61 answers</span></li></ol></template><template data-answer="returns"><p class="dm-step">Returns are up <b>14 %</b> on last autumn. <b>Outerwear</b> accounts for almost half of the increase, and <b>62 %</b> of those returns are marked “too small” <sup class="dm-cite" data-cite="1">1</sup>.</p><p class="dm-step">Reviews point the same way: the new supplier’s jackets run about one size small, and the size guide was not updated <sup class="dm-cite" data-cite="2">2</sup> <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="dm-chart dm-step"><figcaption>Return rate by category, autumn 2026</figcaption><div class="dm-bars"><div class="dm-bar-row is-hl"><span class="dm-bar-k">Outerwear</span><span class="dm-bar-track"><i style="--w:100.0%"></i></span><span class="dm-bar-v">24 %</span></div><div class="dm-bar-row"><span class="dm-bar-k">Footwear</span><span class="dm-bar-track"><i style="--w:70.8%"></i></span><span class="dm-bar-v">17 %</span></div><div class="dm-bar-row"><span class="dm-bar-k">Knitwear</span><span class="dm-bar-track"><i style="--w:45.8%"></i></span><span class="dm-bar-v">11 %</span></div><div class="dm-bar-row"><span class="dm-bar-k">Accessories</span><span class="dm-bar-track"><i style="--w:16.7%"></i></span><span class="dm-bar-v">4 %</span></div></div></figure><ol class="dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Returns export</b><span>8,940 returns</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Customer reviews</b><span>2,310 reviews</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Size guide v3</b><span>web page</span></li></ol></template><template data-answer="downtime"><p class="dm-step">Unplanned downtime on line 2 rose from <b>3.1 to 7.8 hours a week</b> after week 31, when the new gasket supplier took over <sup class="dm-cite" data-cite="1">1</sup>.</p><p class="dm-step"><b>23 of 31</b> maintenance entries since then mention seal changes at the filler <sup class="dm-cite" data-cite="2">2</sup>. The contract has a quality clause that allows a claim after two documented weeks <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="dm-chart dm-step"><figcaption>Unplanned downtime, line 2 (hours/week)</figcaption><div class="dm-line"><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><line class="dm-mark" x1="45.45454545454545" x2="45.45454545454545" y1="0" y2="40"/><polyline class="dm-s0" points="0.00,35.25 9.09,37.00 18.18,34.09 27.27,36.42 36.36,35.84 45.45,27.11 54.55,11.98 63.64,6.75 72.73,7.91 81.82,5.00 90.91,10.24 100.00,8.49"/></svg><span class="dm-mark-l" style="left:45.45454545454545%">New supplier</span><span class="dm-line-y dm-line-hi">8.4 h</span><span class="dm-line-y dm-line-lo">2.9 h</span></div><div class="dm-line-x"><span>W26</span><span>W27</span><span>W28</span><span>W29</span><span>W30</span><span>W31</span><span>W32</span><span>W33</span><span>W34</span><span>W35</span><span>W36</span><span>W37</span></div></figure><ol class="dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>MES export</b><span>line 2, 12 weeks</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Maintenance log</b><span>87 entries</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Supplier contract</b><span>PDF</span></li></ol></template><template data-answer="projects"><p class="dm-step"><b>4 of 18</b> projects ran over budget, together by <b>1,140 hours</b>. In three of them the minutes record scope added after sign-off without a change order <sup class="dm-cite" data-cite="2">2</sup>.</p><p class="dm-step">Fixed-price projects overran three times as often as time-and-material ones <sup class="dm-cite" data-cite="1">1</sup> <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="dm-chart dm-step"><figcaption>Projects over budget, by contract type</figcaption><div class="dm-cols"><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:37.5%" title="Over budget: 3"><span>3</span></i><i class="dm-s1" style="--h:75.0%" title="On budget: 6"><span>6</span></i></div><span class="dm-col-l">Fixed price</span></div><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:12.5%" title="Over budget: 1"><span>1</span></i><i class="dm-s1" style="--h:100.0%" title="On budget: 8"><span>8</span></i></div><span class="dm-col-l">Time &amp; material</span></div></div><div class="dm-legend"><span><i class="dm-s0"></i>Over budget</span><span><i class="dm-s1"></i>On budget</span></div></figure><div class="dm-table dm-step"><table><thead><tr><th>Project</th><th class="num">Budget (h)</th><th class="num">Used (h)</th><th class="num">Over</th></tr></thead><tbody><tr class="is-hl"><td>Harbour portal</td><td class="num">1,200</td><td class="num">1,610</td><td class="num">+34 %</td></tr><tr><td>Retail CRM</td><td class="num">900</td><td class="num">1,180</td><td class="num">+31 %</td></tr><tr><td>Data platform</td><td class="num">2,400</td><td class="num">2,690</td><td class="num">+12 %</td></tr><tr><td>Brand site</td><td class="num">600</td><td class="num">760</td><td class="num">+27 %</td></tr></tbody></table></div><ol class="dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Time registration</b><span>14,600 hours</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Project minutes</b><span>96 meetings</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Contracts</b><span>18 PDFs</span></li></ol></template><template data-answer="recovery"><p class="dm-step"><b>43 cases</b> closed this year. Patients with <b>progressive strength training from week one</b> reached full function after <b>8.5 weeks</b> on average — 4.6 weeks faster than mainly passive treatment <sup class="dm-cite" data-cite="1">1</sup>.</p><p class="dm-step">That matches the clinic’s own 2025 guideline, which already recommends early loading <sup class="dm-cite" data-cite="2">2</sup>. The numbers inform; the clinician decides.</p><figure class="dm-chart dm-step"><figcaption>Weeks to full function, by treatment type</figcaption><div class="dm-bars"><div class="dm-bar-row is-hl"><span class="dm-bar-k">Strength training from week 1</span><span class="dm-bar-track"><i style="--w:64.9%"></i></span><span class="dm-bar-v">8.5 wk</span></div><div class="dm-bar-row"><span class="dm-bar-k">Strength + dry needling</span><span class="dm-bar-track"><i style="--w:70.2%"></i></span><span class="dm-bar-v">9.2 wk</span></div><div class="dm-bar-row"><span class="dm-bar-k">Home exercises only</span><span class="dm-bar-track"><i style="--w:94.7%"></i></span><span class="dm-bar-v">12.4 wk</span></div><div class="dm-bar-row"><span class="dm-bar-k">Mainly passive</span><span class="dm-bar-track"><i style="--w:100.0%"></i></span><span class="dm-bar-v">13.1 wk</span></div></div></figure><ol class="dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Patient records</b><span>43 closed cases, anonymised</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Clinic guidelines</b><span>2025 edition</span></li></ol></template><template data-answer="onboarding"><p class="dm-step">Time to first independent task dropped from <b>31 to 19 days</b> on average. The biggest gain is in <b>Customer service</b>, where new hires now ask the brain instead of a senior colleague <sup class="dm-cite" data-cite="1">1</sup> <sup class="dm-cite" data-cite="2">2</sup>.</p><p class="dm-step">Engineering is the exception: the handbook’s setup chapter is two versions behind the tooling actually in use <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="dm-chart dm-step"><figcaption>Days to first independent task</figcaption><div class="dm-cols"><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:100.0%" title="2025: 34 d"><span>34 d</span></i><i class="dm-s1" style="--h:41.2%" title="2026: 14 d"><span>14 d</span></i></div><span class="dm-col-l">Customer service</span></div><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:85.3%" title="2025: 29 d"><span>29 d</span></i><i class="dm-s1" style="--h:52.9%" title="2026: 18 d"><span>18 d</span></i></div><span class="dm-col-l">Sales</span></div><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:79.4%" title="2025: 27 d"><span>27 d</span></i><i class="dm-s1" style="--h:55.9%" title="2026: 19 d"><span>19 d</span></i></div><span class="dm-col-l">Finance</span></div><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:97.1%" title="2025: 33 d"><span>33 d</span></i><i class="dm-s1" style="--h:91.2%" title="2026: 31 d"><span>31 d</span></i></div><span class="dm-col-l">Engineering</span></div></div><div class="dm-legend"><span><i class="dm-s0"></i>2025</span><span><i class="dm-s1"></i>2026</span></div></figure><div class="dm-flag dm-step"><b>Contradiction flagged</b> The handbook says laptops are set up by IT; the onboarding survey says new hires do it themselves.</div><ol class="dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>HR system export</b><span>64 hires</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Onboarding survey</b><span>52 answers</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Handbook</b><span>intranet, 140 pages</span></li></ol></template><template data-answer="citizens"><p class="dm-step">Building permits take longest at <b>41 days</b> on average — the policy target is <b>28 days</b> <sup class="dm-cite" data-cite="1">1</sup> <sup class="dm-cite" data-cite="2">2</sup>.</p><p class="dm-step">Everything else is within target. Permit cases wait longest at the step “awaiting neighbour consultation”, <b>17 days</b> on average <sup class="dm-cite" data-cite="1">1</sup>.</p><figure class="dm-chart dm-step"><figcaption>Average days to resolve, by enquiry type</figcaption><div class="dm-bars"><div class="dm-bar-row is-hl"><span class="dm-bar-k">Building permits</span><span class="dm-bar-track"><i style="--w:100.0%"></i></span><span class="dm-bar-v">41 d</span></div><div class="dm-bar-row"><span class="dm-bar-k">Parking permits</span><span class="dm-bar-track"><i style="--w:29.3%"></i></span><span class="dm-bar-v">12 d</span></div><div class="dm-bar-row"><span class="dm-bar-k">Waste collection</span><span class="dm-bar-track"><i style="--w:14.6%"></i></span><span class="dm-bar-v">6 d</span></div><div class="dm-bar-row"><span class="dm-bar-k">Address change</span><span class="dm-bar-track"><i style="--w:4.9%"></i></span><span class="dm-bar-v">2 d</span></div></div></figure><ol class="dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Case system export</b><span>6,320 cases</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Service policy 2026</b><span>council decision</span></li></ol></template><template data-answer="energy"><p class="dm-step"><b>Nørregade 14</b> uses <b>168 kWh/m²</b>, twice the portfolio average. The 2025 inspection recommended new windows and roof insulation, with an estimated <b>31 %</b> saving <sup class="dm-cite" data-cite="1">1</sup> <sup class="dm-cite" data-cite="2">2</sup>.</p><p class="dm-step">Neither is in the 2027 maintenance budget draft <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="dm-chart dm-step"><figcaption>Energy use, kWh per m² per year</figcaption><div class="dm-bars"><div class="dm-bar-row is-hl"><span class="dm-bar-k">Nørregade 14</span><span class="dm-bar-track"><i style="--w:100.0%"></i></span><span class="dm-bar-v">168</span></div><div class="dm-bar-row"><span class="dm-bar-k">Havnevej 3</span><span class="dm-bar-track"><i style="--w:66.7%"></i></span><span class="dm-bar-v">112</span></div><div class="dm-bar-row"><span class="dm-bar-k">Skolegade 8</span><span class="dm-bar-track"><i style="--w:57.1%"></i></span><span class="dm-bar-v">96</span></div><div class="dm-bar-row"><span class="dm-bar-k">Portfolio average</span><span class="dm-bar-track"><i style="--w:50.0%"></i></span><span class="dm-bar-v">84</span></div></div></figure><ol class="dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Energy meter data</b><span>12 buildings</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Inspection reports</b><span>12 PDFs</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Maintenance budget</b><span>2027 draft</span></li></ol></template><template data-answer="contracts"><p class="dm-step"><b>6 contracts</b> renew within 90 days, worth <b>€1.4m</b> a year. <b>4</b> of them index prices to CPI automatically unless cancelled 60 days before renewal <sup class="dm-cite" data-cite="1">1</sup>.</p><p class="dm-step">Policy requires a re-tender above €250k a year — that applies to two of them <sup class="dm-cite" data-cite="2">2</sup>.</p><div class="dm-table dm-step"><table><thead><tr><th>Supplier</th><th class="num">Renews</th><th class="num">Value / yr</th><th class="num">Indexation</th></tr></thead><tbody><tr class="is-hl"><td>Cleaning</td><td class="num">14 Nov</td><td class="num">€410k</td><td class="num">CPI</td></tr><tr><td>IT support</td><td class="num">1 Dec</td><td class="num">€380k</td><td class="num">CPI</td></tr><tr><td>Canteen</td><td class="num">1 Dec</td><td class="num">€220k</td><td class="num">—</td></tr><tr><td>Security</td><td class="num">15 Dec</td><td class="num">€180k</td><td class="num">CPI</td></tr><tr><td>Printing</td><td class="num">31 Dec</td><td class="num">€120k</td><td class="num">CPI</td></tr><tr><td>Courier</td><td class="num">2 Jan</td><td class="num">€90k</td><td class="num">—</td></tr></tbody></table></div><ol class="dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Contract archive</b><span>214 contracts</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Procurement policy</b><span>2024</span></li></ol></template>
-</section></div>
+<div class="dm-toast" role="status" aria-live="polite" data-testid="demo-toast"></div>
+<script type="application/json" data-testid="demo-data">[{"id":"margin","title":"Why did gross margin drop in Q3?","question":"Why did gross margin drop in Q3, and what did the board decide about it?"},{"id":"churn","title":"Why did churn rise in August?","question":"Churn went up in August. Which customers left, and what did they tell us?"},{"id":"returns","title":"What is driving returns this season?","question":"Which product categories are driving returns this season, and why are people sending things back?"},{"id":"downtime","title":"Where are we losing time on line 2?","question":"Where are we losing time on line 2 since we changed supplier, and what does maintenance say?"},{"id":"projects","title":"Which projects ran over budget?","question":"Which client projects ran over budget this year, and what do the project minutes say caused it?"},{"id":"recovery","title":"How fast do shoulder patients recover?","question":"How fast did our shoulder patients recover this year, by treatment type?"},{"id":"onboarding","title":"Is onboarding getting faster?","question":"How long does it take new hires to become productive now compared with last year, per department?"},{"id":"citizens","title":"Which enquiries take longest?","question":"Which citizen enquiries take longest to resolve, and what is our target according to policy?"},{"id":"energy","title":"Which buildings use the most energy?","question":"Which of our buildings use the most energy per square metre, and what did the last inspection recommend?"},{"id":"contracts","title":"Which contracts renew soon?","question":"Which supplier contracts renew in the next 90 days, and which of them have price indexation?"}]</script>
+<template data-chat="margin"><div class="chat" data-ex="margin"><div class="q"></div><div class="think hidden"><span class="dots think-orbit" aria-hidden="true"><span class="to-ring"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-core"></span></span><span>Trail is reading</span><span class="chip"><span class="label">Q3 revenue.xlsx</span>finance export</span><span class="chip"><span class="label">Freight invoices</span>142 invoices</span><span class="chip"><span class="label">Board minutes Q3</span>PDF, 11 pages</span></div><div class="answer hidden"><p class="reveal dm-step">Gross margin fell from <b>41.2 % to 37.9 %</b> in Q3. <b>2.1 points</b> of the drop came from freight: average cost per shipment rose 18 % after the carrier change in July <sup class="dm-cite" data-cite="2">2</sup>.</p><p class="reveal dm-step">Price and product mix explain the rest. The board decided on <b>19 September</b> to renegotiate the carrier contract and add a freight surcharge on orders under €200 <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="reveal dm-chart dm-step"><figcaption>What moved gross margin, Q2 → Q3 (points)</figcaption><div class="dm-bars"><div class="dm-bar-row is-hl"><span class="dm-bar-k">Freight cost</span><span class="dm-bar-track"><i style="--w:100.0%"></i></span><span class="dm-bar-v">2.1 pt</span></div><div class="dm-bar-row"><span class="dm-bar-k">Discounts</span><span class="dm-bar-track"><i style="--w:33.3%"></i></span><span class="dm-bar-v">0.7 pt</span></div><div class="dm-bar-row"><span class="dm-bar-k">Product mix</span><span class="dm-bar-track"><i style="--w:23.8%"></i></span><span class="dm-bar-v">0.5 pt</span></div></div></figure><div class="reveal dm-flag dm-step"><b>Contradiction flagged</b> Q3 revenue.xlsx and the board minutes disagree on Q3 revenue by €42k — the minutes use the preliminary figure.</div><ol class="reveal dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Q3 revenue.xlsx</b><span>finance export</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Freight invoices</b><span>142 invoices</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Board minutes Q3</b><span>PDF, 11 pages</span></li></ol></div></div></template><template data-chat="churn"><div class="chat" data-ex="churn"><div class="q"></div><div class="think hidden"><span class="dots think-orbit" aria-hidden="true"><span class="to-ring"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-core"></span></span><span>Trail is reading</span><span class="chip"><span class="label">Billing export</span>Stripe, 2026</span><span class="chip"><span class="label">Support tickets</span>1,204 tickets</span><span class="chip"><span class="label">Exit survey</span>61 answers</span></div><div class="answer hidden"><p class="reveal dm-step">Monthly churn went from <b>2.1 % to 3.4 %</b> in August. <b>71 %</b> of the accounts that left were on the old Starter plan, which lost the export feature on 1 August <sup class="dm-cite" data-cite="1">1</sup>.</p><p class="reveal dm-step"><b>38 of 61</b> exit answers mention exports. Support saw a spike of “where is CSV export?” tickets the same week <sup class="dm-cite" data-cite="2">2</sup> <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="reveal dm-chart dm-step"><figcaption>Monthly churn, 2026</figcaption><div class="dm-line"><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><line class="dm-mark" x1="87.5" x2="87.5" y1="0" y2="40"/><polyline class="dm-s0" points="0.00,34.87 12.50,30.60 25.00,37.00 37.50,32.73 50.00,34.87 62.50,30.60 75.00,32.73 87.50,5.00 100.00,22.07"/></svg><span class="dm-mark-l" style="left:87.5%">Export removed</span><span class="dm-line-y dm-line-hi">3.4 %</span><span class="dm-line-y dm-line-lo">1.9 %</span></div><div class="dm-line-x"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div></figure><ol class="reveal dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Billing export</b><span>Stripe, 2026</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Support tickets</b><span>1,204 tickets</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Exit survey</b><span>61 answers</span></li></ol></div></div></template><template data-chat="returns"><div class="chat" data-ex="returns"><div class="q"></div><div class="think hidden"><span class="dots think-orbit" aria-hidden="true"><span class="to-ring"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-core"></span></span><span>Trail is reading</span><span class="chip"><span class="label">Returns export</span>8,940 returns</span><span class="chip"><span class="label">Customer reviews</span>2,310 reviews</span><span class="chip"><span class="label">Size guide v3</span>web page</span></div><div class="answer hidden"><p class="reveal dm-step">Returns are up <b>14 %</b> on last autumn. <b>Outerwear</b> accounts for almost half of the increase, and <b>62 %</b> of those returns are marked “too small” <sup class="dm-cite" data-cite="1">1</sup>.</p><p class="reveal dm-step">Reviews point the same way: the new supplier’s jackets run about one size small, and the size guide was not updated <sup class="dm-cite" data-cite="2">2</sup> <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="reveal dm-chart dm-step"><figcaption>Return rate by category, autumn 2026</figcaption><div class="dm-bars"><div class="dm-bar-row is-hl"><span class="dm-bar-k">Outerwear</span><span class="dm-bar-track"><i style="--w:100.0%"></i></span><span class="dm-bar-v">24 %</span></div><div class="dm-bar-row"><span class="dm-bar-k">Footwear</span><span class="dm-bar-track"><i style="--w:70.8%"></i></span><span class="dm-bar-v">17 %</span></div><div class="dm-bar-row"><span class="dm-bar-k">Knitwear</span><span class="dm-bar-track"><i style="--w:45.8%"></i></span><span class="dm-bar-v">11 %</span></div><div class="dm-bar-row"><span class="dm-bar-k">Accessories</span><span class="dm-bar-track"><i style="--w:16.7%"></i></span><span class="dm-bar-v">4 %</span></div></div></figure><ol class="reveal dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Returns export</b><span>8,940 returns</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Customer reviews</b><span>2,310 reviews</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Size guide v3</b><span>web page</span></li></ol></div></div></template><template data-chat="downtime"><div class="chat" data-ex="downtime"><div class="q"></div><div class="think hidden"><span class="dots think-orbit" aria-hidden="true"><span class="to-ring"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-core"></span></span><span>Trail is reading</span><span class="chip"><span class="label">MES export</span>line 2, 12 weeks</span><span class="chip"><span class="label">Maintenance log</span>87 entries</span><span class="chip"><span class="label">Supplier contract</span>PDF</span></div><div class="answer hidden"><p class="reveal dm-step">Unplanned downtime on line 2 rose from <b>3.1 to 7.8 hours a week</b> after week 31, when the new gasket supplier took over <sup class="dm-cite" data-cite="1">1</sup>.</p><p class="reveal dm-step"><b>23 of 31</b> maintenance entries since then mention seal changes at the filler <sup class="dm-cite" data-cite="2">2</sup>. The contract has a quality clause that allows a claim after two documented weeks <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="reveal dm-chart dm-step"><figcaption>Unplanned downtime, line 2 (hours/week)</figcaption><div class="dm-line"><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><line class="dm-mark" x1="45.45454545454545" x2="45.45454545454545" y1="0" y2="40"/><polyline class="dm-s0" points="0.00,35.25 9.09,37.00 18.18,34.09 27.27,36.42 36.36,35.84 45.45,27.11 54.55,11.98 63.64,6.75 72.73,7.91 81.82,5.00 90.91,10.24 100.00,8.49"/></svg><span class="dm-mark-l" style="left:45.45454545454545%">New supplier</span><span class="dm-line-y dm-line-hi">8.4 h</span><span class="dm-line-y dm-line-lo">2.9 h</span></div><div class="dm-line-x"><span>W26</span><span>W27</span><span>W28</span><span>W29</span><span>W30</span><span>W31</span><span>W32</span><span>W33</span><span>W34</span><span>W35</span><span>W36</span><span>W37</span></div></figure><ol class="reveal dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>MES export</b><span>line 2, 12 weeks</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Maintenance log</b><span>87 entries</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Supplier contract</b><span>PDF</span></li></ol></div></div></template><template data-chat="projects"><div class="chat" data-ex="projects"><div class="q"></div><div class="think hidden"><span class="dots think-orbit" aria-hidden="true"><span class="to-ring"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-core"></span></span><span>Trail is reading</span><span class="chip"><span class="label">Time registration</span>14,600 hours</span><span class="chip"><span class="label">Project minutes</span>96 meetings</span><span class="chip"><span class="label">Contracts</span>18 PDFs</span></div><div class="answer hidden"><p class="reveal dm-step"><b>4 of 18</b> projects ran over budget, together by <b>1,140 hours</b>. In three of them the minutes record scope added after sign-off without a change order <sup class="dm-cite" data-cite="2">2</sup>.</p><p class="reveal dm-step">Fixed-price projects overran three times as often as time-and-material ones <sup class="dm-cite" data-cite="1">1</sup> <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="reveal dm-chart dm-step"><figcaption>Projects over budget, by contract type</figcaption><div class="dm-cols"><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:37.5%" title="Over budget: 3"><span>3</span></i><i class="dm-s1" style="--h:75.0%" title="On budget: 6"><span>6</span></i></div><span class="dm-col-l">Fixed price</span></div><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:12.5%" title="Over budget: 1"><span>1</span></i><i class="dm-s1" style="--h:100.0%" title="On budget: 8"><span>8</span></i></div><span class="dm-col-l">Time &amp; material</span></div></div><div class="dm-legend"><span><i class="dm-s0"></i>Over budget</span><span><i class="dm-s1"></i>On budget</span></div></figure><div class="reveal dm-table dm-step"><table><thead><tr><th>Project</th><th class="num">Budget (h)</th><th class="num">Used (h)</th><th class="num">Over</th></tr></thead><tbody><tr class="is-hl"><td>Harbour portal</td><td class="num">1,200</td><td class="num">1,610</td><td class="num">+34 %</td></tr><tr><td>Retail CRM</td><td class="num">900</td><td class="num">1,180</td><td class="num">+31 %</td></tr><tr><td>Data platform</td><td class="num">2,400</td><td class="num">2,690</td><td class="num">+12 %</td></tr><tr><td>Brand site</td><td class="num">600</td><td class="num">760</td><td class="num">+27 %</td></tr></tbody></table></div><ol class="reveal dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Time registration</b><span>14,600 hours</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Project minutes</b><span>96 meetings</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Contracts</b><span>18 PDFs</span></li></ol></div></div></template><template data-chat="recovery"><div class="chat" data-ex="recovery"><div class="q"></div><div class="think hidden"><span class="dots think-orbit" aria-hidden="true"><span class="to-ring"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-core"></span></span><span>Trail is reading</span><span class="chip"><span class="label">Patient records</span>43 closed cases, anonymised</span><span class="chip"><span class="label">Clinic guidelines</span>2025 edition</span></div><div class="answer hidden"><p class="reveal dm-step"><b>43 cases</b> closed this year. Patients with <b>progressive strength training from week one</b> reached full function after <b>8.5 weeks</b> on average — 4.6 weeks faster than mainly passive treatment <sup class="dm-cite" data-cite="1">1</sup>.</p><p class="reveal dm-step">That matches the clinic’s own 2025 guideline, which already recommends early loading <sup class="dm-cite" data-cite="2">2</sup>. The numbers inform; the clinician decides.</p><figure class="reveal dm-chart dm-step"><figcaption>Weeks to full function, by treatment type</figcaption><div class="dm-bars"><div class="dm-bar-row is-hl"><span class="dm-bar-k">Strength training from week 1</span><span class="dm-bar-track"><i style="--w:64.9%"></i></span><span class="dm-bar-v">8.5 wk</span></div><div class="dm-bar-row"><span class="dm-bar-k">Strength + dry needling</span><span class="dm-bar-track"><i style="--w:70.2%"></i></span><span class="dm-bar-v">9.2 wk</span></div><div class="dm-bar-row"><span class="dm-bar-k">Home exercises only</span><span class="dm-bar-track"><i style="--w:94.7%"></i></span><span class="dm-bar-v">12.4 wk</span></div><div class="dm-bar-row"><span class="dm-bar-k">Mainly passive</span><span class="dm-bar-track"><i style="--w:100.0%"></i></span><span class="dm-bar-v">13.1 wk</span></div></div></figure><ol class="reveal dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Patient records</b><span>43 closed cases, anonymised</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Clinic guidelines</b><span>2025 edition</span></li></ol></div></div></template><template data-chat="onboarding"><div class="chat" data-ex="onboarding"><div class="q"></div><div class="think hidden"><span class="dots think-orbit" aria-hidden="true"><span class="to-ring"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-core"></span></span><span>Trail is reading</span><span class="chip"><span class="label">HR system export</span>64 hires</span><span class="chip"><span class="label">Onboarding survey</span>52 answers</span><span class="chip"><span class="label">Handbook</span>intranet, 140 pages</span></div><div class="answer hidden"><p class="reveal dm-step">Time to first independent task dropped from <b>31 to 19 days</b> on average. The biggest gain is in <b>Customer service</b>, where new hires now ask the brain instead of a senior colleague <sup class="dm-cite" data-cite="1">1</sup> <sup class="dm-cite" data-cite="2">2</sup>.</p><p class="reveal dm-step">Engineering is the exception: the handbook’s setup chapter is two versions behind the tooling actually in use <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="reveal dm-chart dm-step"><figcaption>Days to first independent task</figcaption><div class="dm-cols"><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:100.0%" title="2025: 34 d"><span>34 d</span></i><i class="dm-s1" style="--h:41.2%" title="2026: 14 d"><span>14 d</span></i></div><span class="dm-col-l">Customer service</span></div><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:85.3%" title="2025: 29 d"><span>29 d</span></i><i class="dm-s1" style="--h:52.9%" title="2026: 18 d"><span>18 d</span></i></div><span class="dm-col-l">Sales</span></div><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:79.4%" title="2025: 27 d"><span>27 d</span></i><i class="dm-s1" style="--h:55.9%" title="2026: 19 d"><span>19 d</span></i></div><span class="dm-col-l">Finance</span></div><div class="dm-col-g"><div class="dm-col-bars"><i class="dm-s0" style="--h:97.1%" title="2025: 33 d"><span>33 d</span></i><i class="dm-s1" style="--h:91.2%" title="2026: 31 d"><span>31 d</span></i></div><span class="dm-col-l">Engineering</span></div></div><div class="dm-legend"><span><i class="dm-s0"></i>2025</span><span><i class="dm-s1"></i>2026</span></div></figure><div class="reveal dm-flag dm-step"><b>Contradiction flagged</b> The handbook says laptops are set up by IT; the onboarding survey says new hires do it themselves.</div><ol class="reveal dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>HR system export</b><span>64 hires</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Onboarding survey</b><span>52 answers</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Handbook</b><span>intranet, 140 pages</span></li></ol></div></div></template><template data-chat="citizens"><div class="chat" data-ex="citizens"><div class="q"></div><div class="think hidden"><span class="dots think-orbit" aria-hidden="true"><span class="to-ring"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-core"></span></span><span>Trail is reading</span><span class="chip"><span class="label">Case system export</span>6,320 cases</span><span class="chip"><span class="label">Service policy 2026</span>council decision</span></div><div class="answer hidden"><p class="reveal dm-step">Building permits take longest at <b>41 days</b> on average — the policy target is <b>28 days</b> <sup class="dm-cite" data-cite="1">1</sup> <sup class="dm-cite" data-cite="2">2</sup>.</p><p class="reveal dm-step">Everything else is within target. Permit cases wait longest at the step “awaiting neighbour consultation”, <b>17 days</b> on average <sup class="dm-cite" data-cite="1">1</sup>.</p><figure class="reveal dm-chart dm-step"><figcaption>Average days to resolve, by enquiry type</figcaption><div class="dm-bars"><div class="dm-bar-row is-hl"><span class="dm-bar-k">Building permits</span><span class="dm-bar-track"><i style="--w:100.0%"></i></span><span class="dm-bar-v">41 d</span></div><div class="dm-bar-row"><span class="dm-bar-k">Parking permits</span><span class="dm-bar-track"><i style="--w:29.3%"></i></span><span class="dm-bar-v">12 d</span></div><div class="dm-bar-row"><span class="dm-bar-k">Waste collection</span><span class="dm-bar-track"><i style="--w:14.6%"></i></span><span class="dm-bar-v">6 d</span></div><div class="dm-bar-row"><span class="dm-bar-k">Address change</span><span class="dm-bar-track"><i style="--w:4.9%"></i></span><span class="dm-bar-v">2 d</span></div></div></figure><ol class="reveal dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Case system export</b><span>6,320 cases</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Service policy 2026</b><span>council decision</span></li></ol></div></div></template><template data-chat="energy"><div class="chat" data-ex="energy"><div class="q"></div><div class="think hidden"><span class="dots think-orbit" aria-hidden="true"><span class="to-ring"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-core"></span></span><span>Trail is reading</span><span class="chip"><span class="label">Energy meter data</span>12 buildings</span><span class="chip"><span class="label">Inspection reports</span>12 PDFs</span><span class="chip"><span class="label">Maintenance budget</span>2027 draft</span></div><div class="answer hidden"><p class="reveal dm-step"><b>Nørregade 14</b> uses <b>168 kWh/m²</b>, twice the portfolio average. The 2025 inspection recommended new windows and roof insulation, with an estimated <b>31 %</b> saving <sup class="dm-cite" data-cite="1">1</sup> <sup class="dm-cite" data-cite="2">2</sup>.</p><p class="reveal dm-step">Neither is in the 2027 maintenance budget draft <sup class="dm-cite" data-cite="3">3</sup>.</p><figure class="reveal dm-chart dm-step"><figcaption>Energy use, kWh per m² per year</figcaption><div class="dm-bars"><div class="dm-bar-row is-hl"><span class="dm-bar-k">Nørregade 14</span><span class="dm-bar-track"><i style="--w:100.0%"></i></span><span class="dm-bar-v">168</span></div><div class="dm-bar-row"><span class="dm-bar-k">Havnevej 3</span><span class="dm-bar-track"><i style="--w:66.7%"></i></span><span class="dm-bar-v">112</span></div><div class="dm-bar-row"><span class="dm-bar-k">Skolegade 8</span><span class="dm-bar-track"><i style="--w:57.1%"></i></span><span class="dm-bar-v">96</span></div><div class="dm-bar-row"><span class="dm-bar-k">Portfolio average</span><span class="dm-bar-track"><i style="--w:50.0%"></i></span><span class="dm-bar-v">84</span></div></div></figure><ol class="reveal dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Energy meter data</b><span>12 buildings</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Inspection reports</b><span>12 PDFs</span></li><li data-src="3"><span class="dm-src-n">3</span><b>Maintenance budget</b><span>2027 draft</span></li></ol></div></div></template><template data-chat="contracts"><div class="chat" data-ex="contracts"><div class="q"></div><div class="think hidden"><span class="dots think-orbit" aria-hidden="true"><span class="to-ring"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-dot"></span><span class="to-core"></span></span><span>Trail is reading</span><span class="chip"><span class="label">Contract archive</span>214 contracts</span><span class="chip"><span class="label">Procurement policy</span>2024</span></div><div class="answer hidden"><p class="reveal dm-step"><b>6 contracts</b> renew within 90 days, worth <b>€1.4m</b> a year. <b>4</b> of them index prices to CPI automatically unless cancelled 60 days before renewal <sup class="dm-cite" data-cite="1">1</sup>.</p><p class="reveal dm-step">Policy requires a re-tender above €250k a year — that applies to two of them <sup class="dm-cite" data-cite="2">2</sup>.</p><div class="reveal dm-table dm-step"><table><thead><tr><th>Supplier</th><th class="num">Renews</th><th class="num">Value / yr</th><th class="num">Indexation</th></tr></thead><tbody><tr class="is-hl"><td>Cleaning</td><td class="num">14 Nov</td><td class="num">€410k</td><td class="num">CPI</td></tr><tr><td>IT support</td><td class="num">1 Dec</td><td class="num">€380k</td><td class="num">CPI</td></tr><tr><td>Canteen</td><td class="num">1 Dec</td><td class="num">€220k</td><td class="num">—</td></tr><tr><td>Security</td><td class="num">15 Dec</td><td class="num">€180k</td><td class="num">CPI</td></tr><tr><td>Printing</td><td class="num">31 Dec</td><td class="num">€120k</td><td class="num">CPI</td></tr><tr><td>Courier</td><td class="num">2 Jan</td><td class="num">€90k</td><td class="num">—</td></tr></tbody></table></div><ol class="reveal dm-sources dm-step"><li data-src="1"><span class="dm-src-n">1</span><b>Contract archive</b><span>214 contracts</span></li><li data-src="2"><span class="dm-src-n">2</span><b>Procurement policy</b><span>2024</span></li></ol></div></div></template>
+</div></section></div>
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -1591,53 +2067,113 @@ i.dm-s1 { background: var(--clay); }
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
 (function(){
   var root = document.querySelector('[data-testid="demo-root"]'); if (!root) return;
-  var data; try { data = JSON.parse(document.querySelector('[data-testid="demo-data"]').textContent); } catch (e) { return; }
+  var app = root.querySelector('[data-testid="demo-app"]'), frame = root.querySelector('[data-testid="demo-frame"]');
+  var conv = root.querySelector('[data-testid="demo-stream"]'), ta = root.querySelector('[data-testid="demo-input"]'), form = root.querySelector('[data-testid="demo-composer"]');
+  var title = root.querySelector('[data-testid="demo-title"]'), dock = root.querySelector('[data-testid="demo-dock"]'), toastEl = root.querySelector('[data-testid="demo-toast"]');
+  var data = []; try { data = JSON.parse(root.querySelector('[data-testid="demo-data"]').textContent); } catch (e) {}
   var byId = {}; data.forEach(function(d){ byId[d.id] = d; });
-  var stream = root.querySelector('[data-testid="demo-stream"]'), input = root.querySelector('[data-testid="demo-input"]'), title = root.querySelector('[data-testid="demo-title"]');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var run = 0;
-  function wait(ms){ return new Promise(function(r){ setTimeout(r, reduce ? 0 : ms); }); }
-  function el(tag, cls, html){ var n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; }
-  function scroll(){ stream.scrollTop = stream.scrollHeight; }
+  var run = 0, toastT = 0;
+  function toast(t){ toastEl.textContent = t; toastEl.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(function(){ toastEl.classList.remove('on'); }, 3200); }
+  if (window.ResizeObserver) new ResizeObserver(function(){ app.style.setProperty('--dock-h', dock.offsetHeight + 'px'); }).observe(dock);
+  function follow(){ conv.scrollTop = conv.scrollHeight; }
+  function markHist(id){ root.querySelectorAll('.app-side [data-goto]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-goto') === id); }); root.querySelector('[data-app="new"]').classList.toggle('on', !id); }
+  function reset(){ run++; conv.innerHTML = ''; app.classList.remove('conv-on'); title.textContent = ''; ta.value = ''; ta.placeholder = "Ask Acme's brain anything …"; markHist(null); }
   function play(id){
-    var d = byId[id]; if (!d) return; var me = ++run;
-    root.querySelectorAll('[data-ex]').forEach(function(b){ b.classList.toggle('is-on', b.getAttribute('data-ex') === id); });
-    title.textContent = d.title; stream.innerHTML = ''; input.textContent = '';
-    var q = d.question, i = 0;
-    var typing = setInterval(function(){
-      if (me !== run) { clearInterval(typing); return; }
-      i = reduce ? q.length : Math.min(q.length, i + 3); input.textContent = q.slice(0, i);
-      if (i >= q.length) { clearInterval(typing); ask(); }
-    }, 18);
-    function ask(){
-      if (me !== run) return;
-      input.textContent = '';
-      stream.appendChild(el('div', 'dm-q', '')).textContent = q;
-      var think = el('div', 'dm-think', '<span class="dm-orbit" aria-hidden="true"></span><span>Trail is reading</span>');
-      stream.appendChild(think); scroll();
-      var chain = wait(450);
-      d.sources.forEach(function(s){ chain = chain.then(function(){ if (me !== run) return; var c = el('span', 'dm-src-chip'); c.innerHTML = '<b></b><span></span>'; c.firstChild.textContent = s.label; c.lastChild.textContent = s.detail; think.appendChild(c); scroll(); return wait(380); }); });
-      chain.then(function(){ return wait(350); }).then(function(){
-        if (me !== run) return;
-        think.classList.add('is-done');
-        var a = el('div', 'dm-a'); a.setAttribute('data-testid', 'demo-answer');
-        a.appendChild(el('small', 'dm-a-from', 'trail · cited answer'));
-        a.appendChild(document.querySelector('template[data-answer="' + id + '"]').content.cloneNode(true));
-        stream.appendChild(a);
-        var steps = a.querySelectorAll('.dm-step'), k = 0;
-        (function next(){ if (me !== run || k >= steps.length) return; steps[k++].classList.add('is-in'); scroll(); setTimeout(next, reduce ? 0 : 420); })();
-      });
+    var d = byId[id], tpl = root.querySelector('template[data-chat="' + id + '"]'); if (!d || !tpl) return;
+    var me = ++run;
+    if (!app.classList.contains('conv-on')) { conv.innerHTML = ''; app.classList.add('conv-on'); title.textContent = d.title; }
+    markHist(id); ta.placeholder = 'Write a message …';
+    if (window.matchMedia('(max-width:980px)').matches) setSide(false);
+    var chat = tpl.content.firstElementChild.cloneNode(true); conv.appendChild(chat);
+    var q = chat.querySelector('.q'), think = chat.querySelector('.think'), ans = chat.querySelector('.answer'), parts = ans.querySelectorAll('.reveal');
+    var text = d.question;
+    function alive(){ return me === run && conv.contains(chat); }
+    function finish(){
+      q.textContent = text; q.classList.remove('pending'); think.classList.remove('hidden'); follow();
+      var chips = think.querySelectorAll('.chip'); chips.forEach(function(c){ c.style.display = 'none'; });
+      var k = 0; (function nextChip(){ if (!alive()) return; if (k < chips.length) { chips[k++].style.display = ''; follow(); setTimeout(nextChip, reduce ? 0 : 420); return; }
+        setTimeout(function(){
+          if (!alive()) return;
+          think.querySelector('.dots').style.display = 'none'; think.querySelector(':scope > span:nth-child(2)').textContent = 'Sources'; think.classList.add('done');
+          ans.classList.remove('hidden');
+          parts.forEach(function(p, i){ setTimeout(function(){ if (alive()) { p.classList.add('in', 'is-in'); follow(); } }, reduce ? 0 : i * 260); });
+        }, reduce ? 0 : 700); })();
     }
+    q.classList.add('pending'); q.textContent = text; follow();
+    if (reduce) { finish(); return; }
+    var n = 0; ta.value = '';
+    (function type(){
+      if (!alive()) return;
+      n += 2 + (Math.random() < .4 ? 1 : 0); ta.value = text.slice(0, n); ta.scrollTop = ta.scrollHeight;
+      if (n < text.length) setTimeout(type, 14 + Math.random() * 16); else setTimeout(function(){ if (alive()) { ta.value = ''; finish(); } }, 380);
+    })();
   }
+  /* panel toggle */
+  var toggle = root.querySelector('[data-testid="demo-panel-toggle"]');
+  function setSide(on){ app.classList.toggle('side-open', on); toggle.setAttribute('aria-pressed', String(on)); toggle.setAttribute('aria-label', on ? 'Hide menu' : 'Show menu'); toggle.dataset.hint = on ? 'Hide menu' : 'Show menu'; }
+  if (window.matchMedia('(max-width:980px)').matches) setSide(false);
+  toggle.addEventListener('click', function(){ setSide(!app.classList.contains('side-open')); });
+  /* clicks */
   root.addEventListener('click', function(e){
-    var b = e.target.closest('[data-ex]'); if (b) { play(b.getAttribute('data-ex')); return; }
-    var c = e.target.closest('.dm-cite'); if (c) { var li = root.querySelector('.dm-a [data-src="' + c.getAttribute('data-cite') + '"]'); if (li) { li.classList.remove('is-ping'); void li.offsetWidth; li.classList.add('is-ping'); li.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' }); } }
+    var g = e.target.closest('[data-goto]'); if (g) { play(g.getAttribute('data-goto')); return; }
+    var a = e.target.closest('.app-nav [data-app]');
+    if (a) { if (a.dataset.app === 'new') { reset(); ta.focus(); } else toast({ activity: 'Activity: 3 new answers from scheduled questions this morning.', insights: 'Insights: margin, churn and supplier downtime are moving this week.', shared: 'Shared chats: 2 chats are shared with you by the finance team.', saved: 'Saved: your pinned questions re-run against today\u2019s data.', memory: 'Memory: Trail remembers that you report to the board monthly.' }[a.dataset.app]); return; }
+    var c = e.target.closest('.pp-item'); if (c) { closePops(); toast(c.dataset.conn === '+' ? 'Connectors are approved by Acme before they can be used.' : c.dataset.skill ? c.dataset.skill + ' turns this chat into Acme\u2019s board-report format.' : c.dataset.conn ? c.dataset.conn + ' is connected — Trail can read it, never write.' : 'Drop any Word, Excel, PDF or image — Trail compiles it into the brain.'); return; }
+    var m = e.target.closest('.hist-more'); if (m) { toast('Pin, rename, add to a project or delete.'); return; }
   });
-  var fs = root.querySelector('[data-testid="demo-fullscreen"]');
-  if (fs) fs.addEventListener('click', function(){
-    if (document.fullscreenElement) { document.exitFullscreen(); return; }
-    if (root.requestFullscreen) root.requestFullscreen().catch(function(){ root.classList.toggle('is-max'); }); else root.classList.toggle('is-max');
+  /* popovers */
+  var pops = [
+    { btn: root.querySelector('[data-testid="demo-add"]'), pop: root.querySelector('[data-testid="demo-plus-menu"]') },
+    { btn: root.querySelector('[data-testid="demo-sources-toggle"]'), pop: root.querySelector('[data-testid="demo-sources-menu"]') },
+    { btn: root.querySelector('[data-testid="demo-nav-more"]'), pop: root.querySelector('[data-testid="demo-more-menu"]') },
+  ];
+  var um = root.querySelector('[data-testid="demo-user-menu"]'), umBtn = root.querySelector('[data-testid="demo-user-menu-open"]');
+  function closePops(except){ pops.forEach(function(p){ if (p !== except) { p.pop.classList.add('hidden'); p.btn.setAttribute('aria-expanded', 'false'); } }); if (except !== 'um') { um.classList.add('hidden'); umBtn.setAttribute('aria-expanded', 'false'); } }
+  pops.forEach(function(p){ p.btn.addEventListener('click', function(e){ e.stopPropagation(); var open = p.pop.classList.contains('hidden'); closePops(p); p.pop.classList.toggle('hidden', !open); p.btn.setAttribute('aria-expanded', String(open)); }); });
+  umBtn.addEventListener('click', function(e){
+    e.stopPropagation(); var open = um.classList.contains('hidden'); closePops('um');
+    if (!open) { um.classList.add('hidden'); umBtn.setAttribute('aria-expanded', 'false'); return; }
+    um.classList.remove('hidden'); umBtn.setAttribute('aria-expanded', 'true');
+    var r = umBtn.getBoundingClientRect(); um.style.left = Math.max(8, r.left) + 'px'; um.style.width = Math.max(280, r.width) + 'px'; um.style.top = Math.max(8, r.top - um.offsetHeight - 6) + 'px';
   });
+  document.addEventListener('click', function(e){ if (!e.target.closest('.plus-pop,.src-pop,.more-pop,.user-menu')) closePops(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closePops(); });
+  root.querySelector('[data-testid="demo-pinned-toggle"]').addEventListener('click', function(){ var p = root.querySelector('[data-testid="demo-pinned"]'), open = p.classList.contains('hidden'); p.classList.toggle('hidden', !open); this.setAttribute('aria-expanded', String(open)); });
+  /* data sources */
+  var count = root.querySelector('[data-testid="demo-sources-count"]');
+  root.querySelectorAll('.src-row').forEach(function(r){ r.addEventListener('click', function(e){ e.stopPropagation(); var on = r.getAttribute('aria-checked') !== 'true'; r.setAttribute('aria-checked', String(on)); r.classList.toggle('on', on); var n = root.querySelectorAll('.src-row.on').length; count.textContent = n + ' of ' + root.querySelectorAll('.src-row').length; }); });
+  /* composer */
+  form.addEventListener('submit', function(e){
+    e.preventDefault(); var v = ta.value.trim().toLowerCase(); if (!v) return;
+    var hit = data.filter(function(d){ return v.split(/\W+/).filter(function(w){ return w.length > 3 && (d.question + ' ' + d.title).toLowerCase().indexOf(w) > -1; }).length >= 2; })[0];
+    ta.value = ''; if (hit) play(hit.id); else toast('In this demo the answers are prepared — pick a chat under History, or a suggestion.');
+  });
+  ta.addEventListener('keydown', function(e){ if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); } });
+  var mic = root.querySelector('[data-testid="demo-mic"]');
+  mic.addEventListener('click', function(){ var on = mic.getAttribute('aria-pressed') !== 'true'; mic.setAttribute('aria-pressed', String(on)); form.classList.toggle('rec', on); if (on) toast('Dictation: speak in your own language — speech-to-text runs in the EU.'); });
+  root.querySelector('[data-testid="demo-share"]').addEventListener('click', function(){ toast('Share: colleagues see the same answer with the same sources.'); });
+  /* user menu: theme + zoom */
+  function themeNow(){ var t = null; try { t = localStorage.getItem('trail.theme'); } catch (e) {} return t || 'system'; }
+  function paintTheme(){ var m = themeNow(); um.querySelectorAll('[data-theme-mode]').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.themeMode === m)); }); }
+  um.querySelectorAll('[data-theme-mode]').forEach(function(b){ b.addEventListener('click', function(e){
+    e.stopPropagation(); var m = b.dataset.themeMode;
+    try { if (m === 'system') localStorage.removeItem('trail.theme'); else localStorage.setItem('trail.theme', m); } catch (er) {}
+    var eff = m === 'system' ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark') : m;
+    document.documentElement.setAttribute('data-theme', eff); paintTheme();
+  }); });
+  paintTheme();
+  var zoom = 100, zv = um.querySelector('[data-testid="demo-um-zoom-value"]');
+  function setZoom(z){ zoom = Math.max(80, Math.min(130, z)); root.style.setProperty('--app-zoom', zoom / 100); zv.textContent = zoom + ' %'; }
+  um.querySelector('[data-testid="demo-um-zoom-in"]').addEventListener('click', function(e){ e.stopPropagation(); setZoom(zoom + 10); });
+  um.querySelector('[data-testid="demo-um-zoom-out"]').addEventListener('click', function(e){ e.stopPropagation(); setZoom(zoom - 10); });
+  um.querySelectorAll('.um-item').forEach(function(b){ b.addEventListener('click', function(){ closePops(); toast(b.dataset.testid === 'demo-um-logout' ? 'This is a demo — there is nothing to log out of.' : 'Not part of the demo.'); }); });
+  /* full screen */
+  function isFull(){ return frame.classList.contains('is-full'); }
+  root.querySelector('[data-testid="demo-fullscreen"]').addEventListener('click', function(){ frame.classList.add('is-full'); document.documentElement.classList.add('kai-full'); if (document.documentElement.requestFullscreen && !document.fullscreenElement) document.documentElement.requestFullscreen().catch(function(){}); });
+  function exitFull(){ if (!isFull()) return; frame.classList.remove('is-full'); document.documentElement.classList.remove('kai-full'); if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen(); }
+  root.querySelector('[data-testid="demo-fullscreen-exit"]').addEventListener('click', exitFull);
+  document.addEventListener('fullscreenchange', function(){ if (!document.fullscreenElement) exitFull(); });
   var start = new URLSearchParams(location.search).get('q'); if (start && byId[start]) play(start);
 })();
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
