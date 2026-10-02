@@ -1,6 +1,6 @@
 {
-  "name": "trail",
-  "short_name": "trail",
+  "name": "trail: second brain",
+  "short_name": "trail: second brain",
   "description": "A minimalist engine to ingest, connect, and retrieve your organization's collective intelligence. Reimagining Vannevar Bush's 1945 vision with geometric precision.",
   "start_url": "/",
   "display": "standalone",
