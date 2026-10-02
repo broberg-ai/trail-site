@@ -752,13 +752,15 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
 .lp-pipe { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .lp-pipe > * { min-width: 0; }
 .lp-pipe .lp-src { white-space: nowrap; overflow: hidden; }
+/* The kind tag costs a third of a narrow column; the title is what tells the story. */
+.lp-pipe .lp-k { display: none; }
 .lp-src-t { overflow: hidden; text-overflow: ellipsis; }
 .lp-src .lp-plus { margin-left: auto; flex: none; font: 9.5px var(--font-mono); padding: 1px 5px; border-radius: 4px; color: var(--clay); background: color-mix(in srgb, var(--clay) 14%, transparent); }
 .lp-brainstrip { margin-top: 10px; background: var(--bg-sunk); border-radius: 12px; padding: 8px; overflow: hidden; }
 .lp-brainstrip .lp-neuron { margin-bottom: 0; }
 .lp-flow > * { min-width: 0; }
 .lp-col { background: var(--bg-sunk); border-radius: 12px; padding: 8px; }
-.lp-col h4 { margin: 2px 4px 8px; font: 500 10px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--fg-muted); }
+.lp-col h4, .lp-brainstrip h4 { margin: 2px 4px 8px; font: 500 10px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--fg-muted); }
 .lp-src { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 7px 9px; margin-bottom: 7px; font-size: 12px; display: flex; gap: 7px; align-items: center; }
 .lp-k { font: 9.5px var(--font-mono); padding: 1px 5px; border-radius: 4px; background: var(--bg-sunk); color: var(--fg-muted); }
 .lp-arrow { display: grid; place-items: center; color: var(--clay); }
@@ -896,7 +898,6 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
 }
 @media (max-width: 560px) {
   .lp-wrap { padding: 0 16px; }
-  .lp-pipe .lp-k { display: none; }
   .lp-pipe { gap: 6px; }
   .lp-hero { padding-top: 110px; }
   .lp-hero h1 { font-size: 36px; }
