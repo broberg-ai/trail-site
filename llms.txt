@@ -4,7 +4,6 @@
 
 ## Pages
 
-- [cc-rw2-22025](https://www.trailmem.com/cc-write-test/): intern skrive-test
 - [Knowledge Infrastructure for the AI Era — trail](https://www.trailmem.com/): Trail is a knowledge infrastructure engine that turns your sources into a persistent, compounding Neuron-graph — maintained by an LLM on your behalf. Realizing Vannevar Bush
 - [Privacy Policy](https://www.trailmem.com/privacy/): What Trail and the Trail Web Clipper do with your data — what the extension reads, what stays on your device, what we store, and how to delete it.
 - [The second brain that is everywhere you work](https://www.trailmem.com/second-brain/): Everything you read, hear and save — compiled into one connected memory that remembers for you, and is there wherever you work.
