@@ -764,6 +764,28 @@ html[data-theme="dark"] .lp-btn-primary:hover { background: #a94a1f; border-colo
 .lp-hero .lp-wrap > * { min-width: 0; }
 .lp-hero h1 { font-size: 58px; line-height: 1.03; }
 .lp-hero h1 em { font-style: normal; color: var(--clay); }
+.lp-swap { display: grid; }
+.lp-swap > span { grid-area: 1 / 1; transition: opacity .9s ease, transform .9s ease; }
+.lp-swap-b { opacity: 0; transform: translateY(10px); }
+.lp-swap.is-alt .lp-swap-a { opacity: 0; transform: translateY(-10px); }
+.lp-swap.is-alt .lp-swap-b { opacity: 1; transform: none; }
+.lp-manifesto { position: relative; overflow: hidden; }
+.lp-manifesto > .lp-wrap { position: relative; z-index: 1; }
+.lp-mf-video { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.lp-mf-video video { width: 100%; height: 100%; object-fit: cover; opacity: .28; }
+:root[data-theme="light"] .lp-mf-video video { opacity: .14; }
+.lp-mf-video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 40%, transparent) 30%, color-mix(in srgb, var(--bg) 40%, transparent) 70%, var(--bg) 100%); }
+.lp-mf { display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: start; }
+.lp-mf h2 { font-size: 52px; line-height: 1.04; margin: 12px 0 18px; }
+.lp-mf-lead { font-size: 20px; line-height: 1.5; color: var(--fg); margin: 0; }
+.lp-mf-points { display: flex; flex-direction: column; gap: 28px; }
+.lp-mf-pt { display: grid; grid-template-columns: 48px 1fr; gap: 16px; }
+.lp-mf-n { font: 500 13px var(--font-mono); color: var(--clay); padding-top: 4px; border-top: 1px solid var(--clay); }
+.lp-mf-pt h3 { font-size: 20px; margin: 0 0 8px; }
+.lp-mf-pt p { margin: 0; color: var(--fg-muted); line-height: 1.65; }
+.lp-mf-close { margin: 72px 0 0; font-family: var(--font-serif); font-size: 34px; line-height: 1.2; max-width: 900px; }
+.lp-mf-close em { font-style: normal; color: var(--clay); }
+@media (max-width: 900px) { .lp-mf { grid-template-columns: 1fr; gap: 36px; } .lp-mf h2 { font-size: 38px; } .lp-mf-close { font-size: 26px; margin-top: 48px; } }
 html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2.96:1 on the light bg; clay-btn is AA */
 .lp-lede { font-size: 18px; color: var(--fg-muted); max-width: 540px; margin: 22px 0 30px; }
 .lp-lede-tail { display: block; margin-top: 14px; color: var(--fg); }
@@ -965,6 +987,35 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
 .nl-wrap { position: relative; display: block; overflow: hidden; width: fit-content; max-width: 100%; }
 .nl-wrap img { display: block; }
 .nl-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: screen; }
+
+.sc-hero { position: relative; padding: 150px 0 72px; }
+.sc-hero .lp-wrap { position: relative; z-index: 1; }
+.sc-hero h1 { font-size: clamp(40px, 6vw, 68px); line-height: 1.03; letter-spacing: -.02em; margin: 14px 0 20px; max-width: 900px; }
+.sc-hero p { font-size: 20px; line-height: 1.5; color: var(--fg-muted); max-width: 680px; margin: 0; }
+.sc-s { position: relative; padding: 96px 0; }
+.sc-s h2 { font-size: 40px; line-height: 1.08; margin: 12px 0 22px; }
+.sc-s p { font-size: 17px; line-height: 1.7; color: var(--fg-muted); margin: 0 0 16px; }
+.sc-s p strong { color: var(--fg); }
+.sc-s a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--clay); text-underline-offset: 3px; }
+.sc-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.sc-split.sc-media-left .sc-media { order: -1; }
+.sc-wide > h2, .sc-wide > p { max-width: 760px; }
+.sc-media video, .sc-media img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 30px 80px -30px rgba(0,0,0,.55); margin: 0; }
+.sc-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0; }
+.sc-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; transition: border-color .15s, transform .15s; }
+.sc-card:hover { border-color: var(--clay); transform: translateY(-2px); }
+.sc-card h3 { font-size: 17px; margin: 0 0 8px; color: var(--fg); }
+.sc-card p { font-size: 14.5px; line-height: 1.6; margin: 0; }
+.sc-cta { text-align: center; padding: 110px 0; }
+.sc-cta h2 { font-size: 46px; }
+.sc-cta p { max-width: 620px; margin-left: auto; margin-right: auto; }
+@media (max-width: 900px) {
+  .sc-split { grid-template-columns: 1fr; gap: 32px; }
+  .sc-split.sc-media-left .sc-media { order: 0; }
+  .sc-s { padding: 64px 0; }
+  .sc-s h2 { font-size: 30px; }
+  .sc-hero { padding: 120px 0 48px; }
+}
 </style>
 
   <!-- webhouse.app enrichment -->
@@ -1160,7 +1211,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   <div id="page" data-testid="page-root"><main class="lp"><header class="lp-hero" data-testid="home-hero"><div class="lp-hero-video" aria-hidden="true" data-testid="home-hero-video"><video autoplay muted loop playsinline preload="metadata" poster="/uploads/hero-pulse-poster-nx1q.webp"><source src="/uploads/hero-pulse.av1-red1.webm" type="video/webm; codecs=av01.0.05M.10"><source src="/uploads/hero-pulse.h264-q78n.mp4" type="video/mp4"></video></div><div class="lp-wrap">
   <div>
     <span class="lp-pill"><span class="lp-dot"></span>Compiled knowledge, hosted in the EU</span>
-    <h1>Everything you read.<br>Compiled once.<br><em>Remembered for good.</em></h1>
+    <h1 class="lp-swap" data-testid="home-hero-title"><span class="lp-swap-a">Everything you read.<br>Compiled once.<br><em>Remembered for good.</em></span><span class="lp-swap-b" aria-hidden="true">Knowledge<br>Infrastructure<br><em>for the AI Era.</em></span></h1>
     <p class="lp-lede">Trail reads every source you give it — Word and Excel files, PDFs, pages, notes, conversations — and compiles it into a connected brain of citable Neurons. Ask anything, from anywhere you work, and get the answer with the sources it came from.<span class="lp-lede-tail">Knowledge Infrastructure for the AI Era.</span></p>
     <div class="lp-row"><a class="lp-btn lp-btn-primary" href="https://app.trailmem.com" data-testid="home-hero-cta-0">Start your brain<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="lp-btn" href="#how" data-testid="home-hero-cta-1">See how it works</a></div>
   </div>
@@ -1172,7 +1223,13 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   </div>
 </div></header>
 <section class="lp-stats" data-testid="home-stats"><div class="lp-wrap"><div class="lp-stat"><span class="lp-stat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span><b>Read once</b><span>Every source is compiled into linked Neurons — never re-read from scratch.</span></div><div class="lp-stat"><span class="lp-stat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></span><b>Always cited</b><span>Every answer shows the source it came from.</span></div><div class="lp-stat"><span class="lp-stat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span><b>Kept in the EU</b><span>Hosted in Stockholm, answered by EU language models.</span></div><div class="lp-stat"><span class="lp-stat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span><b>You decide</b><span>Nothing in your brain changes without your approval.</span></div></div></section>
-
+<section class="lp-s lp-manifesto" id="infrastructure" data-testid="home-manifesto"><div class="lp-mf-video" aria-hidden="true"><video autoplay muted loop playsinline preload="metadata" poster="/uploads/sb-net-poster-m55g.webp"><source src="/uploads/sb-net.av1-yhk6.webm" type="video/webm; codecs=av01.0.05M.10"><source src="/uploads/sb-net.h264-ir9x.mp4" type="video/mp4"></video></div><div class="lp-wrap">
+  <div class="lp-mf">
+    <div><span class="lp-eyebrow">Why Trail exists</span><h2>Knowledge Infrastructure for the AI Era.</h2><p class="lp-mf-lead">Every company is getting AI. Soon every competitor runs the same models — what sets you apart is what your AI knows.</p></div>
+    <div class="lp-mf-points"><div class="lp-mf-pt" data-testid="home-manifesto-point-0"><span class="lp-mf-n">01</span><div><h3>The model is not the advantage. Your knowledge is.</h3><p>A model without your company’s knowledge gives you the same answer it gives everyone else. The value is in what only you know: your decisions, your customers, your numbers, your history.</p></div></div><div class="lp-mf-pt" data-testid="home-manifesto-point-1"><span class="lp-mf-n">02</span><div><h3>Today that knowledge is scattered — and leaking into Shadow AI.</h3><p>It sits in mail, drives, meetings and people’s heads. Every AI tool searches it from scratch, guesses, and rarely says where an answer came from. Meanwhile people paste company knowledge into whatever assistant is on their own phone or laptop — Shadow AI, outside your control, and gone the moment the chat closes.</p></div></div><div class="lp-mf-pt" data-testid="home-manifesto-point-2"><span class="lp-mf-n">03</span><div><h3>Knowledge should be infrastructure, not an app.</h3><p>You don’t generate electricity per room. Knowledge should work the same way: compiled once, versioned, cited and approved — one source that every person and every AI agent draws on, from any device, under your rules.</p></div></div></div>
+  </div>
+  <p class="lp-mf-close">Your AI is only as good as what it knows. <em>Trail is where it learns.</em></p>
+</div></section>
 <section class="lp-s" id="how" data-testid="home-loop"><div class="lp-wrap">
   <div class="lp-sh"><span class="lp-eyebrow">The loop</span><h2>From a pile of files to knowledge you can ask.</h2><p>Five steps, run for you. Every source goes through all of them once — and every Neuron keeps the trail back to where it came from.</p></div>
   <div class="lp-loop" role="tablist"><button type="button" class="lp-stage" role="tab" aria-pressed="true" data-stage="0" data-testid="home-loop-stage-0"><span class="lp-stage-n"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></span><b>Ingest</b><small>Bring what you have</small></button><button type="button" class="lp-stage" role="tab" aria-pressed="false" data-stage="1" data-testid="home-loop-stage-1"><span class="lp-stage-n"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></svg></span><b>Compile</b><small>Read once</small></button><button type="button" class="lp-stage" role="tab" aria-pressed="false" data-stage="2" data-testid="home-loop-stage-2"><span class="lp-stage-n"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></span><b>Connect</b><small>Link everything</small></button><button type="button" class="lp-stage" role="tab" aria-pressed="false" data-stage="3" data-testid="home-loop-stage-3"><span class="lp-stage-n"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span><b>Ask</b><small>Anywhere you work</small></button><button type="button" class="lp-stage" role="tab" aria-pressed="false" data-stage="4" data-testid="home-loop-stage-4"><span class="lp-stage-n"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></span><b>Cite</b><small>Prove every answer</small></button></div>
@@ -1485,6 +1542,18 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   });
 })();
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
+(function(){
+  var h = document.querySelector('[data-testid="home-hero-title"]'); if (!h || !h.querySelector('.lp-swap-b')) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var a = h.querySelector('.lp-swap-a'), b = h.querySelector('.lp-swap-b');
+  var t = setInterval(function(){
+    if (!document.body.contains(h)) { clearInterval(t); return; }
+    if (document.hidden) return;
+    var alt = h.classList.toggle('is-alt');
+    a.setAttribute('aria-hidden', String(alt)); b.setAttribute('aria-hidden', String(!alt));
+  }, 5000);
+})();
+};(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('#page video[autoplay]').forEach(function(v){
     if (reduce) { v.removeAttribute('autoplay'); v.pause(); return; }
@@ -1493,7 +1562,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
   var root = document.querySelector('[data-image-neurons]'); if (!root) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var imgs = root.querySelectorAll('.article-cover img, .prose img');
+  var imgs = root.querySelectorAll('.article-cover img, .prose img, .sc-media img');
   var layers = [];
   imgs.forEach(function(img){
     if (img.parentNode && img.parentNode.classList && img.parentNode.classList.contains('nl-wrap')) return;
