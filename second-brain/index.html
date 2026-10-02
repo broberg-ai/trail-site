@@ -139,23 +139,42 @@ svg { max-width: 100%; height: auto; }
   text-overflow: ellipsis;
 }
 @media (min-width: 768px) { .nav-brand .brand-text { font-size: 1.375rem; } }
-.nav-links { display: none; gap: 2rem; font-size: 0.875rem; font-weight: 500; color: var(--fg-70); }
+.nav-links { display: none; gap: 1.5rem; align-items: center; font-size: 0.875rem; font-weight: 500; color: var(--fg-70); }
 .nav-links a { transition: color 0.15s; }
 .nav-links a:hover { color: var(--fg); }
-@media (min-width: 768px) { .nav-links { display: flex; } }
+@media (min-width: 1024px) { .nav-links { display: flex; } }
+/* Dropdown (broberg.ai style) */
+.nav-dd { position: relative; }
+.nav-dd-btn { display: inline-flex; align-items: center; gap: 0.3rem; font: inherit; color: inherit; padding: 0.35rem 0.6rem; margin: -0.35rem -0.6rem; border-radius: 9999px; border: 1px solid transparent; transition: color 0.15s, border-color 0.15s, background 0.15s; }
+.nav-dd-btn:hover { color: var(--fg); }
+.nav-dd-btn[aria-expanded="true"] { color: var(--fg); border-color: var(--clay); background: color-mix(in srgb, var(--clay) 8%, transparent); }
+.nav-dd-btn:active { transform: scale(0.97); }
+.nav-dd-btn .nav-chev { transition: transform 0.15s; }
+.nav-dd-btn[aria-expanded="true"] .nav-chev { transform: rotate(180deg); }
+.nav-dd-panel { position: absolute; top: calc(100% + 0.9rem); left: 50%; transform: translateX(-50%); width: 300px; padding: 0.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 24px 60px -24px rgba(0,0,0,0.45); z-index: 60; }
+.nav-dd-panel[hidden] { display: none; }
+.nav-dd-panel a { display: block; padding: 0.7rem 0.85rem; border-radius: 10px; color: var(--fg); transition: background 0.12s; }
+.nav-dd-panel a:hover, .nav-dd-panel a:focus-visible { background: var(--bg-sunk); outline: none; }
+.nav-dd-panel b { display: block; font-size: 0.95rem; font-weight: 600; }
+.nav-dd-panel span { display: block; font-size: 0.8rem; color: var(--fg-muted); margin-top: 0.15rem; line-height: 1.35; }
+.nav-mobile-group { display: flex; flex-direction: column; border-bottom: 1px solid var(--fg-10); padding-bottom: 0.5rem; }
+.nav-mobile-group > span { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay-d); padding-top: 0.5rem; }
+.nav-mobile-group a { padding-left: 0.75rem !important; border-bottom: 0 !important; }
 
 .nav-actions { display: flex; gap: 0.5rem; align-items: center; }
 @media (min-width: 768px) { .nav-actions { gap: 1rem; } }
 .nav-signin {
-  font-size: 0.875rem; font-weight: 500; color: var(--fg);
-  transition: color 0.15s;
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--fg);
+  border: 1px solid var(--border-strong); border-radius: 9999px; padding: 0.45rem 0.95rem;
+  transition: border-color 0.15s, color 0.15s;
   display: none;
 }
+.nav-signin:active { transform: scale(0.97); }
 @media (min-width: 768px) { .nav-signin { display: inline; } }
-.nav-signin:hover { color: var(--accent); }
+.nav-signin:hover { border-color: var(--clay); }
 .nav-cta {
   padding: 0.45rem 0.95rem;
-  background: var(--clay-btn); color: var(--fg-on-accent);
+  background: var(--slate); color: var(--bg); font-family: var(--font-mono);
   font-size: 0.8rem; font-weight: 500;
   border-radius: 9999px;
   border: 1px solid transparent;
@@ -163,7 +182,7 @@ svg { max-width: 100%; height: auto; }
   white-space: nowrap;
 }
 @media (min-width: 768px) { .nav-cta { padding: 0.5rem 1rem; font-size: 0.875rem; } }
-.nav-cta:hover { background: var(--clay-d); }
+.nav-cta:hover { background: var(--clay-btn); color: var(--fg-on-accent); }
 .nav-cta:active { transform: scale(0.97); }
 
 /* Ambient sound toggle — same shape as the theme toggle */
@@ -218,7 +237,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
   border-radius: 2px;
   transition: transform 0.2s, opacity 0.2s;
 }
-@media (min-width: 768px) { .nav-toggle { display: none; } }
+@media (min-width: 1024px) { .nav-toggle { display: none; } }
 body[data-menu-open="true"] .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
 body[data-menu-open="true"] .nav-toggle span:nth-child(2) { opacity: 0; }
 body[data-menu-open="true"] .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
@@ -236,7 +255,7 @@ body[data-menu-open="true"] .nav-toggle span:nth-child(3) { transform: translate
   overflow-y: auto;
 }
 body[data-menu-open="true"] .nav-mobile { transform: translateX(0); }
-@media (min-width: 768px) { .nav-mobile { display: none; } }
+@media (min-width: 1024px) { .nav-mobile { display: none; } }
 .nav-mobile a {
   font-size: 1.125rem; font-weight: 500; color: var(--fg);
   padding: 0.625rem 0;
@@ -900,11 +919,20 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
       <span class="brand-text">trail</span>
     </a>
     <div class="nav-links">
-      <a href="/#features">Architecture</a>
-      <a href="/second-brain/">Second Brain</a>
-      <a href="https://docs.trailmem.com/">Documentation</a>
-      <a href="/trails/">Trails</a>
-      <a href="/the-1945-concept/">The 1945 Concept</a>
+      <a href="/#how" data-testid="nav-link-product">Product</a>
+      <a href="/second-brain/" data-testid="nav-link-second-brain">Second Brain</a>
+      <a href="/#everywhere" data-testid="nav-link-everywhere">Everywhere</a>
+      <a href="/#business" data-testid="nav-link-business">Business</a>
+      <a href="/#proof" data-testid="nav-link-proof">Proof</a>
+      <div class="nav-dd">
+        <button type="button" class="nav-dd-btn" aria-expanded="false" aria-controls="nav-dd-insights" data-testid="nav-dd-insights-toggle">Insights<svg class="nav-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="nav-dd-panel" id="nav-dd-insights" role="menu" hidden data-testid="nav-dd-insights">
+          <a role="menuitem" href="/the-1945-concept/" data-testid="nav-dd-insights-the-1945-concept"><b>The 1945 Concept</b><span>Vannevar Bush's memex, eighty years on</span></a>
+          <a role="menuitem" href="/trails/" data-testid="nav-dd-insights-trails"><b>Trails</b><span>Essays and field notes on compiled knowledge</span></a>
+          <a role="menuitem" href="https://docs.trailmem.com/" data-testid="nav-dd-insights-docs"><b>Docs</b><span>Technical reference for builders</span></a>
+        </div>
+      </div>
+      <a href="/#pricing" data-testid="nav-link-pricing">Pricing</a>
     </div>
     <div class="nav-actions">
       <button type="button" class="sound-toggle" aria-label="Turn ambient sound off" aria-pressed="true" data-testid="nav-sound-toggle" data-src="/assets/ambient/ambient.opus">
@@ -915,19 +943,21 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
       </button>
-      <a href="https://app.trailmem.com" class="nav-signin">Sign In</a>
-      <a href="#" class="nav-cta" data-testid="nav-cta">Initialize trail</a>
+      <a href="https://app.trailmem.com" class="nav-signin" data-testid="nav-signin">Sign In</a>
+      <a href="https://app.trailmem.com" class="nav-cta" data-testid="nav-cta">Initialize trail <span aria-hidden="true">→</span></a>
       <button type="button" class="nav-toggle" data-testid="nav-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
   <div id="mobile-menu" class="nav-mobile" role="navigation" aria-label="Mobile menu" aria-hidden="true">
-    <a href="/#features">Architecture</a>
+    <a href="/#how">Product</a>
     <a href="/second-brain/">Second Brain</a>
-    <a href="https://docs.trailmem.com/">Documentation</a>
-    <a href="/trails/">Trails</a>
-    <a href="/the-1945-concept/">The 1945 Concept</a>
+    <a href="/#everywhere">Everywhere</a>
+    <a href="/#business">Business</a>
+    <a href="/#proof">Proof</a>
+    <div class="nav-mobile-group"><span>Insights</span><a href="/the-1945-concept/">The 1945 Concept</a><a href="/trails/">Trails</a><a href="https://docs.trailmem.com/">Docs</a></div>
+    <a href="/#pricing">Pricing</a>
     <a href="https://app.trailmem.com">Sign In</a>
   </div>
   <script>
@@ -947,6 +977,37 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
         if (e.target instanceof HTMLAnchorElement) setOpen(false);
       });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    })();
+
+    (function () {
+      /* Desktop dropdowns: click to open, outside click / Escape to close. */
+      var dds = Array.prototype.slice.call(document.querySelectorAll('.nav-dd'));
+      function close(dd, focus) {
+        var b = dd.querySelector('.nav-dd-btn'), p = dd.querySelector('.nav-dd-panel');
+        if (!b || !p || p.hidden) return;
+        p.hidden = true; b.setAttribute('aria-expanded', 'false');
+        if (focus) b.focus();
+      }
+      dds.forEach(function (dd) {
+        var b = dd.querySelector('.nav-dd-btn'), p = dd.querySelector('.nav-dd-panel');
+        if (!b || !p) return;
+        b.addEventListener('click', function () {
+          var open = p.hidden;
+          dds.forEach(function (o) { if (o !== dd) close(o, false); });
+          p.hidden = !open; b.setAttribute('aria-expanded', String(open));
+          if (open) { var first = p.querySelector('a'); if (first && document.activeElement === b && b.matches(':focus-visible')) first.focus(); }
+        });
+        dd.addEventListener('keydown', function (e) {
+          var items = Array.prototype.slice.call(p.querySelectorAll('a'));
+          var i = items.indexOf(document.activeElement);
+          if (e.key === 'Escape') { close(dd, true); }
+          else if (e.key === 'ArrowDown') { e.preventDefault(); if (p.hidden) b.click(); (items[i + 1] || items[0]).focus(); }
+          else if (e.key === 'ArrowUp' && i >= 0) { e.preventDefault(); (items[i - 1] || items[items.length - 1]).focus(); }
+        });
+      });
+      document.addEventListener('click', function (e) {
+        dds.forEach(function (dd) { if (!dd.contains(e.target)) close(dd, false); });
+      });
     })();
 
     (function () {
