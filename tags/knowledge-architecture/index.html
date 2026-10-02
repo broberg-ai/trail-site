@@ -880,7 +880,8 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
   .lp-loop::before { top: 20px; }
   .lp-hubwrap { height: 400px; }
   .lp-hub { width: 104px; height: 104px; }
-  .lp-node { min-width: 0; padding: 6px 8px; font-size: 12px; }
+  .lp-node { min-width: 0; padding: 5px 8px; font-size: 11.5px; }
+  .lp-node small { display: none; }
   .lp-s { padding: 64px 0; }
   .lp-sh h2, .lp-h2 { font-size: 30px; }
   .lp-cta h2 { font-size: 32px; }
@@ -908,6 +909,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
     var(--bg) 100%);
 }
 .has-hero-video { position: relative; z-index: 1; }
+.prose video { display: block; max-width: 100%; height: auto; border-radius: 4px; margin: 1.5rem 0; }
 .nl-wrap { position: relative; display: block; overflow: hidden; width: fit-content; max-width: 100%; }
 .nl-wrap img { display: block; }
 .nl-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: screen; }
@@ -1299,9 +1301,11 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   }); });
 })();
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
-  var v = document.querySelector('.page-hero-video video'); if (!v) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); return; }
-  var p = v.play(); if (p && p.catch) p.catch(function(){});
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('#page video[autoplay]').forEach(function(v){
+    if (reduce) { v.removeAttribute('autoplay'); v.pause(); return; }
+    var p = v.play(); if (p && p.catch) p.catch(function(){});
+  });
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
   var root = document.querySelector('[data-image-neurons]'); if (!root) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
