@@ -764,6 +764,10 @@ html[data-theme="dark"] .lp-btn-primary:hover { background: #a94a1f; border-colo
 .lp-hero .lp-wrap > * { min-width: 0; }
 .lp-hero h1 { font-size: 58px; line-height: 1.03; }
 .lp-hero h1 em { font-style: normal; color: var(--clay); }
+.lp-chip-link { text-decoration: none; transition: filter .15s, transform .1s; }
+.lp-chip-link:hover { filter: brightness(1.15); }
+.lp-chip-link:active { transform: scale(.97); }
+.lp-bi-demo { margin-top: 18px; }
 .lp-swap { display: grid; }
 .lp-swap > span { grid-area: 1 / 1; transition: opacity .9s ease, transform .9s ease; }
 .lp-swap-b { opacity: 0; transform: translateY(10px); }
@@ -1016,6 +1020,111 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   .sc-s h2 { font-size: 30px; }
   .sc-hero { padding: 120px 0 48px; }
 }
+
+.dm-page { padding: 88px 24px 24px; }
+.dm { display: grid; grid-template-columns: 280px 1fr; height: calc(100dvh - 112px); min-height: 560px; max-width: 1400px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 40px 100px -40px rgba(0,0,0,.6); }
+.dm:fullscreen, .dm.is-max { height: 100vh; max-width: none; border-radius: 0; border: 0; }
+.dm.is-max { position: fixed; inset: 0; z-index: 100; height: 100dvh; }
+.dm-side { border-right: 1px solid var(--border); background: var(--bg-sunk); padding: 16px 12px; overflow-y: auto; }
+.dm-side-h { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--fg); font-weight: 600; padding: 4px 8px 14px; }
+.dm-seg { margin-bottom: 12px; }
+.dm-seg-l { display: block; font: 500 10px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--fg-muted); padding: 6px 8px; }
+.dm-ex { display: block; width: 100%; text-align: left; font: inherit; font-size: 13.5px; color: var(--fg); background: none; border: 1px solid transparent; border-radius: 9px; padding: 8px 10px; cursor: pointer; transition: background .15s, border-color .15s, transform .1s; }
+.dm-ex:hover { background: var(--bg-card); }
+.dm-ex:active { transform: scale(.98); }
+.dm-ex.is-on { background: color-mix(in srgb, var(--clay) 14%, transparent); border-color: color-mix(in srgb, var(--clay) 45%, transparent); }
+.dm-main { display: flex; flex-direction: column; min-width: 0; }
+.dm-bar { display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-bottom: 1px solid var(--border); }
+.dm-bar-t { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dm-chip { font: 10px var(--font-mono); padding: 2px 7px; border-radius: 5px; background: var(--bg-sunk); color: var(--fg-muted); white-space: nowrap; }
+.dm-grow { flex: 1; }
+.dm-icon { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 13px; color: var(--fg); background: var(--bg-sunk); border: 1px solid var(--border); border-radius: 9px; padding: 6px 10px; cursor: pointer; transition: border-color .15s, transform .1s; }
+.dm-icon:hover { border-color: var(--clay); }
+.dm-icon:active { transform: scale(.97); }
+.dm-stream { flex: 1; overflow-y: auto; padding: 28px clamp(16px, 4vw, 56px); display: flex; flex-direction: column; gap: 18px; }
+.dm-empty { margin: auto; max-width: 760px; text-align: center; }
+.dm-empty h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.04; margin: 12px 0 16px; }
+.dm-empty p { font-size: 17px; line-height: 1.6; color: var(--fg-muted); margin: 0 auto 26px; max-width: 620px; }
+.dm-suggs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; }
+.dm-sugg { font: inherit; font-size: 14px; color: var(--fg); background: var(--bg-sunk); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; cursor: pointer; transition: border-color .15s, transform .1s; }
+.dm-sugg:hover { border-color: var(--clay); }
+.dm-sugg:active { transform: scale(.98); }
+.dm-sugg span { display: block; font: 10px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--clay); margin-bottom: 4px; }
+.dm-q { align-self: flex-end; max-width: 72%; background: var(--clay-btn); color: var(--fg-on-accent); border-radius: 16px 16px 4px 16px; padding: 12px 16px; font-size: 15px; line-height: 1.5; }
+.dm-think { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--fg-muted); }
+.dm-orbit { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--clay); border-right-color: transparent; animation: lp-spin .8s linear infinite; }
+.dm-think.is-done .dm-orbit { animation: none; border-color: var(--live); }
+.dm-src-chip { display: inline-flex; gap: 6px; align-items: baseline; font-size: 12px; background: var(--bg-sunk); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; animation: lp-slide .4s ease; }
+.dm-src-chip b { font-weight: 600; color: var(--fg); }
+.dm-a { max-width: 860px; background: var(--bg-sunk); border: 1px solid var(--border); border-left: 3px solid var(--clay); border-radius: 4px 16px 16px 16px; padding: 18px 20px; }
+.dm-a-from { display: block; font: 11px var(--font-mono); color: var(--fg-muted); margin-bottom: 10px; }
+.dm-a p { font-size: 15.5px; line-height: 1.65; margin: 0 0 12px; color: var(--fg); }
+.dm-a b { color: var(--fg); }
+.dm-step { opacity: 0; transform: translateY(8px); transition: opacity .45s ease, transform .45s ease; }
+.dm-step.is-in { opacity: 1; transform: none; }
+.dm-cite { display: inline-grid; place-items: center; min-width: 16px; height: 16px; padding: 0 4px; margin: 0 1px; border-radius: 5px; font: 600 10px var(--font-mono); color: var(--clay); background: color-mix(in srgb, var(--clay) 16%, transparent); cursor: pointer; vertical-align: 3px; }
+.dm-chart { margin: 14px 0; padding: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; }
+.dm-chart figcaption { font-size: 12.5px; color: var(--fg-muted); margin-bottom: 12px; }
+.dm-bars { display: flex; flex-direction: column; gap: 9px; }
+.dm-bar-row { display: grid; grid-template-columns: minmax(110px, 34%) 1fr 64px; gap: 10px; align-items: center; font-size: 13px; }
+.dm-bar-k { color: var(--fg-muted); }
+.dm-bar-row.is-hl .dm-bar-k { color: var(--fg); font-weight: 600; }
+.dm-bar-track { height: 12px; background: var(--bg-sunk); border-radius: 6px; overflow: hidden; }
+.dm-bar-track i { display: block; height: 100%; width: 0; border-radius: 6px; background: color-mix(in srgb, var(--clay) 45%, var(--bg-sunk)); transition: width 1s cubic-bezier(.2,.8,.2,1) .15s; }
+.dm-bar-row.is-hl .dm-bar-track i { background: var(--clay); }
+.dm-step.is-in .dm-bar-track i { width: var(--w); }
+.dm-bar-v { font: 12px var(--font-mono); text-align: right; }
+.dm-cols { display: flex; gap: 18px; align-items: flex-end; height: 170px; padding-top: 18px; }
+.dm-col-g { flex: 1; display: flex; flex-direction: column; height: 100%; min-width: 0; }
+.dm-col-bars { flex: 1; display: flex; gap: 6px; align-items: flex-end; justify-content: center; }
+.dm-col-bars i { position: relative; flex: 1; max-width: 34px; height: 0; border-radius: 5px 5px 0 0; transition: height 1s cubic-bezier(.2,.8,.2,1) .15s; }
+.dm-col-bars i span { position: absolute; top: -17px; left: 50%; transform: translateX(-50%); font: 10px var(--font-mono); color: var(--fg-muted); white-space: nowrap; }
+.dm-step.is-in .dm-col-bars i { height: var(--h); }
+.dm-col-l { font-size: 11.5px; color: var(--fg-muted); text-align: center; margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+i.dm-s0 { background: color-mix(in srgb, var(--fg-muted) 55%, var(--bg-sunk)); }
+i.dm-s1 { background: var(--clay); }
+.dm-cols:has(i.dm-s1) i.dm-s0 { background: color-mix(in srgb, var(--fg-muted) 45%, var(--bg-sunk)); }
+.dm-cols:not(:has(i.dm-s1)) i.dm-s0 { background: var(--clay); }
+.dm-legend { display: flex; gap: 14px; margin-top: 10px; font-size: 12px; color: var(--fg-muted); }
+.dm-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.dm-line { position: relative; height: 160px; margin-left: 44px; clip-path: inset(-20px 100% -20px -60px); transition: clip-path 1.4s ease .15s; }
+.dm-step.is-in .dm-line { clip-path: inset(-20px -10px -20px -60px); }
+.dm-line svg { width: 100%; height: 100%; overflow: visible; }
+.dm-line polyline { fill: none; stroke: var(--clay); stroke-width: 2.4; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.dm-mark { stroke: var(--fg-muted); stroke-width: 1; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
+.dm-mark-l { position: absolute; top: -4px; transform: translateX(6px); font: 10.5px var(--font-mono); color: var(--fg-muted); white-space: nowrap; }
+.dm-line-y { position: absolute; left: -44px; width: 38px; text-align: right; font: 10.5px var(--font-mono); color: var(--fg-muted); }
+.dm-line-hi { top: calc(5 / 40 * 100% - 7px); }
+.dm-line-lo { top: calc(37 / 40 * 100% - 7px); }
+.dm-line-x { display: flex; justify-content: space-between; margin: 6px 0 0 44px; font: 10px var(--font-mono); color: var(--fg-muted); }
+.dm-table { margin: 14px 0; overflow-x: auto; }
+.dm-table table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.dm-table th { text-align: left; font: 500 10.5px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--fg-muted); padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.dm-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); }
+.dm-table .num { text-align: right; font-family: var(--font-mono); font-size: 12.5px; }
+.dm-table tr.is-hl td { background: color-mix(in srgb, var(--clay) 10%, transparent); }
+.dm-flag { margin: 12px 0; padding: 10px 12px; border-radius: 10px; font-size: 13.5px; line-height: 1.5; color: var(--fg); background: var(--amber-bg); border: 1px solid color-mix(in srgb, var(--amber-d) 40%, transparent); }
+.dm-flag b { color: var(--amber-d); margin-right: 6px; }
+.dm-sources { list-style: none; margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
+.dm-sources li { display: flex; gap: 8px; align-items: baseline; font-size: 13px; padding: 4px 6px; border-radius: 8px; transition: background .3s; }
+.dm-sources li span:last-child { color: var(--fg-muted); font-size: 12px; }
+.dm-sources li.is-ping { background: color-mix(in srgb, var(--clay) 18%, transparent); }
+.dm-src-n { font: 600 10px var(--font-mono); color: var(--clay); min-width: 14px; }
+.dm-input { display: flex; align-items: center; gap: 10px; margin: 0 clamp(16px, 4vw, 56px) 18px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg-sunk); }
+.dm-input-t { flex: 1; font-size: 15px; color: var(--fg-muted); min-height: 1.4em; }
+.dm-send { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px; background: var(--clay-btn); color: var(--fg-on-accent); }
+@media (max-width: 900px) {
+  .dm-page { padding: 80px 12px 12px; }
+  .dm { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: calc(100dvh - 96px); }
+  .dm-side { display: flex; gap: 6px; overflow-x: auto; overflow-y: hidden; border-right: 0; border-bottom: 1px solid var(--border); padding: 10px; }
+  .dm-side-h, .dm-seg-l { display: none; }
+  .dm-seg { display: contents; }
+  .dm-ex { flex: none; width: auto; white-space: nowrap; border-color: var(--border); }
+  .dm-suggs { grid-template-columns: 1fr; }
+  .dm-q { max-width: 90%; }
+  .dm-bar-row { grid-template-columns: 38% 1fr 52px; font-size: 12px; }
+  .dm-icon span { display: none; }
+}
 </style>
 
   <!-- webhouse.app enrichment -->
@@ -1256,7 +1365,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   <div class="lp-sh"><span class="lp-eyebrow">For business</span><h2>One brain for the whole organisation.</h2><p>From a five-person agency to an enterprise with thousands of employees: Trail turns what your company already knows — Word documents, Excel sheets, board minutes, decisions and conversations — into knowledge every employee, customer and system can ask.</p></div>
   <div class="lp-cards3"><div class="lp-pcard"><div class="lp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><span class="lp-tag">Small business</span><h3>Your expertise, answering around the clock.</h3><p>Put a cited chat on your website in an afternoon. Customers get answers from your own material — not from the internet.</p></div><div class="lp-pcard"><div class="lp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="lp-tag">SMB</span><h3>Stop asking the same colleague.</h3><p>One brain behind the website, the intranet and the support desk. New hires find answers on day one, and your experts get their time back.</p></div><div class="lp-pcard"><div class="lp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div><span class="lp-tag">Enterprise</span><h3>Knowledge management that keeps itself current.</h3><p>A brain per department or product, curated by your own experts, reachable from every system over API and MCP. Hosted in the EU.</p></div></div>
   <div class="lp-uses"><div class="lp-use"><span class="lp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><div><b>Website chatbot</b><span>&lt;trail-chat&gt; answers visitors with sources — sales questions, product details, opening hours.</span></div></div><div class="lp-use"><span class="lp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></span><div><b>Intranet</b><span>Policies, procedures and handbooks become one place employees can simply ask.</span></div></div><div class="lp-use"><span class="lp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg></span><div><b>Customer service</b><span>Agents and bots answer from the same approved knowledge, so every reply says the same thing.</span></div></div><div class="lp-use"><span class="lp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><div><b>Onboarding &amp; training</b><span>New colleagues ask instead of searching shared drives. Every answer shows where it came from.</span></div></div><div class="lp-use"><span class="lp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><div><b>Sales enablement</b><span>Offers, case studies and pricing notes compiled into answers your sales team can trust.</span></div></div><div class="lp-use"><span class="lp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span><div><b>Reports &amp; documents</b><span>Word, Excel, PowerPoint and PDF go in as they are — Trail reads them and keeps the numbers.</span></div></div>
-    <div class="lp-bi" data-testid="home-business-bi"><div><span class="lp-chip lp-chip-clay">Live demo</span><h3>Your Business Analyst. Your Business Intelligence.</h3><p class="lp-muted">Ask your business, not just your documents. Trail reads board minutes, monthly reports and Excel exports, and answers like an analyst: what changed, why it changed, and which source says so.</p><div class="lp-bi-points"><div>Trends across reports</div><div>Decisions linked to numbers</div><div>Contradictions flagged</div><div>Every figure cited</div></div></div><div class="lp-chat"><div class="lp-bub lp-me">Why did gross margin drop in Q3?</div><div class="lp-bub lp-ai"><small>trail · business analyst · preview</small>Freight costs rose 22% after the carrier switch <span class="lp-cite">[Q3 revenue.xlsx]</span>, decided in June <span class="lp-cite">[Board minutes Q3]</span>. The Nordics held their margin by moving to annual contracts <span class="lp-cite">[Sales playbook.docx]</span>.</div></div></div>
+    <div class="lp-bi" data-testid="home-business-bi"><div><a class="lp-chip lp-chip-clay lp-chip-link" href="/demo/" data-testid="home-business-demo-badge">Live demo →</a><h3>Your Business Analyst. Your Business Intelligence.</h3><p class="lp-muted">Ask your business, not just your documents. Trail reads board minutes, monthly reports and Excel exports, and answers like an analyst: what changed, why it changed, and which source says so.</p><div class="lp-bi-points"><div>Trends across reports</div><div>Decisions linked to numbers</div><div>Contradictions flagged</div><div>Every figure cited</div></div><a class="lp-btn lp-btn-primary lp-bi-demo" href="/demo/" data-testid="home-business-demo">Try the live demo<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><div class="lp-chat"><div class="lp-bub lp-me">Why did gross margin drop in Q3?</div><div class="lp-bub lp-ai"><small>trail · business analyst · preview</small>Freight costs rose 22% after the carrier switch <span class="lp-cite">[Q3 revenue.xlsx]</span>, decided in June <span class="lp-cite">[Board minutes Q3]</span>. The Nordics held their margin by moving to annual contracts <span class="lp-cite">[Sales playbook.docx]</span>.</div></div></div>
   </div>
 </div></section>
 <section class="lp-s lp-s-alt" id="proof" data-testid="home-proof"><div class="lp-wrap">
@@ -1554,6 +1663,58 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   }, 5000);
 })();
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
+(function(){
+  var root = document.querySelector('[data-testid="demo-root"]'); if (!root) return;
+  var data; try { data = JSON.parse(document.querySelector('[data-testid="demo-data"]').textContent); } catch (e) { return; }
+  var byId = {}; data.forEach(function(d){ byId[d.id] = d; });
+  var stream = root.querySelector('[data-testid="demo-stream"]'), input = root.querySelector('[data-testid="demo-input"]'), title = root.querySelector('[data-testid="demo-title"]');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var run = 0;
+  function wait(ms){ return new Promise(function(r){ setTimeout(r, reduce ? 0 : ms); }); }
+  function el(tag, cls, html){ var n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; }
+  function scroll(){ stream.scrollTop = stream.scrollHeight; }
+  function play(id){
+    var d = byId[id]; if (!d) return; var me = ++run;
+    root.querySelectorAll('[data-ex]').forEach(function(b){ b.classList.toggle('is-on', b.getAttribute('data-ex') === id); });
+    title.textContent = d.title; stream.innerHTML = ''; input.textContent = '';
+    var q = d.question, i = 0;
+    var typing = setInterval(function(){
+      if (me !== run) { clearInterval(typing); return; }
+      i = reduce ? q.length : Math.min(q.length, i + 3); input.textContent = q.slice(0, i);
+      if (i >= q.length) { clearInterval(typing); ask(); }
+    }, 18);
+    function ask(){
+      if (me !== run) return;
+      input.textContent = '';
+      stream.appendChild(el('div', 'dm-q', '')).textContent = q;
+      var think = el('div', 'dm-think', '<span class="dm-orbit" aria-hidden="true"></span><span>Trail is reading</span>');
+      stream.appendChild(think); scroll();
+      var chain = wait(450);
+      d.sources.forEach(function(s){ chain = chain.then(function(){ if (me !== run) return; var c = el('span', 'dm-src-chip'); c.innerHTML = '<b></b><span></span>'; c.firstChild.textContent = s.label; c.lastChild.textContent = s.detail; think.appendChild(c); scroll(); return wait(380); }); });
+      chain.then(function(){ return wait(350); }).then(function(){
+        if (me !== run) return;
+        think.classList.add('is-done');
+        var a = el('div', 'dm-a'); a.setAttribute('data-testid', 'demo-answer');
+        a.appendChild(el('small', 'dm-a-from', 'trail · cited answer'));
+        a.appendChild(document.querySelector('template[data-answer="' + id + '"]').content.cloneNode(true));
+        stream.appendChild(a);
+        var steps = a.querySelectorAll('.dm-step'), k = 0;
+        (function next(){ if (me !== run || k >= steps.length) return; steps[k++].classList.add('is-in'); scroll(); setTimeout(next, reduce ? 0 : 420); })();
+      });
+    }
+  }
+  root.addEventListener('click', function(e){
+    var b = e.target.closest('[data-ex]'); if (b) { play(b.getAttribute('data-ex')); return; }
+    var c = e.target.closest('.dm-cite'); if (c) { var li = root.querySelector('.dm-a [data-src="' + c.getAttribute('data-cite') + '"]'); if (li) { li.classList.remove('is-ping'); void li.offsetWidth; li.classList.add('is-ping'); li.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' }); } }
+  });
+  var fs = root.querySelector('[data-testid="demo-fullscreen"]');
+  if (fs) fs.addEventListener('click', function(){
+    if (document.fullscreenElement) { document.exitFullscreen(); return; }
+    if (root.requestFullscreen) root.requestFullscreen().catch(function(){ root.classList.toggle('is-max'); }); else root.classList.toggle('is-max');
+  });
+  var start = new URLSearchParams(location.search).get('q'); if (start && byId[start]) play(start);
+})();
+};(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('#page video[autoplay]').forEach(function(v){
     if (reduce) { v.removeAttribute('autoplay'); v.pause(); return; }
@@ -1562,17 +1723,22 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
 };(window.__tp=window.__tp||[]).push(f);f();})();(function(){var f=function(){
   var root = document.querySelector('[data-image-neurons]'); if (!root) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var imgs = root.querySelectorAll('.article-cover img, .prose img, .sc-media img');
+  var imgs = root.querySelectorAll('.article-cover img, .prose img, .sc-media img, .sc-media video');
   var layers = [];
   imgs.forEach(function(img){
     if (img.parentNode && img.parentNode.classList && img.parentNode.classList.contains('nl-wrap')) return;
     var wrap = document.createElement('span'); wrap.className = 'nl-wrap';
     var cs = getComputedStyle(img); wrap.style.marginTop = cs.marginTop; wrap.style.marginBottom = cs.marginBottom; wrap.style.borderRadius = cs.borderRadius;
-    if (img.closest('.article-cover')) wrap.style.width = '100%';
+    /* A wrapper sized to its content is 0 px wide until the image has loaded — the image then never appears until a reload.
+     * Inside a media column or cover the image fills the column, so the wrapper must too. */
+    if (img.closest('.article-cover, .sc-media')) wrap.style.width = '100%';
     img.parentNode.insertBefore(wrap, img); wrap.appendChild(img); img.style.margin = '0';
     var c = document.createElement('canvas'); c.className = 'nl-canvas'; c.setAttribute('aria-hidden', 'true');
     wrap.appendChild(c);
-    layers.push({ c: c, ctx: c.getContext('2d'), nodes: [], pulses: [], w: 0, h: 0, visible: false });
+    var L = { c: c, ctx: c.getContext('2d'), nodes: [], pulses: [], w: 0, h: 0, visible: false };
+    layers.push(L);
+    var isVideo = img.tagName === 'VIDEO';
+    if (isVideo ? img.readyState < 1 : !img.complete) img.addEventListener(isVideo ? 'loadedmetadata' : 'load', function(){ size(L); }, { once: true });
   });
   if (!layers.length) return;
   var DPR = Math.min(window.devicePixelRatio || 1, 2), LINK = 120;
