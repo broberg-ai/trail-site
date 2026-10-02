@@ -728,6 +728,14 @@ html[data-theme="dark"] .lp-btn-primary:hover { background: #a94a1f; border-colo
 @media (prefers-reduced-motion: reduce) { .lp-dot { animation: none; } }
 
 .lp-hero { position: relative; padding: 140px 0 64px; overflow: hidden; }
+/* Background video: dimmed, darkest behind the copy (left) and fading into the page at the bottom. */
+.lp-hero-video { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.lp-hero-video video { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.45; }
+:root[data-theme="light"] .lp-hero-video video { opacity: 0.22; }
+.lp-hero-video::after { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--bg) 85%, transparent) 0%, color-mix(in srgb, var(--bg) 55%, transparent) 50%, color-mix(in srgb, var(--bg) 25%, transparent) 100%),
+              linear-gradient(180deg, transparent 60%, var(--bg) 100%); }
+.lp-hero > .lp-wrap { position: relative; z-index: 1; }
 .lp-hero::before { content: ""; position: absolute; right: -10%; top: -10%; width: 760px; height: 760px; background: radial-gradient(closest-side, color-mix(in srgb, var(--clay) 18%, transparent), transparent); pointer-events: none; }
 .lp-hero .lp-wrap { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
 .lp-hero .lp-wrap > * { min-width: 0; }
@@ -1105,7 +1113,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
     /* Re-run after an in-place page swap (page-scripts.ts). */
     (window.__tp = window.__tp || []).push(initSvgFullscreen);
   </script>
-  <div id="page" data-testid="page-root"><main class="lp"><header class="lp-hero" data-testid="home-hero"><div class="lp-wrap">
+  <div id="page" data-testid="page-root"><main class="lp"><header class="lp-hero" data-testid="home-hero"><div class="lp-hero-video" aria-hidden="true" data-testid="home-hero-video"><video autoplay muted loop playsinline preload="metadata" poster="/uploads/hero-pulse-poster-nx1q.webp"><source src="/uploads/hero-pulse.av1-red1.webm" type="video/webm; codecs=av01.0.05M.10"><source src="/uploads/hero-pulse.h264-q78n.mp4" type="video/mp4"></video></div><div class="lp-wrap">
   <div>
     <span class="lp-pill"><span class="lp-dot"></span>Compiled knowledge, hosted in the EU</span>
     <h1>Everything you read.<br>Compiled once.<br><em>Remembered for good.</em></h1>
