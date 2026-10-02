@@ -1656,11 +1656,12 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
 
 /* The demo is a full-window app; the cookie banner and its reopen button would sit on the composer. This <style> lives only on /demo/. */
 broberg-consent { display: none !important; }
-/* Edge to edge: the app fills the window under the site nav; no frame, no footer. */
+/* The app fills the window under the site nav and lines up with the nav's own edges
+   (trail logo on the left, «Initialize trail» on the right). No footer on this page. */
 .footer { display: none; }
-.dm-page { padding: var(--nav-h, 72px) 0 0; }
-.kai .app-frame { max-width: none; margin: 0; padding: 0; background: none; border-radius: 0; }
-.kai .app { height: calc(100dvh - var(--nav-h, 72px)); min-height: 480px; border: 0; border-radius: 0; box-shadow: none; }
+.dm-page { padding: var(--nav-h, 72px) var(--nav-pr, 24px) var(--nav-pl, 24px) var(--nav-pl, 24px); }
+.kai .app-frame { max-width: none; margin: 0; padding: 0; background: none; border-radius: 16px; }
+.kai .app { height: calc(100dvh - var(--nav-h, 72px) - var(--nav-pl, 24px)); min-height: 480px; border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 40px 100px -40px rgba(0,0,0,.6); }
 .kai .app-frame.is-full { padding: 0; background: var(--card); z-index: 200; }
 .kai .app-frame.is-full .app { height: 100dvh; border-radius: 0; border: 0; }
 html.kai-full .nav { visibility: hidden; }
@@ -2074,7 +2075,10 @@ i.dm-s1 { background: var(--clay); }
   var title = root.querySelector('[data-testid="demo-title"]'), dock = root.querySelector('[data-testid="demo-dock"]'), toastEl = root.querySelector('[data-testid="demo-toast"]');
   /* The app sits right under the fixed site nav, whatever height the nav has at this width. */
   var nav = document.querySelector('.nav');
-  function navH(){ if (nav) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px'); }
+  function navH(){
+    if (!nav) return; var cs = getComputedStyle(nav), d = document.documentElement.style;
+    d.setProperty('--nav-h', nav.offsetHeight + 'px'); d.setProperty('--nav-pl', cs.paddingLeft); d.setProperty('--nav-pr', cs.paddingRight);
+  }
   navH(); window.addEventListener('resize', navH);
   var data = []; try { data = JSON.parse(root.querySelector('[data-testid="demo-data"]').textContent); } catch (e) {}
   var byId = {}; data.forEach(function(d){ byId[d.id] = d; });

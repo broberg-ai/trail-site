@@ -1496,7 +1496,10 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   var title = root.querySelector('[data-testid="demo-title"]'), dock = root.querySelector('[data-testid="demo-dock"]'), toastEl = root.querySelector('[data-testid="demo-toast"]');
   /* The app sits right under the fixed site nav, whatever height the nav has at this width. */
   var nav = document.querySelector('.nav');
-  function navH(){ if (nav) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px'); }
+  function navH(){
+    if (!nav) return; var cs = getComputedStyle(nav), d = document.documentElement.style;
+    d.setProperty('--nav-h', nav.offsetHeight + 'px'); d.setProperty('--nav-pl', cs.paddingLeft); d.setProperty('--nav-pr', cs.paddingRight);
+  }
   navH(); window.addEventListener('resize', navH);
   var data = []; try { data = JSON.parse(root.querySelector('[data-testid="demo-data"]').textContent); } catch (e) {}
   var byId = {}; data.forEach(function(d){ byId[d.id] = d; });
