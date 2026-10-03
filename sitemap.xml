@@ -43,11 +43,19 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/benefits/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/brain-health/</loc>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.trailmem.com/tags/broberg-ai/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/business/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -75,11 +83,19 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/customer-service/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/decision-making/</loc>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.trailmem.com/tags/engineering-note/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/eu/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -100,6 +116,10 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/tags/karpathy/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/knowledge/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -167,6 +187,10 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/onboarding/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/orchestration/</loc>
     <priority>0.5</priority>
   </url>
@@ -207,6 +231,10 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/sovereignty/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/strategy/</loc>
     <priority>0.5</priority>
   </url>
@@ -229,6 +257,11 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/the-1945-concept/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/dispatches/data-supremacy-starts-with-your-own-knowledge/</loc>
     <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
   </url>
@@ -279,6 +312,11 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/trails/how-trail-works/three-filters-on-the-gate/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/how-trail-works/what-trail-does-for-your-business/</loc>
     <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
   </url>
