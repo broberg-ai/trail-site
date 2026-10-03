@@ -2240,7 +2240,7 @@ Research Lab is a workspace inside the Trail app with four tabs.
 
 **Compare.** Two columns side by side, A and B. Each column has its own setup — or its own brain. Same question, two answers: this is where you see whether a change actually helped.
 
-**Chat.** Ask in plain language and get an answer built on the basis you chose, with citations and 👍👎🚩 feedback. A good conversation can be saved back into the brain as a source; it then goes through the normal compile and curation steps, and claims the model made without a citation are left out.
+**Chat.** Ask in plain language and get an answer built on the basis you chose, with citations and    feedback. A good conversation can be saved back into the brain as a source; it then goes through the normal compile and curation steps, and claims the model made without a citation are left out.
 
 **Test sets.** The answer keys — questions where the right answer and the right source are known in advance — and the results of running a brain against them.
 
@@ -2288,7 +2288,6 @@ Two more checks are planned and not yet running: trap questions (does the brain 
 ## Why it matters
 
 Search is how people get knowledge out of a brain every day — in chat, in search, in the tools that call Trail. If it quietly gets worse, nobody notices until an answer is wrong. Research Lab is how we notice first, and how every change to Trail — to search, to compiling, to the models — is judged by what it does to real brains, not by what we expect it to do.
-
 
 Research Lab measures whether a brain holds what its sources said and whether search finds it, against answer keys with controls.
 Hybrid search with meaning weighted at 0.15 helped on most test sets but costs time, so it is a per-brain opt-in.
