@@ -878,6 +878,13 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
 /* The kind tag costs a third of a narrow column; the title is what tells the story. */
 .lp-pipe .lp-k { display: none; }
 .lp-src-t { overflow: hidden; text-overflow: ellipsis; }
+.lp-board { --src-pdf: #E5484D; --src-docx: #3E7BFA; --src-xlsx: #30A46C; }
+.lp-ico { flex: none; display: inline-flex; color: var(--fg-muted); }
+.lp-ico svg { width: 14px; height: 14px; }
+.lp-ico-pdf { color: var(--src-pdf); }
+.lp-ico-docx { color: var(--src-docx); }
+.lp-ico-xlsx { color: var(--src-xlsx); }
+@media (max-width: 639px) { .lp-ico { display: none; } }
 .lp-src .lp-plus { margin-left: auto; flex: none; font: 9.5px var(--font-mono); padding: 1px 5px; border-radius: 4px; color: var(--clay); background: color-mix(in srgb, var(--clay) 14%, transparent); }
 .lp-brainstrip { margin-top: 10px; background: var(--bg-sunk); border-radius: 12px; padding: 8px; overflow: hidden; }
 .lp-brainstrip .lp-neuron { margin-bottom: 0; }
