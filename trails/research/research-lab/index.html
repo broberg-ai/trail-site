@@ -459,22 +459,44 @@ body[data-menu-open="true"] { overflow: hidden; }
   color: var(--fg-60);
 }
 .article-cover { margin: 2rem 0 0; }
-/* F302.11 — TL;DR box: the article in three lines, before the long read. */
+/* F302.11 — TL;DR box: the article for someone with thirty seconds. It is the
+   first thing the eye lands on under the title — card, accent rail, numbered points. */
 .article-tldr {
-  margin: -1rem 0 3rem;
-  padding: 1.25rem 1.5rem;
-  background: var(--accent-tint);
-  border-left: 3px solid var(--accent);
-  border-radius: 4px;
+  position: relative;
+  margin: -1rem 0 3.5rem;
+  padding: 1.75rem 2rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-top: 4px solid var(--accent);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px -24px rgba(var(--graph-accent-line), 0.55), 0 2px 6px rgba(var(--graph-line), 0.06);
 }
+.article-tldr-head { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.1rem; }
 .article-tldr-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem; letter-spacing: 0.08em;
-  color: var(--accent-text);
-  margin-bottom: 0.5rem;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--on-accent); background: var(--clay-btn);
+  padding: 0.35rem 0.75rem; border-radius: 9999px;
 }
-.article-tldr ul { margin: 0; padding-left: 1.1rem; }
-.article-tldr li { font-size: 1rem; line-height: 1.6; color: var(--fg); margin: 0.25rem 0; }
+.article-tldr-sub { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em; color: var(--fg-muted); }
+.article-tldr ol { list-style: none; margin: 0; padding: 0; counter-reset: tldr; display: grid; gap: 0.9rem; }
+.article-tldr li {
+  counter-increment: tldr;
+  position: relative; padding-left: 2.6rem;
+  font-size: 1.125rem; line-height: 1.55; font-weight: 500; color: var(--fg);
+}
+.article-tldr li::before {
+  content: counter(tldr);
+  position: absolute; left: 0; top: 0.05rem;
+  width: 1.75rem; height: 1.75rem; border-radius: 9999px;
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700;
+  color: var(--accent-text); background: var(--accent-tint); border: 1px solid var(--accent);
+}
+@media (max-width: 560px) {
+  .article-tldr { padding: 1.4rem 1.25rem 1.25rem; }
+  .article-tldr li { font-size: 1.05rem; }
+}
 .article-cover img { width: 100%; border-radius: 4px; }
 
 .prose { font-size: 1.0625rem; line-height: 1.75; color: var(--fg); word-wrap: break-word; overflow-wrap: break-word; }
@@ -1121,6 +1143,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
 
   <!-- webhouse.app enrichment -->
   <meta name="generator" content="webhouse.app" />
+  <link rel="canonical" href="https://www.trailmem.com/trails/research/research-lab/" />
   <meta property="og:url" content="https://www.trailmem.com/trails/research/research-lab/" />
   <meta property="og:site_name" content="trail: second brain" />
   <meta name="twitter:card" content="summary" />
@@ -1322,7 +1345,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
       <p class="article-lead">Answer keys, controls and side-by-side comparisons: how we test search and compilation against real brains, what the numbers changed, and who can use the Lab today.</p>
       <div class="article-meta">Research · trail by broberg.ai · October 3, 2026</div>
       
-    </header><aside class="article-tldr" data-testid="article-tldr" aria-label="TL;DR"><div class="article-tldr-label">TL;DR</div><ul><li>Research Lab measures whether a brain holds what its sources said and whether search finds it, against answer keys with controls.</li><li>Hybrid search with meaning weighted at 0.15 helped on most test sets but costs time, so it is a per-brain opt-in.</li><li>Recompiling one brain raised coverage of the answer key from 63 % to 97 % and halved invented answers.</li><li>Brain Health runs the same checks nightly per brain, under a spending cap, and shows results on the Health page.</li></ul></aside><div class="prose prose-trail"><h2>Measuring instead of believing</h2>
+    </header><aside class="article-tldr" data-testid="article-tldr" aria-label="TL;DR"><div class="article-tldr-head"><span class="article-tldr-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>TL;DR</span><span class="article-tldr-sub">The whole article in 4 points</span></div><ol><li>Research Lab measures whether a brain holds what its sources said and whether search finds it, against answer keys with controls.</li><li>Hybrid search with meaning weighted at 0.15 helped on most test sets but costs time, so it is a per-brain opt-in.</li><li>Recompiling one brain raised coverage of the answer key from 63 % to 97 % and halved invented answers.</li><li>Brain Health runs the same checks nightly per brain, under a spending cap, and shows results on the Health page.</li></ol></aside><div class="prose prose-trail"><h2>Measuring instead of believing</h2>
 <p>A knowledge engine makes two promises that are easy to say and hard to check: that the brain holds what its sources said, and that search finds it when someone asks. Research Lab is where we check both — with numbers, against answer keys, and with controls that prove the numbers mean something.</p>
 <blockquote>
 <p><strong>Access today.</strong> Research Lab is currently available only to the developers behind Trail. We use it to improve Trail for every customer. We are working on making it publicly available.</p>

@@ -459,22 +459,44 @@ body[data-menu-open="true"] { overflow: hidden; }
   color: var(--fg-60);
 }
 .article-cover { margin: 2rem 0 0; }
-/* F302.11 — TL;DR box: the article in three lines, before the long read. */
+/* F302.11 — TL;DR box: the article for someone with thirty seconds. It is the
+   first thing the eye lands on under the title — card, accent rail, numbered points. */
 .article-tldr {
-  margin: -1rem 0 3rem;
-  padding: 1.25rem 1.5rem;
-  background: var(--accent-tint);
-  border-left: 3px solid var(--accent);
-  border-radius: 4px;
+  position: relative;
+  margin: -1rem 0 3.5rem;
+  padding: 1.75rem 2rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-top: 4px solid var(--accent);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px -24px rgba(var(--graph-accent-line), 0.55), 0 2px 6px rgba(var(--graph-line), 0.06);
 }
+.article-tldr-head { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.1rem; }
 .article-tldr-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem; letter-spacing: 0.08em;
-  color: var(--accent-text);
-  margin-bottom: 0.5rem;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--on-accent); background: var(--clay-btn);
+  padding: 0.35rem 0.75rem; border-radius: 9999px;
 }
-.article-tldr ul { margin: 0; padding-left: 1.1rem; }
-.article-tldr li { font-size: 1rem; line-height: 1.6; color: var(--fg); margin: 0.25rem 0; }
+.article-tldr-sub { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em; color: var(--fg-muted); }
+.article-tldr ol { list-style: none; margin: 0; padding: 0; counter-reset: tldr; display: grid; gap: 0.9rem; }
+.article-tldr li {
+  counter-increment: tldr;
+  position: relative; padding-left: 2.6rem;
+  font-size: 1.125rem; line-height: 1.55; font-weight: 500; color: var(--fg);
+}
+.article-tldr li::before {
+  content: counter(tldr);
+  position: absolute; left: 0; top: 0.05rem;
+  width: 1.75rem; height: 1.75rem; border-radius: 9999px;
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700;
+  color: var(--accent-text); background: var(--accent-tint); border: 1px solid var(--accent);
+}
+@media (max-width: 560px) {
+  .article-tldr { padding: 1.4rem 1.25rem 1.25rem; }
+  .article-tldr li { font-size: 1.05rem; }
+}
 .article-cover img { width: 100%; border-radius: 4px; }
 
 .prose { font-size: 1.0625rem; line-height: 1.75; color: var(--fg); word-wrap: break-word; overflow-wrap: break-word; }
@@ -1121,6 +1143,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
 
   <!-- webhouse.app enrichment -->
   <meta name="generator" content="webhouse.app" />
+  <link rel="canonical" href="https://www.trailmem.com/trails/research/scaling-trail-from-200-to-100000-neurons/" />
   <meta property="og:url" content="https://www.trailmem.com/trails/research/scaling-trail-from-200-to-100000-neurons/" />
   <meta property="og:site_name" content="trail: second brain" />
   <meta name="twitter:card" content="summary" />
@@ -1322,7 +1345,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
       <p class="article-lead">A compile-time knowledge engine has three workloads that fight for compute — ingest, lint, and the curation queue. Each one breaks at a different corpus size, for different reasons, and requires a different fix. This is the long-form companion to Work That Fits in a Night: the full accounting of where Trail's bottlenecks are, when they hit, and what a deployment looks like at 200, 8,000, 25,000, and 100,000 Neurons.</p>
       <div class="article-meta">Research · trail by broberg.ai · April 20, 2026</div>
       
-    </header><aside class="article-tldr" data-testid="article-tldr" aria-label="TL;DR"><div class="article-tldr-label">TL;DR</div><ul><li>Ingest cost stays flat per source regardless of corpus size, so it never becomes the bottleneck.</li><li>Contradiction lint hits a wall around 8,000 Neurons and is bounded by a capped pass of 500 Neurons from then on.</li><li>From about 25,000 Neurons the limit is curator attention, met with auto-approval and roles, while infrastructure scales by bigger machines, not rewrites.</li></ul></aside><div class="prose prose-trail"><h2>Why this note exists</h2>
+    </header><aside class="article-tldr" data-testid="article-tldr" aria-label="TL;DR"><div class="article-tldr-head"><span class="article-tldr-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>TL;DR</span><span class="article-tldr-sub">The whole article in 3 points</span></div><ol><li>Ingest cost stays flat per source regardless of corpus size, so it never becomes the bottleneck.</li><li>Contradiction lint hits a wall around 8,000 Neurons and is bounded by a capped pass of 500 Neurons from then on.</li><li>From about 25,000 Neurons the limit is curator attention, met with auto-approval and roles, while infrastructure scales by bigger machines, not rewrites.</li></ol></aside><div class="prose prose-trail"><h2>Why this note exists</h2>
 <p>Trail is a compile-time knowledge engine. Every source it ingests is read by a language model and turned into a persistent graph of Neurons — short wiki pages that cross-reference each other and the raw material they came from. The engine does three kinds of background work to keep that graph honest: it <strong>ingests</strong> new sources into Neurons, it <strong>lints</strong> the existing corpus for contradictions, orphans, and staleness, and it <strong>queues</strong> candidate edits for a human curator to approve.</p>
 <p>All three workloads scale differently. Ingest is largely linear in the size of the incoming source. Lint is quadratic if you let it be — each new Neuron wants to be re-checked against every existing peer. The queue is bounded by the number of decisions a human can make per day, which does not change no matter how large the corpus gets.</p>
 <p>At 200 Neurons none of this matters. A full lint pass finishes in twenty minutes. Ingest runs per-source without thinking about it. The queue holds a handful of candidates. Every shortcut in the engine falls inside a comfortable budget.</p>

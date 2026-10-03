@@ -459,22 +459,44 @@ body[data-menu-open="true"] { overflow: hidden; }
   color: var(--fg-60);
 }
 .article-cover { margin: 2rem 0 0; }
-/* F302.11 — TL;DR box: the article in three lines, before the long read. */
+/* F302.11 — TL;DR box: the article for someone with thirty seconds. It is the
+   first thing the eye lands on under the title — card, accent rail, numbered points. */
 .article-tldr {
-  margin: -1rem 0 3rem;
-  padding: 1.25rem 1.5rem;
-  background: var(--accent-tint);
-  border-left: 3px solid var(--accent);
-  border-radius: 4px;
+  position: relative;
+  margin: -1rem 0 3.5rem;
+  padding: 1.75rem 2rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-top: 4px solid var(--accent);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px -24px rgba(var(--graph-accent-line), 0.55), 0 2px 6px rgba(var(--graph-line), 0.06);
 }
+.article-tldr-head { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.1rem; }
 .article-tldr-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem; letter-spacing: 0.08em;
-  color: var(--accent-text);
-  margin-bottom: 0.5rem;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--on-accent); background: var(--clay-btn);
+  padding: 0.35rem 0.75rem; border-radius: 9999px;
 }
-.article-tldr ul { margin: 0; padding-left: 1.1rem; }
-.article-tldr li { font-size: 1rem; line-height: 1.6; color: var(--fg); margin: 0.25rem 0; }
+.article-tldr-sub { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em; color: var(--fg-muted); }
+.article-tldr ol { list-style: none; margin: 0; padding: 0; counter-reset: tldr; display: grid; gap: 0.9rem; }
+.article-tldr li {
+  counter-increment: tldr;
+  position: relative; padding-left: 2.6rem;
+  font-size: 1.125rem; line-height: 1.55; font-weight: 500; color: var(--fg);
+}
+.article-tldr li::before {
+  content: counter(tldr);
+  position: absolute; left: 0; top: 0.05rem;
+  width: 1.75rem; height: 1.75rem; border-radius: 9999px;
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700;
+  color: var(--accent-text); background: var(--accent-tint); border: 1px solid var(--accent);
+}
+@media (max-width: 560px) {
+  .article-tldr { padding: 1.4rem 1.25rem 1.25rem; }
+  .article-tldr li { font-size: 1.05rem; }
+}
 .article-cover img { width: 100%; border-radius: 4px; }
 
 .prose { font-size: 1.0625rem; line-height: 1.75; color: var(--fg); word-wrap: break-word; overflow-wrap: break-word; }
@@ -1121,6 +1143,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
 
   <!-- webhouse.app enrichment -->
   <meta name="generator" content="webhouse.app" />
+  <link rel="canonical" href="https://www.trailmem.com/trails/how-trail-works/three-filters-on-the-gate/" />
   <meta property="og:url" content="https://www.trailmem.com/trails/how-trail-works/three-filters-on-the-gate/" />
   <meta property="og:site_name" content="trail: second brain" />
   <meta name="twitter:card" content="summary" />
@@ -1322,7 +1345,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
       <p class="article-lead">A knowledge system without filters isn't a brain — it's a garbage heap. Trail's trusted-pipeline, confidence-threshold, and no-contradictions trio isn't an arbitrary engineering choice. It mirrors a pattern two billion years of evolution converged on.</p>
       <div class="article-meta">How Trail Works · trail · April 16, 2026</div>
       
-    </header><aside class="article-tldr" data-testid="article-tldr" aria-label="TL;DR"><div class="article-tldr-label">TL;DR</div><ul><li>Trail's curation gate decides per candidate whether it is auto-approved, raised to a curator or rejected.</li><li>It uses three filters: trusted pipeline, confidence threshold and no contradiction with existing Neurons; only the first was live when it was written.</li><li>The filters mirror NLP's deletion, generalisation and distortion and the brain's gating, and none is sufficient alone.</li></ul></aside><div class="prose prose-trail"><h2>The gate is the architecture</h2>
+    </header><aside class="article-tldr" data-testid="article-tldr" aria-label="TL;DR"><div class="article-tldr-head"><span class="article-tldr-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>TL;DR</span><span class="article-tldr-sub">The whole article in 3 points</span></div><ol><li>Trail's curation gate decides per candidate whether it is auto-approved, raised to a curator or rejected.</li><li>It uses three filters: trusted pipeline, confidence threshold and no contradiction with existing Neurons; only the first was live when it was written.</li><li>The filters mirror NLP's deletion, generalisation and distortion and the brain's gating, and none is sufficient alone.</li></ol></aside><div class="prose prose-trail"><h2>The gate is the architecture</h2>
 <p>Every persistent knowledge system eventually has to answer the same question: what gets written down, and on whose authority?</p>
 <p>For a brain, the answer is not conscious. You do not sit down each evening and decide which of the day&#39;s experiences to encode into long-term memory. Something in you decides, below the level of attention, and what gets through is the substrate of everything you will later think of as your understanding of the world. What gets filtered out is, by definition, unrecoverable — you will never know what you nearly remembered.</p>
 <p>For a knowledge infrastructure engine, the same question becomes an explicit design problem. Trail compiles sources into a cross-referenced graph of Neurons maintained by a language model. If every candidate that the compiler proposes were admitted without scrutiny, the graph would drift into incoherence within weeks. Contradictions would accumulate. Low-confidence speculation would be indistinguishable from verified claims. The system would look like it was learning, but what it was actually doing was accreting noise.</p>
