@@ -1351,195 +1351,253 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
       
     </header><aside class="article-tldr" data-testid="article-tldr" aria-label="TL;DR"><div class="article-tldr-head"><span class="article-tldr-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>TL;DR</span><span class="article-tldr-sub">The whole article in 3 points</span></div><ol><li>Trail's vocabulary in one place: 58 terms, each in a few plain sentences, alphabetical.</li><li>A Brain is one knowledge base; it holds Sources and the Neurons compiled from them, and a Curator decides what goes in.</li><li>The list is generated from the same file the Trail app uses, so the app and this page always agree.</li></ol></aside><div class="prose prose-trail"><p>Trail has its own vocabulary — Brains, Neurons, Sources, the Curation Queue — and most words mean something precise. This glossary is the same list the Trail app shows its users, generated from the same file, so the two can never disagree.</p>
 <h2>A</h2>
-<h3>Action</h3>
+<h3 id="action">Action</h3>
+
 <p>One of the resolution options on a Candidate. Default Candidates have Approve + Reject; richer Candidates (contradiction, orphan, stale) carry producer-specific Actions like &quot;Retire Neuron&quot;, &quot;Link to sources&quot;, &quot;Dismiss as false positive&quot;. Each Action has a plain-language explanation describing what happens when you click it.</p>
 <p><em>See also: Candidate, Effect</em></p>
-<h3>Answer feedback</h3>
+<h3 id="answer-feedback">Answer feedback</h3>
+
 <p>The thumbs up, thumbs down and flag buttons under a chat answer — in the admin chat and in the embedded widget. Each click lands in the Curator&#39;s Queue together with the question, the answer, the cited Neurons and the reader&#39;s reason, so a wrong answer can be traced back and fixed in the Brain.</p>
 <p><em>See also: Chat, Curation Queue, Curator, Chat widget</em></p>
-<h3>API key</h3>
+<h3 id="api-key">API key</h3>
+
 <p>A secret token that lets your own website, script or AI assistant talk to Trail — search, retrieve, chat or post knowledge. The full key is shown only once when you create it. Revoking it cuts off every integration using it immediately. Callers with an API key never see a Brain&#39;s internal Neurons.</p>
 <p><em>See also: Audience, Chat widget, Connector, Tenant</em></p>
-<h3>Approve</h3>
+<h3 id="approve">Approve</h3>
+
 <p>The primary &quot;yes, commit this&quot; action on a Candidate. Triggers the effect behind the Action (create Neuron, update Neuron, archive, etc.) and logs a wiki_event with the Curator as actor. Every Candidate has at least one approve-effect action; contradiction and orphan findings replace it with more specific affirmative actions like Reconcile or Auto-link sources.</p>
 <p><em>See also: Candidate, Action, Effect, Curator</em></p>
-<h3>Archive</h3>
+<h3 id="archive">Archive</h3>
+
 <p>Soft-delete a Neuron or Source. The document stays in the database (its data, metadata, and history are preserved) but disappears from the active lists. Reversible at any time from the Archived tab. Different from hard-deletion: Archive preserves the audit trail, links pointing to the archived Neuron become broken links until cleaned up, and the file on disk stays intact for Sources.</p>
 <p><em>See also: Neuron, Source, Effect</em></p>
-<h3>Audience</h3>
+<h3 id="audience">Audience</h3>
+
 <p>Who is asking, which decides what they may see. Curator (you in the admin) sees everything. Tool (a site&#39;s own AI fetching from Trail) and public (a chat shown directly to visitors) never see heuristic Neurons or Neurons tagged internal. A caller with an API key gets tool by default and can narrow its audience, never widen it. Each Brain can add its own persona text for tool and public answers.</p>
 <p><em>See also: API key, Heuristic Neuron, Chat widget, Search</em></p>
-<h3>Auto-approve</h3>
+<h3 id="auto-approve">Auto-approve</h3>
+
 <p>Policy that approves a Candidate without curator review. Fires for trusted pipelines (e.g. ingest-summary) and for candidates above a confidence threshold. Human-originated candidates never auto-approve by design — people click &quot;submit&quot;, machines emit confidences.</p>
 <p><em>See also: Candidate, Curator, Confidence</em></p>
-<h3>Auto-link</h3>
+<h3 id="auto-link">Auto-link</h3>
+
 <p>A one-click action on an Orphan Neuron finding. The LLM reads the Neuron&#39;s content, reviews the best-matching Sources in the same Brain (pre-filtered by keyword overlap), and proposes the 1–3 Sources the Neuron&#39;s claims most likely came from. If confident, it adds them to the Neuron&#39;s sources and the orphan alert disappears. If nothing matches clearly, it asks the Curator to link manually. Uses a small Mistral model (EU) to keep the cost predictable.</p>
 <p><em>See also: Orphan Neuron, Frontmatter, Source, Reference, LLM</em></p>
 <h2>B</h2>
-<h3>Backlink</h3>
+<h3 id="backlink">Backlink</h3>
+
 <p>The inverse of a Neuron-link. If Neuron A contains [[B]], then B has a backlink FROM A. Shown on the Neuron reader as &quot;N Neurons link here&quot; — lets the Curator see how interconnected a Neuron is.</p>
 <p><em>See also: Neuron, Neuron-link, Typed Edge, Reference</em></p>
-<h3>Brain</h3>
+<h3 id="brain">Brain</h3>
+
 <p>One knowledge base inside Trail — the Sources you add, the Neurons compiled from them, and the curator decisions that shaped them, held together by one topic or project. A tenant can have many Brains (&quot;my reflexology Brain&quot;, &quot;my iOS notes Brain&quot;). Until September 2026 the admin called this unit &quot;a Trail&quot;; Trail is now the name of the product only.</p>
 <p><em>See also: Trail, Tenant, Neuron, Source, Curator</em></p>
-<h3>Brain version</h3>
+<h3 id="brain-version">Brain version</h3>
+
 <p>A named point in a Brain&#39;s history that you can roll back to. Trail sets one automatically before changes to knowledge are written (at most one every 15 minutes, so a big sync gives one version, not a hundred), and you can set your own. Before a rollback you are shown exactly what will change, and Trail saves the current state as a version first, so the rollback itself can be undone.</p>
 <p><em>See also: Brain, Archive, Neuron</em></p>
 <h2>C</h2>
-<h3>Candidate</h3>
+<h3 id="candidate">Candidate</h3>
+
 <p>A single proposed change to a Brain — a new Neuron, an edit, an archive, or an alert from Lint. Each Candidate has a status (pending, approved, rejected) and a set of Actions the Curator can choose from.</p>
 <p><em>See also: Curation Queue, Action, Fingerprint</em></p>
-<h3>Chat</h3>
+<h3 id="chat">Chat</h3>
+
 <p>Asking a Brain a question in plain language. Trail finds the Neurons that fit, writes an answer from them and shows which Neurons it used. Superseded Neurons and Neurons whose confidence has faded below 0.3 are left out, so old knowledge doesn&#39;t creep into new answers. A conversation can be saved as a Source, which compiles it back into the Brain.</p>
 <p><em>See also: Search, Neuron, Superseded, Memory fading, Answer feedback, Chat widget</em></p>
-<h3>Chat widget</h3>
+<h3 id="chat-widget">Chat widget</h3>
+
 <p>A ready-made chat box (<trail-chat>) you can put on your own website, so visitors ask questions and get answers from your Brain with citations and feedback buttons. Today it talks to Trail through a small proxy on your own server, which keeps your API key out of the browser.</p>
 <p><em>See also: Chat, API key, Audience, Answer feedback</em></p>
-<h3>Chunk</h3>
+<h3 id="chunk">Chunk</h3>
+
 <p>A short piece of a document — roughly 500 tokens, split along paragraphs and headings — that search indexes separately. Each chunk remembers which heading it sits under, so a search hit can point to the exact section instead of just the whole document.</p>
 <p><em>See also: Search, FTS, Ingest, Source</em></p>
-<h3>Compile</h3>
+<h3 id="compile">Compile</h3>
+
 <p>The LLM step that turns extracted Source text into one or more Neurons. The model gets the Source text, the Brain&#39;s language, its existing tags and the entities it already knows, and writes claim-dense pages — each with frontmatter (title, sources, tags, type) and [[Neuron-links]] to related pages. The result lands as Candidates in the Queue; the auto-approval policy decides whether they go in without a human click. In the cloud the default model is Mistral (EU), a small model first with a larger one as fallback; a Brain can be set to another model in its settings. Distinct from Ingest (the whole pipeline around compile), Retry (re-runs everything) and Re-ingest (re-runs only compile).</p>
 <p><em>See also: Ingest, Source, Neuron, Re-ingest, Retry, Auto-approve</em></p>
-<h3>Confidence</h3>
+<h3 id="confidence">Confidence</h3>
+
 <p>A 0-1 number on every machine-generated Candidate representing how sure the pipeline is. High confidence (≥0.8 by default) can auto-approve via policy; lower confidence lands pending for Curator review. Human-submitted candidates always land pending regardless.</p>
 <p><em>See also: Candidate, Auto-approve</em></p>
-<h3>Connector</h3>
+<h3 id="connector">Connector</h3>
+
 <p>The route a piece of knowledge came into a Brain by — a file upload, the API, a saved chat, a lint finding, a direct edit by the Curator, an AI coding tool via MCP, and others. Every Queue item and Neuron shows &quot;Created via …&quot;, and the Queue can be filtered by connector. Slack, Discord, Notion, GitHub and Linear are on the roadmap, not live.</p>
 <p><em>See also: Curation Queue, Candidate, Source, New version becomes canon, API key</em></p>
-<h3>Contradiction</h3>
+<h3 id="contradiction">Contradiction</h3>
+
 <p>Two Neurons whose claims cannot both be true under standard reading. Detected by pairwise LLM comparison after a new or updated Neuron is approved. If one side clearly wins (clearly higher confidence and at least as many Sources), Trail supersedes the weaker one automatically; otherwise the Curator decides: retire one, reconcile manually, flag the Source, or dismiss as a false positive. A new version of the same Source is not a contradiction — it becomes the new canon.</p>
 <p><em>See also: Neuron, Lint, Action</em></p>
-<h3>Credits</h3>
+<h3 id="credits">Credits</h3>
+
 <p>The unit Trail uses to show what AI work costs your tenant. Each time Trail calls a language model for you — compiling a Source, answering a chat, running a check — the actual cost is deducted, one credit per US cent. The balance and recent use are on the Cost page. Buying extra credits in the app is not live yet.</p>
 <p><em>See also: Tenant, LLM, Compile</em></p>
-<h3>Curation Queue</h3>
+<h3 id="queue">Curation Queue</h3>
+
 <p>The list of pending changes waiting for the Curator&#39;s decision. Every write into a Brain (new Neuron, edit, archive, lint alert) lands here first; the Queue is the ONLY path that can modify Neurons.</p>
 <p><em>See also: Candidate, Curator, Auto-approve</em></p>
-<h3>Curator</h3>
+<h3 id="curator">Curator</h3>
+
 <p>The human who decides what lives in a Brain. Curators review candidates in the Queue, approve or reject them, and occasionally edit Neurons directly. The Curator is the source of truth — the LLM proposes, the Curator disposes.</p>
 <p><em>See also: Curation Queue, Candidate</em></p>
 <h2>D</h2>
-<h3>Dismiss</h3>
+<h3 id="dismiss">Dismiss</h3>
+
 <p>Discard a Candidate without committing its change. Used when a lint finding is a false alarm, a chat-answer turned out to be wrong, or the Curator disagrees with a compiler-proposed update. Leaves the target Neuron unchanged. Under the default Trusting Lint Policy, dismissed lint findings don&#39;t re-fire — under Strict, they may re-qualify on the next run.</p>
 <p><em>See also: Candidate, False Positive, Lint Policy</em></p>
 <h2>E</h2>
-<h3>Effect</h3>
+<h3 id="effect">Effect</h3>
+
 <p>The engine-level operation behind an Action. Examples: approve (commit the candidate&#39;s content), reject (discard), retire-neuron (archive a specific page), flag-source (mark a Source as untrustworthy), acknowledge (mark as handled manually). Multiple Actions can share an effect — a contradiction&#39;s &quot;Retire A&quot; and &quot;Retire B&quot; both use retire-neuron with different documentId args.</p>
 <p><em>See also: Action, Candidate</em></p>
 <h2>F</h2>
-<h3>False Positive</h3>
+<h3 id="false-positive">False Positive</h3>
+
 <p>A Lint finding that isn&#39;t actually a problem. The detector got it wrong — different phrasing looked like a contradiction, an intentionally-axiomatic page looked like an orphan, an evergreen reference looked stale. Dismissing as false positive blocks the finding from re-surfacing (in Trusting policy mode).</p>
 <p><em>See also: Lint, Action, Lint Policy</em></p>
-<h3>Fingerprint</h3>
+<h3 id="fingerprint">Fingerprint</h3>
+
 <p>A stable identifier for a Lint finding, used to dedupe re-runs. A nightly Lint pass that finds the same orphan Neuron as yesterday skips re-emitting it. Includes the Neuron&#39;s version so a substantive rewrite creates a fresh fingerprint that bypasses old suppressions.</p>
 <p><em>See also: Lint, Lint Policy</em></p>
-<h3>Frontmatter</h3>
+<h3 id="frontmatter">Frontmatter</h3>
+
 <p>The YAML block at the top of every Neuron, between two <code>---</code> lines. Holds structured metadata: title, tags, date, and <code>sources: [...]</code> — the filenames the Neuron&#39;s claims came from. The reference extractor reads <code>sources</code> on save and writes the document_references rows that the backlink graph + orphan-detector rely on. Missing <code>sources</code> → Neuron shows up as an orphan on next Lint run.</p>
 <p><em>See also: Neuron, Reference, Source, Orphan Neuron</em></p>
-<h3>FTS</h3>
+<h3 id="fts">FTS</h3>
+
 <p>Full-Text Search — the keyword-based search engine indexed over every Neuron&#39;s content + title + tags. Trail uses SQLite&#39;s FTS5 module (built in, no external service). FTS powers (1) the search bar in admin, (2) chat&#39;s context-retrieval (which Neurons relate to this question?), (3) lint&#39;s peer-discovery (which Neurons might contradict this one?). FTS is keyword-fast, not semantic — it matches words, not meanings. Auto-syncs via DB triggers when Neurons are created/edited/archived, so the index is always fresh. On a Brain with hybrid search switched on, search and chat combine FTS with meaning-based matching (see Search).</p>
 <p><em>See also: Search, Chat, Lint, Peer, Top-K</em></p>
 <h2>H</h2>
-<h3>Heuristic Neuron</h3>
+<h3 id="heuristic">Heuristic Neuron</h3>
+
 <p>A Neuron that holds a rule of thumb or a way of working (&quot;always clarify the question before answering&quot;) rather than a fact. Its confidence drops the longer it goes unedited; below 0.3 it counts as faded and chat leaves it out, unless it is pinned. Heuristics are internal: external integrations never see them.</p>
 <p><em>See also: Neuron type, Pin, Memory fading, Audience</em></p>
 <h2>I</h2>
-<h3>Ingest</h3>
+<h3 id="ingest">Ingest</h3>
+
 <p>The process of reading a new Source, extracting its text, chunking it for search, and compiling one or more Neurons from it. Ingest produces ingest-summary candidates that auto-approve if confidence is high enough.</p>
 <p><em>See also: Compile, Source, Neuron, Auto-approve, Retry, Re-ingest</em></p>
 <h2>L</h2>
-<h3>Link Check</h3>
+<h3 id="link-check">Link Check</h3>
+
 <p>The list of [[Neuron-links]] in a Brain that point to a Neuron that doesn&#39;t exist. Where Trail can guess the intended target it suggests a fix: accept it to rewrite the link, dismiss it to keep the link as intended, or rescan after bulk edits.</p>
 <p><em>See also: Neuron-link, Backlink, Lint</em></p>
-<h3>Lint</h3>
+<h3 id="lint">Lint</h3>
+
 <p>Background scan of a Brain for structural problems — orphan Neurons (no citations), stale Neurons (untouched too long), broken links, faded heuristics and contradictions (two Neurons with conflicting claims). Findings land as Candidates in the Queue; Lint never edits anything itself. Runs on a schedule set per Brain — weekly by default — and reactively when new Neurons arrive. Each check can be switched off per Brain.</p>
 <p><em>See also: Orphan Neuron, Stale Neuron, Contradiction, Fingerprint</em></p>
-<h3>Lint Policy</h3>
+<h3 id="lint-policy">Lint Policy</h3>
+
 <p>Per-Brain setting controlling what happens to rejected Lint findings. &quot;Trusting&quot; (default) permanently suppresses them — no nag-loop. &quot;Strict&quot; lets them re-fire on the next Lint pass for a second review. Versioned fingerprints re-qualify findings after the Neuron has actually been edited, independent of policy.</p>
 <p><em>See also: Lint, Fingerprint, False Positive</em></p>
-<h3>LLM</h3>
+<h3 id="llm">LLM</h3>
+
 <p>Large Language Model — the AI that does the heavy lifting inside Trail. It compiles Neurons from Sources, writes chat answers, describes images and checks Neurons for contradictions. In the cloud, Trail runs its language models at Mistral in the EU, and the fallback models are EU too — if Mistral is down, the job fails visibly instead of sending your data outside the EU. The Curator is always the final authority: the LLM proposes, the Curator disposes.</p>
 <p><em>See also: Ingest, Neuron, Source, Curator, Lint</em></p>
 <h2>M</h2>
-<h3>Memory fading</h3>
+<h3 id="memory-fading">Memory fading</h3>
+
 <p>Each Neuron has a live confidence between 0 and 1, recalculated every night from how old it is, how many Sources back it, whether it is contradicted, and how often it is cited and read. Knowledge that is never used slowly weighs less in chat and search; it is never deleted. Fading is paused for a new Brain until you turn it on — so nothing fades before the site using the Brain is in real use. How fast each Neuron type fades can be adjusted on the Health page.</p>
 <p><em>See also: Pin, Superseded, Heuristic Neuron, Chat, Neuron type</em></p>
 <h2>N</h2>
-<h3>Neuron</h3>
+<h3 id="neuron">Neuron</h3>
+
 <p>A compiled page inside a Brain — a short, claim-dense markdown document generated from one or more Sources. Neurons link to each other with [[Neuron-links]] and cite Sources via frontmatter.</p>
 <p><em>See also: Trail, Source, Backlink</em></p>
-<h3>Neuron type</h3>
+<h3 id="neuron-type">Neuron type</h3>
+
 <p>What kind of knowledge a Neuron holds, read from the folder it lives in: concept, entity (a person, place or product), synthesis, comparison, source summary, saved query, session, heuristic, the Brain&#39;s glossary — or a plain note if it fits none of them. The type decides how fast a Neuron fades and who may see it.</p>
 <p><em>See also: Neuron, Heuristic Neuron, Memory fading, Audience</em></p>
-<h3>Neuron-link</h3>
+<h3 id="neuron-link">Neuron-link</h3>
+
 <p>The <code>[[...]]</code> double-bracket syntax that links one Neuron to another inside a Brain. The text between the brackets is slugified to resolve against a target filename — <code>[[Orphans + Stale]]</code> finds <code>orphans-stale.md</code>. Neuron-links build the graph that powers the Chat&#39;s context-gathering, the Backlink view in the reader, and the orphan-detector&#39;s &quot;no one links here&quot; signal. <strong>How to author one:</strong> type <code>[[Target Neuron Title]]</code> directly in any markdown content field — the Neuron editor, the &quot;+ New&quot; modal, a Work item&#39;s Description (Task / Bug / Milestone / Decision), or the save-dialog when you pin a Chat answer as a Neuron. The backlink extractor resolves it on save; the new edge appears in the Graph and the target Neuron&#39;s &quot;N Neurons link here&quot; count ticks up. The ingest pipeline also writes Neuron-links automatically when compiling Sources, so the Curator rarely has to add them by hand. Optional typed form <code>[[target|edge-type]]</code> carries a semantic relation — <code>cites</code> (default, bare mention), <code>is-a</code>, <code>part-of</code>, <code>contradicts</code>, <code>supersedes</code>, <code>example-of</code>, <code>caused-by</code> — and colours the graph accordingly. Subject to link-integrity guarantees: an unresolvable link becomes a broken-link finding for the Curator, never a 404 on the reader.</p>
 <p><em>See also: Neuron, Backlink, Slug (slugify), Contradiction, Orphan Neuron</em></p>
-<h3>New version becomes canon</h3>
+<h3 id="new-version-canon">New version becomes canon</h3>
+
 <p>When the same Source arrives again with new content — the same web page after an edit, or a file with the same name uploaded to the same Brain — the new version is the truth. It replaces the old one instead of landing as a contradiction in the Queue. It is on by default and can be switched off for the whole Brain or per connector. If an upload only shares its name with an older file, mark it &quot;This is a new source&quot; so it replaces nothing.</p>
 <p><em>See also: Source, Superseded, Contradiction, Connector, Curation Queue</em></p>
 <h2>O</h2>
-<h3>Orphan Neuron</h3>
+<h3 id="orphan-neuron">Orphan Neuron</h3>
+
 <p>A Neuron that cites no Sources in its frontmatter. Either the compiler wrote it without linking evidence, or the citation was lost in an edit. Lint flags it so the Curator can link the claims to Sources or archive the Neuron if its claims can&#39;t be defended.</p>
 <p><em>See also: Neuron, Source, Lint, Reference</em></p>
 <h2>P</h2>
-<h3>Peer</h3>
+<h3 id="peer">Peer</h3>
+
 <p>An OTHER Neuron in the same Brain that&#39;s structurally related to a given Neuron — typically a candidate for cross-checks like contradiction-lint. When Trail asks &quot;does this Neuron contradict any of its peers?&quot;, &quot;peers&quot; = the top-K most semantically similar Neurons retrieved via FTS. Peers are not edges (those are wiki-backlinks); they&#39;re a per-query similarity-set assembled when needed and discarded after use.</p>
 <p><em>See also: Neuron, FTS, Top-K, Lint, Neuron-link</em></p>
-<h3>Pin</h3>
+<h3 id="pin">Pin</h3>
+
 <p>Marking a Neuron as always true. A pinned Neuron is held at full confidence (1.0) and never fades, so it always counts fully in chat and search. Use it for core facts and definitions that don&#39;t get old.</p>
 <p><em>See also: Memory fading, Heuristic Neuron, Superseded</em></p>
 <h2>Q</h2>
-<h3>Quality control</h3>
+<h3 id="quality-control">Quality control</h3>
+
 <p>A nightly check that measures, with numbers, whether a Brain&#39;s answers rest on its Sources and whether search finds the right Neuron. It asks trap questions the Brain should refuse, checks answer claims against Sources, and tests search ranking. It is off by default, runs at most once a day per Brain and stops at a budget cap you set (75 cents a night by default). Results and findings appear at the top of the Health page.</p>
 <p><em>See also: Brain, Search, Chat, Lint</em></p>
 <h2>R</h2>
-<h3>Re-ingest</h3>
+<h3 id="re-ingest">Re-ingest</h3>
+
 <p>Re-run ONLY the compile step against a Source&#39;s already-extracted content. Skips file-format extraction (no PDF re-parse, no image re-description) and goes straight to compile with the Brain&#39;s current model. Cheap and fast — useful when ingest hit a time or turn limit, or when the compile instructions have improved and you want existing Sources to benefit. If extraction itself failed, use Retry instead.</p>
 <p><em>See also: Retry, Ingest, Source</em></p>
-<h3>Reconcile</h3>
+<h3 id="reconcile">Reconcile</h3>
+
 <p>A contradiction-resolution path that doesn&#39;t archive either Neuron. The Curator opens both in the editor and writes a new, merged Neuron that honors both sources&#39; claims — e.g. &quot;under condition X, A is true; under condition Y, B is true.&quot; Both original Neurons then get Archive&#39;d or rewritten to reference the reconciled version. Canonical Danish: Forlig (not &quot;Afstem&quot; or &quot;Forene&quot; — those suggest voting or simple concatenation, which this isn&#39;t).</p>
 <p><em>See also: Contradiction, Neuron, Curator, Archive</em></p>
-<h3>Reference</h3>
+<h3 id="reference">Reference</h3>
+
 <p>A tracked citation from a Neuron to a Source (provenance — &quot;this claim came from this document&quot;) OR a [[Neuron-link]] from a Neuron to another Neuron (navigation — &quot;see also&quot;). Two separate graphs; the Curator sees both as one interconnected whole.</p>
 <p><em>See also: Neuron, Source, Backlink, Frontmatter</em></p>
-<h3>Retire</h3>
+<h3 id="retire">Retire</h3>
+
 <p>A contradiction-specific variant of Archive. When two Neurons contradict each other, the Curator picks which one to retire — effectively the same action as Archive, but scoped to the contradiction resolution so the audit trail records WHY the Neuron was taken out of circulation. Canonical Danish translation: Arkivér (not &quot;Pensionér&quot; — that sounds like a person retiring from work, misleading here).</p>
 <p><em>See also: Archive, Contradiction, Neuron</em></p>
-<h3>Retry</h3>
+<h3 id="retry">Retry</h3>
+
 <p>Re-run the ENTIRE pipeline for a Source — re-extract the file (PDF text, DOCX HTML, PPTX slides, XLSX cells), re-chunk, and re-ingest. Use this when extraction itself failed (corrupt PDF, silent pdfjs hang, vision-API hiccup) or when you&#39;ve replaced the underlying file bytes. More expensive than re-ingest because extraction is re-done; prefer re-ingest when the extracted content is fine and only the LLM compile needs another pass.</p>
 <p><em>See also: Re-ingest, Ingest, Source</em></p>
 <h2>S</h2>
-<h3>Search</h3>
+<h3 id="search">Search</h3>
+
 <p>Finding Neurons in a Brain. Every Brain has keyword search (FTS), and a Neuron whose title exactly matches your query is always ranked first. A Brain can additionally have hybrid search switched on, which also matches on meaning — so &quot;opening hours&quot; can find a Neuron that says &quot;we&#39;re open from 9&quot;. Hybrid search is off by default and is turned on per Brain.</p>
 <p><em>See also: FTS, Chunk, Chat, Audience, Top-K</em></p>
-<h3>Slug (slugify)</h3>
+<h3 id="slug">Slug (slugify)</h3>
+
 <p>A URL- and filename-safe version of a title, produced by a deterministic transformation called <em>slugification</em>: lowercase everything, replace spaces with hyphens, strip punctuation, and fold non-ASCII characters to their closest ASCII equivalents (<code>æ→ae</code>, <code>ø→oe</code>, <code>å→aa</code>). Examples: <code>&quot;Yin og Yang&quot;</code> → <code>yin-og-yang</code>, <code>&quot;Orphans + Stale&quot;</code> → <code>orphans-stale</code>, <code>&quot;Christian Broberg&quot;</code> → <code>christian-broberg</code>. Slugs are the canonical address of a Neuron inside a Brain — the file is <code>&lt;slug&gt;.md</code>, the URL is <code>/kb/&lt;kb-slug&gt;/neurons/&lt;slug&gt;</code>, and a Neuron-link&#39;s <code>[[...]]</code> text gets slugified to find its target. Two different titles that slugify to the same string collide on the same Neuron, so the compiler avoids ambiguity by keeping titles distinctive in the source language. The Danish/English bilingual fold recognises that <code>yin-og-yang</code> and <code>yin-and-yang</code> should resolve to the same Neuron when the KB&#39;s language is Danish — protecting against LLM drift between <code>og</code> / <code>and</code>.</p>
 <p><em>See also: Neuron, Neuron-link, Trail</em></p>
-<h3>Source</h3>
+<h3 id="source">Source</h3>
+
 <p>An immutable raw document added to a Brain — PDF, Word, PowerPoint, Excel/CSV, Markdown, plain text, HTML, images, a synced web page or a saved conversation. A Source is never edited after ingest; when a changed version arrives it is stored as a new edition of the same Source. Neurons are compiled FROM Sources and cite them.</p>
 <p><em>See also: Neuron, Ingest, Reference</em></p>
-<h3>Stale Neuron</h3>
+<h3 id="stale-neuron">Stale Neuron</h3>
+
 <p>A Neuron that hasn&#39;t been touched in a long time (default 90 days). Not automatically wrong, but the most likely to have drifted from what its Sources now say. Lint flags it so the Curator can confirm it&#39;s still accurate, refresh it from the Source, or archive.</p>
 <p><em>See also: Neuron, Lint, Source</em></p>
-<h3>Superseded</h3>
+<h3 id="superseded">Superseded</h3>
+
 <p>A Neuron that has been replaced by a newer one. It happens automatically when two Neurons contradict each other and one clearly wins — clearly higher confidence and at least as many Sources behind it — or when a new version of the same Source arrives. The old Neuron is kept for history, but chat no longer uses it and the graph tones it down. If neither side clearly wins, the contradiction goes to the Curator instead.</p>
 <p><em>See also: Contradiction, New version becomes canon, Memory fading, Archive, Typed Edge</em></p>
 <h2>T</h2>
-<h3>Tenant</h3>
+<h3 id="tenant">Tenant</h3>
+
 <p>An isolated workspace — its own Brains, Sources, credits and members. Nothing crosses from one tenant to another. You can belong to several tenants and switch between them from the pill in the top bar; new members are invited by email with a magic link.</p>
 <p><em>See also: Brain, Credits, API key</em></p>
-<h3>Top-K</h3>
+<h3 id="top-k">Top-K</h3>
+
 <p>The K best matches from a similarity search — the standard way to limit how many results a query returns. Trail uses top-K = 5 by default for contradiction-lint: when scanning a Neuron, take the 5 most-related peers (via FTS) and pair-compare. Higher K = better coverage but more LLM calls (cost grows linearly). Lower K = faster + cheaper but might miss contradictions hiding in less-obvious peers.</p>
 <p><em>See also: Peer, FTS, Lint, LLM</em></p>
-<h3>Trail</h3>
+<h3 id="trail">Trail</h3>
+
 <p>The product: a knowledge system that compiles your Sources into linked, cited Neurons a Curator approves, so people and AI can ask it questions. Trail is organised as Tenant → Brain → Neuron. (A single knowledge base used to be called &quot;a Trail&quot;; since September 2026 it is called a Brain.)</p>
 <p><em>See also: Neuron, Source, Curator</em></p>
-<h3>Typed Edge</h3>
+<h3 id="typed-edge">Typed Edge</h3>
+
 <p>A Neuron-link that carries a named semantic relation, so the graph isn&#39;t just &quot;A links to B&quot; but &quot;A <em>is-a</em> B&quot; or &quot;A <em>contradicts</em> B&quot;. Authored as <code>[[target|edge-type]]</code>. Seven recognised types: <strong>cites</strong> — bare mention, weakest relation, the default for every plain <code>[[link]]</code> and every older link; <strong>is-a</strong> — hierarchical specialisation (Labrador is-a Dog); <strong>part-of</strong> — composition (Keyboard part-of Laptop); <strong>contradicts</strong> — an explicit disagreement between two claims, feeds the contradiction-lint detector directly; <strong>supersedes</strong> — versioning (Constitution-1953 supersedes Constitution-1849); <strong>example-of</strong> — a concrete instance of an abstract concept (Pythagoras example-of Mathematician); <strong>caused-by</strong> — causal dependency (Flood caused-by Dam-break). The compile-prompt teaches the LLM when each type applies; the backlink extractor records the type in the DB on save; the Graph view colours edges by type with a legend-chip row, and the relationships API exposes a <code>?type=</code> filter for targeted queries (&quot;show me everything this Neuron contradicts&quot;). Turning a bare <code>[[link]]</code> into a typed one is a drop-in edit — no schema migration, the default stays <code>cites</code> for anything un-typed.</p>
 <p><em>See also: Neuron-link, Backlink, Contradiction, Reference</em></p>
 <h2>W</h2>
-<h3>Work item</h3>
+<h3 id="work-item">Work item</h3>
+
 <p>A task, bug, milestone or decision kept in a Brain next to the knowledge, with a status (open, in progress, blocked, done), an assignee and a due date. Link it to Neurons with [[Neuron-links]] and the related knowledge follows it into chat and compile.</p>
 <p><em>See also: Neuron-link, Brain, Neuron</em></p>
 </div><div class="post-footer"><div class="post-related">
