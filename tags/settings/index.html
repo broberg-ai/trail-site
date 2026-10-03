@@ -1143,6 +1143,58 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   .sc-s h2 { font-size: 30px; }
   .sc-hero { padding: 120px 0 48px; }
 }
+
+.nav-search {
+  display: inline-flex; align-items: center; gap: 0.5rem; height: 36px; padding: 0 0.6rem 0 0.7rem;
+  border: 1px solid var(--fg-10); border-radius: 9999px; background: transparent; color: var(--fg-60);
+  font: 0.8125rem var(--font-sans); cursor: pointer; transition: background .15s, color .15s, border-color .15s, transform .1s;
+}
+.nav-search:hover { background: var(--bg-50); color: var(--fg); border-color: var(--fg-20); }
+.nav-search:active { transform: scale(0.97); }
+.nav-search:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-search svg { width: 16px; height: 16px; }
+.nav-search kbd, .tp-kbd {
+  font: 600 0.68rem var(--font-mono); padding: 0.1rem 0.35rem; border-radius: 5px;
+  border: 1px solid var(--border-strong); background: var(--bg-sunk); color: var(--fg-muted);
+}
+@media (max-width: 900px) { .nav-search .nav-search-label, .nav-search kbd { display: none; } .nav-search { padding: 0 0.55rem; } }
+.tp-backdrop {
+  position: fixed; inset: 0; z-index: 400; display: flex; align-items: flex-start; justify-content: center;
+  padding: 12vh 16px 16px; background: rgba(26,23,21,.42); backdrop-filter: blur(3px);
+  animation: tpFade .15s ease;
+}
+.tp-backdrop[hidden] { display: none; }
+.tp-box {
+  width: 100%; max-width: 640px; max-height: min(580px, 76vh); display: flex; flex-direction: column;
+  background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.55); animation: tpIn .2s cubic-bezier(.2,.8,.2,1);
+}
+.tp-head { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--fg-muted); }
+.tp-head svg { width: 18px; height: 18px; flex: none; }
+.tp-input { flex: 1; border: 0; outline: none; background: transparent; color: var(--fg); font: 1rem var(--font-sans); }
+.tp-esc { cursor: pointer; }
+.tp-list { flex: 1; overflow-y: auto; padding: 6px 0; overscroll-behavior: contain; }
+.tp-group { padding: 10px 16px 4px; font: 600 0.68rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-text); }
+.tp-item {
+  display: flex; align-items: flex-start; gap: 10px; width: 100%; padding: 9px 16px 9px 14px; text-align: left;
+  border: 0; border-left: 2px solid transparent; background: transparent; color: var(--fg); cursor: pointer; font: inherit;
+}
+.tp-item[aria-selected="true"] { background: var(--accent-tint); border-left-color: var(--accent); }
+.tp-item:active { background: var(--bg-sunk); }
+.tp-item-main { flex: 1; min-width: 0; }
+.tp-item-t { display: block; font-size: 0.95rem; font-weight: 600; }
+.tp-item-d { display: block; margin-top: 2px; font-size: 0.8rem; line-height: 1.45; color: var(--fg-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tp-item mark { background: transparent; color: var(--accent-text); font-weight: 700; }
+.tp-enter { flex: none; margin-top: 3px; color: var(--fg-muted); opacity: 0; }
+.tp-item[aria-selected="true"] .tp-enter { opacity: 1; }
+.tp-empty { padding: 32px 20px; text-align: center; color: var(--fg-muted); font-size: 0.9rem; }
+.tp-foot { display: flex; align-items: center; gap: 16px; padding: 8px 16px; border-top: 1px solid var(--border); background: var(--bg-sunk); font-size: 0.72rem; color: var(--fg-muted); }
+.tp-foot span { display: inline-flex; align-items: center; gap: 4px; }
+.tp-foot .tp-local { margin-left: auto; font-family: var(--font-mono); }
+@keyframes tpFade { from { opacity: 0 } }
+@keyframes tpIn { from { opacity: 0; transform: translateY(-8px) scale(.98) } }
+@media (prefers-reduced-motion: reduce) { .tp-backdrop, .tp-box { animation: none; } }
+@media (max-width: 560px) { .tp-backdrop { padding-top: 8vh; } .tp-foot .tp-local { display: none; } }
 </style>
 
   <!-- webhouse.app enrichment -->
@@ -1185,6 +1237,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
       <a href="/#pricing" data-testid="nav-link-pricing">Pricing</a>
     </div>
     <div class="nav-actions">
+      <button type="button" class="nav-search" data-testid="nav-search" aria-label="Search the site" aria-keyshortcuts="Meta+K Control+K"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="nav-search-label">Search</span><kbd class="nav-search-kbd">⌘K</kbd></button>
       <button type="button" class="sound-toggle" aria-label="Turn ambient sound off" aria-pressed="true" data-testid="nav-sound-toggle" data-src="/assets/ambient/ambient.opus">
         <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></svg><svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>
       </button>
@@ -1353,6 +1406,13 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
     <p>A brain that is only ever added to gets bigger. One that is linted gets better. What Trail checks, how you set it per brain, and what each setting really does today.</p>
     <div class="post-card-meta">How Trail Works · October 3, 2026 · 7 min read</div>
   </a></div></article></div>
+  <div class="tp-backdrop" data-testid="search-palette" data-index="/search-index.json" hidden>
+  <div class="tp-box" role="dialog" aria-modal="true" aria-label="Search trailmem.com">
+    <div class="tp-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input class="tp-input" data-testid="search-input" type="text" placeholder="Search articles, pages and terms…" autocomplete="off" spellcheck="false" aria-controls="tp-list"><button type="button" class="tp-kbd tp-esc" data-testid="search-close">esc</button></div>
+    <div class="tp-list" id="tp-list" role="listbox" data-testid="search-results"></div>
+    <div class="tp-foot"><span><kbd class="tp-kbd">↑</kbd><kbd class="tp-kbd">↓</kbd> navigate</span><span><kbd class="tp-kbd">↵</kbd> open</span><span><kbd class="tp-kbd">esc</kbd> close</span><span class="tp-local">searches in your browser</span></div>
+  </div>
+</div>
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -1963,6 +2023,93 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
     if (location.pathname === loadedPath) return; /* hash-only change on the same page */
     go(new URL(location.href), false);
   });
+})();
+
+(function(){
+  var box = document.querySelector('[data-testid="search-palette"]'); if (!box) return;
+  var input = box.querySelector('.tp-input'), list = box.querySelector('.tp-list');
+  var index = null, loading = null, items = [], sel = 0, lastFocus = null;
+  var mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+  document.querySelectorAll('.nav-search-kbd').forEach(function(k){ k.textContent = mac ? '⌘K' : 'Ctrl K'; });
+  var ENTER = "<svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 4v7a4 4 0 0 1-4 4H4\"/><path d=\"m9 10-5 5 5 5\"/></svg>";
+  var ORDER = ['Pages', 'Sections', 'Articles', 'Glossary'];
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function load(){
+    if (index) return Promise.resolve(index);
+    if (!loading) loading = fetch(box.getAttribute('data-index')).then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).then(function(j){ index = j; return j; }).catch(function(e){ loading = null; throw e; });
+    return loading;
+  }
+  function norm(s){ return String(s || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, ''); }
+  function score(e, words){
+    var t = norm(e.t), d = norm(e.d), x = norm(e.x), s = 0;
+    for (var i = 0; i < words.length; i++) {
+      var w = words[i], hit = 0;
+      if (t.indexOf(w) === 0) hit = 12; else if (t.indexOf(' ' + w) >= 0) hit = 9; else if (t.indexOf(w) >= 0) hit = 7;
+      else if (d.indexOf(w) >= 0) hit = 4; else if (x.indexOf(w) >= 0) hit = 2;
+      if (!hit) return 0;
+      s += hit;
+    }
+    return s;
+  }
+  function mark(text, words){
+    var out = esc(text);
+    words.forEach(function(w){ if (w.length < 2) return; var re = new RegExp('(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig'); out = out.replace(re, '<mark>$1</mark>'); });
+    return out;
+  }
+  function render(){
+    var q = input.value.trim(), words = norm(q).split(/\s+/).filter(Boolean);
+    var pool = (index || []).map(function(e){ return { e: e, s: words.length ? score(e, words) : (e.g === 'Glossary' ? 0 : 1) }; })
+      .filter(function(r){ return r.s > 0; });
+    pool.sort(function(a, b){ return b.s - a.s; });
+    var groups = {};
+    pool.forEach(function(r){ (groups[r.e.g] = groups[r.e.g] || []).push(r.e); });
+    items = []; var html = '';
+    ORDER.forEach(function(g){
+      var rows = (groups[g] || []).slice(0, words.length ? 6 : 8); if (!rows.length) return;
+      html += '<div class="tp-group">' + esc(g) + '</div>';
+      rows.forEach(function(e){
+        var i = items.length; items.push(e);
+        html += '<button type="button" class="tp-item" role="option" data-i="' + i + '" data-testid="search-result-' + i + '" aria-selected="false"><span class="tp-item-main"><span class="tp-item-t">' + mark(e.t, words) + '</span>' + (e.d ? '<span class="tp-item-d">' + mark(e.d, words) + '</span>' : '') + '</span><span class="tp-enter">' + ENTER + '</span></button>';
+      });
+    });
+    list.innerHTML = html || '<div class="tp-empty" data-testid="search-empty">' + (index ? 'Nothing on the site matches «' + esc(q) + '». Try another word — or ask Aidan.' : 'Loading…') + '</div>';
+    sel = 0; highlight();
+  }
+  function highlight(){
+    list.querySelectorAll('.tp-item').forEach(function(b){ var on = Number(b.getAttribute('data-i')) === sel; b.setAttribute('aria-selected', on ? 'true' : 'false'); if (on) b.scrollIntoView({ block: 'nearest' }); });
+  }
+  function open(){
+    if (!box.hidden) return;
+    lastFocus = document.activeElement;
+    box.hidden = false; document.documentElement.style.overflow = 'hidden';
+    input.value = ''; render(); setTimeout(function(){ input.focus(); }, 20);
+    load().then(render).catch(function(){ list.innerHTML = '<div class="tp-empty" data-testid="search-error">The search index could not be loaded. Reload the page and try again.</div>'; });
+  }
+  function close(){
+    if (box.hidden) return;
+    box.hidden = true; document.documentElement.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function go(e){
+    close();
+    var a = document.createElement('a'); a.href = e.u; a.style.display = 'none'; document.body.appendChild(a); a.click(); a.remove(); /* goes through the site's own in-place navigation */
+  }
+  document.addEventListener('keydown', function(ev){
+    if ((ev.metaKey || ev.ctrlKey) && !ev.altKey && (ev.key === 'k' || ev.key === 'K')) { ev.preventDefault(); box.hidden ? open() : close(); return; }
+    if (box.hidden) return;
+    if (ev.key === 'Escape') { ev.preventDefault(); close(); }
+    else if (ev.key === 'ArrowDown') { ev.preventDefault(); if (items.length) { sel = (sel + 1) % items.length; highlight(); } }
+    else if (ev.key === 'ArrowUp') { ev.preventDefault(); if (items.length) { sel = (sel - 1 + items.length) % items.length; highlight(); } }
+    else if (ev.key === 'Enter') { if (items[sel]) { ev.preventDefault(); go(items[sel]); } }
+  });
+  input.addEventListener('input', render);
+  box.addEventListener('click', function(ev){
+    if (ev.target === box) { close(); return; }
+    if (ev.target.closest('.tp-esc')) { close(); return; }
+    var b = ev.target.closest('.tp-item'); if (b) go(items[Number(b.getAttribute('data-i'))]);
+  });
+  list.addEventListener('mousemove', function(ev){ var b = ev.target.closest('.tp-item'); if (b) { var i = Number(b.getAttribute('data-i')); if (i !== sel) { sel = i; highlight(); } } });
+  document.addEventListener('click', function(ev){ if (ev.target.closest && ev.target.closest('.nav-search')) { ev.preventDefault(); open(); } });
 })();
 </script>
   <!-- F291 — @broberg/consent-cookie. categories="" because trailmem.com sets no
