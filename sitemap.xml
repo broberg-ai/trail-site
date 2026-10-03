@@ -35,6 +35,10 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/analysis/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/architecture/</loc>
     <priority>0.5</priority>
   </url>
@@ -63,11 +67,23 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/case-studies/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/chatbot/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/comparison/</loc>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.trailmem.com/tags/compile-time/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/consistency/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -83,6 +99,10 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/customer-questions/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/customer-service/</loc>
     <priority>0.5</priority>
   </url>
@@ -91,11 +111,19 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/documents/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/engineering-note/</loc>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.trailmem.com/tags/eu/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/excel/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -116,6 +144,14 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/tags/ingest/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/internal-knowledge/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/intranet/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -187,6 +223,10 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/new-hires/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/nlp/</loc>
     <priority>0.5</priority>
   </url>
@@ -203,7 +243,15 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/policies/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/policy/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/pricing/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -220,6 +268,14 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/tags/rag/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/reports/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/sales/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -247,11 +303,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/support/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/systems-design/</loc>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/training/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/use-case/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/vannevar-bush/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/website/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -373,6 +445,41 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/trails/research/trail-and-notebooklm/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/use-cases/customer-service/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/use-cases/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/use-cases/intranet/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/use-cases/onboarding-and-training/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/use-cases/reports-and-documents/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/use-cases/sales-enablement/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/use-cases/website-chatbot/</loc>
     <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
   </url>

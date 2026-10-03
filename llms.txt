@@ -40,12 +40,22 @@
 - [Three Agent Memory Architectures: Compile vs Retrieve vs Act](https://www.trailmem.com/trails/research/three-architectures-of-agent-memory/): Explore three agent memory architectures—retrieve, compile, and act patterns. Learn why Trail chose the compile pattern and the trade-offs involved.
 - [Trail vs NotebookLM: Source-Grounded Knowledge Tools](https://www.trailmem.com/trails/research/trail-and-notebooklm/): Compare Trail and NotebookLM: source-grounded AI tools for knowledge work. Explore their shared ethos and architectural differences.
 
+### use-cases
+
+- [Customer Service Where Every Reply Says the Same Thing | Trail](https://www.trailmem.com/trails/use-cases/customer-service/): Agents and bots answer from the same approved knowledge, so customers get one answer instead of three. Change a policy once and every reply follows; conflicti
+- [An Intranet Your Colleagues Can Simply Ask | Trail](https://www.trailmem.com/trails/use-cases/intranet/): Policies, procedures and handbooks become one place employees can ask in plain words — with the source on every answer, and the departments that own the knowl
+- [Onboarding and Training That New Colleagues Can Ask | Trail](https://www.trailmem.com/trails/use-cases/onboarding-and-training/): New colleagues ask the brain instead of searching shared drives or interrupting the same people. Every answer shows where it came from, so they learn where th
+- [Reports and Documents — Word, Excel, PowerPoint and PDF, as They Are | Trail](https://www.trailmem.com/trails/use-cases/reports-and-documents/): Board minutes, monthly reports and spreadsheets go in as they are. Trail reads Word, Excel, PowerPoint and PDF, keeps the numbers, and answers questions about
+- [Sales Enablement — Answers Your Sales Team Can Trust | Trail](https://www.trailmem.com/trails/use-cases/sales-enablement/): Offers, case studies and pricing notes compiled into one brain your sales team can ask before a meeting — with the source attached, so they can open the actua
+- [A Website Chatbot That Answers From Your Own Material | Trail](https://www.trailmem.com/trails/use-cases/website-chatbot/): Put a cited chat on your website: visitors get answers from your price list, product sheets and FAQ — around the clock, with a link to the source, and an hone
+
 ## Categories
 
 - [Dispatches | Latest News & Updates](https://www.trailmem.com/trails/dispatches/): Stay informed with our dispatches covering breaking news, updates, and latest developments. Read timely reports and current events.
 - [Field Notes | Research & Documentation](https://www.trailmem.com/trails/field-notes/): Field notes for research, observations, and documentation. Capture and organize your field notes effectively with our platform.
 - [How Trail Works - Complete Guide](https://www.trailmem.com/trails/how-trail-works/): Learn how trail works with our comprehensive guide. Discover trail systems, features, and best practices for users.
 - [Research - Insights & Analysis](https://www.trailmem.com/trails/research/): Explore our comprehensive research findings, detailed analysis, and actionable insights. Access in-depth studies and data-driven research.
+- [Use Cases — trail: second brain](https://www.trailmem.com/trails/use-cases/): What companies use Trail for: a website chatbot, an intranet people can ask, consistent customer service, onboarding, sales enablement and reports — each one written for the people who decide, not the people who build.
 
 ## Trails
 
@@ -53,7 +63,7 @@
 
 ## Topics
 
-- 59 tag and category pages under https://www.trailmem.com/tags/
+- 77 tag and category pages under https://www.trailmem.com/tags/
 
 Full content: https://www.trailmem.com/llms-full.txt
 

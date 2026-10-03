@@ -1029,6 +1029,16 @@ html[data-theme="light"] .lp-hero h1 em { color: var(--clay-btn); } /* clay is 2
 .lp-use { border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); padding: 16px 18px; display: flex; gap: 12px; }
 .lp-use b { display: block; font-size: 15px; margin-bottom: 2px; }
 .lp-use span { font-size: 13.5px; color: var(--fg-muted); line-height: 1.45; }
+.lp-mf-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; color: var(--clay-d); font-weight: 500; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s ease, gap .15s ease; }
+.lp-mf-link:hover { border-bottom-color: currentColor; gap: 9px; }
+.lp-mf-link:active { opacity: .8; }
+.lp-mf-link:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
+.lp-use-link { color: inherit; text-decoration: none; position: relative; transition: border-color .15s ease, transform .15s ease; }
+.lp-use-link:hover { border-color: var(--clay); transform: translateY(-2px); }
+.lp-use-link:active { transform: translateY(0); }
+.lp-use-link:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+.lp-use-link .lp-use-arrow { margin-left: auto; align-self: center; color: var(--clay); opacity: .55; transition: opacity .15s ease, transform .15s ease; }
+.lp-use-link:hover .lp-use-arrow { opacity: 1; transform: translateX(2px); }
 .lp-bi { grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; border: 1px solid color-mix(in srgb, var(--clay) 45%, transparent); border-radius: 16px; background: var(--bg-card); padding: 26px; margin-top: 4px; }
 .lp-bi > * { min-width: 0; }
 .lp-bi h3 { font-size: 28px; line-height: 1.12; margin: 10px 0; }
@@ -1609,7 +1619,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
         <p class="footer-pitch" data-testid="footer-pitch">Every company is getting AI. Soon every competitor runs the same models — what sets you apart is what your AI knows. <a href="/trails/how-trail-works/what-trail-does-for-your-business/" data-testid="footer-pitch-link">Read the benefits for your company <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
       </div>
       <nav class="footer-col" aria-label="Product"><h4>Product</h4><a href="/#how" data-testid="footer-product-product">Product</a><a href="/#everywhere" data-testid="footer-product-everywhere">Everywhere</a><a href="/#business" data-testid="footer-product-business">Business</a><a href="/#proof" data-testid="footer-product-proof">Proof</a><a href="/second-brain/" data-testid="footer-product-second-brain">Second Brain</a><a href="/#pricing" data-testid="footer-product-pricing">Pricing</a></nav>
-      <nav class="footer-col" aria-label="Articles"><h4>Articles</h4><a href="/trails/how-trail-works/" data-testid="footer-articles-how-trail-works">How Trail Works</a><a href="/trails/field-notes/" data-testid="footer-articles-field-notes">Field Notes</a><a href="/trails/the-1945-concept/" data-testid="footer-articles-the-1945-concept">The 1945 Concept</a><a href="/trails/dispatches/" data-testid="footer-articles-dispatches">Dispatches</a><a href="/trails/research/" data-testid="footer-articles-research">Research</a><a href="/trails/latest/" data-testid="footer-articles-all-articles">All articles</a></nav>
+      <nav class="footer-col" aria-label="Articles"><h4>Articles</h4><a href="/trails/use-cases/" data-testid="footer-articles-use-cases">Use Cases</a><a href="/trails/how-trail-works/" data-testid="footer-articles-how-trail-works">How Trail Works</a><a href="/trails/field-notes/" data-testid="footer-articles-field-notes">Field Notes</a><a href="/trails/the-1945-concept/" data-testid="footer-articles-the-1945-concept">The 1945 Concept</a><a href="/trails/dispatches/" data-testid="footer-articles-dispatches">Dispatches</a><a href="/trails/research/" data-testid="footer-articles-research">Research</a><a href="/trails/latest/" data-testid="footer-articles-all-articles">All articles</a></nav>
       <nav class="footer-col" aria-label="Resources"><h4>Resources</h4><a href="/the-1945-concept/" data-testid="footer-resources-the-1945-concept">The 1945 Concept</a><a href="/onboarding/" data-testid="footer-resources-onboarding">Onboarding</a><a href="https://docs.trailmem.com/" data-testid="footer-resources-docs" target="_blank" rel="noopener">Docs</a><a href="https://upmetrics.org/status/trail" data-testid="footer-resources-status" target="_blank" rel="noopener">Status</a></nav>
       <nav class="footer-col" aria-label="Get in touch"><h4>Get in touch</h4><a href="/#contact" data-testid="footer-get-in-touch-contact-us">Contact us</a><a href="https://app.trailmem.com" data-testid="footer-get-in-touch-sign-in" target="_blank" rel="noopener">Sign in</a><a href="https://broberg.ai" data-testid="footer-get-in-touch-broberg-ai" target="_blank" rel="noopener">broberg.ai</a></nav>
     </div>

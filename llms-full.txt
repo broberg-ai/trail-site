@@ -1975,6 +1975,17 @@ There is also a quieter risk. When there is no good place to ask, people paste c
 - **Your data stays in the EU.** Trail is hosted in Stockholm, Sweden, and answers are written by an EU language model.
 - **It gets better with use.** Questions and answers are measured, so weak spots become visible and can be fixed.
 
+## Six use cases, in detail
+
+Each of the situations above has its own article — what changes, how it works, and where to start:
+
+- **[Website chatbot](/trails/use-cases/website-chatbot/)**
+- **[Intranet](/trails/use-cases/intranet/)**
+- **[Customer service](/trails/use-cases/customer-service/)**
+- **[Onboarding & training](/trails/use-cases/onboarding-and-training/)**
+- **[Sales enablement](/trails/use-cases/sales-enablement/)**
+- **[Reports & documents](/trails/use-cases/reports-and-documents/)**
+
 ## Where to start
 
 You do not need a big project. Most companies start with one area where the same questions come up again and again — the website, customer service or onboarding — and the documents they already have. Add those to a brain, let the people who know the material approve what goes in, and put the brain where the questions are asked.
@@ -2627,5 +2638,342 @@ Pick the one that matches the job. For a lot of workloads, they are not substitu
 Trail and NotebookLM share source-grounded, ingest-time work, isolated containers and structural citations.
 NotebookLM generates transient outputs from a basket of sources; Trail leaves a compiled, compounding graph of Neurons.
 Trail adds a curation queue and self-hosting; NotebookLM is better for polished outputs like audio overviews and research assistance.
+
+---
+
+## Customer Service Where Every Reply Says the Same Thing | Trail
+
+URL: https://www.trailmem.com/trails/use-cases/customer-service/
+Updated: 2026-10-03
+
+Use Case: Customer Service Where Every Reply Says the Same Thing
+
+Agents and bots answer from the same approved knowledge, so customers get one answer instead of three. Change a policy once and every reply follows; conflicting sources are flagged for a person to decide.
+
+Agents, chatbots and email replies all answer from the same approved knowledge — so a customer gets one answer, not three.
+When a policy or price changes, you update it once and every reply follows.
+Conflicting sources are flagged for a person, and answers show their source so agents can check before they send.
+
+## The problem
+
+> The examples on this page are illustrations — the answers come from your own documents, not from ours.
+
+Ask three people in customer service the same question and you can get three answers. One remembers last year's return policy, one checked the website, one asked a colleague. The chatbot on the website says a fourth thing.
+
+Every inconsistent answer costs trust. Some cost money: a promise one agent made that the policy does not cover, a refund the terms never allowed.
+
+## One source of truth for people and bots
+
+How do we handle a return after 30 days?trail · your brainReturns after 30 days need approval from the team lead. Store credit, not cash, unless the item is faulty. [Returns procedure]
+
+Trail puts one brain behind customer service. Agents ask it while they work, the chat on your website answers from it, and other systems can reach it over an API. Whoever answers, the answer comes from the same approved material — and shows the source, so an agent can open the procedure before replying to a customer.
+
+## Change it once
+
+Returns policyA new source disagrees with what your brain already knows.Returns policy 2026 vs 20252 sources disagreeDecisionwaiting for you
+
+When the returns policy changes, you update the source in the brain. Every answer follows — the agents', the website chat's, the next new hire's. If the new version contradicts the old one, Trail flags it for a person to decide which is right, instead of letting both live side by side.
+
+## What changes for you
+
+- **One answer per question**, whoever gives it and whenever it is given.
+- **Faster replies.** Agents ask instead of searching, and get the source with the answer.
+- **Shorter training.** New agents can ask the brain instead of shadowing a colleague for weeks.
+- **You see the gaps.** Questions the brain could not answer show you which procedure is missing.
+
+## What you can count on
+
+- **Answers with sources.** Every answer shows which documents it is built on.
+- **You decide what goes in.** New knowledge waits in a queue until a person approves it.
+- **Disagreements are flagged, not hidden.** When two sources say different things, someone at your company decides.
+- **Your data stays in the EU.** Trail is hosted in Stockholm, Sweden, and answers are written by an EU language model.
+
+## Get started
+
+Pick the ten questions your team answers most often and the documents behind them. We will show you agents and a website chat answering them the same way.
+
+Talk to us
+
+---
+
+## Use Cases — trail: second brain
+
+URL: https://www.trailmem.com/trails/use-cases/
+Updated: 2026-10-03
+
+What companies use Trail for: a website chatbot, an intranet people can ask, consistent customer service, onboarding, sales enablement and reports — each one written for the people who decide, not the people who build.
+
+---
+
+## An Intranet Your Colleagues Can Simply Ask | Trail
+
+URL: https://www.trailmem.com/trails/use-cases/intranet/
+Updated: 2026-10-03
+
+Use Case: An Intranet Your Colleagues Can Simply Ask
+
+Policies, procedures and handbooks become one place employees can ask in plain words — with the source on every answer, and the departments that own the knowledge in charge of what is true.
+
+Policies, procedures and handbooks become one brain your colleagues can ask in plain words instead of searching folders.
+Every answer shows the document it came from, so people learn where things live while they work.
+The people who own the knowledge approve what goes in, and when a policy changes, you change it once.
+
+## The problem
+
+> The examples on this page are illustrations — the answers come from your own documents, not from ours.
+
+An intranet is usually a place where documents go to be forgotten. The travel policy is in one folder, the old version is in another, and the procedure for expense claims is in a PDF nobody can find. So people ask a colleague — and the same handful of colleagues answer the same questions every week.
+
+Search does not fix it. You have to know what the document is called, and you get a list of files instead of an answer.
+
+## One place to ask
+
+Who approves travel over 10,000 kroner?trail · your brainThe department head — and above 50,000 kroner the CFO as well. Book through the travel portal, not on your own card. [Travel policy 2026]
+
+Trail turns the documents you already have into a brain your colleagues can simply ask. Word, PDF, PowerPoint and Excel go in as they are. The question «Who approves travel over 10,000 kroner?» gets an answer in a sentence, with a link to the policy it came from.
+
+The brain can sit where people already work: on the intranet page, as a chat in the corner, or inside the AI tools your organisation uses — Trail is reachable over an API and over MCP, the standard way AI assistants connect to company knowledge.
+
+## The right version wins
+
+The hardest thing about internal knowledge is not finding it — it is knowing which version is current. When a new document disagrees with what the brain already knows, Trail flags the disagreement for a person to decide instead of quietly mixing the two. When a policy is updated, you update the source once, and every answer follows.
+
+## What changes for you
+
+- **Your experts get their time back** — the repeat questions stop landing on the same desks.
+- **The same answer on Monday and Friday**, from the senior and the newest hire alike.
+- **Departments stay in charge.** HR owns the HR answers, finance owns the finance answers.
+- **Less copying into private AI tools.** People get a better place to ask, under your rules.
+
+## What you can count on
+
+- **Answers with sources.** Every answer shows which documents it is built on.
+- **You decide what goes in.** New knowledge waits in a queue until a person approves it.
+- **Disagreements are flagged, not hidden.** When two sources say different things, someone at your company decides.
+- **Your data stays in the EU.** Trail is hosted in Stockholm, Sweden, and answers are written by an EU language model.
+
+## Get started
+
+Start with the handful of documents behind the questions you hear most — the travel policy, the expense rules, the holiday procedure. We will show you a brain built from them.
+
+Talk to us
+
+---
+
+## Onboarding and Training That New Colleagues Can Ask | Trail
+
+URL: https://www.trailmem.com/trails/use-cases/onboarding-and-training/
+Updated: 2026-10-03
+
+Use Case: Onboarding and Training That New Colleagues Can Ask
+
+New colleagues ask the brain instead of searching shared drives or interrupting the same people. Every answer shows where it came from, so they learn where things live while they work.
+
+New colleagues ask questions in plain words instead of searching shared drives or interrupting the same people.
+Every answer shows where it came from, so they learn where things live while they work.
+Training material stops being something you read once and becomes something people can ask whenever they need it.
+
+## The problem
+
+> The examples on this page are illustrations — the answers come from your own documents, not from ours.
+
+Onboarding usually means a stack of documents, a shared drive and a lot of «just ask me if anything is unclear». New people do not like to ask the same thing twice, so they guess — or they spend twenty minutes looking for an answer someone could have given in ten seconds.
+
+For the company it is a quiet cost: weeks before a new hire is fully productive, and experienced colleagues pulled away from their own work to answer the same questions for every new arrival.
+
+## Ask instead of search
+
+Which customers are on the annual agreement?trail · your brainTwelve customers, listed in the agreements overview — renewals fall in January and July. [Customer agreements 2026]
+
+With a brain built from your handbooks, procedures, product material and internal notes, a new colleague can simply ask: «Which customers are on the annual agreement?», «What is our standard warranty?», «How do I book a meeting room for a client?»
+
+Every answer links to the document it came from. That is not just a safety net — it is how people learn the territory. After a few weeks they know where things live, because every answer showed them.
+
+## Training material that stays useful
+
+Course material and training slides are usually read once and forgotten. Put them in the brain and they become something people can ask months later, the moment the question is real. PowerPoint, Word and PDF go in as they are.
+
+## What changes for you
+
+- **Productive sooner.** New hires find answers on day one instead of week three.
+- **Experts keep their focus.** The same ten questions stop landing on the same desks.
+- **Consistent onboarding.** Everyone learns from the same approved material, not from whoever sat nearest.
+- **Visible gaps.** Questions the brain could not answer show you what your onboarding material is missing.
+
+## What you can count on
+
+- **Answers with sources.** Every answer shows which documents it is built on.
+- **You decide what goes in.** New knowledge waits in a queue until a person approves it.
+- **Disagreements are flagged, not hidden.** When two sources say different things, someone at your company decides.
+- **Your data stays in the EU.** Trail is hosted in Stockholm, Sweden, and answers are written by an EU language model.
+
+## Get started
+
+Start with your existing onboarding pack and the questions new hires actually ask. We will show you a brain your next new colleague can use on their first morning.
+
+Talk to us
+
+---
+
+## Reports and Documents — Word, Excel, PowerPoint and PDF, as They Are | Trail
+
+URL: https://www.trailmem.com/trails/use-cases/reports-and-documents/
+Updated: 2026-10-03
+
+Use Case: Reports and Documents — Word, Excel, PowerPoint and PDF, as They Are
+
+Board minutes, monthly reports and spreadsheets go in as they are. Trail reads Word, Excel, PowerPoint and PDF, keeps the numbers, and answers questions about your business with every figure linked to the file it came from.
+
+Word, Excel, PowerPoint and PDF go in as they are — no conversion, no copy-paste.
+Trail keeps the numbers, so you can ask about your business and get answers with every figure linked to the file it came from.
+Instead of a day assembling the picture from dozens of files, you get a first answer in seconds that you can check.
+
+## The problem
+
+> The examples on this page are illustrations — the answers come from your own documents, not from ours.
+
+The story of a business is written down — in board minutes, monthly reports, Excel exports, presentations and contracts. But it is spread across dozens of files in different formats, and putting the picture together takes a person a day.
+
+Most tools only handle part of it. They read text but lose the tables, or they read the spreadsheet but know nothing about the decision recorded in the minutes.
+
+## Your files, as they are
+
+Trail reads Word, Excel, PowerPoint and PDF directly. You do not convert anything or copy numbers into a template. Tables keep their numbers, slides keep their structure, and every piece of knowledge remembers which file it came from.
+
+## Ask your business, not just your documents
+
+Why did gross margin drop in Q3?trail · business analystFreight costs rose 22% after the carrier switch, decided in June. The Nordics held their margin by moving to annual contracts. [Q3 revenue.xlsx · Board minutes Q3]
+
+Because the numbers and the decisions sit in the same brain, you can ask the way an owner asks an analyst: «Why did gross margin drop in Q3?» The answer ties the figures to the decisions behind them, and every number links to the report it came from — so you can check each part before you act on it.
+
+## What changes for you
+
+- **A first answer in seconds**, instead of a day spent assembling the picture.
+- **Every figure is traceable** to the file it came from.
+- **No conversion work.** The files your company already produces are the input.
+- **Contradictions surface.** When two reports disagree, Trail flags it instead of averaging them.
+
+## What you can count on
+
+- **Answers with sources.** Every answer shows which documents it is built on.
+- **You decide what goes in.** New knowledge waits in a queue until a person approves it.
+- **Disagreements are flagged, not hidden.** When two sources say different things, someone at your company decides.
+- **Your data stays in the EU.** Trail is hosted in Stockholm, Sweden, and answers are written by an EU language model.
+
+## Get started
+
+Start with one reporting period: the monthly reports, the board minutes and the spreadsheets behind them. We will show you what it is like to ask your own numbers a question.
+
+Talk to us
+
+---
+
+## Sales Enablement — Answers Your Sales Team Can Trust | Trail
+
+URL: https://www.trailmem.com/trails/use-cases/sales-enablement/
+Updated: 2026-10-03
+
+Use Case: Sales Enablement — Answers Your Sales Team Can Trust
+
+Offers, case studies and pricing notes compiled into one brain your sales team can ask before a meeting — with the source attached, so they can open the actual case before quoting it to a customer.
+
+Offers, case studies, product sheets and pricing notes become one brain your sales team can ask before and during a deal.
+Every answer comes with its source, so a sales person can open the actual case before quoting it to a customer.
+When prices or terms change, you update them once — and old numbers do not linger in the answers.
+
+## The problem
+
+> The examples on this page are illustrations — the answers come from your own documents, not from ours.
+
+Sales teams live on offers, case stories, price notes and product details spread across mails, folders and old presentations. Before a meeting, someone spends an hour looking for «the case we did for a company like this one» — or asks the colleague who was there, if they are still around.
+
+The riskier version is the confident guess: a price from last year, a feature promised from memory, a reference that turns out to be a different customer.
+
+## Ask before the meeting
+
+Which projects have we done for logistics companies?trail · your brainThree: a route-planning portal for a freight forwarder, a customer chat for a port operator and a tender tool for a haulier. [Case studies]
+
+A brain built from your offers, case studies, product sheets and pricing notes answers «Which projects have we done for logistics companies, and what did they achieve?» in seconds — with the sources attached. The sales person opens the actual case before quoting it, so what reaches the customer is checked, not remembered.
+
+## Current numbers, not last year's
+
+Pricing changes. When a new price list contradicts the old one, Trail flags the disagreement so someone decides which is current — instead of the brain quietly answering with both. Update the source once and every answer follows.
+
+## What changes for you
+
+- **Faster preparation.** The right case and the right numbers in seconds, not an hour.
+- **Fewer wrong promises.** Answers come from approved material, with the source one click away.
+- **Knowledge that stays.** When an experienced sales person leaves, what they wrote down stays in the brain.
+- **One story to the market.** The whole team tells it from the same material.
+
+## What you can count on
+
+- **Answers with sources.** Every answer shows which documents it is built on.
+- **You decide what goes in.** New knowledge waits in a queue until a person approves it.
+- **Disagreements are flagged, not hidden.** When two sources say different things, someone at your company decides.
+- **Your data stays in the EU.** Trail is hosted in Stockholm, Sweden, and answers are written by an EU language model.
+
+## Get started
+
+Start with your case studies, your current price list and your best offers. We will show you a brain your sales team can ask before their next meeting.
+
+Talk to us
+
+---
+
+## A Website Chatbot That Answers From Your Own Material | Trail
+
+URL: https://www.trailmem.com/trails/use-cases/website-chatbot/
+Updated: 2026-10-03
+
+Use Case: A Website Chatbot That Answers From Your Own Material
+
+Put a cited chat on your website: visitors get answers from your price list, product sheets and FAQ — around the clock, with a link to the source, and an honest «I don't know» when the answer isn't there.
+
+A chat box on your website answers visitors from your own material — price list, product sheets, terms, FAQ.
+Every answer links to the page it came from, and when the answer is not in your material it says so instead of guessing.
+It is one line of code on your site, and you see which questions people ask so the gaps can be filled.
+
+## The problem
+
+> The examples on this page are illustrations — the answers come from your own documents, not from ours.
+
+Most questions a website gets are already answered somewhere on it. Opening hours, delivery terms, what a service includes, which product fits which need. The visitor just cannot find it — so they write an email, call, or leave.
+
+A generic AI chatbot does not solve that. It answers from the internet, sounds confident, and now and then invents a price or a policy you never had. For a business, a wrong answer with your logo on it is worse than no answer.
+
+## How Trail answers on your website
+
+Do you deliver to Norway, and what does it cost?trail · on your websiteYes — standard delivery to Norway takes 3–5 working days and costs 149 kr. Orders over 1,500 kr ship free. [Delivery terms]
+
+You add your own material to a brain — the price list, product sheets, terms, the FAQ, the pages already on your site. Trail reads it and builds a knowledge base from it.
+
+Then you place the chat on your website with one line of code, the `` element. Visitors ask in their own words and get an answer built from your material, with a link to the source so they can read the details themselves.
+
+## It says «I don't know» when it doesn't
+
+When the answer is not in your material, the chat says so — and can point the visitor to a person instead. That is a deliberate choice: a chat that admits a gap keeps your customers' trust; one that guesses spends it.
+
+Every question is also a signal. You can see what visitors ask and where the brain had no answer, so the next document you add closes a real gap instead of a guessed one.
+
+## What changes for you
+
+- **Fewer repeat questions** in the inbox and on the phone.
+- **Customers arrive informed.** The first conversation starts where the website left off.
+- **Answers at 22:40 on a Sunday** — from your own terms, not from the internet.
+- **One update, everywhere.** Change the price list in the brain, and the chat follows.
+
+## What you can count on
+
+- **Answers with sources.** Every answer shows which documents it is built on.
+- **You decide what goes in.** New knowledge waits in a queue until a person approves it.
+- **Disagreements are flagged, not hidden.** When two sources say different things, someone at your company decides.
+- **Your data stays in the EU.** Trail is hosted in Stockholm, Sweden, and answers are written by an EU language model.
+
+## Get started
+
+Most businesses start with the material they already have: the FAQ, the price list and the terms. Send us those, and we will show you your own website answering from them.
+
+Talk to us
 
 ---
