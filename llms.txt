@@ -43,6 +43,10 @@
 - [Three Agent Memory Architectures: Compile vs Retrieve vs Act](https://www.trailmem.com/trails/research/three-architectures-of-agent-memory/): Explore three agent memory architectures—retrieve, compile, and act patterns. Learn why Trail chose the compile pattern and the trade-offs involved.
 - [Trail vs NotebookLM: Source-Grounded Knowledge Tools](https://www.trailmem.com/trails/research/trail-and-notebooklm/): Compare Trail and NotebookLM: source-grounded AI tools for knowledge work. Explore their shared ethos and architectural differences.
 
+## Trails
+
+- [Latest — trail: second brain](https://www.trailmem.com/trails/latest/): Every article on trailmem.com, newest first.
+
 ## Topics
 
 - 50 tag and category pages under https://www.trailmem.com/tags/

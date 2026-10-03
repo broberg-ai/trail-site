@@ -293,6 +293,10 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/trails/latest/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/trails/research/</loc>
     <lastmod>2026-06-24</lastmod>
     <priority>0.5</priority>
