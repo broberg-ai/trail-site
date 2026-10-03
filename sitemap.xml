@@ -11,6 +11,16 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/onboarding/app/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/onboarding/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/privacy/</loc>
     <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
