@@ -6,7 +6,7 @@
 
 - [Live demo — ask your business — trail: second brain](https://www.trailmem.com/demo/): Ask your business in your own words and get the figures, a chart and the sources — always current, always cited. Illustrative data.
 - [Knowledge Infrastructure for the AI Era — Trail reads every source you give it — trail: second brain](https://www.trailmem.com/): Trail reads every source you give it — Word and Excel files, PDFs, pages, notes, conversations — and compiles it into a connected brain of citable Neurons. Ask anything, from anywhere you work, and get the answer with the sources it came from.
-- [Onboarding — set up a brain in seven steps — trail: second brain](https://www.trailmem.com/onboarding/): Walk through setting up a Trail brain: name it, pick a template, add sources, invite the team, watch the ingest and ask your first question.
+- [Onboarding demo — set up a brain in seven steps — trail: second brain](https://www.trailmem.com/onboarding/): Walk through setting up a Trail brain: name it, pick a template, add sources, invite the team, watch the ingest and ask your first question.
 - [Privacy Policy](https://www.trailmem.com/privacy/): What Trail and the Trail Web Clipper do with your data — what the extension reads, what stays on your device, what we store, and how to delete it.
 - [The second brain that is everywhere you work](https://www.trailmem.com/second-brain/): Everything you read, hear and save — compiled into one connected memory that remembers for you, and is there wherever you work.
 - [Terms of Service](https://www.trailmem.com/terms/): The terms that apply when you use Trail — trailmem.com, the app, the Web Clipper and the embeddable widget.
