@@ -1488,12 +1488,24 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   function toast(t){ toastEl.textContent = t; toastEl.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(function(){ toastEl.classList.remove('on'); }, 3200); }
   if (window.ResizeObserver) new ResizeObserver(function(){ app.style.setProperty('--dock-h', dock.offsetHeight + 'px'); }).observe(dock);
   function follow(){ conv.scrollTop = conv.scrollHeight; }
-  function markHist(id){ root.querySelectorAll('.app-side [data-goto]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-goto') === id); }); root.querySelector('[data-app="new"]').classList.toggle('on', !id); }
-  function reset(){ run++; conv.innerHTML = ''; app.classList.remove('conv-on'); title.textContent = ''; ta.value = ''; ta.placeholder = "Ask Acme's brain anything …"; markHist(null); }
+  var views = {}; try { views = JSON.parse(root.querySelector('[data-testid="demo-views-data"]').textContent); } catch (e) {}
+  var convTitle = '';
+  function markNav(app_){ root.querySelectorAll('.app-nav [data-app]').forEach(function(b){ b.classList.toggle('on', b.dataset.app === app_); }); }
+  function markHist(id){ root.querySelectorAll('.app-side [data-goto]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-goto') === id); }); markNav(id ? null : 'new'); }
+  function hideViews(){ app.classList.remove('view-on'); root.querySelectorAll('.dv').forEach(function(v){ v.classList.add('hidden'); }); }
+  function showView(id){
+    if (!views[id]) return;
+    run++; app.classList.add('view-on'); markHist('-'); markNav(id);
+    root.querySelectorAll('.dv').forEach(function(v){ v.classList.toggle('hidden', v.dataset.view !== id); });
+    title.textContent = views[id]; root.querySelector('[data-testid="demo-views"]').scrollTop = 0;
+    if (window.matchMedia('(max-width:980px)').matches) setSide(false);
+  }
+  function reset(){ run++; hideViews(); convTitle = ''; conv.innerHTML = ''; app.classList.remove('conv-on'); title.textContent = ''; ta.value = ''; ta.placeholder = "Ask Acme's brain anything …"; markHist(null); }
   function play(id){
     var d = byId[id], tpl = root.querySelector('template[data-chat="' + id + '"]'); if (!d || !tpl) return;
-    var me = ++run;
-    if (!app.classList.contains('conv-on')) { conv.innerHTML = ''; app.classList.add('conv-on'); title.textContent = d.title; }
+    var me = ++run; hideViews();
+    if (!app.classList.contains('conv-on')) { conv.innerHTML = ''; app.classList.add('conv-on'); convTitle = d.title; }
+    title.textContent = convTitle;
     markHist(id); ta.placeholder = 'Write a message …';
     if (window.matchMedia('(max-width:980px)').matches) setSide(false);
     var chat = tpl.content.firstElementChild.cloneNode(true); conv.appendChild(chat);
@@ -1529,7 +1541,8 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   root.addEventListener('click', function(e){
     var g = e.target.closest('[data-goto]'); if (g) { play(g.getAttribute('data-goto')); return; }
     var a = e.target.closest('.app-nav [data-app]');
-    if (a) { if (a.dataset.app === 'new') { reset(); ta.focus(); } else toast({ activity: 'Activity: 3 new answers from scheduled questions this morning.', insights: 'Insights: margin, churn and supplier downtime are moving this week.', shared: 'Shared chats: 2 chats are shared with you by the finance team.', saved: 'Saved: your pinned questions re-run against today\u2019s data.', memory: 'Memory: Trail remembers that you report to the board monthly.' }[a.dataset.app]); return; }
+    if (a) { if (a.dataset.app === 'new') { reset(); ta.focus(); } else showView(a.dataset.app); return; }
+    var f = e.target.closest('[data-forget]'); if (f) { var row = f.closest('.dv-item'); row.classList.add('is-gone'); setTimeout(function(){ row.remove(); }, 260); toast('Forgotten — Trail will not use this again.'); return; }
     var c = e.target.closest('.pp-item'); if (c) { closePops(); toast(c.dataset.conn === '+' ? 'Connectors are approved by Acme before they can be used.' : c.dataset.skill ? c.dataset.skill + ' turns this chat into Acme\u2019s board-report format.' : c.dataset.conn ? c.dataset.conn + ' is connected — Trail can read it, never write.' : 'Drop any Word, Excel, PDF or image — Trail compiles it into the brain.'); return; }
     var m = e.target.closest('.hist-more'); if (m) { toast('Pin, rename, add to a project or delete.'); return; }
   });
