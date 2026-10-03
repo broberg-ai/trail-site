@@ -6,70 +6,46 @@
 
 - [Live demo — ask your business — trail: second brain](https://www.trailmem.com/demo/): Ask your business in your own words and get the figures, a chart and the sources — always current, always cited. Illustrative data.
 - [Knowledge Infrastructure for the AI Era — Trail reads every source you give it — trail: second brain](https://www.trailmem.com/): Trail reads every source you give it — Word and Excel files, PDFs, pages, notes, conversations — and compiles it into a connected brain of citable Neurons. Ask anything, from anywhere you work, and get the answer with the sources it came from.
-- [trail · onboarding](https://www.trailmem.com/onboarding/app/): A minimalist engine to ingest, connect, and retrieve your organization's collective intelligence. Reimagining Vannevar Bush's 1945 vision with geometric precision.
 - [Onboarding — set up a brain in seven steps — trail: second brain](https://www.trailmem.com/onboarding/): Walk through setting up a Trail brain: name it, pick a template, add sources, invite the team, watch the ingest and ask your first question.
 - [Privacy Policy](https://www.trailmem.com/privacy/): What Trail and the Trail Web Clipper do with your data — what the extension reads, what stays on your device, what we store, and how to delete it.
 - [The second brain that is everywhere you work](https://www.trailmem.com/second-brain/): Everything you read, hear and save — compiled into one connected memory that remembers for you, and is there wherever you work.
-- [#accumulation — trail: second brain](https://www.trailmem.com/tags/accumulation/): Content tagged accumulation.
-- [#agent-memory — trail: second brain](https://www.trailmem.com/tags/agent-memory/): Content tagged agent-memory.
-- [#ai-agents — trail: second brain](https://www.trailmem.com/tags/ai-agents/): Content tagged ai-agents.
-- [#architecture — trail: second brain](https://www.trailmem.com/tags/architecture/): Content tagged architecture.
-- [#associative-structures — trail: second brain](https://www.trailmem.com/tags/associative-structures/): Content tagged associative-structures.
-- [#broberg-ai — trail: second brain](https://www.trailmem.com/tags/broberg-ai/): Content tagged broberg-ai.
-- [#cardmem — trail: second brain](https://www.trailmem.com/tags/cardmem/): Content tagged cardmem.
-- [#comparison — trail: second brain](https://www.trailmem.com/tags/comparison/): Content tagged comparison.
-- [#compile-time — trail: second brain](https://www.trailmem.com/tags/compile-time/): Content tagged compile-time.
-- [#convergence — trail: second brain](https://www.trailmem.com/tags/convergence/): Content tagged convergence.
-- [#curation — trail: second brain](https://www.trailmem.com/tags/curation/): Content tagged curation.
-- [#decision-making — trail: second brain](https://www.trailmem.com/tags/decision-making/): Content tagged decision-making.
-- [#engineering-note — trail: second brain](https://www.trailmem.com/tags/engineering-note/): Content tagged engineering-note.
-- [#history — trail: second brain](https://www.trailmem.com/tags/history/): Content tagged history.
-- [#hypertext — trail: second brain](https://www.trailmem.com/tags/hypertext/): Content tagged hypertext.
-- [#infrastructure — trail: second brain](https://www.trailmem.com/tags/infrastructure/): Content tagged infrastructure.
-- [#ingest — trail: second brain](https://www.trailmem.com/tags/ingest/): Content tagged ingest.
-- [#karpathy — trail: second brain](https://www.trailmem.com/tags/karpathy/): Content tagged karpathy.
-- [#knowledge-architecture — trail: second brain](https://www.trailmem.com/tags/knowledge-architecture/): Content tagged knowledge-architecture.
-- [#knowledge-engineering — trail: second brain](https://www.trailmem.com/tags/knowledge-engineering/): Content tagged knowledge-engineering.
-- [#knowledge-infrastructure — trail: second brain](https://www.trailmem.com/tags/knowledge-infrastructure/): Content tagged knowledge-infrastructure.
-- [#knowledge-quality — trail: second brain](https://www.trailmem.com/tags/knowledge-quality/): Content tagged knowledge-quality.
-- [#lint — trail: second brain](https://www.trailmem.com/tags/lint/): Content tagged lint.
-- [#llm-wiki — trail: second brain](https://www.trailmem.com/tags/llm-wiki/): Content tagged llm-wiki.
-- [#luhmann — trail: second brain](https://www.trailmem.com/tags/luhmann/): Content tagged luhmann.
-- [#material-elasticity — trail: second brain](https://www.trailmem.com/tags/material-elasticity/): Content tagged material-elasticity.
-- [#memex — trail: second brain](https://www.trailmem.com/tags/memex/): Content tagged memex.
-- [#microfilm — trail: second brain](https://www.trailmem.com/tags/microfilm/): Content tagged microfilm.
-- [#neuroscience — trail: second brain](https://www.trailmem.com/tags/neuroscience/): Content tagged neuroscience.
-- [#nlp — trail: second brain](https://www.trailmem.com/tags/nlp/): Content tagged nlp.
-- [#notebooklm — trail: second brain](https://www.trailmem.com/tags/notebooklm/): Content tagged notebooklm.
-- [#orchestration — trail: second brain](https://www.trailmem.com/tags/orchestration/): Content tagged orchestration.
-- [#policy — trail: second brain](https://www.trailmem.com/tags/policy/): Content tagged policy.
-- [#product — trail: second brain](https://www.trailmem.com/tags/product/): Content tagged product.
-- [#queue — trail: second brain](https://www.trailmem.com/tags/queue/): Content tagged queue.
-- [#rag — trail: second brain](https://www.trailmem.com/tags/rag/): Content tagged rag.
-- [#sampling — trail: second brain](https://www.trailmem.com/tags/sampling/): Content tagged sampling.
-- [#scalability — trail: second brain](https://www.trailmem.com/tags/scalability/): Content tagged scalability.
-- [#strategy — trail: second brain](https://www.trailmem.com/tags/strategy/): Content tagged strategy.
-- [#systems-design — trail: second brain](https://www.trailmem.com/tags/systems-design/): Content tagged systems-design.
-- [#vannevar-bush — trail: second brain](https://www.trailmem.com/tags/vannevar-bush/): Content tagged vannevar-bush.
-- [#zettelkasten — trail: second brain](https://www.trailmem.com/tags/zettelkasten/): Content tagged zettelkasten.
 - [Terms of Service](https://www.trailmem.com/terms/): The terms that apply when you use Trail — trailmem.com, the app, the Web Clipper and the embeddable widget.
 - [As We May Think: Vannevar Bush's 1945 Vision](https://www.trailmem.com/the-1945-concept/): Explore Vannevar Bush's influential 1945 essay 'As We May Think' and how his vision of information organization shaped modern technology and the internet.
+- [Trails — trail: second brain](https://www.trailmem.com/trails/): Essays, field notes, and dispatches from the trail knowledge engine.
+
+## Categories
+
 - [Dispatches | Latest News & Updates](https://www.trailmem.com/trails/dispatches/): Stay informed with our dispatches covering breaking news, updates, and latest developments. Read timely reports and current events.
-- [The Orchestration Layer: How broberg.ai Builds Software With Fifteen Agents](https://www.trailmem.com/trails/dispatches/the-orchestration-layer/): Most companies bolted AI onto systems that already existed. broberg.ai built AI-native from the foundation — and then applied the same principle to its own production process. This is what came out: cardmem, an orchestration engine where plans come before code, quality checks happen in a real browser, and the reasoning survives the session.
 - [Field Notes | Research & Documentation](https://www.trailmem.com/trails/field-notes/): Field notes for research, observations, and documentation. Capture and organize your field notes effectively with our platform.
+- [How Trail Works - Complete Guide](https://www.trailmem.com/trails/how-trail-works/): Learn how trail works with our comprehensive guide. Discover trail systems, features, and best practices for users.
+- [Research - Insights & Analysis](https://www.trailmem.com/trails/research/): Explore our comprehensive research findings, detailed analysis, and actionable insights. Access in-depth studies and data-driven research.
+
+## Posts
+
+### dispatches
+
+- [The Orchestration Layer: How broberg.ai Builds Software With Fifteen Agents](https://www.trailmem.com/trails/dispatches/the-orchestration-layer/): Most companies bolted AI onto systems that already existed. broberg.ai built AI-native from the foundation — and then applied the same principle to its own production process. This is what came out: cardmem, an orchestration engine where plans come before code, quality checks happen in a real browser, and the reasoning survives the session.
+
+### how-trail-works
+
 - [Compile-Time Knowledge vs RAG: Technical Architecture Guide](https://www.trailmem.com/trails/how-trail-works/compile-time-knowledge-vs-rag/): Technical analysis of why RAG systems fail for certain workloads. Explore compile-time knowledge architecture as an alternative to retrieval-augmented generation.
 - [Does a Trail Get Smarter as It Grows? Knowledge Base Growth](https://www.trailmem.com/trails/how-trail-works/does-a-trail-get-smarter-as-it-grows/): Learn how knowledge bases improve with growth: the S-curve pattern, when systems plateau, and design choices that keep trails smarter.
 - [How Brain Memory Works: Trail vs RAG Architecture](https://www.trailmem.com/trails/how-trail-works/how-a-brain-actually-remembers/): Learn how human memory actually works and why Trail compiles knowledge through associative pathways instead of searching like traditional RAG systems.
-- [How Trail Works - Complete Guide](https://www.trailmem.com/trails/how-trail-works/): Learn how trail works with our comprehensive guide. Discover trail systems, features, and best practices for users.
 - [Compile-Time vs Search-Time Knowledge Base Architecture](https://www.trailmem.com/trails/how-trail-works/knowledge-that-compounds/): Learn why compile-time knowledge infrastructure outperforms search-based RAG systems for AI-powered knowledge management and organizational scaling.
 - [Trail's Curation Policy: Three Filters on the Gate](https://www.trailmem.com/trails/how-trail-works/three-filters-on-the-gate/): Explore how Trail's three-filter curation policy mirrors the structure of human memory and neural processing for knowledge systems.
 - [Trail's Nightly Corpus Processing: Scaling Knowledge Systems](https://www.trailmem.com/trails/how-trail-works/work-that-fits-in-a-night/): Learn how Trail handles the scan wall problem in corpus processing at scale, maintaining full consistency without distributed computing or data loss.
-- [Trails — trail: second brain](https://www.trailmem.com/trails/): Essays, field notes, and dispatches from the trail knowledge engine.
-- [Research - Insights & Analysis](https://www.trailmem.com/trails/research/): Explore our comprehensive research findings, detailed analysis, and actionable insights. Access in-depth studies and data-driven research.
+
+### research
+
 - [Niklas Luhmann's Zettelkasten & the LLM Revolution](https://www.trailmem.com/trails/research/niklas-luhmann-zettelkasten-llm-wiki/): How Luhmann's Zettelkasten method finally became practical with modern AI. Explore the 70-year gap between genius and accessibility.
 - [Scaling Trail from 200 to 100,000 Neurons: Engineering Architecture](https://www.trailmem.com/trails/research/scaling-trail-from-200-to-100000-neurons/): Learn how Trail scales from 200 to 100,000 neurons. Explore ingest, lint, and queue workloads, bottlenecks, and architectural solutions for knowledge engines.
 - [Three Agent Memory Architectures: Compile vs Retrieve vs Act](https://www.trailmem.com/trails/research/three-architectures-of-agent-memory/): Explore three agent memory architectures—retrieve, compile, and act patterns. Learn why Trail chose the compile pattern and the trade-offs involved.
 - [Trail vs NotebookLM: Source-Grounded Knowledge Tools](https://www.trailmem.com/trails/research/trail-and-notebooklm/): Compare Trail and NotebookLM: source-grounded AI tools for knowledge work. Explore their shared ethos and architectural differences.
-- [As We May Think: Vannevar Bush's 1945 Vision](https://www.trailmem.com/trails/the-1945-concept/): Explore Vannevar Bush's influential 1945 essay 'As We May Think' and how his vision of information organization shaped modern technology and the internet.
+
+## Topics
+
+- 42 tag and category pages under https://www.trailmem.com/tags/
+
+Full content: https://www.trailmem.com/llms-full.txt
 
 Built with [webhouse.app](https://webhouse.app)

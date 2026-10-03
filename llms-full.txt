@@ -1,0 +1,1816 @@
+# trail: second brain
+
+> A minimalist engine to ingest, connect, and retrieve your organization's collective intelligence. Reimagining Vannevar Bush's 1945 vision with geometric precision.
+
+> Full content export. Index: https://www.trailmem.com/llms.txt
+
+## Privacy Policy
+
+URL: https://www.trailmem.com/privacy/
+Updated: 2026-09-30
+
+What Trail and the Trail Web Clipper do with your data — what the extension reads, what stays on your device, what we store, and how to delete it.
+
+Last updated 30 September 2026.
+
+Trail is a knowledge service: you add sources, and Trail compiles them into
+a knowledge base you can search and chat with. This page explains which
+personal data we process to do that, why, where it lives, and how to have it
+removed.
+
+The website trailmem.com and the documentation at docs.trailmem.com can be read
+without an account. We show no advertising there, and we do not track you.
+
+## Data controller
+
+WEB HOUSE ApS
+
+Riberhusvej 9
+
+9492 Blokhus, Denmark
+
+Company reg. (CVR): 21221198
+
+Contact: legal@broberg.ai
+
+## What we process
+
+**Your account.** Your name and email address, which organisation and
+knowledge bases you belong to, and your role there. If you sign in with Google,
+we receive your name and email address from Google — nothing else.
+
+**What you put into Trail.** The sources you upload or connect (documents,
+web pages, images, notes), the knowledge Trail compiles from them, and your
+chat conversations with your knowledge base. This is your content. We process
+it only to provide the service to you.
+
+**The Web Clipper.** If you install the browser extension, it sends the page
+you choose to clip — and only that page — to your knowledge base. See the
+section on the Web Clipper below.
+
+**Quality logs.** Every search and every answer that is based on a knowledge
+base: the question, the parts of the knowledge base that were used, and the
+final answer. See the section on quality control below.
+
+**Technical data.** Ordinary server logs (IP address, time, which address was
+requested) and error reports, for operations and security.
+
+We do not build profiles, we do not sell data, and we do not track you across
+websites.
+
+## Why we process it
+
+**Performance of a contract** (GDPR art. 6.1.b) — running your account and
+your knowledge bases.
+
+**Legitimate interest** (art. 6.1.f) — keeping the service secure and
+working, measuring and improving the quality of its answers, and answering
+you when you write to us.
+
+**Legal obligation** (art. 6.1.c) — bookkeeping under Danish law, where an
+invoice is involved.
+
+## AI models
+
+To compile your sources and answer your questions, the text is sent to a
+language model. By default this is **Mistral AI in France (EU)**. If the EU
+model is unavailable, the request fails; it is not sent to a model outside the
+EU instead.
+
+Some knowledge bases are compiled by our own staff using **Anthropic's Claude
+(USA)**. Where that applies, it is agreed with the owner of the knowledge base.
+
+We do not use your content to train AI models unless you have agreed to it in
+writing.
+
+## Quality control
+
+To measure and improve the quality of its answers, Trail logs every search and
+every answer that is based on a knowledge base: the question, the parts of the
+knowledge base that were used, and the final answer. This applies to every
+system that uses Trail, and it is a condition for using the service. Systems
+that call Trail directly must report their final answer back to Trail.
+
+The text is kept for 30 days and then deleted automatically. Quality figures
+without any text — for example the share of answers that stayed within their
+sources — are kept without a time limit.
+
+Before the text is stored, Danish personal identity numbers (CPR) and secrets
+such as passwords and access keys are always removed. Personal names are
+removed where the customer has enabled it.
+
+The text is stored encrypted and is read only by the automatic quality
+analysis. Trail's developers have no direct access to read it.
+
+The automatic quality analysis uses our EU language model, **Mistral AI in
+France**, to split each answer into claims and check them against the sources.
+The model sees the text while it checks it and stores nothing itself.
+
+The logs are stored in the EU (Stockholm, Sweden).
+
+## The Web Clipper browser extension
+
+The extension is idle until you click its toolbar button. When you click it:
+
+it reads the content of the page you are currently on — the article text, its
+title, and its URL;
+
+it converts that page to text and sends it to the Trail server you chose in the
+extension's settings, together with any tags you typed.
+
+It does not read pages in the background, it does not run on pages you have not
+clipped, and it does not watch your browsing.
+
+Where your clip goes is your choice. By default the extension sends to
+app.trailmem.com. You can point it at your own Trail server instead, including
+one running on your own machine — in which case the clipped page never reaches
+us at all.
+
+**What the extension stores on your device:** the server address you configured
+and your API token for that server. Both are kept in your browser's local
+extension storage. The token is never sent anywhere except to the Trail server
+you configured, as the credential for your own upload. Uninstalling the
+extension clears it.
+
+**Permissions the extension asks for, and why:**
+
+activeTab — lets the extension read the page you are on, only at the moment you
+click the button.
+
+scripting — used to run the page-extraction code on that page when you click.
+
+storage — to remember your server address and token on your device.
+
+Access to app.trailmem.com and 127.0.0.1 — the two Trail servers the extension
+can upload to. If you configure a different server, your browser asks your
+permission for that address at that point.
+
+## When you use Trail for your own users
+
+If you put Trail in front of your own users — for example through the
+embeddable chat widget on your website — you are the data controller for
+their data and we are the data processor. That relationship is put in writing
+in a data processing agreement.
+
+## How long we keep it
+
+**Your account and content:** for as long as your account exists. When you
+close it, we delete your knowledge bases and uploaded files. Copies in our
+backups are overwritten on a rolling basis.
+
+**Quality logs:** the text for 30 days, then deleted automatically. Quality
+figures without text are kept without a time limit.
+
+**Bookkeeping records:** 5 years, as Danish law requires.
+
+**Server logs and error reports:** briefly, for operations and security only.
+
+## Where your data lives, and who processes it
+
+We never sell data. We use these providers:
+
+**Fly.io (Stockholm, Sweden, EU)** — the Trail application, the processing
+engine and the databases holding your knowledge bases.
+
+**Tigris (Frankfurt, Germany, EU)** — uploaded files and database backups.
+
+**Cloudflare R2 (EU jurisdiction)** — an additional backup copy.
+
+**Mistral AI (France, EU)** — the language model that compiles sources,
+answers chat, describes images and builds search vectors.
+
+**Anthropic (USA)** — only for knowledge bases compiled by our staff, as
+described above.
+
+**Resend (USA)** — sending sign-in emails.
+
+**Google (USA)** — only if you choose "Sign in with Google".
+
+**GitHub (USA)** — hosting of the trailmem.com website. No account data or
+content is stored there.
+
+## Transfers outside the EU/EEA
+
+Your knowledge bases, files and the default AI model stay inside the EU.
+Anthropic, Resend, Google and GitHub are US-based. Those transfers rely on the
+European Commission's Standard Contractual Clauses and the providers'
+certification under the EU-US Data Privacy Framework.
+
+## Security
+
+All traffic is encrypted (HTTPS). Every organisation's knowledge bases are kept
+in a separate database, and one organisation can never see another's data.
+Access keys are stored encrypted and separately from the code.
+
+## Your rights
+
+You have the right of access, rectification, erasure, restriction, objection
+and data portability — on request we provide a copy of your knowledge bases.
+Write to
+legal@broberg.ai and we will help you.
+
+If you disagree with how we handle your data, you may complain to the Danish
+Data Protection Agency (Datatilsynet).
+
+## Cookies
+
+trailmem.com and docs.trailmem.com set no cookies for tracking, analytics or
+advertising. The cookie banner stores only your own choice.
+
+If you sign in to Trail, one technical cookie is set, solely to keep you signed
+in. It is required for the service to work, it is used for nothing else, and it
+is removed when you sign out.
+
+## Changes
+
+If this policy changes, the date at the top is updated. If you have an
+account, we notify you of material changes before they take effect.
+
+
+---
+
+## The second brain that is everywhere you work
+
+URL: https://www.trailmem.com/second-brain/
+Updated: 2026-10-02
+
+Trail is your second brain: one memory for everything you read, hear and save — compiled into connected, citable knowledge, reachable from your browser, your files, your website and your own tools. Stored in Stockholm.
+
+Everything you read, hear and save — compiled into one connected memory that remembers for you, and is there wherever you work.
+
+## Your knowledge is everywhere. Your memory isn't.
+
+You already have good places for what you know — a notes app, a drive full of documents, bookmarks, a wiki, years of mail. They are excellent at keeping things. What almost none of them do is work on what they keep: every file stays a file, and every answer is still put together by you, one search at a time.
+
+Trail adds the step those tools leave out. It compiles what you give it: each source is read once and turned into connected, citable knowledge, linked to what you already know and flagged where it agrees or disagrees. So when you ask, the answer is already assembled — with the sources it came from.
+
+That is what Trail is. One brain for everything you know — and it is there wherever you work.
+
+## One brain, many doors
+
+A second brain is only useful if feeding it costs nothing. So Trail does not ask you to move into a new app. It meets you where the knowledge already is.
+
+- **Drop in a file.** PDFs, Word documents, PowerPoint decks, Excel sheets, images, audio recordings and markdown all go in the same way. Trail reads them and keeps the original as the source.
+- **Clip from the browser.** The Trail Web Clipper saves the page you are reading straight into your brain with one click. It works in Chrome, Edge, Brave and Arc, and stays idle until you click it — it never follows your browsing. *(Available as a download today; the Chrome Web Store listing is in review.)*
+- **Put it on your website.** `` is a ready-made chat window for any web page: one script tag and one HTML element. Your visitors ask in their own words and get answers from your brain, with citations to the sources. It reaches Trail through a small relay on your own server, so your API key never ends up in a visitor's browser. [How to set it up](https://docs.trailmem.com/widget/).
+- **Wire it into your tools.** A REST API lets your own apps and AI agents search your brain, chat with it, and send new knowledge in.
+- **Talk to it.** Chat with your brain in the Trail app and every answer comes back with citations to the sources it was built from.
+
+Many doors, one brain. Whatever comes in through any of them ends up in the same place, connected to everything else.
+
+## It doesn't just store. It compiles.
+
+Most "chat with your documents" tools keep your files as a heap of text fragments and search through them every time you ask a question. Ask the same thing twice and they do all the work twice. Nothing is ever learned.
+
+Trail works the other way round. When a source comes in, Trail compiles it — once — into **Neurons**: short, citable notes that each hold one piece of knowledge. Neurons link to each other, so a new document does not just sit next to the old ones. It joins them, and you can see what it connects to, what it builds on and what it contradicts.
+
+Every Neuron remembers where it came from. Click through and you are back at the original PDF, page or recording.
+
+The result is a brain that gets more useful the more you put in, instead of more cluttered. We wrote the full argument in [Compile-Time Knowledge: A Technical Argument Against RAG](/trails/how-trail-works/compile-time-knowledge-vs-rag/).
+
+## It gets better, not just bigger
+
+A brain that believes everything it is told is not much of a brain. Trail has a gate.
+
+New knowledge lands in a **curation queue** before it becomes part of your brain. Clear-cut additions can be approved automatically; anything that needs a human eye waits for you. Trail also keeps checking what is already there — flagging Neurons that **contradict** each other, notes that have gone **stale**, and **orphans** that nothing links to — so the brain stays something you can trust.
+
+How that gate works, and why it is modelled on how human memory decides what to keep, is in [Three Filters on the Gate](/trails/how-trail-works/three-filters-on-the-gate/).
+
+## Yours, and kept in Europe
+
+A second brain holds the things you actually know, so where it lives matters.
+
+- **Stored in Stockholm.** The Trail app, the engine and the databases all run in Stockholm, Sweden. Each customer's brain has its own database — it is never mixed with anyone else's.
+- **EU models in the cloud.** When Trail compiles your sources and answers your questions in the cloud, it uses Mistral, a French AI provider, in the EU. If that provider is down, Trail fails visibly rather than quietly sending your data to a model outside the EU.
+- **Every source kept.** Your originals stay attached to the knowledge built from them, so you can always check what Trail has learned against what you gave it.
+
+## Start your second brain
+
+Trail is the memory machine Vannevar Bush imagined in 1945 — [we wrote about that, too](/the-1945-concept/) — built for the way you work now: everywhere, all at once.
+
+[Read the docs](https://docs.trailmem.com/) · [Read more trails](/trails/)
+
+---
+
+## Terms of Service
+
+URL: https://www.trailmem.com/terms/
+Updated: 2026-09-30
+
+The terms that apply when you use Trail — trailmem.com, the app, the Web Clipper and the embeddable widget.
+
+Last updated 30 September 2026.
+
+These terms apply when you use Trail — the website trailmem.com, the
+documentation at docs.trailmem.com, the application at app.trailmem.com, the
+Web Clipper browser extension and the embeddable widget. By using Trail you
+accept these terms.
+
+## Who we are
+
+WEB HOUSE ApS (broberg.ai)
+
+Riberhusvej 9
+
+9492 Blokhus, Denmark
+
+Company reg. (CVR): 21221198
+
+Contact: legal@broberg.ai
+
+## Relation to a customer agreement
+
+If you or your company has a written agreement with us, that agreement takes
+precedence over these terms wherever the two differ.
+
+## Your account
+
+You must provide accurate information when you create an account or sign in
+with an account from another service (for example Google).
+
+You are responsible for what happens under your account and for keeping your
+credentials to yourself.
+
+You can ask us to close your account at any time via legal@broberg.ai.
+
+## Your content
+
+What you put into Trail — sources, notes, and the knowledge compiled from them
+— remains yours. You give us the right to store and process it only as far as
+needed to provide Trail to you.
+
+You are responsible for having the right to upload what you upload, including
+any personal data it contains.
+
+On request, we provide a copy of your knowledge bases. When your account is
+closed, your content is deleted as described in our privacy policy.
+
+## Quality control
+
+To measure and improve the quality of its answers, Trail logs every search and
+every answer that is based on a knowledge base: the question, the parts of the
+knowledge base that were used, and the final answer. This applies to every
+system that uses Trail, and it is a condition for using the service. Systems
+that call Trail directly must report their final answer back to Trail.
+
+How long the logs are kept, where they are stored and who can read them is
+described in our privacy policy.
+
+## Acceptable use
+
+You may not use Trail to:
+
+break the law or infringe the rights of others,
+
+try to gain access to systems or data you are not entitled to,
+
+send spam, malicious code or automated requests at a volume that burdens the
+service,
+
+impersonate someone else.
+
+We may close or restrict access in case of misuse.
+
+## AI-generated content
+
+Trail uses language models to compile your sources and to answer questions.
+The results may be incomplete or wrong. They are not advice, and important
+decisions should be checked against the original sources, which Trail links
+to.
+
+## Intellectual property
+
+Trail itself — the software, design, text and trademarks — belongs to
+WEB HOUSE ApS or our licensors. You may link to trailmem.com and quote it with
+attribution, but not copy it in full or use it commercially without our
+permission.
+
+## Availability and liability
+
+Trail is provided as it is. We do our best to keep it available and correct,
+but do not guarantee that it always is. To the extent permitted by Danish law,
+we are not liable for indirect loss, such as lost profit or lost data. This
+limitation does not apply in cases of intent or gross negligence.
+
+## Personal data
+
+How we process personal data, and where it lives, is described in our privacy
+policy.
+
+## Changes
+
+We may change these terms. The date at the top shows when they were last
+changed. If you have an account, we will notify you of material changes before
+they take effect.
+
+## Governing law
+
+These terms are governed by Danish law, and disputes are settled by the Danish
+courts.
+
+
+---
+
+## As We May Think: Vannevar Bush's 1945 Vision
+
+URL: https://www.trailmem.com/the-1945-concept/
+Updated: 2026-06-24
+
+In July 1945, Vannevar Bush sketched a machine that would change how humanity thinks about knowledge. He called it the memex. Eighty-one years later, we are finally building it.
+
+In July 1945, an American engineer named Vannevar Bush sketched a machine that would change how humanity thinks about knowledge. He called it the memex. Eighty-one years later, we are finally building it.
+
+## The 1945 vision that became Trail
+
+In July 1945, with the Second World War still grinding toward its final weeks, *The Atlantic Monthly* published an essay by a man who had just spent four years coordinating the work of six thousand American scientists. His name was Vannevar Bush. The essay was called **"As We May Think."** It would become one of the quietly most influential pieces of writing in the twentieth century.
+
+Bush had a problem on his mind — not the war, but what should come after it.
+
+{{svg:memex-desk}}
+
+## Who was Vannevar Bush?
+
+Vannevar Bush was born in Everett, Massachusetts in 1890. He taught at Tufts, then joined MIT at the age of twenty-nine, where he built some of the first analog computers and helped pioneer electrical engineering as a discipline. In 1940, President Roosevelt appointed him chairman of the National Defense Research Committee. A year later, Bush became director of the newly created **Office of Scientific Research and Development** (OSRD) — the organization that would coordinate American scientific effort during the war, from radar to penicillin to, eventually, the Manhattan Project.
+
+By 1945, Bush had seen what concentrated scientific effort could accomplish. He had also seen what it could destroy. And he was worried that once the war ended, the thousands of brilliant minds who had been focused on a single goal would scatter, and their collective knowledge would be lost to the fragmented noise of academic publishing.
+
+> *Professionally our methods of transmitting and reviewing the results of research are generations old and by now are totally inadequate for their purpose.*
+> — Vannevar Bush, *As We May Think*, 1945
+
+His worry was not that humanity had too little information. His worry was that it had too much — and no way to navigate it.
+
+## The information problem
+
+Bush argued that the total record of human knowledge was expanding far faster than any individual could read, let alone synthesize. A researcher studying even a narrow topic could spend years just locating the relevant material, much of which would remain effectively hidden in stacks and drawers and indexes.
+
+The problem, Bush said, was not storage — microfilm was already compact enough to fit the Encyclopædia Britannica into a matchbox. The problem was *retrieval*. Traditional library classification systems forced knowledge into rigid hierarchies, tree structures that bore no resemblance to how the human mind actually works.
+
+{{svg:tree-vs-graph}}
+
+## The memex
+
+To solve this, Bush proposed a device. He called it the **memex** — a portmanteau of *memory* and *extension*.
+
+In Bush's description, the memex was a piece of furniture. A desk, specifically, with slanting translucent screens on top, a keyboard, and sets of buttons and levers. Storage occupied a small portion of the interior; the rest was mechanism — microfilm reels, optical projectors, electromechanical links. A user could purchase books, periodicals, and correspondence already on microfilm and drop them into the desk. Handwritten notes and photographs could be added through a transparent platen: you placed the document on the glass, pulled a lever, and it was photographed onto the next blank space in the reel.
+
+Crucially, the memex could be consulted with "exceeding speed and flexibility." Tap a code on the keyboard and a book's title page appeared on one of the screens. But this was not the revolutionary part. Indexed lookup had existed for centuries. What made the memex radical was what Bush called **associative trails**.
+
+## The Trail: thinking by association
+
+The human mind, Bush observed, does not operate by classification. It operates by association. We follow one thought to the next through webs of connection — resemblance, contrast, causality, memory. Traditional indexes force the mind to slow down and walk the tree. Bush wanted a machine that could keep pace with thought itself.
+
+On the memex, a user could tie any two documents together with a permanent link. More importantly, they could build sequences — *trails* — of linked documents, with their own annotations inserted along the way. The Trail was the memex's core data structure, and it was essentially hypertext, described twenty years before the word was coined.
+
+Bush gave a concrete example. Imagine a user interested in why the short Turkish bow was apparently superior to the English longbow during the Crusades:
+
+> *First he runs through an encyclopedia, finds an interesting but sketchy article, leaves it projected. Next, in a history, he finds another pertinent item, and ties the two together. Thus he goes, building a Trail of many items. Occasionally he inserts a comment of his own... When it becomes evident that the elastic properties of available materials had a great deal to do with the bow, he branches off on a side Trail which takes him through textbooks on elasticity...*
+
+{{svg:trail}}
+
+The Trail is not a search result. It is not retrieval. It is a piece of thinking, captured and made permanent — something that could be shared, inherited, extended. Bush envisioned a world in which *"wholly new forms of encyclopedias will appear, ready made with a mesh of associative trails running through them."*
+
+## What happened next
+
+Bush never built the memex. His group prototyped parts of it, but the machine was always more speculative than practical, and the electromechanical technology of the 1940s was never quite up to the vision. Bush returned to MIT, then presided over the Carnegie Institution until 1955. He continued to refine his ideas in later essays like *Memex Revisited* (1967), and died in 1974.
+
+But the essay had planted a seed.
+
+{{svg:timeline}}
+
+**Ted Nelson** coined the word *hypertext* in 1965 and spent a lifetime pursuing a system called Xanadu that would realize Bush's associative trails at planetary scale. Xanadu never shipped in full, but its influence is everywhere.
+
+**Douglas Engelbart** read "As We May Think" shortly after its publication and spent the next two decades trying to build it. His 1968 "Mother of All Demos" at the Fall Joint Computer Conference showed the world the computer mouse, the graphical user interface, real-time collaborative editing, hypertext linking, and video conferencing — all of it directly inspired by Bush's memex.
+
+**Tim Berners-Lee** built the World Wide Web at CERN in 1989. The web's basic primitive — a document that can link to any other document — is the memex Trail stripped to its minimum. Bush's dream of a global network of associatively linked knowledge was finally, imperfectly, realized.
+
+And yet, something was missing.
+
+## The gap the web left behind
+
+The web gave us the link. It did not give us the **Trail**. A search returns a list of URLs ranked by an algorithm that no one fully understands. The burden of weaving those URLs into a coherent piece of thinking falls entirely on the reader, who must then store their synthesis in some external place — a notebook, a document, a blog post — that is itself disconnected from the sources it draws on.
+
+Retrieval-augmented generation, the dominant AI pattern of the early 2020s, took this a step further in the wrong direction. RAG treats knowledge as fragments to be fetched at query time and assembled just-in-time by a language model. There are no persistent Neurons. There is no compounding. Every question starts from scratch. Every answer is disposable.
+
+Bush would have recognized the problem immediately. This is not how the mind works. This is not what he drew.
+
+## From Memex to Trail
+
+In October 2025, Andrej Karpathy described a different pattern: the **LLM Wiki**. Instead of retrieving fragments at query time, a language model compiles knowledge at *ingest* time into a persistent, cross-referenced graph of Neurons — a living document that an AI maintains on behalf of a human curator. Every new source is not just stored, it is *integrated*. The Neurons accumulate. Knowledge compounds. Curators review what the machine proposes and approve what is worth keeping.
+
+This is the memex. Not metaphorically — structurally. The associative trails are Neuron links. The ingest pipeline is the transparent platen. The curator is the human operator choosing which trails to preserve. Even the critique of hierarchy versus association is the same, eighty-one years later.
+
+That is what **Trail** is. The name is deliberate. We are not building another search engine, and we are not building another RAG layer. We are building the machine Vannevar Bush described in July 1945, using the one technology he could not have anticipated: large language models capable of reading, understanding, and compiling human knowledge into the associative structures he imagined.
+
+> *The applications of science ... may yet allow [humanity] truly to encompass the great record and to grow in the wisdom of race experience.*
+> — Vannevar Bush, *As We May Think*, 1945
+
+Eighty-one years later, we are finally building what he asked for.
+
+---
+
+### Further reading
+
+- Vannevar Bush, [*As We May Think*](https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/) — The Atlantic, July 1945
+- [*As We May Think* on Wikipedia](https://en.wikipedia.org/wiki/As_We_May_Think)
+- [History of Information — *In "As We May Think" Vannevar Bush Envisions Mechanized Information Retrieval and the Concept of Hypertext*](https://www.historyofinformation.com/detail.php?id=676)
+- James M. Nyce & Paul Kahn, *From Memex to Hypertext: Vannevar Bush and the Mind's Machine* (Academic Press, 1991)
+
+---
+
+## Dispatches | Latest News & Updates
+
+URL: https://www.trailmem.com/trails/dispatches/
+Updated: 2026-06-24
+
+Releases, announcements, and observations from the broader knowledge-infrastructure landscape — what's shipping, what's shifting, what's worth watching.
+
+---
+
+## The Orchestration Layer: How broberg.ai Builds Software With Fifteen Agents
+
+URL: https://www.trailmem.com/trails/dispatches/the-orchestration-layer/
+Updated: 2026-09-02
+
+The Orchestration Layer: How broberg.ai Builds Software With Fifteen Agents
+
+Most companies bolted AI onto systems that already existed. broberg.ai built AI-native from the foundation — and then applied the same principle to its own production process. This is what came out: cardmem, an orchestration engine where plans come before code, quality checks happen in a real browser, and the reasoning survives the session.
+
+## The bolted-on era is ending
+
+Most companies met AI the same way: something was glued onto the top of a system that already existed. A chat bubble in the corner of a website. A summarise button in a CRM. A copilot in an editor. It works, in the narrow sense that it does something. It also leaves the underlying system exactly as it was — which means the AI can only ever reach whatever the old system happened to expose.
+
+[broberg.ai](https://broberg.ai) took the other route, and has been on it long enough for it to stop being a bet. The company has been building software since 1995 and now builds *AI-native* — the phrase on its own front page is blunt about the distinction: **"Det er ikke en chatbot klistret oven på en gammel hjemmeside."** It is not a chatbot stuck on top of an old website.
+
+That sounds like positioning. This article is about the part that is harder to claim and easier to check: what happens when a company applies that principle to *its own* production process, and then runs its entire operation on the result.
+
+## Which player we are
+
+Four things, taken from the front page rather than from an elevator pitch.
+
+**Websites, webshops, platforms, and AI integration — on one engine.** Not four product lines with four codebases. The same foundation underneath, which is why a site built for a florist and a platform built for a municipality share the same upgrade path.
+
+**EU-first, deliberately.** All data hosted in the EU. Built without dependence on Big Tech infrastructure. This is not a compliance checkbox retrofitted after a customer asked; it is why the stack looks the way it does — [Mistral](https://mistral.ai) for the EU tier, [Fly.io](https://fly.io) in Stockholm, no US round-trip for personal data.
+
+**Human in the loop, by default.** You approve content before it publishes — or switch on autopilot once you trust it. The order matters. A system that starts autonomous and adds approval later never gets the approval built properly; a system that starts with approval can safely remove it.
+
+**Customers who cannot afford to be experimented on.** Lundbeck. Grundfos. COWI. Ole Lyngaard. More than forty Danish municipalities. One case covers 16,838 employees. These are not the accounts you win with a demo.
+
+## The problem that forced an engine
+
+Here is the thing nobody tells you about building software with AI agents: the coding is not the bottleneck.
+
+An agent can write a feature in twenty minutes. What it cannot do on its own is remember *why* the feature exists, prove it works in front of a human, notice that it contradicts a decision made three weeks ago, or stop itself from shipping something nobody asked for. Run one agent and you can hold all of that in your head. Run fifteen, across a dozen repositories, and you are no longer a developer — you are an air traffic controller without a radar.
+
+That is the problem [**cardmem**](https://broberg.ai/flagskibe/cardmem) was built to solve. Its own tagline states the goal precisely:
+
+> **Se din idé blive til et live produkt — sporbart hele vejen.**
+> *See your idea become a live product — traceable all the way.*
+
+Traceable is the load-bearing word.
+
+## How the loop actually works
+
+cardmem describes itself as the engine that drives every project in the universe, from first thought to finished, live product. Six steps, and each one exists because skipping it caused a specific kind of damage:
+
+{{svg:orchestration-loop}}
+
+**1. Idea.** Captured from chat, from a phone, from anywhere. No format required. Ideas that need a form to be recorded are ideas that get lost.
+
+**2. Plan.** cardmem writes a concrete plan with explicit success criteria *before* any code is written. This is the step most AI workflows omit, and omitting it is how you end up with a roadmap full of topic strings and no reasoning behind any of them. The plan is written while the context that motivated it is still alive — not "next turn", because there is no next turn for context.
+
+**3. Task board.** The plan is broken into prioritised tasks, visible to everyone. The board *is* the to-do list. Not a private list inside an agent's head, where the customer cannot see it and no quality gate can reach it.
+
+**4. The agent builds.** In the correct repository, against the plan, and then it waits for approval rather than shipping.
+
+**5. Quality check — in a real browser.** Not "the tests passed". A real browser opens the real surface and verifies it looks and behaves the way it should. A failed check sends the work back. Every delivery carries a screenshot as proof.
+
+**6. Live — and round again.** The change ships, and the loop starts over.
+
+Four principles hold it together: **plan before code**, **real browser checks**, **gates before deployment**, and **screenshot proof on every delivery**. None of them are novel individually. What is unusual is enforcing all four on machines that would otherwise be very fast at producing work nobody asked for.
+
+## Your entire team, in your pocket
+
+cardmem's mobile surface is not a status dashboard. It is a command centre: direct control of agents from anywhere, **15+ running simultaneously**, live chat with each of them, and a notification when a build finishes.
+
+The customer-facing half matters just as much. Clients see the live board, approve designs *before* anything is built, and get proof of delivery per item. That replaces the two worst artefacts in software consulting — the status email and the status meeting — with something the customer can check without asking anyone.
+
+## What orchestration looks like on a bad day
+
+Feature lists are easy to write and hard to believe. So here is a week from our own operation instead, and it is the most honest argument we have.
+
+Five agent sessions, five different repositories, working on unrelated things. Over two days, each of them independently ran into the same class of bug: **a measurement that cannot tell two situations apart.**
+
+- A scheduled probe read an authentication failure as "nothing pending" and reported healthy for three months while doing nothing at all.
+- A cleanup tool's preview always answered "0 items" — so "nothing to clean" and "I am not allowed to tell you" looked identical.
+- A paging parameter was accepted by the API and never actually used, so a caller looping through pages fetched page one forever. Nothing errored.
+- A secret scanner reported "no findings" for text it had never examined.
+- A version marker counted the files it *intended* to write rather than the ones that landed.
+
+Every one of these fails **green**. There is no error, no red status, no alert. The system reports success on a question it never answered.
+
+What made the week interesting is not that we found them. It is that the sessions found them *in each other's systems*, across repository boundaries, and fixed them at both ends of the pipe — one agent measuring the consumer side, another measuring the issuer side, neither taking the other's word for it. Two of the five were caught by a peer saying, in effect, *your check could not have detected this even if it were happening.*
+
+That is what an orchestration layer buys. Not more code per hour. **A structure in which the machines check each other, and the reasoning survives.**
+
+## The memory underneath
+
+There is one more piece, and it is the reason this website exists.
+
+Agents forget. Every session starts empty. Without somewhere durable to put *why* a decision was made, the reasoning evaporates the moment a conversation is compacted — and the next session re-derives it, or worse, decides differently.
+
+[Trail](https://trailmem.com) is that layer: a knowledge base that **compiles** what it is given rather than searching it on demand. The distinction is architectural, and we have written about it at length in [Compile-Time Knowledge: A Technical Argument Against RAG](/trails/how-trail-works/compile-time-knowledge-vs-rag/).
+
+For the orchestration story, the relevant part is simple. When one of those five bugs was diagnosed, the lesson did not stay in a chat log. It became a durable note — *"a measurement without three outcomes is not a measurement"* — searchable by every future session in every repository. The next agent to build a probe finds it before making the same mistake.
+
+Plans in cardmem. Reasoning in Trail. Neither one is a chatbot bolted onto anything.
+
+## The through-line
+
+broberg.ai's argument is that AI belongs in the foundation, not on the surface. cardmem is that argument turned on the company itself: the same principle applied to how the work gets made, not just to what gets shipped.
+
+The tell is that we did not build a demo of it. We build everything on it — this site, the platforms behind those municipal deployments, and cardmem itself.
+
+---
+
+**Read more:** [broberg.ai](https://broberg.ai) · [cardmem — the core engine](https://broberg.ai/flagskibe/cardmem) · [Trail](https://trailmem.com)
+
+
+---
+
+## Field Notes | Research & Documentation
+
+URL: https://www.trailmem.com/trails/field-notes/
+Updated: 2026-06-24
+
+Engineering diaries from inside the Trail build — pipelines, benchmarks, incidents, and the everyday craft of shipping a knowledge engine.
+
+---
+
+## Compile-Time Knowledge vs RAG: Technical Architecture Guide
+
+URL: https://www.trailmem.com/trails/how-trail-works/compile-time-knowledge-vs-rag/
+Updated: 2026-06-24
+
+Compile-Time Knowledge: A Technical Argument Against RAG
+
+RAG is a search engine wearing a language model as a hat. Trail compiles knowledge the way a brain consolidates memory — and the architectural difference shows up in latency, accuracy, provenance, and cost.
+
+## A technical argument against RAG
+
+If you have built a retrieval-augmented generation system, you know the architecture intimately: an embedding model, a vector store, a top-k retrieval call, a context-window stuffing step, an LLM completion. Maybe a re-ranker. Maybe a small graph of MCP tools around it. The pipeline is mature, the libraries are good, and the pattern works for a class of problems.
+
+This article is about the class of problems where it does not work — and about the architectural alternative Trail implements, which we describe as compile-time knowledge.
+
+The short version is this: **RAG performs work at query time. Trail performs work at ingest time.** That single difference cascades through every other property of the system — latency, accuracy, provenance, cost, accumulation, and the size of the corpus you can usefully reason over. We will walk through each of these.
+
+We will also explain why this distinction is not novel. Brains do compile-time knowledge work. They have done it for hundreds of millions of years. RAG, despite the surface-level analogy to memory retrieval, is structurally closer to a search engine than to a cognitive system. The reason this matters is practical: certain workloads accumulate value over time only if the system itself accumulates structure over time, and RAG does not.
+
+{{svg:rag-vs-trail-pipeline}}
+
+## The mechanics of RAG, briefly
+
+A standard RAG pipeline:
+
+```
+query → embed(query) → vector_store.search(top_k) → 
+  rerank(results) → format_context(results) → 
+  llm.complete(query + context) → response
+```
+
+Every component here is stateless across queries. The vector store contains document chunks, but those chunks are not connected to one another in any meaningful semantic structure — they are connected only by approximate proximity in embedding space. The LLM never accumulates understanding across queries. The context window is the only memory, and it dies when the request returns.
+
+When the corpus grows, RAG's behavior degrades in predictable ways:
+
+- **Retrieval precision drops.** With more chunks, semantic neighbors become noisier. Top-k retrieval starts surfacing irrelevant material. The standard fix is hybrid search (BM25 + vector) and re-ranking, which adds latency and cost.
+- **Context window pressure increases.** More candidates means harder filtering decisions. The system either retrieves too few (missing relevant material) or too many (diluting the LLM's attention).
+- **Contradictions get retrieved together.** If two sources disagree on a fact, RAG happily retrieves both and asks the LLM to reconcile them at query time, with no awareness that the contradiction exists or has been seen before.
+- **Source updates do not propagate.** If a source is corrected, the chunks remain in the vector store. There is no concept of "this older fact is now stale because the source it came from has been updated."
+
+These are not bugs in any specific RAG implementation. They are consequences of doing knowledge work at query time, on raw fragments, with no persistent compiled artifact.
+
+## The mechanics of Trail's compile-time architecture
+
+Trail flips the pipeline. Work happens at ingest time. Queries read from a compiled artifact:
+
+{{svg:ingest-pipeline}}
+
+{{svg:query-pipeline}}
+
+The unit of persistent storage is a **Neuron**, not a chunk. Neurons are markdown documents with structured `[[neuron-link]]` references to other pages, and stable `{#claim-xx}` anchors for individual claims. Each Neuron is the result of compiling N source chunks into a coherent narrative, with provenance attached to each claim.
+
+The compile step is where the work happens. When a new source enters the system, the compiler:
+
+1. Identifies which existing Neurons are relevant
+2. Extracts new claims from the source
+3. Cross-references them against existing claims
+4. Detects contradictions explicitly
+5. Proposes updates to affected pages
+6. Routes proposals through the Curation Queue (auto-approved or human-reviewed based on policy)
+7. Writes the resulting Neuron change as an event with full payload
+
+This is more expensive than a RAG ingest. A RAG ingest is `chunk → embed → upsert`. A Trail ingest is closer to a small reasoning task per source. The trade-off is that the cost is paid once at ingest, not repeatedly at every query.
+
+## Where the costs actually live
+
+A common objection: "compile-time work is just shifted cost — you pay the LLM either way." This is true in the trivial sense and false in the practical sense.
+
+In RAG, every query incurs:
+
+- Embedding cost on the query
+- Vector search cost (cheap)
+- Re-ranking cost (moderate, often LLM-based)
+- LLM completion cost on `query + N retrieved chunks`
+
+The LLM completion is the dominant cost, and it scales with `N × chunk_size`. A typical production RAG system pulls 10-20 chunks of 500-1000 tokens each, putting 5K-20K tokens of context into every completion. Multiply by query volume.
+
+In Trail, every query incurs:
+
+- Identify relevant Neurons (small classification task)
+- Read those pages (typically 2-5 pages, much denser than raw chunks)
+- LLM completion on `query + relevant pages`
+
+The compiled Neurons are an order of magnitude denser per token than raw chunks. A Neuron that took 50 source chunks to compile might fit in 1500 tokens because the LLM did the integration work at compile time — removing redundancy, resolving contradictions, structuring the narrative.
+
+The compile-time cost is paid once per source ingest, not once per query. For a corpus of 1000 sources answering 10K queries per month, the math favors compile-time architecture by a wide margin within weeks.
+
+{{svg:cost-over-time}}
+
+## Why this maps onto how brains work
+
+The biological precedent for compile-time knowledge work is extensive and well-studied. Three mechanisms in particular map cleanly onto Trail's architecture.
+
+**Memory consolidation.** Human memory is not unitary. The hippocampus encodes new experiences in a fast, high-bandwidth format. During sleep — particularly slow-wave sleep — these encodings are replayed in compressed form and transferred to the neocortex, where they are integrated with existing long-term memory structures. This is not a backup operation. It is an active integration: contradictions are resolved, patterns are extracted, schemas are updated. By morning, yesterday's experience has been compiled into the existing structure of what you know.
+
+Trail's compile step is structurally analogous. Sources enter a fast queue (the curation candidates). A background process (auto-approval policy + scheduled lint) integrates them into the persistent Neurons, resolving conflicts and updating cross-references. The Neurons are the long-term store. Sources are the short-term encoding.
+
+**Synaptic plasticity.** Knowledge in the brain is encoded in the strength of synaptic connections, not in the neurons themselves. A concept is a distributed pattern of connection weights across thousands or millions of neurons. Learning strengthens specific connections; forgetting weakens them. The Hebbian principle — "neurons that fire together, wire together" — operates at compile time, not query time. By the time you need to recall something, the connections are already in place.
+
+In Trail, the equivalent is the Neuron-graph. The strength of a connection between two Neurons is encoded in how many times they cross-reference each other, how many sources support the connection, and how often the curator has approved that connection. This structure is built at compile time. Queries traverse it; they do not construct it.
+
+**Spreading activation.** When you think of a concept, related concepts activate automatically — even ones you did not consciously search for. Think "hospital," and "doctor," "illness," "ambulance," "nurse" are primed before you are aware of them. This happens because the connection weights between related concepts are already in place. Activation spreads through the network in milliseconds.
+
+RAG attempts to reproduce this with vector similarity search, but it does so at query time on raw chunks with no compiled structure. The result is approximate semantic neighborhood matching, not true associative activation. Trail's Neuron-graph supports actual spreading activation because the connections are persistent and explicit. A query for "stress" doesn't just retrieve stress-related chunks; it can traverse to "cortisol regulation," "sleep disruption," and "treatment protocols" through compiled links.
+
+## The four properties that change
+
+Compile-time architecture changes four measurable properties of a knowledge system.
+
+**Accumulation.** In RAG, the value of the system grows linearly with corpus size — and degrades as retrieval precision drops. In Trail, the value grows superlinearly because each new source can update existing Neurons, strengthen existing links, and resolve previous contradictions. The tenth source improves the Neurons in light of the previous nine. The hundredth source benefits from the integrated structure of the previous ninety-nine.
+
+This is the property that matters most for use cases where knowledge should compound: clinical practice, legal research, scientific synthesis, organizational learning. RAG handles these poorly because it has no integration step. Trail handles them well because integration is the entire point of the architecture.
+
+**Provenance.** RAG provenance is correlational: "the model said X, and we retrieved chunk Y, so probably X came from Y." Trail provenance is structural: every claim on every Neuron is linked to the specific source revisions that support it. When a source is updated, the affected pages are flagged for re-review automatically. When a claim is contested, the lineage is explicit.
+
+For regulated domains — healthcare, legal, financial — this is not a nice-to-have. It is a baseline requirement that RAG cannot meet without bolting on a separate provenance layer that does the work Trail does natively.
+
+**Latency.** Trail queries are faster because the work has already been done. A Neuron is denser than the equivalent raw chunks, so less context needs to be passed to the LLM. There is no re-ranking step. The retrieval step is identifying relevant pages, not searching a chunk space. Production Trail deployments typically see 30-60% latency reduction on equivalent queries compared to RAG baselines, and the gap grows as corpus size grows.
+
+**Cost.** As described above, the cost calculus shifts from per-query to per-ingest. For high-query-volume use cases (which is most of them), this is a substantial reduction. The ingest cost is also more predictable — it is bounded by source volume, not user behavior.
+
+## What RAG is good for
+
+To be fair: RAG is the right architecture for a class of workloads. If your corpus is large, frequently updated, and you primarily need lookup-style queries with no need for accumulated understanding, RAG works well. Customer support over product documentation, search across a code repository, Q&A over recent news — these are RAG-shaped problems.
+
+The mistake is using RAG for problems that are not RAG-shaped: building a research wiki that should accumulate insight, maintaining clinical knowledge that should compound across patients, supporting expert practice where the depth of the integrated structure matters more than the speed of any individual lookup. These are compile-time problems being forced into a query-time architecture.
+
+Trail is built for the second class. RAG remains the right answer for the first.
+
+## The 1945 reference, briefly
+
+Vannevar Bush's 1945 essay *As We May Think* described a hypothetical machine called the **memex** — a desk-sized device with microfilm storage and projected screens that would let a researcher build associative trails through their personal knowledge corpus. Bush's central argument was that the human mind operates by association, not by hierarchical classification, and that information systems built on classification (the library, the card catalog) were structurally mismatched with how thinking actually works.
+
+The microfilm reels in the base of Bush's memex desk — chosen as the visual mark for the Trail engine — were not a technical detail. They were the storage substrate for trails: sequences of frames linked in meaningful order, with annotations along the way. The Trail was the unit of compiled knowledge. The memex was the machine that compiled and held it.
+
+Eighty-one years later, language models are the integration mechanism Bush could not build. The LLM Wiki pattern, articulated by Andrej Karpathy in late 2025, is the modern restatement of Bush's idea: use the language model as a continuous compiler of knowledge, not as a query-time oracle. The Neurons are the artifact. The model maintains it.
+
+Trail is the engine that does this work. The SaaS successor to memxcloud is the commercial product built on trail.
+
+## Implementation notes
+
+A few specifics about how Trail's compile-time architecture is implemented:
+
+- **The Curation Queue is the only write path** to Neurons. No code path bypasses it, including auto-approval. This guarantees that every Neuron state change is auditable and reversible.
+- **Wiki events are full-payload, not deltas.** Each event records the complete new content of the affected page, not just the change. This makes time-travel queries trivial (replay events up to a timestamp) and ensures schema migrations don't lose history.
+- **Stable claim anchors** (`{#claim-xx}`) are emitted by the compiler at compile time and remain stable across re-compilations of the same source material. This makes it possible to add a first-class claims table later without re-parsing every Neuron.
+- **Source ↔ Neuron is a bidirectional index.** Sources know which Neurons they affect; Neurons know which sources support each claim. Cascading invalidation is a database query, not an inference step.
+- **Lint runs as a periodic background job.** Stale page detection, contradiction surfacing, and gap analysis happen during quiet hours, not during user queries.
+
+These are the structural commitments that make compile-time architecture work. They are not optional features bolted onto a RAG pipeline. They are the architecture.
+
+## Closing
+
+The argument against RAG is not that it does not work. It is that it works for the wrong shape of problem if your goal is accumulating knowledge over time. A system that performs all of its reasoning at query time, on raw fragments, with no persistent compiled structure, is structurally a search engine — regardless of how sophisticated the language model attached to it.
+
+The argument for compile-time knowledge is that integration, consolidation, and persistent structure are the actual value-producing operations in a knowledge system. Brains do this work continuously, mostly outside of conscious attention. Trail does it explicitly, in a queue-driven pipeline with full provenance.
+
+The infrastructure cost is higher per source. The infrastructure cost is dramatically lower per query. The accumulated value, over time, is qualitatively different.
+
+Bush saw this in 1945. Karpathy named it again in 2025. Trail implements it now.
+
+---
+
+### Further reading
+
+- Vannevar Bush, [*As We May Think*](https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/) — *The Atlantic*, July 1945
+- Andrej Karpathy, *LLM Wiki* — described publicly in October 2025
+- Donald Hebb, *The Organization of Behavior*, 1949
+- For Trail's architectural specification and API, see [trail.broberg.ai/docs](https://trail.broberg.ai/docs)
+
+---
+
+## Does a Trail Get Smarter as It Grows? Knowledge Base Growth
+
+URL: https://www.trailmem.com/trails/how-trail-works/does-a-trail-get-smarter-as-it-grows/
+Updated: 2026-06-24
+
+More sources should mean a better knowledge base. In practice, every system hits a point where adding material starts to subtract. Here is what compounds, what buckles, and where Trail's architecture deliberately bends the curve.
+
+## The honest answer is: yes, then no, then yes again — depending on what you build
+
+When an organization starts feeding sources into a knowledge base, the first instinct is that more is better. Every additional document is more coverage, more nuance, more ground truth. And for the first stretch of growth, this intuition is right. The system goes from confidently wrong to usefully right. Answers improve visibly with each new source.
+
+Then, somewhere between the first hundred and the first thousand sources, the curve flattens. New material stops producing visible gains. Search results get noisier. The curator's review queue grows faster than they can drain it. Old material starts contradicting new material in ways that are not always obvious. The system feels less authoritative, not more.
+
+This is not a failure of the system. It is the natural shape of every knowledge architecture, and every organization deploying AI for knowledge work will encounter it. The question is whether the architecture was designed with this shape in mind.
+
+Trail is. The properties below are not aspirational claims — they are the design choices that determine where on the curve a Trail still gets smarter, where it plateaus, and where the operator needs to make a structural choice rather than just adding more sources.
+
+{{svg:knowledge-compounds-curve}}
+
+## Five things that genuinely compound with size
+
+**Coverage grows linearly.** This is the obvious one and worth stating plainly. Each new source covers some surface area that no previous source covered. A clinic running daily intake notes covers a slightly different slice of clinical territory with each visit type added. A research group covers a slightly different sub-field with each paper integrated. A consulting firm covers a slightly different engagement archetype with each project memo. Coverage is the floor — every system gets this for free as long as ingest works.
+
+**Cross-references compound superlinearly.** Each Neuron in a Trail can link to other Neurons. The number of *possible* connections grows quadratically with the number of pages, but the number of *useful* connections grows roughly with the density of overlap in the underlying material. In practice, the second hundred Neurons produce more connections than the first hundred, because the new material has more existing pages to attach to. A Trail with a thousand well-connected Neurons is qualitatively different from ten Trails with a hundred each. Connection density is what makes a knowledge base feel like a body of knowledge rather than a stack of notes.
+
+**Multi-source synthesis becomes possible.** When the system has read three sources on a topic, it can produce a synthesized answer that no single source supports alone. This is not a feature that gets switched on at a threshold; it is an emergent property of having enough material to triangulate. Below that threshold, the system either parrots one source or admits it does not know. Above it, the system can reason across sources and surface tensions between them. The threshold varies by domain — narrow technical fields cross it earlier, broad open domains later — but the property only exists once the corpus is dense enough.
+
+**Lint validation gets stricter.** A Trail runs continuous integrity checks on its own corpus: orphaned pages with no incoming links, contradictions between pages, stale claims whose source has been updated, duplicate pages on the same topic. Every one of these checks gets *more sensitive* as the corpus grows, because there is more material to compare against. A contradiction that was invisible when there were only fifty pages becomes detectable at five hundred. A stale claim that no one would have noticed at a hundred sources becomes flagged at a thousand. The lint scheduler is the immune system of a Trail, and it gets stronger with exposure.
+
+**Search quality improves with corpus density.** Modern keyword-and-vector hybrid search ranks results partly by how distinctive a match is against the rest of the corpus. A small corpus produces shallow rankings — most things are equally relevant because there is nothing to compare against. A dense corpus produces sharper rankings, because the system can tell what is genuinely on-topic versus what merely contains the query terms. This is one of the few cases where the search-time component of a Trail also benefits from size, rather than degrading.
+
+## Five things that genuinely degrade with size
+
+Now the other side, which most vendors gloss over.
+
+**Curator bandwidth is fixed.** Every candidate that enters the queue requires a human decision: approve, edit, reject. The candidate stream scales with ingest volume, but the curator's day does not. A system processing twenty candidates a day is comfortable for one part-time curator; a system processing two hundred a day requires either three full-time curators or aggressive auto-approval policies that erode quality. This is not a software problem and cannot be solved by better software alone. It is a property of any human-in-the-loop architecture and will be the binding constraint long before any technical limit is reached.
+
+**Top-K retrieval has a ceiling.** Every search-augmented answer pulls a finite number of pages into the model's context — typically between five and twenty. Once the corpus exceeds a few thousand pages, the probability that the *correct* pages land in that top-K shrinks for any given query. The system does not become wrong; it becomes patchy. Some queries get great answers because the right pages were retrieved; other queries get plausible-but-incomplete answers because relevant material was sitting one rank below the cutoff. This is the central architectural challenge of any large knowledge base, and it is why pure scale-up eventually fails without structural intervention.
+
+**Embedding space crowds.** Vector search depends on the assumption that semantically similar text lives near other semantically similar text. As a corpus grows, the neighborhoods get denser. What was a clearly-identifiable cluster at a thousand pages becomes a fuzzy region at ten thousand. The math still works; the resolution drops. The system retrieves things that are *almost* on-topic but not quite, and the model has to do more work to discriminate. This degradation is gradual and easy to miss until queries that used to land cleanly start landing approximately.
+
+**Stale drift accumulates.** Sources change over time. Documents are revised; policies are updated; prices move; people's roles shift. A Trail with five sources can be re-read in an afternoon. A Trail with five thousand sources cannot. Some fraction of the corpus is always out of sync with the underlying ground truth, and that fraction grows with the size of the corpus and the rate of change in the source material. Without structural detection of stale claims, the system degrades silently — answers become subtly outdated, and no one notices until something embarrassing surfaces in production.
+
+**Cognitive overload for the user.** The curator is one user; the consumer of the knowledge base is another. A system that produces a clean, decisive answer at a hundred Neurons may produce a long hedged answer at five thousand because there is genuinely more material to weigh. This is sometimes the right behavior — real complexity should not be flattened — and sometimes the wrong behavior, where the system surfaces irrelevant nuance because it has no good way to filter. The line between rigor and noise gets harder to draw as the corpus grows.
+
+## How a Trail is designed to bend the curve
+
+If the five-on-five sketch above were the whole story, every knowledge base would have a hard ceiling and the only question would be where it sits. The architectural choices below are how a Trail moves the ceiling and softens the descent past it.
+
+**Compile at ingest, not at query.** A Trail does the integration work when sources arrive: extracting claims, linking related Neurons, updating cross-references, flagging contradictions. Queries read from already-compiled material rather than searching raw fragments. This means the top-K retrieval ceiling is hit much later, because the units being retrieved are already-synthesized pages rather than disconnected chunks. Five hundred well-compiled Neurons can outperform fifty thousand raw chunks for many queries, simply because each unit is denser.
+
+**A wiki-link graph carries the load that vector search drops.** Every Neuron in a Trail can link to other Neurons by name. Following links is deterministic and does not degrade with corpus size — a link works the same whether the target is one of fifty Neurons or one of fifty thousand. As the corpus grows, the graph absorbs an increasing share of the navigation that vector search would otherwise need to handle, and it does not crowd the way embedding space does.
+
+**Audience filtering scopes by purpose, not by topic.** Most large knowledge bases conflate "who is asking?" with "what is the topic?" A Trail separates them. Internal-only material can be tagged as such and filtered out for public-facing queries; expert-level material can be hidden from front-line use cases; deprecated material can be retained for audit purposes without polluting active answers. This means a Trail can hold material an order of magnitude larger than what any single audience sees at query time, which keeps the effective top-K problem bounded even as the raw corpus grows.
+
+**Per-tenant scoping prevents cross-contamination.** A consulting firm's knowledge base does not need to share retrieval space with a clinic's. A Trail is sharded so that each tenant queries only its own corpus. This is obvious for security reasons; the less-obvious benefit is that it caps the size of any single retrieval space at the size of one tenant's material, even when the system as a whole is much larger. Crowding is a per-corpus problem, not a per-deployment problem.
+
+**Heuristic decay handles drift automatically.** A Trail tracks how recently each Neuron's underlying source was reviewed, and weights claims accordingly during retrieval. Material from a source last touched eighteen months ago is downweighted relative to material from a source touched last week. This does not solve stale drift, but it makes the system less confidently wrong about old material, which is the failure mode that matters operationally.
+
+**The lint scheduler runs continuously.** Orphan detection, contradiction detection, stale-claim detection, and duplicate detection all run on schedules independent of curator activity. The findings land in the same queue the curator already works from. This means the immune-system property described earlier scales with the corpus rather than with the curator's attention — the system surfaces the most consequential issues, and the curator only sees the ones worth a human decision.
+
+## A tier-by-tier prognosis
+
+With those mechanisms in place, here is what to actually expect at each stage of corpus growth. The numbers are approximate; real Trails vary by domain density and source quality.
+
+**0 to 100 Neurons — dumb but improving fast.** The system has too little material to triangulate, too few connections to navigate, too small a corpus for lint to find much. Every new source produces visible improvement. The curator's job is mostly approval. The system feels mediocre on standalone queries and useful only when the user already knows what they are looking for. This is the rough phase, and it lasts only as long as ingest is slow.
+
+**100 to 1,000 Neurons — the sweet spot.** Multi-source synthesis becomes reliable. The cross-reference graph carries real navigational weight. Lint starts catching genuine contradictions. Search results sharpen. Curator workload is manageable for one part-time operator. Most of the qualitative improvements that make a Trail feel like an authoritative knowledge source happen in this band. This is where most organizations should aim to live, and where Trail's architecture is most clearly winning relative to alternatives.
+
+**1,000 to 5,000 Neurons — still superlinear, but margins shrink.** Each new source still produces measurable improvement, but the curve flattens. Top-K retrieval starts to miss occasionally on broad queries; the wiki-link graph and audience filtering are doing most of the work to compensate. Curator workload becomes a real constraint — auto-approval policies for trusted source types become necessary. Stale drift starts being visible if the underlying material changes faster than the lint scheduler can re-validate. The system is still getting smarter, but the operator needs to be deliberate about what gets ingested.
+
+**5,000 to 10,000 Neurons — the knee of the curve.** This is where the structural decisions made early start to matter. A well-scoped Trail with strong audience tags, a healthy cross-reference graph, and a disciplined ingest policy can keep getting better through this band. A Trail that has been treated as a dumping ground for any source the team encountered will begin to plateau or degrade. The technical problem and the editorial problem are the same problem at this scale.
+
+**10,000+ Neurons — split, don't grow.** Past this point, almost every system benefits more from being split into multiple per-topic Trails than from continued unbounded growth in a single Trail. The retrieval and curation problems both become first-class concerns. The architecture supports this — multiple Trails can cross-reference each other and share infrastructure — but the operator has to make the call. This is not a failure mode; it is the same logic that makes a library organize its collection by subject rather than running one infinite shelf.
+
+## Built like a library, not a notebook
+
+The one-line summary is this: a Trail is built like a library, not like a notebook. Libraries get smarter with more books, but only because they have catalog systems, librarians, deaccessioning policies, and section-level organization. Without those, a library becomes a warehouse — and warehouses do not get smarter, they get larger.
+
+Most AI knowledge systems being deployed today are warehouses. They take in everything, embed it, and search across it. They scale technically — you can always add more storage — but they do not scale epistemically. The user experience plateaus, and then degrades, in the way described above.
+
+A Trail is built around the assumption that compounding requires structure. The compile-at-ingest pipeline is the librarian. The wiki-link graph is the catalog. Audience filtering and per-tenant scoping are the section organization. Heuristic decay and the lint scheduler are the deaccessioning and shelf-reading work. None of these are optional add-ons; they are the mechanisms that let a Trail keep getting smarter past the point where a warehouse-architecture knowledge base would be drowning.
+
+The organizations that get the most out of this are not the ones with the largest corpora. They are the ones who recognize that knowledge accumulates in the same shape it always has, and who pick infrastructure that respects that shape rather than fighting it.
+
+---
+
+### Further reading
+
+- For the architectural argument behind compile-time knowledge systems, see [Why Your Knowledge Base Should Compile, Not Search](/trails/how-trail-works/knowledge-that-compounds/)
+- For the technical case against pure RAG, see [Compile-Time Knowledge: A Technical Argument Against RAG](/trails/how-trail-works/compile-time-knowledge-vs-rag/)
+- For the historical lineage from Vannevar Bush's 1945 vision, see [As We May Think: The 1945 Vision That Became Trail](/the-1945-concept/)
+
+---
+
+## How Brain Memory Works: Trail vs RAG Architecture
+
+URL: https://www.trailmem.com/trails/how-trail-works/how-a-brain-actually-remembers/
+Updated: 2026-06-24
+
+How a Brain Actually Remembers: Why Trail Compiles Knowledge Instead of Searching For It
+
+RAG treats knowledge like a filing cabinet. Brains do something fundamentally different — and so does trail. The architecture matters more than the model.
+
+## Why Trail compiles knowledge instead of searching for it
+
+In July 1945, Vannevar Bush published an essay in *The Atlantic* describing a machine he called the **memex**. The machine was hypothetical — built around microfilm reels, optical projectors, and electromechanical levers — but the idea behind it was radical. Bush argued that human memory does not work the way library catalogs work. The mind, he wrote, "operates by association." It follows trails of meaning from one thought to the next, building chains of connection that no hierarchical index can capture.
+
+Eighty-one years later, the dominant architecture for AI knowledge systems — **retrieval-augmented generation**, or RAG — has quietly inherited the very paradigm Bush was pushing back against. RAG is, fundamentally, a library catalog with a language model bolted on top. It searches. It retrieves. It generates. And then it forgets.
+
+Trail is built on a different premise. It is closer to how a brain actually remembers — and that difference is not metaphorical. It is architectural, and it has measurable consequences for how knowledge accumulates over time.
+
+This is the story of what your brain actually does when you remember something, why RAG only superficially resembles that process, and why Trail's compile-time architecture is the right answer for the same reasons it has been the right answer for two billion years of evolution.
+
+## What your brain is actually doing right now
+
+The first thing to understand about human memory is that it is **not storage**. It is reconstruction.
+
+When you recall the smell of coffee from a café you visited last spring, your brain is not playing back a recording. It is re-assembling the experience in real time from fragments scattered across different cortical regions. The visual elements are reconstructed from the visual cortex. The smell is rebuilt by the olfactory bulb. The emotional tone comes from the amygdala. The verbal narrative is constructed by the language areas. The hippocampus fires a coordinated signal that activates these fragments simultaneously, and consciousness assembles them into what feels like a single coherent memory.
+
+This is why every time you recall something, you change it slightly. Memories are not static files. They are active reconstructions that get updated each time they are accessed. Neuroscientists call this **memory reconsolidation**, and it has been studied extensively for the past two decades.
+
+The second thing to understand is that knowledge is not stored in neurons. It is stored in the **connections between them**. The human brain has roughly 86 billion neurons and an estimated 100 to 1,000 trillion synapses — the connections through which neurons signal each other. Learning something new strengthens specific synapses. Forgetting weakens them. The principle, summarized by Donald Hebb in 1949, is that "neurons that fire together, wire together."
+
+Meaning, then, is a pattern of connections. A concept like "stress" does not exist in any single neuron. It exists as a distributed pattern across thousands of neurons firing together — pulling in associations with cortisol, sleep disruption, treatment options, your aunt's nervous breakdown, the smell of a hospital waiting room, and forty-seven other related fragments.
+
+The third thing — and this is where the architecture starts to matter for AI — is that **most of your brain's work happens when you are not asking questions**. It happens during consolidation, primarily during sleep, when the hippocampus replays the day's experiences in compressed form and transfers them to the neocortex for long-term integration. New experiences are not just filed alongside old ones. They are woven in. Contradictions get flagged. Cross-references get drawn. Patterns get extracted. By the time you wake up, what you learned yesterday is no longer a separate item in your memory; it has become part of an integrated structure.
+
+When you are then asked a question, your brain does not search a database of memory fragments. It activates an already-integrated structure. The work is already done. The answer comes quickly and coherently because the compilation happened during the night.
+
+This distinction — **compile-time versus query-time** — is the single most important difference between how brains work and how RAG works.
+
+## What RAG actually does
+
+A RAG system works like this. The user asks a question. The question is converted to a vector embedding. The system searches a database of document chunks for the N most similar embeddings. The retrieved chunks are stuffed into a language model's context window. The language model generates an answer based on what it just read.
+
+Then the system forgets everything and waits for the next question.
+
+There is no persistent structure being built up over time. The documents are never integrated with one another. Contradictions are not detected. Cross-references are not created. The system never says "we have seen this before, let us update our understanding." Every query is an amnesiac moment. The system wakes up, searches, answers, forgets.
+
+This is not a knowledge system. It is a search engine with a language model glued on as a presentation layer.
+
+The reason RAG became the dominant pattern is not that it is the best architecture for accumulating knowledge. It became dominant because it is **easy to build**. A vector database, an embedding model, a language model, and a few hundred lines of code, and you have a working RAG pipeline. The architecture skips the hard problem — how new information should be integrated into existing understanding — and replaces it with a simpler problem: how to find relevant fragments fast.
+
+For some use cases, that trade-off is fine. If you just need to look something up in a static corpus, RAG works. If you need a chatbot that can answer questions about your product documentation, RAG works.
+
+But for knowledge that should accumulate — clinical experience built up over decades, organizational knowledge that compounds across projects, scientific understanding that grows with each new paper read — RAG fails the same way a library card catalog fails to be a brain. It can find the books. It cannot read them, integrate them, and become wiser.
+
+## Where the analogies actually map
+
+If we line up the biological process against the two AI paradigms, the picture becomes clear:
+
+{{svg:biological-trail-rag}}
+
+RAG has, essentially, only the last row of useful parallel — vector similarity search as a thin imitation of spreading activation. But it is search without integration, retrieval without consolidation, recall without long-term memory. It is the part of cognition that happens in the first 200 milliseconds of seeing a word on a page. The rest of cognition — the part that turns information into understanding — has no equivalent in RAG.
+
+Trail has the full picture. Sources are ingested. The compile step integrates them with the existing Neurons, the way consolidation integrates new experiences with neocortical memory. Neurons are the long-term store, the way neocortex is. Queries activate already-compiled structures, the way recall activates patterns rather than searching a database. A background lint pass spots stale Neurons, contradictions, and gaps — the way sleep does maintenance on the brain's storage. And like a healthy mind, Trail forgets selectively, marking Neurons that have not been touched in months as candidates for review or retirement.
+
+## Why Karpathy was right
+
+In October 2025, Andrej Karpathy described this same architecture as an "LLM Wiki." His framing was that the next frontier for language models was not to generate more code or write more text, but to manage knowledge as a continuous compiler — turning raw sources into a structured, cross-referenced graph of Neurons that the model maintains over time.
+
+The argument landed because it named what RAG had quietly been getting wrong. RAG had treated language models as oracles that need their context refilled with each query. Karpathy's framing flipped it: the model is not the oracle, the compiled Neurons are. The model's job is to keep them coherent, integrated, and up to date. The user reads the Neurons — sometimes through the model, sometimes directly — and the work of building understanding happens in the background, before any query is ever asked.
+
+This is exactly what Bush proposed in 1945. He could not have built it then; the technology to compile knowledge automatically did not exist. But he saw clearly that the human mind compiles, it does not search. He named the mechanism: associative trails. He sketched the user interface: a desk with screens, a way to mark and follow connections, a permanent record that grew with use.
+
+The microfilm reels in the base of Bush's memex desk — the same spools we chose as the visual mark for Trail — were not chosen for their technical sophistication. They were chosen because they could *hold a Trail*. A Trail is a sequence of frames linked in a meaningful order with annotations along the way. The Trail is the unit of compiled knowledge. It is what the memex was for.
+
+Trail, the engine, builds and maintains those trails for you. the SaaS successor, the SaaS product built on Trail, is where you can see them, walk them, and add to them. The architecture is the architecture Bush described. The compiler is the language model he could not have anticipated.
+
+## What this means in practice
+
+For someone building a knowledge base on top of Trail, the practical consequences of compile-time architecture show up in four places:
+
+**Knowledge accumulates instead of resetting.** The tenth source you ingest changes the Neurons in light of the previous nine. Patterns get extracted across sources. Contradictions get flagged when they appear. The Neurons become more useful with each addition, the way a researcher becomes more knowledgeable with each paper read. RAG, by contrast, treats the tenth source the same way it treated the first — as just another chunk to potentially retrieve.
+
+**Provenance is structural, not bolted on.** Because every Neuron in Trail is compiled from specific sources, and every claim is linked to its source revision, you can always answer the question "where did this come from?" Trail's Neurons know their parents. When a source is updated or retracted, the affected pages are flagged for re-review automatically. RAG retrieves citations, but the citations are correlations between vectors, not structural lineage.
+
+**Curation is first-class.** Bush's memex assumed a human "trailblazer" who built trails of meaning from raw material. Trail assumes the same. The Curation Queue is where new candidate knowledge — auto-summaries, contradiction alerts, gap suggestions, chat-derived insights — flows to a human who decides what becomes a Neuron. The LLM proposes; the curator disposes. This matches how scientific knowledge actually accumulates: through review, integration, and validation, not through search.
+
+**Better models compound your existing knowledge.** Because Trail's Neurons are the persistent artifact, not the language model, replacing the underlying model with a better one means your existing Neurons get recompiled with sharper reasoning. The knowledge you built up over months gets smarter without being rebuilt. RAG systems, by contrast, are largely indifferent to model upgrades — the search results are the same, only the prose answer changes.
+
+## The point Bush was actually making
+
+Bush's 1945 essay is often read as a technological prediction. It is more usefully read as a critique of how knowledge work was being done.
+
+He looked at the explosion of scientific literature after the war and saw that the bottleneck was no longer information storage. Microfilm could already fit the Encyclopædia Britannica into a matchbox. The bottleneck was *integration* — the work of connecting one piece of information to the next, of building trails of meaning that future researchers could follow. He believed that mechanizing this work was the great task of post-war science.
+
+Eighty-one years later, that task is finally tractable. Language models are good enough to do the integration work that human researchers cannot keep up with. But only if we use them for that purpose — to compile, to consolidate, to build long-term structures of meaning — instead of using them as more sophisticated search engines.
+
+RAG is the search engine version of the future Bush did not want. Trail is the version he did.
+
+The brain does not search. It compiles. So does Trail.
+
+---
+
+### Further reading
+
+- Vannevar Bush, [*As We May Think*](https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/) — *The Atlantic*, July 1945
+- Andrej Karpathy, *LLM Wiki* — described publicly in October 2025
+- Donald Hebb, *The Organization of Behavior*, 1949 — origin of "neurons that fire together, wire together"
+- For a deeper dive into the visual lineage of Trail's microfilm-spool logo, see [As We May Think: The 1945 Vision That Became Trail](/the-1945-concept/)
+
+---
+
+## How Trail Works - Complete Guide
+
+URL: https://www.trailmem.com/trails/how-trail-works/
+Updated: 2026-06-24
+
+Essays on Trail's architecture — ingest-time compilation, cross-referenced Neurons, and the design choices that make a knowledge graph compound instead of fragment.
+
+---
+
+## Compile-Time vs Search-Time Knowledge Base Architecture
+
+URL: https://www.trailmem.com/trails/how-trail-works/knowledge-that-compounds/
+Updated: 2026-06-24
+
+Most AI knowledge systems are sophisticated search engines that forget between queries. The organizations winning are building something different — and the architectural choice has direct consequences for cost, accuracy, and defensibility.
+
+## A strategic argument for compile-time knowledge infrastructure
+
+If your organization is investing in AI for knowledge work — internal knowledge stores, customer-facing chat, expert systems, research support — there is a foundational architectural decision being made on your behalf, often without anyone naming it explicitly. The decision is between **search-time** and **compile-time** knowledge systems. The two are not interchangeable. They have different cost profiles, different accuracy characteristics, different defensibility properties, and they suit different classes of problem.
+
+The dominant pattern in the market right now is **retrieval-augmented generation**, or RAG. RAG is a search engine with a language model attached. It works well for some problems and poorly for others, and the difference matters for what you can build on top of it.
+
+Trail is a different architecture: compile-time knowledge infrastructure, modeled on how human memory actually works. This document explains the difference in terms that should matter to anyone deciding where to place an organizational bet.
+
+![trail-infogfx.webp](/uploads/trail-infogfx-5a48.webp)
+
+## The two architectures, plainly
+
+A search-time system answers each question fresh. The user asks something; the system searches a database of document fragments; the language model writes an answer based on what was retrieved; the system forgets everything and waits for the next query. Nothing accumulates. Each query is independent.
+
+A compile-time system does the work in advance. Sources are read, integrated, cross-referenced, and compiled into structured knowledge pages as they enter the system. When a user asks a question, the system reads from already-integrated knowledge rather than searching raw fragments. The structure grows and improves with every source added.
+
+The analogy to human cognition is direct. When you ask a domain expert a question, they do not search their memory for relevant fragments. They draw on knowledge they have already integrated — knowledge that was built up over years of reading, practice, and reflection. The integration happened over time, mostly while they were not actively answering questions. The answer comes quickly and coherently because the work was done in advance.
+
+A search-time AI system is closer to a research assistant who Googles every question. A compile-time system is closer to the expert.
+
+{{svg:knowledge-compounds-curve}}
+
+## Where this matters strategically
+
+Four properties of compile-time architecture have direct strategic consequences.
+
+**Knowledge accumulates as a defensible asset.** Most AI investments today produce no durable artifact. The vector database underlying a RAG system is a commodity asset — same chunks, same embeddings, same retrieval. Switch vendors and you replace it in a week. A compiled Neurons, by contrast, is a structured knowledge asset specific to your organization. It contains the integrated understanding that emerged from your sources, your curators, your decisions. It compounds in value over time. It is not portable to a competitor without the same compilation effort.
+
+For organizations whose competitive advantage rests on accumulated expertise — clinical practice, legal research, scientific R&D, specialized consulting — this is the difference between AI as a productivity tool and AI as an institutional memory layer.
+
+**Provenance is structural, not bolted on.** In regulated industries, the question "where did this answer come from?" is not optional. Healthcare, legal, financial services, and government deployments all require traceable provenance from any AI-generated assertion back to its source material, with version history.
+
+RAG systems can generate citations, but the citations are correlations between vectors. The system does not actually know which source supports which claim — it knows which chunks were nearby in embedding space when the language model wrote the answer. Compile-time systems make provenance structural: every claim is linked to the specific source revisions that support it. When a source is updated, the affected pages are flagged automatically. When a claim is contested, the lineage is explicit and defensible.
+
+This is not a feature. It is a baseline requirement for any deployment where being wrong has consequences beyond user frustration.
+
+**The economics favor compile-time at scale.** Search-time systems pay the language model cost on every query. Each query stuffs ten or twenty document chunks into a context window and asks the model to synthesize an answer. Compile-time systems pay the language model cost during ingest — once per source — and queries read from the already-compiled artifact, which is denser and faster to process.
+
+For a knowledge base serving high query volume, the math is straightforward. The compile-time architecture trades higher per-source ingest cost for lower per-query cost, and the crossover point typically arrives within weeks of deployment. For low-query-volume use cases (one-off lookups across a static corpus), search-time remains cheaper. Most organizational knowledge work is the former.
+
+**Quality improves with corpus size, rather than degrading.** This is the property that surprises people most. Search-time systems get worse as the corpus grows: more documents means noisier retrieval, more candidates means harder filtering, more chunks means lower precision. Operators of large RAG deployments spend significant engineering effort fighting this degradation.
+
+Compile-time systems get better as the corpus grows because each new source can update existing pages, strengthen existing connections, and resolve previous contradictions. The tenth source improves the Neurons in light of the previous nine. The hundredth benefits from the integrated structure of the previous ninety-nine. This is the same property that makes a domain expert more knowledgeable after twenty years than after two — accumulated integration, not just accumulated information.
+
+## What this means for vendor selection
+
+If you are evaluating AI knowledge infrastructure vendors, three diagnostic questions separate compile-time architectures from search-time architectures dressed up in compile-time language.
+
+**Does the system produce a persistent compiled artifact, or only retrieve raw chunks?** Ask to see the Neurons, document store, or knowledge graph that grows with use. If the answer is "we have a vector database with chunks of your documents," it is search-time. If the answer is "we have markdown Neurons compiled from your sources, with cross-references and provenance," it is compile-time.
+
+**What happens when a source is updated?** A compile-time system flags the affected pages for re-review and recompilation. A search-time system silently retains the older chunks and may continue to retrieve them. Ask the vendor to walk through this scenario explicitly.
+
+**Where does the human curator fit?** Compile-time architectures have a first-class role for human review of proposed changes — usually a queue of candidates that the curator approves, edits, or rejects. Search-time systems have no such role because there is nothing to review; the system retrieves and answers in one step. If the vendor's answer to "how does my expert correct the system?" is "we retrain the embeddings" or "we add to the prompt," that is search-time architecture.
+
+These three questions cannot be faked in a sales conversation. Either the architecture supports them or it does not.
+
+{{svg:vendor-decision}}
+
+## Where search-time is the right answer
+
+To be balanced: search-time systems are the right architecture for some workloads. If your use case is question-answering over a static reference corpus, with no need for accumulation or expert correction, RAG works well. Examples include customer support chat over product documentation, code search across a repository, and Q&A over recent news.
+
+The mistake is using search-time architecture for problems that require accumulation. Building a research wiki for a clinical practice. Maintaining institutional knowledge in a consulting firm. Supporting expert decision-making in any domain where the depth of integrated understanding matters more than the speed of any individual lookup. These are compile-time problems being forced into search-time architectures because RAG was the easiest pattern to deploy in 2023-2024.
+
+The market is now correcting. Compile-time architectures — under various names like "AI knowledge graphs," "LLM wikis," "compiled knowledge systems" — are emerging as the answer for the workloads where accumulation matters. Trail is one such system, designed explicitly around the architectural commitments described above.
+
+## A brief historical note
+
+The compile-time architecture is not new in concept. It was first described in detail by Vannevar Bush, the wartime director of the U.S. Office of Scientific Research and Development, in a 1945 essay in *The Atlantic Monthly*. Bush proposed a hypothetical machine he called the **memex** — a desk with microfilm storage that would let a researcher build associative trails of knowledge through their personal corpus. His central argument was that human cognition operates by association and integration, not by retrieval from indexed storage, and that knowledge systems built on the latter model were structurally mismatched with how thinking actually works.
+
+Bush could not build the memex; the technology to compile knowledge automatically did not exist in 1945. But the architectural argument was correct, and it has been periodically rediscovered ever since — in Doug Engelbart's NLS in the 1960s, Ted Nelson's hypertext work, the Web itself, and most recently in the LLM Wiki pattern articulated by Andrej Karpathy in late 2025.
+
+Language models are the integration mechanism Bush could not build. They make compile-time knowledge infrastructure technically tractable for the first time. The microfilm reels in the base of Bush's memex desk — the visual mark we chose for Trail — were not a technical detail. They were the storage substrate for trails of meaning. Trail is the engine that builds and maintains those trails for the modern equivalent of Bush's vision.
+
+The SaaS successor to memxcloud is the commercial product built on trail. It is what most organizations will adopt; Trail is what runs underneath.
+
+## The decision
+
+The architectural choice between search-time and compile-time is being made — explicitly or implicitly — every time an organization deploys AI knowledge infrastructure. Most teams default to RAG because it is the easiest pattern to ship and the most familiar. For some workloads, this is the right call. For workloads where knowledge should accumulate, where provenance matters, where experts need to curate, and where the goal is institutional memory rather than improved search, it is the wrong call.
+
+The organizations winning long-term with AI knowledge infrastructure are building compile-time systems. They are treating their knowledge base as a durable, compounding asset. They are paying the higher upfront cost of integration to get the lower ongoing cost and higher quality of compiled understanding.
+
+This is the bet Trail represents. We think the architecture matters more than the model — and that the architecture Bush described in 1945 is the right one for the problems organizations are actually trying to solve in 2026.
+
+---
+
+### Further reading
+
+- Vannevar Bush, [*As We May Think*](https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/) — *The Atlantic*, July 1945
+- Andrej Karpathy, *LLM Wiki* — described publicly in October 2025
+- For implementation details, architectural specifications, and the case for compile-time architecture from an engineering perspective, see [Compile-Time Knowledge: A Technical Argument Against RAG](/trails/how-trail-works/compile-time-knowledge-vs-rag/)
+- For the historical lineage from Bush's 1945 vision to Trail, see [As We May Think: The 1945 Vision That Became Trail](/the-1945-concept/)
+
+---
+
+## Trail's Curation Policy: Three Filters on the Gate
+
+URL: https://www.trailmem.com/trails/how-trail-works/three-filters-on-the-gate/
+Updated: 2026-06-24
+
+Three Filters on the Gate: How Trail's Curation Policy Borrows from the Structure of Your Mind
+
+A knowledge system without filters isn't a brain — it's a garbage heap. Trail's trusted-pipeline, confidence-threshold, and no-contradictions trio isn't an arbitrary engineering choice. It mirrors a pattern two billion years of evolution converged on.
+
+## The gate is the architecture
+
+Every persistent knowledge system eventually has to answer the same question: what gets written down, and on whose authority?
+
+For a brain, the answer is not conscious. You do not sit down each evening and decide which of the day's experiences to encode into long-term memory. Something in you decides, below the level of attention, and what gets through is the substrate of everything you will later think of as your understanding of the world. What gets filtered out is, by definition, unrecoverable — you will never know what you nearly remembered.
+
+For a knowledge infrastructure engine, the same question becomes an explicit design problem. Trail compiles sources into a cross-referenced graph of Neurons maintained by a language model. If every candidate that the compiler proposes were admitted without scrutiny, the graph would drift into incoherence within weeks. Contradictions would accumulate. Low-confidence speculation would be indistinguishable from verified claims. The system would look like it was learning, but what it was actually doing was accreting noise.
+
+So Trail has a gate. Three filters on that gate, to be precise. They sit between the candidate queue and the Neurons themselves, and they decide — per candidate, per event — whether a piece of proposed knowledge gets auto-approved, gets raised to a human curator, or gets rejected outright. Today the first filter is live in `packages/core/src/queue/policy.ts`. The second is queued for a coming iteration. The third depends on a background lint pass that surfaces contradictions across sources.
+
+{{svg:three-filters-gate}}
+
+What is interesting — what this essay is about — is that these three filters are not a set of engineering heuristics chosen for convenience. They are, almost exactly, the three filters that Bandler and Grinder named in 1975 when they wrote *The Structure of Magic* and founded what became Neuro-Linguistic Programming. They are the filters that thalamic gating, the reticular activating system, and the prefrontal cortex implement biologically. They are, in a different vocabulary, the filters Karl Friston's free-energy principle formalises as the way a predictive brain keeps itself coherent.
+
+The correspondence is not metaphor. It is structural, and it gives us a way to reason about why Trail's architecture has the shape it does.
+
+## What NLP actually said
+
+Neuro-Linguistic Programming — the original 1975 work, not the self-help cottage industry it later spawned — was an attempt to model how Fritz Perls, Virginia Satir, and Milton Erickson achieved therapeutic results that seemed almost magical to observers. Bandler and Grinder's claim, reduced to its core, was that every one of us builds an internal *model of the world*, and that this model is not the world itself. It is a map, and the territory is always larger.
+
+The map gets built from experience. But experience does not enter the map unfiltered. Three universal processes mediate between what happens to a person and what they come to believe about the world:
+
+- **Generalisations.** Patterns extracted across many experiences, then applied as defaults. A child who burned their hand on one hot stove generalises to "hot things can hurt." The pattern becomes a rule, and the rule runs automatically on future candidates.
+- **Deletions.** Selective filtering of what gets stored based on attention, relevance, and perceived trust. You are not currently aware of the pressure of your chair against your back, but you are now. Most of what strikes your senses is deleted before it ever becomes a memory.
+- **Distortions.** Reshaping of incoming information to fit the existing model. New facts that fit slide into place quietly. New facts that contradict get reshaped, questioned, or held in a provisional state until the inconsistency is resolved.
+
+Bandler and Grinder argued that these filters are not flaws. They are what makes cognition possible. Without generalisation, you would have to relearn every situation from scratch. Without deletion, you would be overwhelmed. Without distortion, you would be unable to hold a coherent model of anything. The filters are the price of having a map at all.
+
+But the filters also explain how a model of the world can become pathological. When deletion is too aggressive, important signals are missed. When generalisation is too rigid, exceptions cannot register. When distortion dominates, the model becomes immune to correction and drifts away from reality.
+
+A good knowledge system, biological or artificial, has to tune these filters carefully. Too open and the model becomes noise. Too closed and it becomes dogma.
+
+## The thalamic gate
+
+Neuroscience arrived at the same three-filter picture from a different direction.
+
+The thalamus is a small, dense structure buried deep in the brain. Almost every signal entering the cortex — vision, hearing, touch, proprioception, the lot — passes through it first. The thalamus is not a relay station in the passive sense. It is a gate. It decides what reaches the cortex with enough signal strength to register, what gets attenuated, and what gets dropped entirely. This is thalamic gating, and it is running continuously beneath the floor of conscious experience.
+
+Sitting alongside it, the reticular activating system (RAS) — a diffuse network in the brainstem — controls the general arousal level that determines whether the gate is wide or narrow. When you are alert, the RAS is active, the gate is wide, and more signals reach cortex. When you are drowsy, the gate narrows. When you sleep, most of it closes entirely so that consolidation can happen without interference.
+
+Above both sits the prefrontal cortex, which provides executive control. When a signal does reach awareness, the prefrontal cortex evaluates it against existing beliefs, prior experience, and current goals. If the signal conflicts with something the brain already takes to be true, the anterior cingulate cortex lights up, the amygdala joins in, and what the person experiences is the subjective feeling of *this does not fit*. Cognitive dissonance is the name psychologists gave this signal decades before anyone mapped the circuitry.
+
+Lay these three structures against the NLP filters and the correspondence is almost one-to-one:
+
+- Deletions → thalamic gating. A signal either passes or does not.
+- Generalisations → prior patterns encoded in cortex and basal ganglia that bias what the gate admits.
+- Distortions → prefrontal reconciliation between new input and existing model.
+
+Lay them against Trail's three filters and the correspondence holds again.
+
+{{svg:filters-correspondence}}
+
+## Trail's three filters, one by one
+
+### Trusted pipeline — deletion by provenance
+
+The first filter is already in production. `shouldAutoApprove(candidate)` in `packages/core/src/queue/policy.ts` returns `true` only when two conditions hold: the candidate has no `createdBy` user (meaning it originated from a trusted background pipeline — ingest, scheduled recompile, source retraction — rather than from a human) and the candidate's `kind` is on the trusted list. Everything else flows to a curator.
+
+This is deletion by provenance. A signal from a known source — the compiler itself, the retraction handler, the scheduled lint — is treated the way a brain treats a signal from one of its own well-calibrated sensory systems. It does not require conscious scrutiny. It passes the gate.
+
+A signal from an unknown or less reliable source — a chat widget, a user-submitted correction, a reader feedback button — does not pass the gate unattended. It goes to conscious attention, which in Trail's case is a human curator in the admin UI.
+
+This is the same policy a child learns to run implicitly. The parent's voice is trusted by default. The stranger's voice is not. Trust is not a static property; it is a learned posture toward classes of signal, updated over time by how those classes have behaved in the past. The brain calibrates this continuously. Trail's policy engine will calibrate it over time as trusted-source lists expand and contract based on observed candidate quality.
+
+### Confidence threshold — attention and arousal
+
+The second filter lands in a coming iteration. Every candidate will carry a confidence score between 0 and 1. Candidates above threshold pass automatically. Candidates below threshold are raised.
+
+This is what neuroscientists would recognise as signal-strength gating, and what NLP would recognise as attentional deletion. Weak signals are deleted. Strong signals cross the threshold. The brain runs this computation at the level of individual neurons via membrane potentials: inputs must reach a certain summed strength to trigger firing. Below threshold, nothing happens. Above threshold, the signal propagates.
+
+The same logic governs memory encoding. Weak, brief, unemotional experiences are rarely consolidated. Strong, repeated, or emotionally salient experiences cross into long-term storage. The amygdala modulates this by stamping experiences that arrived alongside fear, reward, or surprise with extra encoding weight.
+
+Karl Friston's free-energy principle, developed over the last two decades, formalises this into a Bayesian framework. A brain, on this account, is continuously running predictions about incoming signals and updating its internal model only when the evidence exceeds a confidence threshold. A signal that confirms what the model already predicts carries low information and can be processed with minimal updating. A signal that disconfirms the model carries high information and demands attention. The threshold is tunable — more attentive states lower it, fatigue raises it.
+
+Trail's confidence threshold is the same mechanism made explicit. The compiler emits, alongside each proposed candidate, a scalar representing how strongly the evidence supports the claim. High-confidence claims land as a Neuron without ceremony. Low-confidence claims wait for a human to look at them. The threshold is configurable, and it will almost certainly need to be tuned per category of knowledge over time — a medical claim deserves a higher bar than a meeting note.
+
+{{svg:confidence-threshold}}
+
+This filter is the difference between a system that accumulates verified knowledge and a system that accumulates speculation. Brains that skip it become delusional. Knowledge stores that skip it become garbage heaps.
+
+### No contradictions — cognitive dissonance
+
+The third filter depends on the background lint pass that cross-references claims across the Neurons. Once the lint is running, the policy engine can check any incoming candidate against existing claims. If the candidate contradicts something the Neurons already encode, the candidate does not auto-approve — regardless of confidence or pipeline. It gets raised to curator review with the conflict explicitly surfaced.
+
+This is the hard part. In the brain, it is the part that makes learning difficult. When a new fact contradicts an established belief, the brain does not silently overwrite. Synapses that encode the old belief have been reinforced through repetition and are physically stronger than those carrying a single new input. The anterior cingulate cortex registers the mismatch. The amygdala fires. Dopamine pathways pause. The person experiences something like *wait, that does not sound right*, and they slow down.
+
+This pause is what Elizabeth Loftus's long research programme on false memory has taught us to respect. Memories admitted without this check are memories that can be rewritten by suggestion, repetition, and social pressure. Entire bodies of remembered experience have turned out to be reconstructions built from contradictory inputs that the brain failed to flag at encoding time. The filter matters. Where it weakens, the model of the world loses its grip on the world.
+
+For a knowledge store compiled by a language model over thousands of sources, the equivalent failure mode is catastrophic in a slower but equally corrosive way. Source A says one thing. Source B says the opposite. Without a contradiction check, both claims land as Neurons under different phrasings, and subsequent queries retrieve whichever compiled more recently. The graph becomes internally inconsistent, and every query over the inconsistent region returns noise.
+
+With the lint in place, the contradiction does not get silently absorbed. It gets surfaced. A curator looks at both sources. A resolution is written — sometimes in favour of A, sometimes in favour of B, sometimes as a new claim that says *both are reported; the current evidence is mixed*. The Neurons encode not just what is known but what is contested, which is closer to how scientific knowledge actually accumulates than any auto-merging system could produce.
+
+{{svg:contradiction-check}}
+
+## Why three and not one
+
+None of these filters is sufficient on its own.
+
+A trusted-pipeline filter alone would admit every signal from trusted sources, including the ones with low confidence and the ones that contradict existing Neurons. The brain-equivalent failure is a person who believes everything their preferred news source tells them, no matter how poorly supported or internally inconsistent.
+
+A confidence threshold alone would admit high-confidence claims from adversarial sources. The brain-equivalent failure is a person who updates freely on any signal that comes in loud and clear, which is why scams work.
+
+A contradiction check alone would admit low-confidence novelties as long as they happened to match whatever the Neurons already said. The brain-equivalent failure is confirmation bias: a model that grows by accumulating whatever reinforces itself, never correcting.
+
+The three filters compose. A candidate must come from a trusted pipeline, carry sufficient confidence, and not contradict what the Neurons already hold — or else it goes to a human. This is the policy Trail's queue enforces. It is the same policy, in different vocabularies, that Bandler and Grinder named, that thalamic and prefrontal circuits implement, that Friston's free-energy principle formalises. Two billion years of evolution converged on this shape because no other shape produces a stable model of a complex world.
+
+## The memex, again
+
+Vannevar Bush's 1945 memex essay did not directly address curation. He was writing at a moment when the bottleneck seemed to be retrieval — the explosion of post-war scientific literature outpacing any researcher's ability to find what they needed. His proposed machine was a tool for building associative trails, not for filtering noise.
+
+But read carefully, the memex assumed a curator. The person operating it was the one who decided which frames went on which reel, which trails were worth marking, which annotations were worth attaching. The gate was the human.
+
+Trail inherits that assumption and scales it. The compiler proposes. The policy engine filters. The curator decides. And the Neurons — the long-term persistent structure — only admit what passes all three checks, plus any human-reviewed exceptions.
+
+This is what makes a knowledge system a knowledge system. Not the sophistication of the model attached to it. Not the size of the corpus behind it. The architecture of its gate — and whether the three filters on that gate are doing the work that evolution figured out a long time ago was the only way a model of the world keeps a grip on the world.
+
+Trail has three filters. The brain has three filters. This is not a coincidence. It is the shape the problem keeps converging on.
+
+---
+
+### Further reading
+
+- Richard Bandler & John Grinder, *The Structure of Magic*, 1975 — the original NLP model of generalisation, deletion, and distortion
+- Karl Friston, *The free-energy principle: a unified brain theory?*, Nature Reviews Neuroscience, 2010
+- Elizabeth Loftus, *Memory: Surprising New Insights Into How We Remember and Why We Forget*, 1980, and subsequent work on false memory
+- Donald Hebb, *The Organization of Behavior*, 1949
+- For the companion essay on why Trail compiles instead of searches, see [How a Brain Actually Remembers](/trails/how-trail-works/how-a-brain-actually-remembers/)
+
+---
+
+## Trail's Nightly Corpus Processing: Scaling Knowledge Systems
+
+URL: https://www.trailmem.com/trails/how-trail-works/work-that-fits-in-a-night/
+Updated: 2026-06-24
+
+Work That Fits in a Night: How Trail Stops Caring About Corpus Size
+
+A compile-time knowledge system has to integrate new sources against everything it already knows. That integration cost grows with the corpus — until, one Tuesday, it stops finishing before the next night begins. Here is how Trail makes that cost bounded without going blind to the long tail.
+
+## A graph that does not stop growing
+
+If you build a system that compiles knowledge at ingest time — as Trail does, and as Karpathy's LLM Wiki does, and as a brain does during sleep — you accept a particular kind of problem the moment the corpus crosses about eight thousand pages.
+
+Every new source wants to be integrated against everything the system already knows. Every existing page wants to be re-checked against every new claim. Contradictions should not accumulate silently. Stale references should surface. Orphaned Neurons — pages no source supports anymore — should get caught.
+
+All of this is correct, all of this is necessary, and all of this runs as a nightly background pass. The problem is that the nightly pass is not free, and at a certain corpus size it stops fitting inside the night.
+
+This is a post about that wall, how we hit it, and how we walked through it without the usual answers — without giving up on full-corpus consistency, without silently skipping old pages, and without turning the whole engine into a distributed computing project.
+
+{{svg:scan-wall-curve}}
+
+## The math of the wall
+
+Trail's contradiction detector works like this. For every Neuron that has changed — or, in the nightly pass, every Neuron at all — we find its top-K nearest peers via FTS5 over the corpus, then ask a small language model whether each (new, peer) pair contradicts each other. Top-K is 5 by default. Each LLM call takes 1–3 seconds on Haiku. So every Neuron costs about 5 × 1.5 seconds ≈ 7.5 seconds of wall-clock time to scan.
+
+At a thousand Neurons, that is two hours. At four thousand, eight hours. At eight thousand, a sequential full pass runs close to seventeen hours — and the scheduler re-fires every twenty-four. The passes start to overlap. Then they start to stack. Then the scan queue grows without bound, and the whole lint service is one bad night away from becoming useless.
+
+This is the scan wall. It is not a bug in the detector; it is a direct consequence of an architecture where knowledge compiles. RAG doesn't have this problem because RAG never integrates anything. Trail has it because Trail does the integration that gives Neurons their value in the first place.
+
+The wall has to be walked through, not avoided.
+
+## Why the obvious solutions are wrong
+
+**Parallelise it.** The straightforward response is to spawn K worker processes and divide the Neurons among them. This works in the sense that it moves the wall further out, but it does not move it far enough — at 50,000 Neurons a 4-way parallel scan still takes almost an entire night, and the LLM token budget scales linearly with worker count. Worse, it replaces an architectural problem with an operations problem. Trail would become a service that required tuning a thread pool.
+
+**Skip pages that have not changed.** The reactive path already does this. When a Neuron is approved, the contradiction-lint subscriber fires for that Neuron only. The nightly pass exists precisely because the reactive path misses cases: a page approved before contradiction-lint was enabled, a page affected by a source that was later retracted, a page whose truth-value depends on a peer that was just rewritten. You cannot drop the full pass without reintroducing silent drift.
+
+**Sample uniformly.** Pick 500 random Neurons every night and scan those. Over sixteen days, every page gets visited eventually. This sounds reasonable until you look at where contradictions actually live. Contradictions are overwhelmingly introduced by recent edits, not discovered by re-checking quiet pages. A uniform random 500-of-8000 would delay the discovery of a fresh contradiction by a week on average, which is roughly forever in curator-time. The curator would notice the problem before the system did.
+
+Each of these three solutions has a defect at the same place: they treat every Neuron as equally worth scanning, when the Neurons that actually need scanning are the ones near a recent edit — and, with lower frequency, a long-idle tail that nobody has looked at in months.
+
+## The split that works
+
+The solution Trail ships is boring in the way good solutions usually are.
+
+Cap the per-pass budget at 500 Neurons. Spend sixty percent of that budget — three hundred Neurons — on the most-recently-updated pages in the corpus. Spend the remaining forty percent — two hundred Neurons — on a uniform random sample of everything else. Do this every twenty-four hours.
+
+{{svg:sampling-split}}
+
+That is the whole thing.
+
+The choices embedded in those two numbers are not arbitrary. Sixty percent is what you get when you follow the biology honestly: slow-wave sleep devotes the bulk of its replay bandwidth to recent experience, but not all of it. The hippocampus replays the day's traces preferentially; it also replays older memories that are being consolidated or updated. If you look at sleep-spindle literature, the ratio is not symmetric and it is not winner-take-all — it is weighted toward new material with a meaningful reserve for old. Sixty-forty falls out of that shape.
+
+Five hundred is the number that makes a full pass fit in roughly an hour of wall-clock time on a single Haiku lane, with comfortable headroom for retries and scheduler slack. It is not a constant of the universe. Tune it by environment variable (`TRAIL_CONTRADICTION_SAMPLE_SIZE`) based on your hardware budget. On a larger deployment with parallel CLI lanes, push it to two thousand. On a Raspberry Pi running a personal knowledge base, drop it to fifty. The sampling strategy does not change — only the cap.
+
+And cap zero disables the cap entirely. On a corpus of three hundred Neurons, there is nothing to ration; just scan all of them. The code path that handles this is four lines long.
+
+## What this looks like in a running system
+
+{{svg:dreaming-cycle}}
+
+The scheduler ticks once a day. It picks the five hundred Neurons described above, hands each one to the contradiction checker in sequence, and emits any findings as curation-queue candidates. A curator sees those findings in the queue the next morning — or later that day, or whenever they open the admin — and resolves them through the standard flow. Retire the newer page, retire the older one, reconcile manually, or dismiss as a false positive.
+
+From the curator's perspective, nothing about the scheduling strategy is visible. They see a queue of findings. The queue is roughly the same size on night one at a thousand Neurons as it is on night one-hundred-and-fifty at twenty thousand. The work per human has been flattened, even though the corpus has grown by twenty times.
+
+From the infrastructure side, the work per machine has also been flattened. LLM token spend per night is bounded by the cap, not by corpus size. Database read pressure is bounded. The scheduler either finishes its pass in an hour or it doesn't fire at all, depending on whether contradictions are enabled for that KB. There is no runaway.
+
+The full-fidelity story is that every Neuron gets re-scanned on average every sixteen to twenty nights. Recent edits get re-scanned within twenty-four hours of the edit. A Neuron that has not been touched in two years sits in the tail and gets picked up a handful of times a year, which is the right frequency for a page that nobody is modifying. The system never stops checking anything; it just checks different things at different rates.
+
+## The same pattern, used everywhere
+
+Contradiction-scanning is the most expensive thing the lint scheduler does, but it is not the only thing. The same nightly pass also runs orphan detection (every source to every Neuron, asking which Neurons no source supports anymore) and stale detection (every Neuron's `updatedAt` against a cutoff, flagging pages that haven't been touched in the configured staleness window).
+
+Orphan and stale detection are cheap. They are pure SQL queries; they cost milliseconds even on large corpora. They run across the full KB every night with no sampling. There is nothing to ration because there is nothing expensive to do.
+
+The principle is that expensive work gets sampled; cheap work gets exhaustively scanned. Trail applies this uniformly across the background services. The queue-backfill that replays source re-ingests after schema migrations uses the same bounded-per-tick model. The reference-extractor runs reactively, never on a full pass. The backlink-extractor rebuilds incrementally on candidate_approved events.
+
+The pattern falls out naturally once you commit to the compile-time architecture. Work has to be integrated. Integration has cost. Bounded integration has bounded cost. Unbounded integration, given a growing corpus, eventually exceeds any schedule you give it. You either sample thoughtfully or you accept that your system will eventually stop working on large corpora — and "eventually" arrives around the eight-thousand-Neuron mark, not at some abstract future scale.
+
+## What the user sees
+
+Nothing. That is the point.
+
+A curator with three hundred Neurons and a curator with thirty thousand Neurons have the same experience of the queue. The queue fills at roughly the same rate. The findings that land there are drawn from the same nightly-pass machinery. The delay between editing a page and the system re-checking it against its peers is under twenty-four hours in both cases.
+
+The difference is hidden inside the scheduler. On the small KB, the cap is irrelevant — there are not enough Neurons for the cap to matter. On the large KB, the cap is the only reason the scheduler has not fallen apart. And because the sampling is biased toward recent edits, the curator's most common action — "I just merged a source, are any of these claims contradicting something I have already written?" — gets answered on the correct timescale regardless of how big the KB is.
+
+Trail does not brag about this. It does not need to. The measure of a good scaling plan is that it does not show up in the product. Nobody notices the wall when you have already walked through it.
+
+## The broader commitment
+
+Compile-time architecture makes a specific bet: that it is better to pay the integration cost at ingest than to avoid integration altogether. That bet is correct for a wide class of knowledge work — the class where knowledge should compound over months or years — and it is wrong for the class where corpus size is small and query volume is low.
+
+But the bet only pays off if the integration cost stays bounded as the corpus grows. If every nightly pass scales with N and every reactive emission scales with K, the system eventually drowns in its own usefulness. The integration that made the Neurons valuable is also the integration that, unbounded, makes the system slow and eventually unusable.
+
+Sampling with bias is how you escape that trap. Not uniform sampling — too much blindness. Not full scans — too much cost. A weighted cap that spends its budget where contradictions actually live, keeps a reserve for the long tail, and stays inside a human-meaningful time window.
+
+That is the scaling plan. It is not an engineering tour de force. It is the result of taking seriously that compile-time knowledge, like biological memory, has to be consolidated continuously — and that consolidation, in both cases, is always bounded by sleep. Trail just has sleep on a cron.
+
+---
+
+### Further reading
+
+- Walker, Matthew. *Why We Sleep*. Scribner, 2017. Chapter 6 is the most accessible non-academic account of slow-wave consolidation's role in memory integration.
+- Diekelmann, S. & Born, J. *The memory function of sleep*. Nature Reviews Neuroscience, 2010. The canonical review on sleep-dependent memory reorganisation, including the recency-bias that Trail's 60/40 split mirrors.
+- Andrej Karpathy, *LLM Wiki* — October 2025. Names the pattern Trail implements; does not address the scan-wall problem, which falls out once you try to operate the pattern at scale.
+- For Trail's full scaling analysis across queue, lint, and ingest at corpus sizes from 200 to 100,000 Neurons, see the engineering note [Scaling Trail from 200 to 100,000 Neurons](/trails/research/scaling-trail-from-200-to-100000-neurons/).
+
+---
+
+## Research - Insights & Analysis
+
+URL: https://www.trailmem.com/trails/research/
+Updated: 2026-06-24
+
+Deep dives into adjacent systems, benchmarks, and comparisons — from MemPalace and Mem0 to Karpathy's LLM Wiki and the long tail of RAG variants.
+
+---
+
+## Niklas Luhmann's Zettelkasten & the LLM Revolution
+
+URL: https://www.trailmem.com/trails/research/niklas-luhmann-zettelkasten-llm-wiki/
+Updated: 2026-06-24
+
+Niklas Luhmann's Zettelkasten Has Been Waiting Seventy Years for the LLM
+
+Luhmann produced 90,000 cards and 500-plus books with a method that has worked for seven decades — but most of his time went into bookkeeping that does not directly contribute to thinking. LLM Neuron trails are the first plausible automation of exactly that bookkeeping. Trail is what it looks like as hosted infrastructure.
+
+## A method that worked, and a tax that almost nobody could pay
+
+Niklas Luhmann was a German sociologist who, between 1952 and his death in 1998, wrote roughly 90,000 index cards and published more than 500 books and papers. He did this while holding a full professorship and raising a family. When asked how he managed the output, he gave the same answer for the rest of his career: he did not produce it. His Zettelkasten — his slip-box — produced it. He was, in his own description, a junior partner to his note system.
+
+This is not the modesty it sounds like. Luhmann was making a precise architectural claim. The system he built was a knowledge infrastructure that compiled, cross-referenced, and accumulated for decades, and the books were a downstream artefact of that compilation rather than the primary work. He read, he distilled, he filed — and the distilled material, threaded together by hand into a network of cards, became dense enough that querying it produced book-length output more or less by exposure.
+
+If the method worked this well, an obvious question follows. Why did almost nobody else manage to run it? The answer, the same answer for seventy years, is that the bookkeeping cost was prohibitive. Luhmann paid the tax personally because he had no choice. The 1950s could not automate any of it.
+
+The shift in 2026 — and the reason this essay exists — is that the bookkeeping tax has finally come down to something a normal person can afford. The rest of this piece is about what that shift unlocks, why Luhmann's architecture survived intact under a completely different technological regime, and what we built on top of it.
+
+## What Luhmann's slip-box actually was
+
+The slip-box was three layers, kept physically distinct.
+
+The first layer was reading notes — passages from books and papers that Luhmann had read closely, transcribed onto a slip with a citation, and dropped into a holding box. These were never the final material. They were raw input.
+
+The second layer was the permanent cards. When Luhmann had digested a reading note enough to extract a single specific idea — usually a sentence or a short paragraph — he wrote it as a permanent card in his own words and assigned it a number. The numbering was the trick. Cards were not filed under topics. They were filed wherever there was an open slot in the existing sequence, which meant that the number itself encoded a position in a network rather than a position in a hierarchy. A new card on, say, the role of trust in differentiated societies might be filed as 21/3d27c, meaning it sat next to card 21/3d27 (which was something close in spirit) and would have its own children later.
+
+The third layer was the index. Luhmann maintained a separate set of cards that listed entry points by keyword. When he wanted to follow a thread, he did not look up a topic and read everything filed under it; he looked up a keyword in the index, found two or three numbered cards that served as entry points, and began walking the network from there. The number sequence guided him outward through associations. Topical organisation, on his account, would have killed the system within a few years; networks of association could keep growing for decades.
+
+This description should sound familiar to anyone who has read about LLM Neuron trails. The architecture has three layers: a `raw/` folder of sources you do not modify, a `neuron/` folder of compiled markdown pages a language model maintains, and a `schema/` document that tells the system how to behave. There is an `index.md` for entry-point navigation and a `log.md` for chronological audit. Two centuries apart in mindset and seven decades apart in calendar time, Luhmann and the engineers building Trail today reached the same architecture from opposite directions — Luhmann from the constraints of paper, us from the constraints of language models. The agreement is not coincidence. It is the shape the problem keeps converging on when the goal is sustained accumulation rather than fast retrieval.
+
+The Chinese cognitive scientist Shuyi Wang made this convergence explicit in a long Medium essay published in April 2026. In spirit, he wrote, this architecture and Luhmann's Zettelkasten are close cousins; in practice, the LLM-driven version takes over all the time-consuming, non-thinking parts of Luhmann's method. Wang's framing is the cleanest version of what is going on. Nobody invented a new method in 2026. What was invented is the first plausible mechanism for running an existing seventy-year-old method without paying Luhmann's tax.
+
+## The four convergences
+
+Wang lays out four points where the slip-box and the modern LLM Neuron trails are saying the same thing in different vocabularies. They are worth stating cleanly because they explain why the architecture did not have to be redesigned for the LLM era — it just had to find a different labourer for the middle layer.
+
+First, both reject synthesis-from-scratch at query time. Luhmann did not trust himself, when it came time to write a book, to dig up every supporting argument from memory; that is why he accumulated 90,000 cards. The modern LLM-Neuron-trail pattern says the same thing: a language model that retrieves fresh on every question is rediscovering knowledge from scratch, and there is no accumulation. Decades apart, both are addressing the same complaint. On-the-fly synthesis is unreliable; you have to accumulate first.
+
+Second, both are compilation-first rather than retrieval-first. When Luhmann wrote a permanent card, he had already thought an idea through — the permanent card is itself a compiled product. Trail's Neurons are also compiled products: at ingest time, the LLM has already cross-integrated the new source with existing pages. Both push the most cognitively demanding work forward to write time rather than leaving it for query time. This is the same shift that distinguishes a domain expert from a research assistant who Googles every question.
+
+Third, both reject hierarchy. Luhmann argued explicitly that as soon as you systematically classify cards by topic, you are locking in an ordering decades in advance, and the growth of knowledge cannot be locked in like that. His Zettelkasten was therefore not divided into chapters by subject; it used numbers and links to weave the cards into a network. Trail does the same. Concept Neurons, entity Neurons, and comparison Neurons are connected by bidirectional links, with no folder hierarchy. When the German scholar Johannes F. K. Schmidt later studied Luhmann's papers, he found that Luhmann's actual navigation mechanism was not the numbering itself — it was the index pages that served as entry points. That genuinely echoes the design of letting `index.md` carry the entry-point navigation in the modern pattern.
+
+Fourth, both treat the system as a conversation partner. Luhmann, in his 1981 paper *Kommunikation mit Zettelkästen*, called his slip-box a *communication partner*. His point was that once a card collection reaches a certain volume, it starts surfacing connections you did not see coming — the system starts teaching you back. The modern formulation of LLM Neuron trails repeatedly emphasises that the trail is a persistent artefact that compounds the more you feed it. The two are saying the same thing.
+
+{{svg:zettelkasten-to-trail}}
+
+## The tax that finally came down
+
+The convergences explain why the architecture survived. They do not explain why almost nobody followed Luhmann.
+
+The answer is the bookkeeping. Luhmann himself, in his published reflections on method, said that the vast majority of his time went into wrestling with the Zettelkasten rather than into writing. The time sink was not the reading or the drafting — it was dealing with the slip-box. Specifically, hand-writing numbers, building cross-references, updating hub cards, maintaining keyword indexes, and deciding where each new card belonged.
+
+Every time he added a card, he might have to walk back through several older cards to add new links by hand. The labour of 90,000 cards, sustained over decades, is exactly what you would expect: enormous, mechanical, and almost completely uncreative. Saying that bookkeeping and thinking can be cleanly separated is a simplification — when Luhmann decided that two ideas were related and should be linked, that decision was itself a small act of thinking. But there is a large core of the work — number maintenance, index updates, cross-reference completion, keeping the catalogue consistent with the cards — that is purely mechanical. None of it directly contributes to thinking, but if you do not do it, you cannot find your way back to anything you saved.
+
+The philosopher and Zettelkasten student Sönke Ahrens has argued that this mechanical layer is the reason traditional knowledge-management practices fail at scale: the cost of opening the library and finding what you need eventually exceeds the cost of just searching the open web again. Most people give up. Luhmann did not give up because he had no other option. He was working in a generation where the labour could not be delegated to a machine. That is no longer true.
+
+{{svg:luhmann-bookkeeping-vs-thinking}}
+
+The paradigm shift of LLM Neuron trails is precisely the handing of this mechanical labour to a language model. Wang's formulation captures it exactly: every time the workflow ingests a new piece of material, it updates the cross-references on a dozen related Neurons in one go, appends entries to `index.md`, writes audit records into `log.md`, and assigns stable frontmatter to new concepts. Link-maintenance work that used to take Luhmann hours holed up in his study can now be compressed into a very short window. The bookkeeping moves off the human's plate.
+
+What does not move is the 20 per cent that actually generates thinking. Before promoting a fleeting thought into a permanent Neuron — the moment Luhmann was famously most disciplined about — you have to make a value judgment. Is this idea worth keeping? Is it sharp enough? How does it connect to the network you already have? That judgment is bound up with your research direction, your taste, your sense of which questions matter. It cannot be outsourced.
+
+This is the dividing line. LLM Neuron trails are not a button that thinks for you. They are the first system that lets you run Luhmann's method without being Luhmann.
+
+## What Trail is, in this lineage
+
+Trail is the hosted infrastructure version of that pattern. Same three layers — sources, Neurons, schema — same compile-first principle, same insistence that the trail of Neurons is something that compounds rather than something that is rebuilt on each query. The differences are operational, and they exist because Luhmann's pattern, scaled to teams and institutions, runs into problems he never had to face.
+
+Three differences matter most.
+
+First, Trail is multi-tenant from the architecture upward. Luhmann had one slip-box. He owned it, he maintained it, and his successors at Bielefeld inherited the boxes themselves rather than the running system. A clinical practice, a research lab, or a consulting firm cannot work that way. Trail's tenant model means each organisation runs its own compiled corpus on isolated infrastructure, with curators on the team rather than a single individual carrying the burden.
+
+Second, Trail's schema is a first-class machine-readable artefact rather than an implicit set of conventions. Luhmann had rules for how he wrote permanent cards, but the rules lived in his head and in his practice. Trail's `_schema.md` files declare the rules explicitly: which Neuron types can exist, which sections are required, what frontmatter must be present, which sources are immutable. When the LLM compiles, it compiles against the schema. When the schema changes, the compiled corpus is re-evaluated. This is the difference between method-as-discipline and method-as-infrastructure.
+
+Third, Trail enforces a curation queue between the compiler and the compiled corpus. Every change the LLM proposes — every new Neuron, every update, every cross-reference — passes through an explicit gate before it lands. Some categories of change are auto-approved by policy when confidence is high and provenance is clean. Others wait for a human to decide. The result is that the persistent corpus does not silently absorb LLM hallucinations; what is in there has been vetted, either by policy or by a person. Luhmann's gate was his own attention. For an organisation, that gate has to be explicit, configurable, and auditable.
+
+These differences are operational rather than architectural. The architecture is still Luhmann's. We just built it as infrastructure other people can run, with the LLM holding the pen for the bookkeeping that Luhmann did by hand for forty-six years.
+
+## Why this matters now
+
+The argument for compile-time knowledge infrastructure has been made before. Vannevar Bush proposed it in 1945 with the memex. Doug Engelbart built the first working pieces in the 1960s. Ted Nelson named the missing link as hypertext. The Web that emerged in the 1990s implemented Bush's surface idea but discarded the compilation layer. Luhmann ran the only complete instance of the design from 1952 to 1998, and he ran it on paper because he had to.
+
+What changed in 2026 is not the architecture. The architecture has been correct for eighty years. What changed is that the labour required to run it has finally come down to something an organisation can afford. The technical pattern was named publicly. Wang explained why it works. An individual can stand up two domain Neuron-trails in an afternoon. Sanne Andersen, an acupuncturist with twenty-five years of clinical material, can now operate a system that previously required a Niklas Luhmann.
+
+The organisations winning long-term with AI for knowledge work are the ones that have noticed this. Not because they read Luhmann or Bush. Because the cost-of-bookkeeping tax has finally collapsed below the threshold where institutional knowledge can compound rather than dissipate. The methods worked all along. Only the maintenance held them back.
+
+We think the architecture matters more than the model. We think Luhmann's design from 1952 is still the right one. And we think the time has finally arrived to run it as something other than the personal heroism of one disciplined sociologist.
+
+---
+
+### Further reading
+
+- Niklas Luhmann, *Kommunikation mit Zettelkästen*, 1981 — the original methodological essay.
+- Johannes F. K. Schmidt, *Niklas Luhmanns Arbeitsweise im elektronischen Nachlass* — the scholarly reconstruction of how Luhmann actually navigated the cards.
+- Sönke Ahrens, *How to Take Smart Notes*, 2017 — the modern restatement of Luhmann's method for general readers.
+- Shuyi Wang, *Should You Actually Try the LLM-driven Wiki Pattern?*, Medium, April 2026 — the essay this piece draws on for the convergence analysis.
+- For Trail's architectural lineage from Bush's 1945 memex to today, see [Why Your Knowledge Base Should Compile, Not Search](/trails/how-trail-works/knowledge-that-compounds/).
+
+---
+
+## Scaling Trail from 200 to 100,000 Neurons: Engineering Architecture
+
+URL: https://www.trailmem.com/trails/research/scaling-trail-from-200-to-100000-neurons/
+Updated: 2026-06-24
+
+Scaling Trail from 200 to 100,000 Neurons: An Engineering Note
+
+A compile-time knowledge engine has three workloads that fight for compute — ingest, lint, and the curation queue. Each one breaks at a different corpus size, for different reasons, and requires a different fix. This is the long-form companion to Work That Fits in a Night: the full accounting of where Trail's bottlenecks are, when they hit, and what a deployment looks like at 200, 8,000, 25,000, and 100,000 Neurons.
+
+## Why this note exists
+
+Trail is a compile-time knowledge engine. Every source it ingests is read by a language model and turned into a persistent graph of Neurons — short wiki pages that cross-reference each other and the raw material they came from. The engine does three kinds of background work to keep that graph honest: it **ingests** new sources into Neurons, it **lints** the existing corpus for contradictions, orphans, and staleness, and it **queues** candidate edits for a human curator to approve.
+
+All three workloads scale differently. Ingest is largely linear in the size of the incoming source. Lint is quadratic if you let it be — each new Neuron wants to be re-checked against every existing peer. The queue is bounded by the number of decisions a human can make per day, which does not change no matter how large the corpus gets.
+
+At 200 Neurons none of this matters. A full lint pass finishes in twenty minutes. Ingest runs per-source without thinking about it. The queue holds a handful of candidates. Every shortcut in the engine falls inside a comfortable budget.
+
+At 100,000 Neurons the same code, run the same way, doesn't finish. The scheduler overlaps with itself. The LLM token spend outruns the pricing model. The curator drowns.
+
+The gap between "works" and "doesn't work" is not a cliff. It's a sequence of bottlenecks that arrive in a predictable order, each one requiring a distinct architectural response. This note is the long-form companion to [Work That Fits in a Night](/trails/how-trail-works/work-that-fits-in-a-night/) — which covers one of those bottlenecks in detail. Here we take the full accounting: what breaks, when, and how the engine is built to absorb it without a rewrite.
+
+## The three workloads
+
+### Ingest
+
+Ingest turns a source into Neurons. A PDF gets parsed, chunked, described page-by-page by a vision model if it has images, and then handed to a primary LLM that extracts entities, writes or updates Neuron pages, and emits backlinks. The work per source is proportional to the source — a ten-page article costs about one minute of wall-clock time on Sonnet; a two-hundred-page book costs about fifteen.
+
+What ingest does *not* scale with is corpus size. Processing page 47 of a new PDF does not require Trail to consult the other 99,953 Neurons in the base. It only consults the ones the LLM thinks are relevant, which in practice is five to twenty per compile step. That bound is set by Trail's prompt, not by the corpus.
+
+This means ingest is the cheap workload. Double the corpus, ingest cost stays flat per source. The bottleneck is always "how many sources per hour can I afford in LLM spend," never "how expensive is this particular source because the corpus is big."
+
+### Lint
+
+Lint is the nightly pass that keeps the graph internally consistent. It runs three checks: contradictions (does this Neuron disagree with any of its near-peers?), orphans (does this Neuron still have a source that supports it?), and staleness (has this Neuron gone untouched longer than the KB's freshness window?).
+
+Orphan and stale detection are pure SQL. They cost milliseconds even on a corpus of a hundred thousand Neurons. There is nothing to ration.
+
+Contradiction detection is the expensive one. For each Neuron under inspection, Trail pulls the top-K nearest peers via FTS5, then asks a small language model whether any pair contradicts each other. K is five by default. Each LLM call costs one to three seconds on Haiku. A full pass at 8,000 Neurons runs about seventeen hours — longer than the night it has to finish in.
+
+That is the scan wall. It is covered in detail in [Work That Fits in a Night](/trails/how-trail-works/work-that-fits-in-a-night/); the short version is that Trail solves it by capping the per-pass budget and weighting the cap sixty-forty toward recent edits. Every Neuron gets re-scanned on average every two to three weeks; recent edits get re-scanned inside twenty-four hours; the scheduler finishes its pass in roughly an hour regardless of how big the KB is.
+
+### Queue
+
+The curation queue is where LLM proposals wait for human approval. Every Neuron write, every contradiction finding, every chat answer flagged as worth saving goes through it. The queue is the one workload whose bottleneck is not compute — it is curator attention.
+
+A single human can make roughly fifty to two hundred approve/reject decisions per hour in a focused session. That ceiling does not change when the corpus grows. At 200 Neurons the queue sees a handful of candidates a day and the curator handles them over coffee. At 100,000 Neurons the raw LLM activity would generate thousands per day if it were emitted without triage — which would be useless, because the curator can only process a few hundred.
+
+The queue's scaling problem is therefore one of *surfacing*, not *throughput*: which candidates are worth the human's time, and which ones can be auto-merged, auto-deferred, or filtered entirely. The queue has to shrink as the corpus grows, in real terms per-curator-hour, without dropping the material that actually needs a human.
+
+Each of these three workloads breaks at a different scale. The rest of this note walks through four representative corpus sizes — 200, 8,000, 25,000, and 100,000 Neurons — and describes what each workload looks like at that scale, what infrastructure supports it, and what has to change at the next tier.
+
+{{svg:scale-tiers}}
+
+## 200 Neurons — the single-tenant zero-friction baseline
+
+This is Sanne Andersen's clinic, right after first-week onboarding. A couple of hundred protocol PDFs, patient-case notes, and treatment summaries have been ingested. The whole KB weighs about 12 MB on disk including the FTS5 index.
+
+**Ingest.** Each new source drops into the pipeline and compiles within two to four minutes. There is no queue of pending ingests — one source goes through, then the next. LLM cost per source is negligible against a flat Pro-tier subscription: Haiku for extraction, Sonnet for the larger compile steps, costs measured in single cents.
+
+**Lint.** The contradiction sampler's cap is set to 500, but the corpus only has 200 Neurons — so the cap is never hit, and the nightly pass just scans everything. The full pass takes about twenty minutes. Orphan and stale detection run in under a second.
+
+**Queue.** The curator sees three to eight candidates a morning, mostly from ingest. The contradiction detector occasionally flags something real — a new protocol PDF disagreeing with a pre-existing one. The curator resolves the entire queue in fifteen minutes over the first coffee of the day.
+
+**Infrastructure.** A single Fly.io shared-cpu Machine (256 MB RAM, 1 GB volume) running the Trail server with an embedded libSQL file. No caching layer, no queue broker, no object store — the filesystem holds everything. Monthly cost to operate: roughly $5 of compute plus whatever the LLM spend comes to, which for a clinic at this size is under $30 a month.
+
+This scale is the default Trail deployment. It is what the Hobby plan targets. The engine doesn't need to be tuned to fit here — every default is already correct.
+
+## 8,000 Neurons — where the first wall lives
+
+This is the midpoint of a serious working KB. FysioDK Aalborg, a couple of years into daily use, runs here. A mid-sized engineering team's internal RFC archive plus incident log plus runbooks lands here. Trail's own self-hosted KB of its design docs and code-review conversations sits here.
+
+**Ingest.** Same as 200 Neurons, because ingest does not scale with corpus size. A source is a source; the bill per source is the same.
+
+**Lint.** This is where the scan wall would hit in a naive implementation. A full contradiction pass over 8,000 Neurons would cost sixty thousand LLM calls at 1.5 seconds each — seventeen hours, more than the night the scheduler has. Left alone, passes would overlap, then stack, then the lint service would quietly stop functioning.
+
+This is where the 60/40 sampler takes over. The scheduler caps each nightly pass at 500 Neurons, spends 300 of them on the most-recently-updated pages and 200 on a uniform random sample of the rest. The pass finishes in about seventy-five minutes on Haiku. Every Neuron gets scanned on average every sixteen nights; recent edits get re-scanned within the same day.
+
+The practical effect: the curator never sees a reduction in contradiction-finding quality as the corpus grows from 200 to 8,000. They see the same one or two findings a morning, drawn from the same nightly-pass machinery, with the same latency against recent edits. The corpus has grown by 40x but the curator's queue looks identical.
+
+**Queue.** Around 8,000 Neurons, the queue starts to require triage on the candidate side, not just on the curator side. Trail ships a `source` filter and a `connector` filter that let the curator grab, say, "only Slack-originated candidates from this week" or "only the ingest outputs from the batch I just fed the engine." Those filters don't matter at 200 Neurons. At 8,000 they are how the curator stays oriented.
+
+Auto-approval becomes relevant here too. Candidates above a tuned confidence threshold (the S6 onboarding step shows a default of 0.85) can be auto-merged into the wiki without human review. At the 8k scale, roughly sixty to seventy percent of routine ingest candidates clear this bar. The curator only sees the uncertain ones, which is where their attention is most valuable.
+
+**Infrastructure.** Still a single Fly.io Machine, but the tier has moved to performance-2x (2 shared CPU, 2 GB RAM, 5 GB volume). The libSQL file is around 450 MB including indices. Nightly LLM spend for lint plus any reactive emissions lands in the $40–80 range for a single-tenant deployment at this size. Ingest spend sits on top, varying by how actively the tenant is feeding in sources.
+
+This is the largest corpus size where a single-node, single-database deployment is still the obviously-right answer. Everything past this point starts forcing architectural decisions.
+
+## 25,000 Neurons — the second wall, and why it isn't about lint
+
+A large research lab's literature archive lands here. A documentation-as-code org with several years of daily ingest hits this range. A personal knowledge base that has swallowed a decade of notes reaches it too.
+
+**Ingest.** Still flat per source. The ingest pipeline doesn't care.
+
+**Lint.** The 60/40 sampler continues to hold. At 25k Neurons the nightly cap is bumped up slightly (`TRAIL_CONTRADICTION_SAMPLE_SIZE=1200` is a reasonable value for parallel-Haiku lanes) but the architecture is unchanged. The full-tail pass now takes about three weeks of real time, which is still the right scale — a Neuron untouched for three weeks is a Neuron nobody is modifying.
+
+**Queue.** This is where the second wall lives, and it is the one people consistently underestimate.
+
+At 25,000 Neurons, raw candidate volume — ingest outputs plus lint findings plus chat-save suggestions — is high enough that even with auto-approval and filters, the curator's work per day has crossed the threshold where a single person can't keep up solo. The compounding pressure is this: a contradiction finding at 25k Neurons often references two other Neurons, which the curator needs to read to judge the finding. So a five-minute decision becomes a twenty-minute decision. A dozen findings a day becomes four hours of real work.
+
+Trail's response at this scale is not to generate fewer candidates — that would mean the engine is silently letting things drift. It is to introduce **roles**: an admin who onboards the corpus and sets policy, curators who approve material in their domain, and readers who use the wiki without write access. The curation work gets distributed. A lab with five researchers can assign contradiction findings by topic, so each curator sees only the twenty or thirty a day that fall in their area.
+
+The RBAC layer (F28, S5 in onboarding) is designed for this. It is not a compliance feature; it is a scaling feature. Without it, a 25k-Neuron corpus is bottlenecked on one human.
+
+**Infrastructure.** Still feasible on a single node, but the Fly.io Machine is now performance-4x (4 dedicated CPUs, 4 GB RAM, 20 GB volume). The libSQL file is around 2 GB. FTS5 query performance on the contradiction-candidate lookup starts to show in p95 latency if indexes aren't well-tuned — the engine ships with explicit indexes on `kbId + updatedAt` and `kbId + kind` precisely because those are the hot paths at this scale.
+
+The single-node architecture is still correct. What's starting to matter is not the machine size; it's the operational cost of one machine being the only machine. Backups become non-optional. The nightly libSQL export gets pushed to R2 with a 30-day retention. The alerting story (is the scheduler finishing its passes? is the queue draining? is disk approaching the volume limit?) becomes a first-class concern rather than something you check manually every few days.
+
+## 100,000 Neurons — the tier that rewrites the engine
+
+This is a speculative scale. Trail has not shipped a tenant this large yet. The following is the engineering analysis of what would need to change if one arrived, based on where the bottlenecks lie and what the code currently assumes.
+
+**Ingest.** Still roughly flat per source, but the prompt-context strategy starts to matter. At 100k Neurons, the "find the relevant peers before writing this new page" step — which uses FTS5 — returns more results than fit comfortably in a prompt. The engine has to decide which ten to send to the LLM, which is itself an optimization problem. In practice this is handled by scoring candidates on recency plus FTS5 rank plus graph distance; the default weighting works at this scale but may need tuning per tenant.
+
+**Lint.** The sampler architecture continues to hold, but the sample size has to go up. The 60/40 split across 100k Neurons at 500-per-pass means the long tail gets scanned once every six to eight months. That is too slow — an old Neuron that disagrees with a new one should surface in weeks, not seasons. The practical configuration at this scale is `TRAIL_CONTRADICTION_SAMPLE_SIZE=3000` run across two or three parallel Haiku lanes, which brings the tail-coverage interval back down to about three weeks.
+
+This is where the LLM token budget starts to dominate everything else. At 3,000 scanned Neurons per night times K=5 peers times roughly 250 tokens per contradiction check, a single tenant is spending around 3.7 million tokens per night on lint alone. At Haiku's pricing this is in the $30–40-per-night range per tenant, which is real money but still the right order of magnitude against a Business-tier subscription. The cost remains linear in sample size, not in corpus size — which is the whole point of the sampler.
+
+**Queue.** The roles model developed at 25k Neurons has to be taken further. A 100k-Neuron deployment almost certainly has subject-matter silos — a legal KB of this size has a contracts group, a litigation group, and a compliance group, each with its own curator. Candidates need to be auto-routed to the correct reviewer based on the affected Neurons' tags or topic clusters. The curator-assignment logic is not in the engine today; a deployment at this scale would need it as a custom extension, probably as a pre-queue filter that writes `assignedTo` on the candidate record.
+
+The other thing that emerges at this scale is **summarization within the queue**. Instead of showing the curator every contradiction finding raw, Trail can group findings by topic and present them as "here are the twelve findings about hiring policy from this week, most of which turn on the same underlying disagreement about equity vesting." This is a UI feature more than an engine feature, but it requires the engine to surface the right grouping signal — which at 100k Neurons means tracking finding-clusters across the nightly passes.
+
+**Infrastructure.** Single-node is still viable — a performance-8x Fly.io Machine with a 50 GB volume can host this — but the operational story is no longer "a database file on a machine." Backup cadence needs to be sub-daily. The libSQL file is around 8 GB, which is fine for reads but long for a single backup cycle; incremental backups via libSQL's native replication become the right answer. An embedded read-replica on a second Machine is a cheap insurance policy against the primary going down during business hours.
+
+At this scale, the argument for migrating to a split-compute architecture (separate ingest workers, separate lint workers, a shared database) is tempting but probably wrong. The ingest pipeline is embarrassingly parallel already — Fly.io's per-region auto-scaling can spin up additional ingest workers on demand, and they can write to the shared libSQL over the Turso-compatible network protocol without a full application rewrite. The lint pass is already bounded by the sampler cap, so throwing workers at it doesn't help. The database is the only truly stateful component, and at 8 GB it's still inside the comfort zone of a single embedded node.
+
+The architecture that shows up around 100k is therefore: one primary Fly.io Machine running the server and the embedded libSQL, one read-replica in a different region for failover, a pool of ingest workers in the primary region that compile sources into the primary DB, and the usual Trail scheduler (unchanged from 8k) running the sampler on the primary.
+
+## Decision matrix — what to worry about, when
+
+{{svg:decision-matrix}}
+
+The headline: ingest never becomes the bottleneck. Lint becomes the bottleneck around 8k and is handled by the sampler forever after. The queue becomes the bottleneck in a way that is *not* about engine compute — it is about the human attention budget, which requires organizational structure rather than faster code. Infrastructure follows a predictable ladder, and migration between tiers is a vertical scale-up, not a rewrite.
+
+## What breaks honestly
+
+There are things this analysis does not address because Trail has not hit them yet.
+
+**Multi-KB joins.** The numbers above assume a single KB per tenant. A deployment with dozens of KBs per tenant — a university running a separate KB per department, say — has not been profiled. The scheduler runs per-KB, which means twenty KBs of 5,000 Neurons each cost twenty times the single-KB lint budget. This is linear and bounded, but it changes the pricing conversation.
+
+**Federation.** Chat queries that should span KBs ("what do we know about frozen shoulder across the clinic KB and the research-paper KB?") require FTS5 lookups against multiple databases plus a cross-KB synthesis prompt. The engine has the primitives for this (the chat layer already handles multi-KB selection) but the token cost at large combined-corpus sizes has not been measured against real workloads.
+
+**Vector search at scale.** Trail uses libSQL's native vector extension for certain spreading-activation queries, but the current indices are designed for single-KB corpora under 50k Neurons. At 100k+ inside a single KB, the vector index performance story needs validation. FTS5 remains the primary retrieval path and is well-understood at this size.
+
+**Curator-cluster dynamics.** The roles + auto-routing + grouping UI described for 100k Neurons is engineering the engine can support, but the workflow design — how three curators collaborate on overlapping findings without stepping on each other — has not been exercised at this scale. This is the class of problem that surfaces only with a real tenant in the seat.
+
+None of these are blockers. They are the edges where the analysis stops being grounded in observed behaviour and starts being projected from the architecture.
+
+## The through-line
+
+Trail's scaling strategy is the same at every tier: decide what work has to be done, decide what part of that work can be bounded, bound it, and let the rest grow freely. Ingest is unbounded because it's cheap per unit. Lint is bounded by the sampler. Queue is bounded by auto-approval plus curator distribution. Infrastructure is bounded by the next Fly.io Machine size in the ladder.
+
+The engine does not scale by becoming cleverer as the corpus grows. It scales by refusing to become more expensive than it was at the last tier, and letting the sampler — or the role structure, or the auto-router — absorb the difference between what would cost and what actually costs.
+
+That choice has a consequence worth naming: at every scale, a small amount of work is being skipped. Not skipped silently — the sampler's bias guarantees recent edits get scanned inside a day and everything else gets scanned inside a month. But it is skipped, in the sense that the engine is not doing the O(N²) pairwise check that would nominally be "correct." The bet is that the pattern the sampler preserves — recency-biased with a long-tail reserve — is good enough because it mirrors how biological memory consolidates.
+
+Sleep is bounded. Memory is bounded. The wiki, compiled continuously, is also bounded. That is not a limitation. That is what makes it keep working.
+
+---
+
+### See also
+
+- [Work That Fits in a Night](/trails/how-trail-works/work-that-fits-in-a-night/) — the detailed story of the contradiction sampler's 60/40 split, including why uniform sampling was rejected and how the biology-literature grounding maps onto the cron.
+- [How a Brain Actually Remembers](/trails/how-trail-works/how-a-brain-actually-remembers/) — the underlying claim that compile-time knowledge has to be consolidated periodically, not just retrieved.
+- [Compile-Time Knowledge vs. RAG](/trails/how-trail-works/compile-time-knowledge-vs-rag/) — why this whole scaling problem doesn't exist for retrieval-at-query systems, and why it's worth having anyway.
+
+---
+
+## Three Agent Memory Architectures: Compile vs Retrieve vs Act
+
+URL: https://www.trailmem.com/trails/research/three-architectures-of-agent-memory/
+Updated: 2026-06-24
+
+Three architectures of agent memory — and why Trail picked Compile
+
+Karpathy, Tan, and Liu all start from the same diagnosis — your agent is a retriever, not a thinker. They reach three different architectures: retrieve (RAG), compile (LLM Wiki), and act (Fat Skills / GBrain). Trail picked Compile, deliberately. This is what we accept and what we believe is converging.
+
+## The shared diagnosis everyone keeps re-deriving
+
+When Andrej Karpathy posted his "LLM Wiki" gist in April 2026, it hit five thousand stars in days. When Garry Tan open-sourced GBrain a few weeks later, the same crowd was reading both. The two systems take opposite engineering directions, but they start from an identical complaint: an agent that holds a million tokens in context still re-reads its source material from scratch every session, never compounds, never learns, never connects yesterday's insight to today's question. Karpathy put it sharply — RAG rereads the same books for every exam, never actually learning the material. The Luxembourg-based finance practitioner Yanli Liu, surveying the field for AI Advances in late April, summarised the diagnosis the most cleanly: *it's a retriever, not a thinker*.
+
+This is the consensus, and it has been the consensus for at least two years. What is interesting is what people are doing about it.
+
+Liu, observing the field after both Karpathy and Tan had shipped their respective patterns, identified three distinct architectural responses. RAG is the retrieve-pattern, mature and ubiquitous. The LLM Wiki is the compile-pattern, a public artefact in April but in fact much older — Niklas Luhmann was running a paper-based instance of it from 1952 to 1998. GBrain is the act-pattern, an autonomous-skill harness built around twenty-four cron jobs and seventeen thousand interlinked pages. The three responses are not in competition. They are solving different versions of the same problem, and the question of which one to use turns out to depend on a question most teams skip: *what is your agent's job?*
+
+Trail picked one of these three. We picked it deliberately. This essay is the explanation of which, and why, and what we know we are giving up.
+
+## Three patterns, three trade-offs
+
+{{svg:three-architectures-comparison}}
+
+The retrieve-pattern is the path of least resistance and the path most production teams take. You embed your documents into vectors, store them in Pinecone or Chroma or pgvector, and when a query arrives you find the nearest chunks, inject them into the prompt, and let the model generate. The architecture is mature. The frameworks have standardised around it. You can ship a working internal-knowledge assistant in a long weekend.
+
+What you cannot do with retrieve is build expertise that compounds. Liu walks through three failure modes — chunking, re-derivation, passivity — and the first two are structural rather than fixable with better tooling. When a thirty-page technical specification gets split into five-hundred-token fragments, the chunk that mentions a compliance requirement and the chunk that explains why the requirement exists land in different vectors. The retriever finds one and misses the other. Your agent gives a technically correct but dangerously incomplete answer. This is not a chunk-size tuning problem. It is what retrieval *is*.
+
+The compile-pattern attacks this directly by moving the synthesis work from query-time to write-time. You read a new source through a language model that has already loaded the existing wiki. The model writes summary pages, updates affected entity profiles, files cross-references, flags contradictions, and lands the result back as durable markdown. Future queries do not retrieve raw chunks; they read against the compiled product. Liu's vivid framing for what happens at ingest is that a single new document touches ten to fifteen wiki pages — every one of them slightly richer than it was yesterday. This is the architecture Karpathy described and the one we built Trail around.
+
+The act-pattern goes further still. Garry Tan's GBrain treats knowledge not as a thing to be queried but as a thing to be acted upon. Twenty-one cron jobs run in the background — scrape Hacker News every six hours, enrich newly mentioned entities daily, draft a digest every Monday morning. Each job is a "fat skill," a markdown file declaring its triggers, its tools, its write-targets, and whether it is allowed to mutate the brain. The intelligence lives in the skills, not in the harness. The agent is awake while you sleep.
+
+What separates the three is not which one is *correct* — they are all correct for the problems they were designed to solve — but which problem you have. Retrieve handles two hundred thousand documents that change daily; it does not handle compounding expertise. Compile handles a thousand sources of deep domain material; it does not handle a million Confluence pages, and it does not act on what it knows. Act handles autonomous workflows for a single power user; it requires months of engineering investment and a level of system understanding that most knowledge workers do not have.
+
+## Why Trail picked Compile
+
+The argument for compile, for our specific tenants and our specific positioning, runs as follows.
+
+The problems Trail addresses are not search problems. They are accumulation problems. An acupuncturist with twenty-five years of clinical material wants the system to be smarter about her practice on her hundredth question than it was on her first. A solo founder building a knowledge base of customer interviews wants the trail of Neurons to compound into something denser than the sum of the calls. A research consultancy ingesting two hundred regulatory filings wants the third filing to update what was learned from the first two, not replace it.
+
+In all three cases the ceiling is set by the depth of cross-reference, not by the breadth of the corpus. Most of these tenants will never have ten thousand source documents, let alone two hundred thousand. They will have a few hundred to a few thousand, each one carefully chosen, and they will return to the same KB for years. This is the regime where the compile-pattern wins decisively. It is also the regime where retrieve-only RAG quietly under-performs: it scales effortlessly, but the agent never gets smarter. The hundredth query is no better than the first, because nothing was ever consolidated.
+
+Our trade-off, accepted explicitly, is that we are not trying to be the right tool for the half-million-page Confluence migration. That is a retrieve problem. If you have it, run RAG. We are trying to be the right tool for the two-hundred-source domain corpus where every source matters and every connection between them is valuable. There is a real frontier somewhere around five thousand Neurons per knowledge base where pure markdown navigation begins to creak; we believe we can push that ceiling considerably with FTS5 today and a vector retrieval layer when the data demands it. Liu makes the same point — at one hundred thousand sources, the LLM Wiki pattern is unusable without adding a retrieval layer on top, which then starts to look like RAG again. We agree. The convergence is real, and Trail's design assumes it.
+
+Our other trade-off, also accepted explicitly, is that the compile-pattern is passive. The system knows things. It does not, today, *do* things. It will not silently flag that a new clinical paper contradicts a standing protocol. It will not draft a Monday digest of last week's ingested material on its own. We have a planned feature for this — internally we call it Trail Routines, user-authored cron-fired workflows that read against the KB and emit candidates back into the curation queue — but it is a planned feature, not a shipped one. We are deferring it because we believe the foundation has to be rock-solid for one paying tenant before the action layer becomes useful rather than dangerous.
+
+## What stays the same when scale changes
+
+{{svg:trail-as-compile-layer}}
+
+The version of this argument that goes wrong is the tribal one. *Compile is the right architecture, retrieve is dead, act is the future.* That is not what we believe. Liu's closing thesis, which we agree with, is that the three patterns are converging. A production-grade knowledge layer in 2026 will eventually combine all three. Retrieval at the bottom for handling scale that the corpus eventually reaches. Compile in the middle for the synthesis that retrieval cannot produce. Action at the top for the workflows that operate on the compiled material. Trail's design assumes this convergence and is deliberately built as the middle layer.
+
+What this means in practice is that Trail does not try to be the agent platform. We try to be the persistent compiled memory the agent platform reads from. Our KBs are exposed to MCP clients as a first-class read interface — point any agent at the Neuron trail, and the trail becomes that agent's institutional memory. A future GBrain-style harness running on top of Trail would invoke our compiled Neurons rather than re-deriving the same understanding on every query. The compile cost has already been paid, once, at ingest. The agent reads against that work for its remaining lifetime.
+
+The same is true at the retrieval boundary. As individual KBs grow large enough to start straining markdown-and-FTS5 navigation, we will add a vector layer that backs the same Neurons. Retrieval becomes a performance optimisation under the existing compile model rather than a replacement for it. The agent still reads compiled Neurons; the retrieval layer just helps narrow the candidate set first.
+
+This is the bet. The three architectures look like rivals in 2026 because they were proposed in isolation — Karpathy's gist, Tan's repo, the established RAG ecosystem — and the discourse around them has framed the choice as a zero-sum one. We think the dichotomy is temporary. The same way databases evolved from "pick SQL or NoSQL" into hybrid stores that handle both, agent memory will evolve from "pick retrieve, compile, or act" into a layered stack where each layer does one thing well. Trail's choice is to be the durable, governed, schema-bound layer in the middle that the others read against and write back to.
+
+## The decision framework, restated
+
+The question Liu asks at the end of her piece is the right one for any team thinking about this. *What is your agent's job?* If the job is finding answers in a large corpus that changes daily, run RAG and pair it with a reranker; you will cover most of what enterprise knowledge assistants are asked to do. If the job is operating autonomously on workflows that recur, budget months for engineering and build the skill layer carefully; the payoff is an agent that does, not just responds. If the job is in between — building expertise that should compound over time, where the value is in the connections between sources rather than in any single document — that is the regime where the compile-pattern earns its keep, and that is where Trail lives.
+
+The teams that get this wrong tend to default to RAG because it is easiest to ship and then notice, six months in, that their agent never got smarter. That is not a tooling problem. It is a category mismatch. Retrieve-shaped problems are fine; compile-shaped problems are different. Naming the difference up front is the cheapest piece of architecture work you can do.
+
+We picked Compile. We picked it for a class of users we know how to serve. We accept the ceilings, and we have a plan for them. We do not believe Compile wins everywhere, and we do not believe RAG is dead. We believe each architecture is the right answer to a different question, and we believe knowing which question your agent is actually trying to answer matters more than which architecture is currently fashionable.
+
+Start with the job. The architecture follows.
+
+---
+
+### Further reading
+
+- Yanli Liu, *RAG, LLM Wiki, or GBrain? How Your Agent Remembers Changes Everything*, AI Advances on Medium, April 2026 — the three-architecture survey this piece draws on.
+- Andrej Karpathy, *LLM Wiki* GitHub gist, April 2026 — the original compile-pattern manifesto.
+- Garry Tan, *GBrain* repository on GitHub — the Fat Skills reference implementation.
+- For Trail's specific lineage from Vannevar Bush to Niklas Luhmann to today, see [Niklas Luhmann's Zettelkasten Has Been Waiting Seventy Years for the LLM](/trails/research/niklas-luhmann-zettelkasten-llm-wiki/).
+
+---
+
+## Trail vs NotebookLM: Source-Grounded Knowledge Tools
+
+URL: https://www.trailmem.com/trails/research/trail-and-notebooklm/
+Updated: 2026-06-24
+
+Trail and NotebookLM: Same Ethos, Different Artifact
+
+NotebookLM proved source-grounded ingest-time tools can ship to millions. Trail shares that ethos and diverges on one question: what the system leaves behind.
+
+> NotebookLM proved that source-grounded, ingest-time knowledge tools can ship to millions of users. Trail shares that ethos — and then diverges on the single question of what the system leaves behind.
+
+If you have used NotebookLM in the last year, the appeal is obvious. You upload a handful of sources — papers, transcripts, PDFs, a few webpages — and the model grounds every answer in exactly that material. No hallucinated citations. No wandering into pretrained territory. You can ask questions, pull a briefing doc, generate a podcast-style audio overview, or extract a timeline. Sources in, answers out. The model, for once, stays on topic.
+
+People ask where Trail fits next to NotebookLM. The honest answer is that the two systems share most of their philosophical commitments and diverge on one important architectural question. Worth naming both.
+
+## Where they agree
+
+**Sources are the ground truth, not the model.** Both systems reject the pattern where a language model is asked a question and draws from its pretrained weights. Both say: no, the model's job is to work with the material you provided. This is a deliberate break from chat-style LLM interfaces, and it is the right break for knowledge work where provenance matters.
+
+**Work happens at ingest, not just at query time.** NotebookLM pre-processes sources when you upload them — that is why generating a briefing doc or an audio overview feels instant instead of crawling a raw PDF live. Trail takes the same stance further: ingestion is where an LLM actually reads your sources and compiles them into the Neurons. Both systems amortize reading. Both push intelligence up the pipeline.
+
+**Isolation by container.** A NotebookLM notebook is a scoped context — sources belong to that notebook, not to your whole Google account. Trail has the same shape: a Node is a scoped knowledge base, its Neurons and sources live inside it, and nothing leaks across Nodes without a deliberate link. In both cases, the container is the unit of trust.
+
+**Citations are structural, not cosmetic.** Both systems expect to answer "where did this come from?" as a first-class operation. NotebookLM highlights source passages. Trail has a bidirectional `document_references` table — every claim on a Neuron knows which sources support it, and every source knows which Neurons depend on it. This is not a bolted-on feature in either system; it is load-bearing.
+
+If you squint, Trail and NotebookLM look like cousins. Both are part of the small family of tools that actually take source-grounded ingest-time knowledge seriously, as opposed to the much larger family of RAG wrappers that retrieve and pray.
+
+{{svg:notebooklm-vs-trail}}
+
+## Where they diverge: the artifact question
+
+The single biggest difference is what each system produces and leaves behind.
+
+NotebookLM produces **generators**. Upload sources, then ask it to generate a briefing doc, an audio overview, a mindmap, flashcards, a study guide, a timeline. Each of these is a polished artifact, but it is an output — computed on demand, from the current state of your sources, typically regenerated whenever the sources change. The notebook itself remains a collection of sources plus a history of what you generated from them. There is no single compiled knowledge structure that lives between sessions and grows over time.
+
+Trail produces **a graph of Neurons**. Upload sources, and an LLM reads each one and updates a structured, cross-referenced network of Neurons. Each source changes the Neurons in light of every earlier source. Contradictions get flagged. Related claims get linked. The Neurons are the primary artifact — the thing you come back to, the thing that grows, the thing that compounds.
+
+This is a small-sounding difference with large consequences.
+
+**Compounding vs. regeneration.** NotebookLM's outputs are a function of your current source set. Add a tenth source, regenerate the FAQ, get a FAQ that reflects all ten. Perfectly reasonable. But that FAQ does not itself become an input to the eleventh generation. There is no place where the integration work persists as a structured artifact that future work builds on. Trail's Neurons are exactly that place. Source ten updates the Neurons that sources one through nine created. Source eleven updates all of the above.
+
+**Network vs. basket.** A NotebookLM notebook is, structurally, a basket of sources with a chat interface and a generator menu on top. The sources do not link to each other as first-class objects; relationships between them exist only inside whatever generator output you requested, and only for as long as you are looking at it. Trail's Neurons link bidirectionally, and following those links is the entire point. The Neurons form a graph, not a basket.
+
+**Transient polish vs. minimalist persistence.** This is where Trail clearly does less. NotebookLM's audio overview is remarkable — a two-voice podcast-style walk through your sources that is genuinely pleasant to listen to. The mindmap, flashcards, and study guide are all well-executed. Trail has none of those generators. It produces one kind of output: markdown Neurons with links. If polished transient artifacts are what you need, NotebookLM is going to stay ahead for the foreseeable future.
+
+## Where the architectures diverge further
+
+Two more differences matter for anyone choosing between them on infrastructure grounds.
+
+**Open vs. closed.** NotebookLM is a Google product, powered by Gemini, hosted on Google infrastructure, with your sources living in Google's storage. For most consumer and light-commercial use, that is fine. For regulated deployments, self-hosted environments, or situations where vendor lock-in is an active concern, it is a dealbreaker. Trail runs on your machine, your server, or any provider you like. The engine is open, the LLM is pluggable (Claude Code in development, Anthropic API in production, or whatever comes next), and the storage layer sits behind an adapter.
+
+**Curator gate.** NotebookLM lets you add personal notes and pin material, but there is no first-class review step between the model's proposed outputs and the canonical content. Trail's Curation Queue is the opposite bet: every LLM-proposed change to the Neurons goes through a reviewable queue with twelve candidate kinds and an auto-approval threshold. The LLM proposes; the human disposes. This is closer to how institutional knowledge actually accumulates, and it is the feature most likely to matter for professional use.
+
+**Adapter surface.** NotebookLM integrations live inside Google's ecosystem. Trail ships with a stdio MCP server so any MCP client — Claude Code, Cursor, whatever your team uses — can read and write the knowledge base directly. Storage, LLM, vision, and pipelines all sit behind narrow interfaces. Swap any one of them without touching the engine.
+
+{{svg:artifact-persistence}}
+
+## Who is each one for
+
+NotebookLM is excellent for research assistance: read a stack of papers before a meeting, generate a briefing doc, let the audio overview carry you through the commute, ask questions against the set while you work. It is a remarkable productivity tool and it is getting better quickly.
+
+Trail is aimed at a different job: maintaining a body of knowledge that needs to compound over months or years, under human curation, with provenance intact, in an environment you control. Clinical practice, legal research, institutional knowledge inside a consulting firm, long-running scientific synthesis, organisational wikis that should actually track what has been learned. The things that in 2010 might have lived in Confluence and in 2020 might have been patched over with a RAG chatbot.
+
+If you are picking a tool for the first kind of work, use NotebookLM. If you are picking a tool for the second kind of work — and especially if you want to own it — Trail is built for that.
+
+## The short version
+
+- **Same ethos:** source-grounded, ingest-time work, isolated containers, structural citations.
+- **Different artifact:** a basket of sources with generators on top, versus a compiled, compounding graph of Neurons.
+- **Different openness:** closed-hosted on Google infrastructure, versus self-hosted with pluggable adapters.
+- **Different curation:** lightweight personal notes, versus a first-class curator queue with replay-able event logs.
+- **Different strengths:** polished transient outputs (audio, mindmap, flashcards), versus a persistent knowledge graph.
+
+Pick the one that matches the job. For a lot of workloads, they are not substitutes — they answer different questions.
+
+---
