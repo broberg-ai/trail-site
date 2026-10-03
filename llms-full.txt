@@ -2692,7 +2692,9 @@ When the returns policy changes, you update the source in the brain. Every answe
 
 Pick the ten questions your team answers most often and the documents behind them. We will show you agents and a website chat answering them the same way.
 
-Talk to us
+Or see it first — the demo asks a brain the question «How do we handle a return after 30 days — and do all our channels tell customers the same thing?» and shows the answer with its sources.
+
+Talk to us Ask it in the demo
 
 ---
 
@@ -2756,7 +2758,9 @@ The hardest thing about internal knowledge is not finding it — it is knowing w
 
 Start with the handful of documents behind the questions you hear most — the travel policy, the expense rules, the holiday procedure. We will show you a brain built from them.
 
-Talk to us
+Or see it first — the demo asks a brain the question «Who approves travel over €1,500, and has the rule changed this year?» and shows the answer with its sources.
+
+Talk to us Ask it in the demo
 
 ---
 
@@ -2811,7 +2815,9 @@ Course material and training slides are usually read once and forgotten. Put the
 
 Start with your existing onboarding pack and the questions new hires actually ask. We will show you a brain your next new colleague can use on their first morning.
 
-Talk to us
+Or see it first — the demo asks a brain the question «I start in Sales on Monday. What should I do in my first week, and who do I ask about what?» and shows the answer with its sources.
+
+Talk to us Ask it in the demo
 
 ---
 
@@ -2864,7 +2870,9 @@ Because the numbers and the decisions sit in the same brain, you can ask the way
 
 Start with one reporting period: the monthly reports, the board minutes and the spreadsheets behind them. We will show you what it is like to ask your own numbers a question.
 
-Talk to us
+Or see it first — the demo asks a brain the question «What changed between the September and October management reports, and why?» and shows the answer with its sources.
+
+Talk to us Ask it in the demo
 
 ---
 
@@ -2917,7 +2925,9 @@ Pricing changes. When a new price list contradicts the old one, Trail flags the 
 
 Start with your case studies, your current price list and your best offers. We will show you a brain your sales team can ask before their next meeting.
 
-Talk to us
+Or see it first — the demo asks a brain the question «Which projects have we done for logistics companies, what did they achieve, and which can we name as references?» and shows the answer with its sources.
+
+Talk to us Ask it in the demo
 
 ---
 
@@ -2974,6 +2984,8 @@ Every question is also a signal. You can see what visitors ask and where the bra
 
 Most businesses start with the material they already have: the FAQ, the price list and the terms. Send us those, and we will show you your own website answering from them.
 
-Talk to us
+Or see it first — the demo asks a brain the question «What did visitors ask the chat on our website this week, and which questions could it not answer?» and shows the answer with its sources.
+
+Talk to us Ask it in the demo
 
 ---
