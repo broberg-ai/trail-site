@@ -1871,6 +1871,9 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   --terra-500: var(--clay); --terra-600: var(--clay-btn); --terra-mark: var(--clay); --terra-text: var(--clay); --olive-50: var(--bg-sunk); --olive-100: var(--bg-sunk); --olive-700: var(--fg-muted); --olive-800: var(--bg-sunk);
   --sand-foreground: var(--fg-muted); --ring: var(--clay); --shadow: 0 18px 44px rgb(0 0 0 / .24); --font-display: var(--font-serif); --font-sans: inherit; --s1: var(--fg-muted); --s2: var(--clay); }
 
+/* F302.22 — the demo has its own chat box; Aidan steps aside while it is on
+   screen. Lives in the demo page's own content, so it leaves with it. */
+body:has([data-testid="demo-page"]) [data-aidan] { display: none !important; }
 /* The demo is a full-window app; the cookie banner and its reopen button would sit on the composer. This <style> lives only on /demo/. */
 broberg-consent { display: none !important; }
 /* The app fills the window under the site nav and lines up with the nav's own edges
