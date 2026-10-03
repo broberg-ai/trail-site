@@ -48,6 +48,7 @@ html[data-theme="light"] {
   --graph-accent-line: 217, 119, 87;
   /* cardmem.com/site palette (mockup 01a0fe18) — same base as above, clay accent. */
   --clay: #D97757; --clay-d: #9E4F35; --clay-btn: #C6522D;
+  --vote-up: #3E8E41; --vote-down: #C2410C; --vote-flag: #B7791F; /* F308.4 — feedback icons in colour */
   --olive: #788C5D; --olive-d: #5C6F44; --olive-bg: #E8EDE0;
   --amber-d: #87671D; --amber-bg: #F6EDD3;
   --live: #5FA83C; --live-glow: rgba(95, 168, 60, 0.55);
@@ -68,6 +69,7 @@ html[data-theme="dark"] {
   --on-accent: #FFFFFF;
   --accent-tint: rgba(224, 139, 98, 0.08);
   --clay: #E08B62; --clay-d: #F0A886; --clay-btn: #C05826;
+  --vote-up: #6BCB77; --vote-down: #F97316; --vote-flag: #F2C14E;
   --olive: #93A874; --olive-d: #AFC293; --olive-bg: #232B1B;
   --amber-d: #EBCB86; --amber-bg: #322813;
   --live: #7BC55A; --live-glow: rgba(123, 197, 90, 0.45);
@@ -459,6 +461,7 @@ body[data-menu-open="true"] { overflow: hidden; }
   color: var(--fg-60);
 }
 .article-cover { margin: 2rem 0 0; }
+.vote-up { color: var(--vote-up); } .vote-down { color: var(--vote-down); } .vote-flag { color: var(--vote-flag); }
 /* F302.11 — TL;DR box: the article for someone with thirty seconds. It is the
    first thing the eye lands on under the title — card, accent rail, numbered points. */
 .article-tldr {
@@ -645,32 +648,28 @@ body[data-menu-open="true"] { overflow: hidden; }
   .prose-trail blockquote { font-size: 1.1875rem; }
 }
 
-/* Footer */
-.footer {
-  border-top: 1px solid var(--fg-10);
-  padding: 2.5rem 2rem;
-  background: var(--bg);
-}
-@media (min-width: 768px) { .footer { padding: 3rem 1.5rem; } }
-.footer-inner {
-  max-width: 72rem; margin: 0 auto;
-  display: flex; flex-direction: column;
-  gap: 1.5rem; align-items: center;
-  justify-content: space-between;
-}
-@media (min-width: 768px) { .footer-inner { flex-direction: row; } }
-.footer-brand { display: flex; align-items: center; gap: 0.625rem; color: var(--fg); }
-.footer-brand img, .footer-brand svg { width: 32px; height: 32px; }
-.footer-brand span {
-  font-family: var(--font-mono);
-  font-size: 1rem; font-weight: 600;
-}
-.footer-links { display: flex; gap: 1.5rem; font-family: var(--font-mono); font-size: 0.875rem; color: var(--fg-60); }
-.footer-links a { transition: color 0.15s; }
-.footer-links a:hover { color: var(--accent); }
-.footer-copy { font-family: var(--font-mono); font-size: 0.75rem; color: var(--fg-40); }
-.footer-copy a { color: var(--fg-60); border-bottom: 1px dotted var(--fg-20); transition: color 0.15s, border-color 0.15s; }
-.footer-copy a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+/* Footer — F302.16, in the style of broberg.ai's */
+.footer { border-top: 1px solid var(--fg-10); background: var(--bg-sunk); padding: 4rem 2rem 2rem; }
+.footer-top, .footer-bottom { max-width: 72rem; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 2.5rem; }
+.footer-brand { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--fg); }
+.footer-brand img, .footer-brand svg { width: 30px; height: 30px; }
+.footer-brand span { font-family: var(--font-mono); font-size: 1.05rem; font-weight: 600; }
+.footer-payoff { margin: 0.9rem 0 0; max-width: 17rem; font-size: 0.875rem; line-height: 1.55; color: var(--fg-60); }
+.footer-col { display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-col h4 { margin: 0 0 0.35rem; font: 600 0.72rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-40); }
+.footer-col a { font-size: 0.9rem; color: var(--fg-70, var(--fg)); width: fit-content; transition: color 0.15s; }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0; margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--fg-10); font-size: 0.78rem; color: var(--fg-40); }
+.footer-bottom > * + *::before { content: "·"; margin: 0 0.55rem; color: var(--fg-20); }
+.footer-bottom a { color: var(--fg-60); transition: color 0.15s; }
+.footer-bottom a:hover { color: var(--accent); }
+.footer-cookie { background: none; border: 0; padding: 0; font: inherit; color: var(--fg-60); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.footer-cookie:hover { color: var(--accent); }
+.footer-cookie:active { transform: translateY(1px); }
+.footer a:focus-visible, .footer-cookie:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+@media (max-width: 900px) { .footer-top { grid-template-columns: repeat(2, 1fr); } .footer-brand-col { grid-column: 1 / -1; } }
+@media (max-width: 480px) { .footer { padding: 3rem 1.25rem 1.5rem; } .footer-top { gap: 2rem 1.5rem; } }
 
 /* Clickable article tags (reused by pages) */
 .article-tags .tag { transition: color 0.15s, border-color 0.15s; }
@@ -1575,22 +1574,28 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
     <div class="tp-foot"><span><kbd class="tp-kbd">↑</kbd><kbd class="tp-kbd">↓</kbd> navigate</span><span><kbd class="tp-kbd">↵</kbd> open</span><span><kbd class="tp-kbd">esc</kbd> close</span><span class="tp-local">searches in your browser</span></div>
   </div>
 </div>
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="trail">
+  <footer class="footer" data-testid="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a href="/" class="footer-brand" data-testid="footer-brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30" role="img" aria-label="trail">
   <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
   <circle cx="16" cy="16" r="9" fill="none" stroke="#e8a87c" stroke-width="0.9" opacity="0.55"/>
   <circle cx="16" cy="16" r="3.5" fill="#e8a87c"/>
-</svg>
-        <span>trail</span>
+</svg><span>trail</span></a>
+        <p class="footer-payoff">Knowledge Infrastructure for the AI Era.</p>
       </div>
-      <div class="footer-links">
-        <a href="https://upmetrics.org/status/trail">Status</a>
-        <a href="/privacy/">Privacy</a>
-        <a href="/terms/">Terms</a>
-      </div>
-      <div class="footer-copy">© 2026 Trail by <a href="https://broberg.ai" target="_blank" rel="noopener">broberg.ai</a>. Knowledge Infrastructure for the AI Era. Site built with <a href="https://webhouse.app" target="_blank" rel="noopener">@webhouse/cms</a> · <a href="https://upmetrics.org/status/trail" data-testid="footer-version">Trail v0.1.1</a></div>
+      <nav class="footer-col" aria-label="Product"><h4>Product</h4><a href="/#how" data-testid="footer-product-product">Product</a><a href="/#everywhere" data-testid="footer-product-everywhere">Everywhere</a><a href="/#business" data-testid="footer-product-business">Business</a><a href="/#proof" data-testid="footer-product-proof">Proof</a><a href="/second-brain/" data-testid="footer-product-second-brain">Second Brain</a><a href="/#pricing" data-testid="footer-product-pricing">Pricing</a></nav>
+      <nav class="footer-col" aria-label="Articles"><h4>Articles</h4><a href="/trails/how-trail-works/" data-testid="footer-articles-how-trail-works">How Trail Works</a><a href="/trails/field-notes/" data-testid="footer-articles-field-notes">Field Notes</a><a href="/trails/the-1945-concept/" data-testid="footer-articles-the-1945-concept">The 1945 Concept</a><a href="/trails/dispatches/" data-testid="footer-articles-dispatches">Dispatches</a><a href="/trails/research/" data-testid="footer-articles-research">Research</a><a href="/trails/latest/" data-testid="footer-articles-all-articles">All articles</a></nav>
+      <nav class="footer-col" aria-label="Resources"><h4>Resources</h4><a href="/the-1945-concept/" data-testid="footer-resources-the-1945-concept">The 1945 Concept</a><a href="/onboarding/" data-testid="footer-resources-onboarding">Onboarding</a><a href="https://docs.trailmem.com/" data-testid="footer-resources-docs" target="_blank" rel="noopener">Docs</a><a href="https://upmetrics.org/status/trail" data-testid="footer-resources-status" target="_blank" rel="noopener">Status</a></nav>
+      <nav class="footer-col" aria-label="Get in touch"><h4>Get in touch</h4><a href="/#contact" data-testid="footer-get-in-touch-contact-us">Contact us</a><a href="https://app.trailmem.com" data-testid="footer-get-in-touch-sign-in" target="_blank" rel="noopener">Sign in</a><a href="https://broberg.ai" data-testid="footer-get-in-touch-broberg-ai" target="_blank" rel="noopener">broberg.ai</a></nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Trail by <a href="https://broberg.ai" target="_blank" rel="noopener">broberg.ai</a>.</span>
+      <span>Hosted in Stockholm, EU</span>
+      <span>Site built with <a href="https://webhouse.app" target="_blank" rel="noopener">@webhouse/cms</a></span>
+      <a href="https://upmetrics.org/status/trail" target="_blank" rel="noopener" data-testid="footer-version">Trail v0.1.1</a>
+      <a href="/privacy/" data-testid="footer-legal-privacy">Privacy</a><a href="/terms/" data-testid="footer-legal-terms">Terms</a>
+      <button type="button" class="footer-cookie" data-testid="footer-cookie-settings" onclick="var c=document.querySelector('broberg-consent');if(c&&c.open)c.open()">Cookie settings</button>
     </div>
   </footer>
   <script>
