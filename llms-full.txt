@@ -101,6 +101,8 @@ removed where the customer has enabled it.
 
 The text is stored encrypted and is read only by the automatic quality
 analysis. Trail's developers have no direct access to read it.
+The one exception is Aidan, the chat guide on this website — see
+«Conversations with Aidan on trailmem.com» below.
 
 The automatic quality analysis uses our EU language model, **Mistral AI in
 France**, to split each answer into claims and check them against the sources.
@@ -124,6 +126,12 @@ Quality control above;
 
 we do not ask for your name, and the quality log holds no name, email address
 or IP address. Please do not write personal details in the chat.
+
+Unlike the content of our customers' knowledge bases, the questions and
+answers from Aidan on this website may be read by a small number of named
+people at WEB HOUSE in our internal Research Lab. We use them to find where
+Trail answers badly and to build test sets that make Trail better for every
+customer. Every read is logged, and the 30-day deletion applies here too.
 
 Aidan's answers are written by **Mistral AI in France (EU)**. If you ask Aidan
 to email you an answer, your email address is used only to send it, and only
