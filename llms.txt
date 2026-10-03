@@ -28,6 +28,7 @@
 - [Compile-Time vs Search-Time Knowledge Base Architecture](https://www.trailmem.com/trails/how-trail-works/knowledge-that-compounds/): Learn why compile-time knowledge infrastructure outperforms search-based RAG systems for AI-powered knowledge management and organizational scaling.
 - [Lint: How a Trail Brain Keeps Itself Honest](https://www.trailmem.com/trails/how-trail-works/lint-and-linting/): A brain that is only ever added to gets bigger. One that is linted gets better. What Trail checks, how you set it per brain, and what each setting really does today.
 - [Trail's Curation Policy: Three Filters on the Gate](https://www.trailmem.com/trails/how-trail-works/three-filters-on-the-gate/): Explore how Trail's three-filter curation policy mirrors the structure of human memory and neural processing for knowledge systems.
+- [Trail Glossary — Brain, Neuron, Source, Curator and more](https://www.trailmem.com/trails/how-trail-works/trail-glossary/): Plain-language definitions of every Trail term: Brain, Neuron, Source, Curation Queue, Lint, contradictions, hybrid search, API keys and more.
 - [What Trail Does for Your Business | Trail](https://www.trailmem.com/trails/how-trail-works/what-trail-does-for-your-business/): What changes when your company knowledge becomes one brain everyone can ask: website answers around the clock, fewer repeat questions, faster onboarding, consistent customer replies.
 - [Trail's Nightly Corpus Processing: Scaling Knowledge Systems](https://www.trailmem.com/trails/how-trail-works/work-that-fits-in-a-night/): Learn how Trail handles the scan wall problem in corpus processing at scale, maintaining full consistency without distributed computing or data loss.
 
@@ -52,7 +53,7 @@
 
 ## Topics
 
-- 57 tag and category pages under https://www.trailmem.com/tags/
+- 59 tag and category pages under https://www.trailmem.com/tags/
 
 Full content: https://www.trailmem.com/llms-full.txt
 

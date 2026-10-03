@@ -99,6 +99,10 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/glossary/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/history/</loc>
     <priority>0.5</priority>
   </url>
@@ -172,6 +176,10 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/tags/microfilm/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/neurons/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -312,6 +320,11 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/trails/how-trail-works/three-filters-on-the-gate/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/how-trail-works/trail-glossary/</loc>
     <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
   </url>
