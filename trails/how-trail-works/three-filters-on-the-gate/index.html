@@ -551,6 +551,54 @@ body[data-menu-open="true"] { overflow: hidden; }
 /* Narrower than the column ⇒ flush with the left margin, not centred (Christian 2026-10-03). */
 .prose img { max-width: 100%; border-radius: 4px; margin: 1.5rem 0; }
 
+/* ── F302.6 — articles in the front page's language. Text and SVGs untouched; only how they sit. ── */
+.prose-trail { counter-reset: tr-sec; }
+/* A readable measure for running text, flush with the left margin; figures, tables and code keep the full column. */
+.prose-trail > p, .prose-trail > ul, .prose-trail > ol, .prose-trail > blockquote, .prose-trail > h2, .prose-trail > h3, .prose-trail > h4 { max-width: 44rem; }
+.prose-trail > p:first-child { font-size: 1.1875rem; line-height: 1.7; color: var(--fg-70); }
+.prose-trail h2 {
+  counter-increment: tr-sec;
+  font-family: var(--font-serif); font-weight: 400; font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1.12; letter-spacing: -0.02em;
+  margin: 4.5rem 0 1.25rem; padding-top: 1.75rem; border-top: 1px solid var(--fg-10); position: relative;
+}
+.prose-trail > h2:first-child { margin-top: 0; }
+.prose-trail h2::before {
+  content: counter(tr-sec, decimal-leading-zero); display: block; margin-bottom: 0.75rem;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; color: var(--clay-d);
+}
+.prose-trail h2::after { content: ""; position: absolute; top: -4px; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--clay); box-shadow: 0 0 0 4px color-mix(in srgb, var(--clay) 18%, transparent); }
+.prose-trail h3 { font-family: var(--font-serif); font-weight: 400; font-size: 1.375rem; letter-spacing: -0.01em; margin: 2.5rem 0 0.75rem; display: flex; align-items: baseline; gap: 0.6rem; }
+.prose-trail h3::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--clay); transform: translateY(-0.15em); }
+.prose-trail strong { color: var(--fg); }
+/* Lists: Trail nodes instead of bullets; ordered lists count in mono clay. */
+.prose-trail ul { list-style: none; padding-left: 0; }
+.prose-trail ul > li { position: relative; padding-left: 1.75rem; margin-bottom: 0.75rem; }
+.prose-trail ul > li::before { content: ""; position: absolute; left: 0.2rem; top: 0.62em; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--clay); background: radial-gradient(circle, var(--clay) 0 1.5px, transparent 2px); }
+.prose-trail ol { list-style: none; padding-left: 0; counter-reset: tr-li; }
+.prose-trail ol > li { position: relative; padding-left: 2.5rem; margin-bottom: 0.75rem; counter-increment: tr-li; }
+.prose-trail ol > li::before { content: counter(tr-li, decimal-leading-zero); position: absolute; left: 0; top: 0.2em; font-family: var(--font-mono); font-size: 0.8125rem; color: var(--clay-d); }
+/* Quotes as pull-quotes. */
+.prose-trail blockquote { border-left: 2px solid var(--clay); padding: 0.25rem 0 0.25rem 1.5rem; margin: 2.5rem 0; font-family: var(--font-serif); font-size: 1.375rem; line-height: 1.45; color: var(--fg); }
+/* Code: a soft chip inline, a card for blocks. */
+.prose-trail code { background: color-mix(in srgb, var(--clay) 12%, transparent); color: var(--fg); border-radius: 5px; }
+.prose-trail pre { background: var(--bg-card); color: var(--fg); border: 1px solid var(--fg-10); border-radius: 12px; padding: 1.25rem 1.5rem; }
+.prose-trail pre code { background: none; }
+/* Figures sit on a card, like the front page's panels. The SVG itself is untouched. */
+.prose-trail figure { background: var(--bg-card); border: 1px solid var(--fg-10); border-radius: 16px; padding: 2rem 1.5rem 1.25rem; margin: 2.5rem 0; }
+.prose-trail figcaption { text-transform: uppercase; letter-spacing: .06em; font-size: 0.75rem; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--fg-10); }
+/* A section break is the Trail mark, not a line. */
+.prose-trail hr { border: 0; height: 22px; margin: 3.5rem 0; background:
+  radial-gradient(circle, var(--clay) 0 3px, transparent 3.5px) center / 22px 22px no-repeat,
+  radial-gradient(circle, transparent 0 6.5px, color-mix(in srgb, var(--clay) 55%, transparent) 7px 7.75px, transparent 8.25px) center / 22px 22px no-repeat,
+  radial-gradient(circle, transparent 0 9.75px, var(--fg-40) 10.25px 11px, transparent 11.25px) center / 22px 22px no-repeat; }
+.prose-trail table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; margin: 2rem 0; }
+.prose-trail th { text-align: left; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 400; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-60); border-bottom: 1px solid var(--fg-20); padding: 0.6rem 0.75rem; }
+.prose-trail td { border-bottom: 1px solid var(--fg-10); padding: 0.6rem 0.75rem; }
+@media (max-width: 640px) {
+  .prose-trail figure { padding: 1.25rem 0.75rem 1rem; border-radius: 12px; }
+  .prose-trail blockquote { font-size: 1.1875rem; }
+}
+
 /* Footer */
 .footer {
   border-top: 1px solid var(--fg-10);
@@ -1219,7 +1267,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
       <p class="article-lead">A knowledge system without filters isn't a brain — it's a garbage heap. Trail's trusted-pipeline, confidence-threshold, and no-contradictions trio isn't an arbitrary engineering choice. It mirrors a pattern two billion years of evolution converged on.</p>
       <div class="article-meta">How Trail Works · trail · April 16, 2026</div>
       
-    </header><div class="prose"><h2>The gate is the architecture</h2>
+    </header><div class="prose prose-trail"><h2>The gate is the architecture</h2>
 <p>Every persistent knowledge system eventually has to answer the same question: what gets written down, and on whose authority?</p>
 <p>For a brain, the answer is not conscious. You do not sit down each evening and decide which of the day&#39;s experiences to encode into long-term memory. Something in you decides, below the level of attention, and what gets through is the substrate of everything you will later think of as your understanding of the world. What gets filtered out is, by definition, unrecoverable — you will never know what you nearly remembered.</p>
 <p>For a knowledge infrastructure engine, the same question becomes an explicit design problem. Trail compiles sources into a cross-referenced graph of Neurons maintained by a language model. If every candidate that the compiler proposes were admitted without scrutiny, the graph would drift into incoherence within weeks. Contradictions would accumulate. Low-confidence speculation would be indistinguishable from verified claims. The system would look like it was learning, but what it was actually doing was accreting noise.</p>
