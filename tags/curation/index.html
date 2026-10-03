@@ -656,6 +656,11 @@ body[data-menu-open="true"] { overflow: hidden; }
 .footer-brand img, .footer-brand svg { width: 30px; height: 30px; }
 .footer-brand span { font-family: var(--font-mono); font-size: 1.05rem; font-weight: 600; }
 .footer-payoff { margin: 0.9rem 0 0; max-width: 17rem; font-size: 0.875rem; line-height: 1.55; color: var(--fg-60); }
+.footer-pitch { margin: 0.75rem 0 0; max-width: 19rem; font-size: 0.8125rem; line-height: 1.6; color: var(--fg-60); }
+.footer-pitch a { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.35rem; color: var(--accent); font-weight: 500; text-decoration: none; }
+.footer-pitch a:hover { text-decoration: underline; }
+.footer-pitch a:active { opacity: 0.7; }
+.footer-pitch a svg { width: 14px; height: 14px; }
 .footer-col { display: flex; flex-direction: column; gap: 0.7rem; }
 .footer-col h4 { margin: 0 0 0.35rem; font: 600 0.72rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-40); }
 .footer-col a { font-size: 0.9rem; color: var(--fg-70, var(--fg)); width: fit-content; transition: color 0.15s; }
@@ -1436,6 +1441,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   <circle cx="16" cy="16" r="3.5" fill="#e8a87c"/>
 </svg><span>trail</span></a>
         <p class="footer-payoff">Knowledge Infrastructure for the AI Era.</p>
+        <p class="footer-pitch" data-testid="footer-pitch">Every company is getting AI. Soon every competitor runs the same models — what sets you apart is what your AI knows. <a href="/trails/how-trail-works/what-trail-does-for-your-business/" data-testid="footer-pitch-link">Read the benefits for your company <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
       </div>
       <nav class="footer-col" aria-label="Product"><h4>Product</h4><a href="/#how" data-testid="footer-product-product">Product</a><a href="/#everywhere" data-testid="footer-product-everywhere">Everywhere</a><a href="/#business" data-testid="footer-product-business">Business</a><a href="/#proof" data-testid="footer-product-proof">Proof</a><a href="/second-brain/" data-testid="footer-product-second-brain">Second Brain</a><a href="/#pricing" data-testid="footer-product-pricing">Pricing</a></nav>
       <nav class="footer-col" aria-label="Articles"><h4>Articles</h4><a href="/trails/how-trail-works/" data-testid="footer-articles-how-trail-works">How Trail Works</a><a href="/trails/field-notes/" data-testid="footer-articles-field-notes">Field Notes</a><a href="/trails/the-1945-concept/" data-testid="footer-articles-the-1945-concept">The 1945 Concept</a><a href="/trails/dispatches/" data-testid="footer-articles-dispatches">Dispatches</a><a href="/trails/research/" data-testid="footer-articles-research">Research</a><a href="/trails/latest/" data-testid="footer-articles-all-articles">All articles</a></nav>
