@@ -63,7 +63,7 @@
 
 ## Topics
 
-- 77 tag and category pages under https://www.trailmem.com/tags/
+- 78 tag and category pages under https://www.trailmem.com/tags/
 
 Full content: https://www.trailmem.com/llms-full.txt
 

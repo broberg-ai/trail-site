@@ -786,6 +786,20 @@ body[data-menu-open="true"] { overflow: hidden; }
   border-color: var(--accent);
   background: var(--accent-tint);
 }
+/* F302.19 — the tag cloud on /tags/ */
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1rem 0 3rem; }
+.tag-pill {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--fg-20); border-radius: 9999px;
+  background: var(--bg-card);
+  color: var(--fg); font-size: 0.95rem; text-decoration: none;
+  transition: color 0.15s, border-color 0.15s, background 0.15s, transform 0.15s;
+}
+.tag-pill:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-tint); transform: translateY(-1px); }
+.tag-pill:active { transform: translateY(0); }
+.tag-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tag-pill-n { font-family: var(--font-mono); font-size: 0.75rem; color: var(--fg-60); }
 .post-more {
   display: inline-block;
   font-family: var(--font-mono);
@@ -1831,7 +1845,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
       </div>
       <nav class="footer-col" aria-label="Product"><h4>Product</h4><a href="/#how" data-testid="footer-product-product">Product</a><a href="/#everywhere" data-testid="footer-product-everywhere">Everywhere</a><a href="/#business" data-testid="footer-product-business">Business</a><a href="/#proof" data-testid="footer-product-proof">Proof</a><a href="/second-brain/" data-testid="footer-product-second-brain">Second Brain</a><a href="/#pricing" data-testid="footer-product-pricing">Pricing</a></nav>
       <nav class="footer-col" aria-label="Articles"><h4>Articles</h4><a href="/trails/use-cases/" data-testid="footer-articles-use-cases">Use Cases</a><a href="/trails/how-trail-works/" data-testid="footer-articles-how-trail-works">How Trail Works</a><a href="/trails/field-notes/" data-testid="footer-articles-field-notes">Field Notes</a><a href="/trails/the-1945-concept/" data-testid="footer-articles-the-1945-concept">The 1945 Concept</a><a href="/trails/dispatches/" data-testid="footer-articles-dispatches">Dispatches</a><a href="/trails/research/" data-testid="footer-articles-research">Research</a><a href="/trails/latest/" data-testid="footer-articles-all-articles">All articles</a></nav>
-      <nav class="footer-col" aria-label="Resources"><h4>Resources</h4><a href="/the-1945-concept/" data-testid="footer-resources-the-1945-concept">The 1945 Concept</a><a href="/onboarding/" data-testid="footer-resources-onboarding">Onboarding</a><a href="https://docs.trailmem.com/" data-testid="footer-resources-docs" target="_blank" rel="noopener">Docs</a><a href="https://upmetrics.org/status/trail" data-testid="footer-resources-status" target="_blank" rel="noopener">Status</a></nav>
+      <nav class="footer-col" aria-label="Resources"><h4>Resources</h4><a href="/the-1945-concept/" data-testid="footer-resources-the-1945-concept">The 1945 Concept</a><a href="/onboarding/" data-testid="footer-resources-onboarding">Onboarding</a><a href="https://docs.trailmem.com/" data-testid="footer-resources-docs" target="_blank" rel="noopener">Docs</a><a href="/tags/" data-testid="footer-resources-tags">Tags</a><a href="https://upmetrics.org/status/trail" data-testid="footer-resources-status" target="_blank" rel="noopener">Status</a></nav>
       <nav class="footer-col" aria-label="Get in touch"><h4>Get in touch</h4><a href="/#contact" data-testid="footer-get-in-touch-contact-us">Contact us</a><a href="https://app.trailmem.com" data-testid="footer-get-in-touch-sign-in" target="_blank" rel="noopener">Sign in</a><a href="https://broberg.ai" data-testid="footer-get-in-touch-broberg-ai" target="_blank" rel="noopener">broberg.ai</a></nav>
     </div>
     <div class="footer-bottom">
