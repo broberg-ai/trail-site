@@ -459,6 +459,22 @@ body[data-menu-open="true"] { overflow: hidden; }
   color: var(--fg-60);
 }
 .article-cover { margin: 2rem 0 0; }
+/* F302.11 — TL;DR box: the article in three lines, before the long read. */
+.article-tldr {
+  margin: -1rem 0 3rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--accent-tint);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+}
+.article-tldr-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem; letter-spacing: 0.08em;
+  color: var(--accent-text);
+  margin-bottom: 0.5rem;
+}
+.article-tldr ul { margin: 0; padding-left: 1.1rem; }
+.article-tldr li { font-size: 1rem; line-height: 1.6; color: var(--fg); margin: 0.25rem 0; }
 .article-cover img { width: 100%; border-radius: 4px; }
 
 .prose { font-size: 1.0625rem; line-height: 1.75; color: var(--fg); word-wrap: break-word; overflow-wrap: break-word; }
