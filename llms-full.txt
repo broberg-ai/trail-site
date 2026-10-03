@@ -414,7 +414,7 @@ courts.
 ## As We May Think: Vannevar Bush's 1945 Vision
 
 URL: https://www.trailmem.com/the-1945-concept/
-Updated: 2026-06-24
+Updated: 2026-10-03
 
 In July 1945, Vannevar Bush sketched a machine that would change how humanity thinks about knowledge. He called it the memex. Eighty-one years later, we are finally building it.
 
@@ -495,7 +495,7 @@ Bush would have recognized the problem immediately. This is not how the mind wor
 
 ## From Memex to Trail
 
-In October 2025, Andrej Karpathy described a different pattern: the **LLM Wiki**. Instead of retrieving fragments at query time, a language model compiles knowledge at *ingest* time into a persistent, cross-referenced graph of Neurons — a living document that an AI maintains on behalf of a human curator. Every new source is not just stored, it is *integrated*. The Neurons accumulate. Knowledge compounds. Curators review what the machine proposes and approve what is worth keeping.
+In April 2026, Andrej Karpathy described a different pattern: the **LLM Wiki**. Instead of retrieving fragments at query time, a language model compiles knowledge at *ingest* time into a persistent, cross-referenced graph of Neurons — a living document that an AI maintains on behalf of a human curator. Every new source is not just stored, it is *integrated*. The Neurons accumulate. Knowledge compounds. Curators review what the machine proposes and approve what is worth keeping.
 
 This is the memex. Not metaphorically — structurally. The associative trails are Neuron links. The ingest pipeline is the transparent platen. The curator is the human operator choosing which trails to preserve. Even the critique of hierarchy versus association is the same, eighty-one years later.
 
@@ -649,7 +649,7 @@ Engineering diaries from inside the Trail build — pipelines, benchmarks, incid
 ## Compile-Time Knowledge vs RAG: Technical Architecture Guide
 
 URL: https://www.trailmem.com/trails/how-trail-works/compile-time-knowledge-vs-rag/
-Updated: 2026-06-24
+Updated: 2026-10-03
 
 Compile-Time Knowledge: A Technical Argument Against RAG
 
@@ -781,7 +781,7 @@ Vannevar Bush's 1945 essay *As We May Think* described a hypothetical machine ca
 
 The microfilm reels in the base of Bush's memex desk — chosen as the visual mark for the Trail engine — were not a technical detail. They were the storage substrate for trails: sequences of frames linked in meaningful order, with annotations along the way. The Trail was the unit of compiled knowledge. The memex was the machine that compiled and held it.
 
-Eighty-one years later, language models are the integration mechanism Bush could not build. The LLM Wiki pattern, articulated by Andrej Karpathy in late 2025, is the modern restatement of Bush's idea: use the language model as a continuous compiler of knowledge, not as a query-time oracle. The Neurons are the artifact. The model maintains it.
+Eighty-one years later, language models are the integration mechanism Bush could not build. The LLM Wiki pattern, articulated by Andrej Karpathy in April 2026, is the modern restatement of Bush's idea: use the language model as a continuous compiler of knowledge, not as a query-time oracle. The Neurons are the artifact. The model maintains it.
 
 Trail is the engine that does this work. The SaaS successor to memxcloud is the commercial product built on trail.
 
@@ -805,14 +805,14 @@ The argument for compile-time knowledge is that integration, consolidation, and 
 
 The infrastructure cost is higher per source. The infrastructure cost is dramatically lower per query. The accumulated value, over time, is qualitatively different.
 
-Bush saw this in 1945. Karpathy named it again in 2025. Trail implements it now.
+Bush saw this in 1945. Karpathy named it again in 2026. Trail implements it now.
 
 ---
 
 ### Further reading
 
 - Vannevar Bush, [*As We May Think*](https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/) — *The Atlantic*, July 1945
-- Andrej Karpathy, *LLM Wiki* — described publicly in October 2025
+- Andrej Karpathy, *LLM Wiki* — published as a GitHub gist in April 2026
 - Donald Hebb, *The Organization of Behavior*, 1949
 - For Trail's architectural specification and API, see [trail.broberg.ai/docs](https://trail.broberg.ai/docs)
 
@@ -916,7 +916,7 @@ The organizations that get the most out of this are not the ones with the larges
 ## How Brain Memory Works: Trail vs RAG Architecture
 
 URL: https://www.trailmem.com/trails/how-trail-works/how-a-brain-actually-remembers/
-Updated: 2026-06-24
+Updated: 2026-10-03
 
 How a Brain Actually Remembers: Why Trail Compiles Knowledge Instead of Searching For It
 
@@ -978,7 +978,7 @@ Trail has the full picture. Sources are ingested. The compile step integrates th
 
 ## Why Karpathy was right
 
-In October 2025, Andrej Karpathy described this same architecture as an "LLM Wiki." His framing was that the next frontier for language models was not to generate more code or write more text, but to manage knowledge as a continuous compiler — turning raw sources into a structured, cross-referenced graph of Neurons that the model maintains over time.
+In April 2026, Andrej Karpathy described this same architecture as an "LLM Wiki." His framing was that the next frontier for language models was not to generate more code or write more text, but to manage knowledge as a continuous compiler — turning raw sources into a structured, cross-referenced graph of Neurons that the model maintains over time.
 
 The argument landed because it named what RAG had quietly been getting wrong. RAG had treated language models as oracles that need their context refilled with each query. Karpathy's framing flipped it: the model is not the oracle, the compiled Neurons are. The model's job is to keep them coherent, integrated, and up to date. The user reads the Neurons — sometimes through the model, sometimes directly — and the work of building understanding happens in the background, before any query is ever asked.
 
@@ -1017,7 +1017,7 @@ The brain does not search. It compiles. So does Trail.
 ### Further reading
 
 - Vannevar Bush, [*As We May Think*](https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/) — *The Atlantic*, July 1945
-- Andrej Karpathy, *LLM Wiki* — described publicly in October 2025
+- Andrej Karpathy, *LLM Wiki* — published as a GitHub gist in April 2026
 - Donald Hebb, *The Organization of Behavior*, 1949 — origin of "neurons that fire together, wire together"
 - For a deeper dive into the visual lineage of Trail's microfilm-spool logo, see [As We May Think: The 1945 Vision That Became Trail](/the-1945-concept/)
 
@@ -1035,7 +1035,7 @@ Essays on Trail's architecture — ingest-time compilation, cross-referenced Neu
 ## Compile-Time vs Search-Time Knowledge Base Architecture
 
 URL: https://www.trailmem.com/trails/how-trail-works/knowledge-that-compounds/
-Updated: 2026-06-24
+Updated: 2026-10-03
 
 Most AI knowledge systems are sophisticated search engines that forget between queries. The organizations winning are building something different — and the architectural choice has direct consequences for cost, accuracy, and defensibility.
 
@@ -1109,7 +1109,7 @@ The market is now correcting. Compile-time architectures — under various names
 
 The compile-time architecture is not new in concept. It was first described in detail by Vannevar Bush, the wartime director of the U.S. Office of Scientific Research and Development, in a 1945 essay in *The Atlantic Monthly*. Bush proposed a hypothetical machine he called the **memex** — a desk with microfilm storage that would let a researcher build associative trails of knowledge through their personal corpus. His central argument was that human cognition operates by association and integration, not by retrieval from indexed storage, and that knowledge systems built on the latter model were structurally mismatched with how thinking actually works.
 
-Bush could not build the memex; the technology to compile knowledge automatically did not exist in 1945. But the architectural argument was correct, and it has been periodically rediscovered ever since — in Doug Engelbart's NLS in the 1960s, Ted Nelson's hypertext work, the Web itself, and most recently in the LLM Wiki pattern articulated by Andrej Karpathy in late 2025.
+Bush could not build the memex; the technology to compile knowledge automatically did not exist in 1945. But the architectural argument was correct, and it has been periodically rediscovered ever since — in Doug Engelbart's NLS in the 1960s, Ted Nelson's hypertext work, the Web itself, and most recently in the LLM Wiki pattern articulated by Andrej Karpathy in April 2026.
 
 Language models are the integration mechanism Bush could not build. They make compile-time knowledge infrastructure technically tractable for the first time. The microfilm reels in the base of Bush's memex desk — the visual mark we chose for Trail — were not a technical detail. They were the storage substrate for trails of meaning. Trail is the engine that builds and maintains those trails for the modern equivalent of Bush's vision.
 
@@ -1128,9 +1128,91 @@ This is the bet Trail represents. We think the architecture matters more than th
 ### Further reading
 
 - Vannevar Bush, [*As We May Think*](https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/) — *The Atlantic*, July 1945
-- Andrej Karpathy, *LLM Wiki* — described publicly in October 2025
+- Andrej Karpathy, *LLM Wiki* — published as a GitHub gist in April 2026
 - For implementation details, architectural specifications, and the case for compile-time architecture from an engineering perspective, see [Compile-Time Knowledge: A Technical Argument Against RAG](/trails/how-trail-works/compile-time-knowledge-vs-rag/)
 - For the historical lineage from Bush's 1945 vision to Trail, see [As We May Think: The 1945 Vision That Became Trail](/the-1945-concept/)
+
+---
+
+## Lint: How a Trail Brain Keeps Itself Honest
+
+URL: https://www.trailmem.com/trails/how-trail-works/lint-and-linting/
+Updated: 2026-10-03
+
+A brain that is only ever added to gets bigger. One that is linted gets better. What Trail checks, how you set it per brain, and what each setting really does today.
+
+## Why a brain needs lint
+
+A Trail brain is not a pile of files. It is a graph of Neurons that a language model wrote and keeps writing, every time a new source arrives. That is what makes it useful — and it is also why it needs a second process watching over it. Pages drift out of date. Sources get replaced. Two documents disagree. A Neuron loses the source that justified it.
+
+Lint is that second process. It reads the brain the way a careful editor would, and it reports what it finds. It never edits the brain on its own: every finding becomes a candidate in the curation queue, the same queue every other change goes through. The model proposes; a person — or a policy the person set — decides.
+
+This article walks through what lint checks, how you control it per brain, and what each setting actually does today.
+
+## The checks
+
+**Maintenance lint** — the housekeeping checks:
+
+- **Stale Neurons.** A Neuron nobody has touched in 90 days is flagged for a look. Not because old means wrong, but because old and unreviewed is where wrong hides.
+- **Orphans.** A Neuron with no links in or out, and a source that no Neuron cites ("unused source"). Both usually mean something was compiled but never connected.
+- **Faded heuristics.** Rules of thumb whose confidence has dropped enough to deserve a second opinion.
+
+**Link check** — every wiki link in the brain is resolved, so a renamed or retired page does not leave dead ends behind.
+
+**Contradiction lint** — the expensive one, and the most valuable. When a Neuron is approved, Trail compares it with the five Neurons most similar to it and asks a language model whether any pair disagrees. If neither page has changed since the last comparison, the model is not asked again. A contradiction becomes a candidate with four possible outcomes for the curator: reconcile the two, retire one, retire the other, or dismiss the finding.
+
+Contradiction lint also runs on a schedule, so pages approved before it was switched on — or pages whose neighbours changed later — still get checked. The scheduled scan works through the Neurons that have gone longest without a check, oldest first, capped at 500 per brain per pass. Every page gets its turn; the cap keeps a large brain's pass inside a predictable time and cost.
+
+> A note on an earlier article: "Work That Fits in a Night" described a 60/40 split between recent edits and random older pages. What runs today is the oldest-first rotation described here. Recent edits are still checked at once, by the reactive check on approval.
+
+All contradiction checks run on EU-hosted language models.
+
+## Settings, per brain
+
+Everything below lives under **Settings** for each brain. One brain can be strict while another is relaxed.
+
+### Lint policy
+
+Two choices. **Trusting** (the default): a finding you dismissed stays dismissed. **Strict**: a dismissed finding can come back if the underlying problem is still there on the next pass. Strict suits brains where a quiet mistake is costly; trusting suits brains where the curator's time is the scarce resource.
+
+### Lint schedule and cadence
+
+How often the scheduled pass runs: daily, every 3, 7, 14, 30, 60 or 90 days — or the global default, which is **7 days**. Weekly is the recommended setting. The settings page shows the last pass, when the next one is due, and how many findings it produced. A tighter cadence finds things sooner and costs more model calls; the page says so next to the control.
+
+### Contradiction lint — on or off
+
+On by default. Switching it off stops both the reactive and the scheduled contradiction checks for that brain, and with them their model cost. Useful for brains where disagreement is expected — a collection of opposing opinions, for example.
+
+### Maintenance lint — on or off
+
+On by default. Switching it off skips the stale, orphan and faded checks. The link check and contradiction checks still run.
+
+### A new version of the same source becomes canon
+
+When a source you already have comes back changed — a corrected web page, a re-uploaded report — Trail treats the new version as the truth instead of reporting it as a contradiction with itself. Without this, every improvement to a document would create work in the queue. Changes are detected by the content itself, not by a timestamp. The switch is on by default, and it can also be turned off for individual connectors, so a brain that mixes a website sync with manual uploads can treat each the way it should be treated.
+
+### Memory fading
+
+Off by default, per brain. When it is on, every Neuron carries a confidence that fades if nobody uses it, is reinforced when it is edited, cited or used in an answer, and is lowered when it is contradicted. Different kinds of knowledge fade at different speeds: concepts and glossary terms slowly (about a year), entities and source summaries faster (about six months), syntheses and answers to questions faster still. You can pin a Neuron to hold it at full confidence. Chat stops drawing on Neurons below a confidence of 0.3. Nothing is deleted: a Neuron that has been replaced is kept and down-weighted, so the history stays readable.
+
+### Personas: tool and public
+
+Lint keeps what is in a brain healthy. Personas decide how the brain speaks when something outside Trail asks it. Each brain can have a **tool persona** and a **public persona**:
+
+- A system calling Trail with an API key is a *tool* by default and gets the tool persona — written for software and professionals.
+- A caller can ask for `audience: public` to get the public persona — written for end-users, for example on a website.
+- A caller can narrow its audience, never widen it. An API key can never reach the curator view.
+
+The same audience rules decide which Neurons an answer may draw on: tool callers see tool and public material; public callers see only public material.
+
+## How findings reach you
+
+Every finding lands in the curation queue as a candidate, with the evidence attached. Machine-made findings from Trail's own pipelines can be approved automatically when their confidence clears the threshold (0.8 by default); anything created by a person is never auto-approved, and a candidate that would replace an existing Neuron needs a clear margin before it passes on its own. The same finding is never queued twice. New findings can send a notification, so a curator does not have to remember to look.
+
+## The point
+
+A knowledge base that is only ever added to gets bigger. One that is also linted gets better: stale pages get a second look, sources that changed become the new truth, disagreements surface instead of hiding, and nothing changes without a decision. Lint is how a Trail brain keeps itself honest — on a schedule you choose.
+
 
 ---
 
@@ -1276,7 +1358,7 @@ Trail has three filters. The brain has three filters. This is not a coincidence.
 ## Trail's Nightly Corpus Processing: Scaling Knowledge Systems
 
 URL: https://www.trailmem.com/trails/how-trail-works/work-that-fits-in-a-night/
-Updated: 2026-06-24
+Updated: 2026-10-03
 
 Work That Fits in a Night: How Trail Stops Caring About Corpus Size
 
@@ -1378,7 +1460,7 @@ That is the scaling plan. It is not an engineering tour de force. It is the resu
 
 - Walker, Matthew. *Why We Sleep*. Scribner, 2017. Chapter 6 is the most accessible non-academic account of slow-wave consolidation's role in memory integration.
 - Diekelmann, S. & Born, J. *The memory function of sleep*. Nature Reviews Neuroscience, 2010. The canonical review on sleep-dependent memory reorganisation, including the recency-bias that Trail's 60/40 split mirrors.
-- Andrej Karpathy, *LLM Wiki* — October 2025. Names the pattern Trail implements; does not address the scan-wall problem, which falls out once you try to operate the pattern at scale.
+- Andrej Karpathy, *LLM Wiki* — April 2026. Names the pattern Trail implements; does not address the scan-wall problem, which falls out once you try to operate the pattern at scale.
 - For Trail's full scaling analysis across queue, lint, and ingest at corpus sizes from 200 to 100,000 Neurons, see the engineering note [Scaling Trail from 200 to 100,000 Neurons](/trails/research/scaling-trail-from-200-to-100000-neurons/).
 
 ---

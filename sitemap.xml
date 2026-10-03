@@ -43,6 +43,10 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/brain-health/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/broberg-ai/</loc>
     <priority>0.5</priority>
   </url>
@@ -56,6 +60,10 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/tags/compile-time/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/contradictions/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -127,7 +135,15 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/measurement/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/memex/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/memory/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -159,6 +175,10 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/quality/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/queue/</loc>
     <priority>0.5</priority>
   </url>
@@ -167,11 +187,24 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/research-lab/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/sampling/</loc>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.trailmem.com/tags/scalability/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/search/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/tags/settings/</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -197,7 +230,7 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/the-1945-concept/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
@@ -217,7 +250,7 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/trails/how-trail-works/compile-time-knowledge-vs-rag/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
@@ -227,7 +260,7 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/trails/how-trail-works/how-a-brain-actually-remembers/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
@@ -237,7 +270,12 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/trails/how-trail-works/knowledge-that-compounds/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/how-trail-works/lint-and-linting/</loc>
+    <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
@@ -247,7 +285,7 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/trails/how-trail-works/work-that-fits-in-a-night/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
   </url>
   <url>

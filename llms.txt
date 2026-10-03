@@ -32,6 +32,7 @@
 - [Does a Trail Get Smarter as It Grows? Knowledge Base Growth](https://www.trailmem.com/trails/how-trail-works/does-a-trail-get-smarter-as-it-grows/): Learn how knowledge bases improve with growth: the S-curve pattern, when systems plateau, and design choices that keep trails smarter.
 - [How Brain Memory Works: Trail vs RAG Architecture](https://www.trailmem.com/trails/how-trail-works/how-a-brain-actually-remembers/): Learn how human memory actually works and why Trail compiles knowledge through associative pathways instead of searching like traditional RAG systems.
 - [Compile-Time vs Search-Time Knowledge Base Architecture](https://www.trailmem.com/trails/how-trail-works/knowledge-that-compounds/): Learn why compile-time knowledge infrastructure outperforms search-based RAG systems for AI-powered knowledge management and organizational scaling.
+- [Lint: How a Trail Brain Keeps Itself Honest](https://www.trailmem.com/trails/how-trail-works/lint-and-linting/): A brain that is only ever added to gets bigger. One that is linted gets better. What Trail checks, how you set it per brain, and what each setting really does today.
 - [Trail's Curation Policy: Three Filters on the Gate](https://www.trailmem.com/trails/how-trail-works/three-filters-on-the-gate/): Explore how Trail's three-filter curation policy mirrors the structure of human memory and neural processing for knowledge systems.
 - [Trail's Nightly Corpus Processing: Scaling Knowledge Systems](https://www.trailmem.com/trails/how-trail-works/work-that-fits-in-a-night/): Learn how Trail handles the scan wall problem in corpus processing at scale, maintaining full consistency without distributed computing or data loss.
 
@@ -44,7 +45,7 @@
 
 ## Topics
 
-- 42 tag and category pages under https://www.trailmem.com/tags/
+- 50 tag and category pages under https://www.trailmem.com/tags/
 
 Full content: https://www.trailmem.com/llms-full.txt
 

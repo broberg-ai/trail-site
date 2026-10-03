@@ -1778,7 +1778,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
 <h2>The 1945 reference, briefly</h2>
 <p>Vannevar Bush&#39;s 1945 essay <em>As We May Think</em> described a hypothetical machine called the <strong>memex</strong> — a desk-sized device with microfilm storage and projected screens that would let a researcher build associative trails through their personal knowledge corpus. Bush&#39;s central argument was that the human mind operates by association, not by hierarchical classification, and that information systems built on classification (the library, the card catalog) were structurally mismatched with how thinking actually works.</p>
 <p>The microfilm reels in the base of Bush&#39;s memex desk — chosen as the visual mark for the Trail engine — were not a technical detail. They were the storage substrate for trails: sequences of frames linked in meaningful order, with annotations along the way. The Trail was the unit of compiled knowledge. The memex was the machine that compiled and held it.</p>
-<p>Eighty-one years later, language models are the integration mechanism Bush could not build. The LLM Wiki pattern, articulated by Andrej Karpathy in late 2025, is the modern restatement of Bush&#39;s idea: use the language model as a continuous compiler of knowledge, not as a query-time oracle. The Neurons are the artifact. The model maintains it.</p>
+<p>Eighty-one years later, language models are the integration mechanism Bush could not build. The LLM Wiki pattern, articulated by Andrej Karpathy in April 2026, is the modern restatement of Bush&#39;s idea: use the language model as a continuous compiler of knowledge, not as a query-time oracle. The Neurons are the artifact. The model maintains it.</p>
 <p>Trail is the engine that does this work. The SaaS successor to memxcloud is the commercial product built on trail.</p>
 <h2>Implementation notes</h2>
 <p>A few specifics about how Trail&#39;s compile-time architecture is implemented:</p>
@@ -1794,12 +1794,12 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
 <p>The argument against RAG is not that it does not work. It is that it works for the wrong shape of problem if your goal is accumulating knowledge over time. A system that performs all of its reasoning at query time, on raw fragments, with no persistent compiled structure, is structurally a search engine — regardless of how sophisticated the language model attached to it.</p>
 <p>The argument for compile-time knowledge is that integration, consolidation, and persistent structure are the actual value-producing operations in a knowledge system. Brains do this work continuously, mostly outside of conscious attention. Trail does it explicitly, in a queue-driven pipeline with full provenance.</p>
 <p>The infrastructure cost is higher per source. The infrastructure cost is dramatically lower per query. The accumulated value, over time, is qualitatively different.</p>
-<p>Bush saw this in 1945. Karpathy named it again in 2025. Trail implements it now.</p>
+<p>Bush saw this in 1945. Karpathy named it again in 2026. Trail implements it now.</p>
 <hr>
 <h3>Further reading</h3>
 <ul>
 <li>Vannevar Bush, <a href="https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"><em>As We May Think</em></a> — <em>The Atlantic</em>, July 1945</li>
-<li>Andrej Karpathy, <em>LLM Wiki</em> — described publicly in October 2025</li>
+<li>Andrej Karpathy, <em>LLM Wiki</em> — published as a GitHub gist in April 2026</li>
 <li>Donald Hebb, <em>The Organization of Behavior</em>, 1949</li>
 <li>For Trail&#39;s architectural specification and API, see <a href="https://trail.broberg.ai/docs">trail.broberg.ai/docs</a></li>
 </ul>
