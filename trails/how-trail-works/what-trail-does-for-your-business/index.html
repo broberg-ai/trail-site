@@ -1129,6 +1129,10 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
 .sc-card:hover { border-color: var(--clay); transform: translateY(-2px); }
 .sc-card h3 { font-size: 17px; margin: 0 0 8px; color: var(--fg); }
 .sc-card p { font-size: 14.5px; line-height: 1.6; margin: 0; }
+.sc-media figure { margin: 0; }
+.sc-media .lp-chat { margin: 0; box-shadow: 0 30px 80px -30px rgba(0,0,0,.45); }
+.sc-tldr .article-tldr { margin: 0 0 8px; }
+.sc-cta .lp-btn { margin-top: 12px; }
 .sc-cta { text-align: center; padding: 110px 0; }
 .sc-cta h2 { font-size: 46px; }
 .sc-cta p { max-width: 620px; margin-left: auto; margin-right: auto; }
@@ -1340,55 +1344,65 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
     /* Re-run after an in-place page swap (page-scripts.ts). */
     (window.__tp = window.__tp || []).push(initSvgFullscreen);
   </script>
-  <div id="page" data-testid="page-root"><article class="article container"><header class="article-header">
-      <div class="article-eyebrow">How Trail Works</div>
-      <h1>What Trail Does for Your Business</h1>
-      <p class="article-lead">No architecture, no jargon: what changes for a company when its own knowledge becomes one brain everyone can ask — with examples from the website, the support desk, onboarding, sales and the board room.</p>
-      <div class="article-meta">How Trail Works · trail by broberg.ai · October 3, 2026</div>
-      
-    </header><aside class="article-tldr" data-testid="article-tldr" aria-label="TL;DR"><div class="article-tldr-head"><span class="article-tldr-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>TL;DR</span><span class="article-tldr-sub">The whole article in 3 points</span></div><ol><li>Trail turns what your company already knows into one brain that people, customers and AI tools can ask — with the source on every answer.</li><li>It answers customers on your website around the clock, takes repeat questions off your experts and gets new colleagues productive from day one.</li><li>Nothing enters without your approval, disagreements are flagged, and your data stays in the EU.</li></ol></aside><div class="prose prose-trail"><h2>The short version</h2>
+  <div id="page" data-testid="page-root"><div class="has-hero-video sc-post"><header class="sc-hero" data-testid="showcase-hero"><div class="lp-wrap"><span class="lp-eyebrow">How Trail Works</span><h1>What Trail Does for Your Business</h1><p>No architecture, no jargon: what changes for a company when its own knowledge becomes one brain everyone can ask — with examples from the website, the support desk, onboarding, sales and the board room.</p></div></header><div class="lp-wrap sc-tldr"><aside class="article-tldr" data-testid="article-tldr" aria-label="TL;DR"><div class="article-tldr-head"><span class="article-tldr-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>TL;DR</span><span class="article-tldr-sub">The whole article in 3 points</span></div><ol><li>Trail turns what your company already knows into one brain that people, customers and AI tools can ask — with the source on every answer.</li><li>It answers customers on your website around the clock, takes repeat questions off your experts and gets new colleagues productive from day one.</li><li>Nothing enters without your approval, disagreements are flagged, and your data stays in the EU.</li></ol></aside></div><section class="sc-s" data-testid="showcase-section-0"><div class="lp-wrap"><div class="sc-text sc-wide"><span class="lp-eyebrow">01</span><h2>The short version</h2>
+<blockquote>
+<p>The examples on this page are illustrations — the answers come from your own documents, not from ours.</p>
+</blockquote>
 <p>Your company already knows most of what it needs to answer its own questions. It is written down somewhere: in board minutes, price lists, handbooks, offers, Excel sheets, mails and meeting notes. The problem is not that the knowledge is missing. The problem is that nobody can find it when they need it, and the person who knows the answer is busy, on holiday or has left.</p>
 <p>Trail turns that pile into one brain your whole organisation can ask. People get an answer in seconds instead of searching for twenty minutes. Every answer shows where it came from, so nobody has to take it on trust. And nothing goes into the brain without someone at your company approving it.</p>
 <p>This article is about what that means for a business — no architecture, no jargon. Here are the situations where companies feel it first.</p>
-<h2>Your website answers customers around the clock</h2>
+</div></div></section><section class="sc-s lp-s-alt" data-testid="showcase-section-1"><div class="lp-wrap"><div class="sc-split sc-media-right"><div class="sc-text"><span class="lp-eyebrow">02</span><h2>Your website answers customers around the clock</h2>
+
+
+
 <p>A small business usually has one person who knows how everything works: opening hours, what is included in a service, which product fits which need, what the delivery terms are. When that person is with a customer, the phone and the inbox wait.</p>
 <p>With Trail, the same knowledge can answer on your website. You put a chat box on your page, it answers visitors from your own material — your price list, your product sheets, your FAQ — and shows which page each answer came from. It does not make things up from the internet, and when it does not know, it says so instead of guessing.</p>
 <p><strong>What a visitor experiences:</strong> they ask «Do you deliver to Norway, and what does it cost?» at 22:40 and get the answer from your own delivery terms, with a link to read the details. <strong>What you get:</strong> fewer repeated questions in the inbox, and customers who arrive at the first conversation already knowing the basics.</p>
-<h2>People stop asking the same colleague</h2>
+</div><div class="sc-media"><figure><div class="lp-chat" data-illustration><div class="lp-bub lp-me">Do you deliver to Norway, and what does it cost?</div><div class="lp-bub lp-ai"><small>trail · on your website</small>Yes — standard delivery to Norway takes 3–5 working days and costs 149 kr. Orders over 1,500 kr ship free. <span class="lp-cite">[Delivery terms]</span></div></div></figure></div></div></div></section><section class="sc-s" data-testid="showcase-section-2"><div class="lp-wrap"><div class="sc-split sc-media-left"><div class="sc-text"><span class="lp-eyebrow">03</span><h2>People stop asking the same colleague</h2>
+
+
+
 <p>In every company there is a handful of people everybody goes to. Where is the latest version of the contract template? What did we agree with that supplier? How do we handle a return over 30 days? Each question takes two minutes. Twenty of them a day take the best part of an afternoon — from your most experienced people.</p>
 <p>Trail puts one brain behind the intranet, the support desk and the tools your people already use. The answer to «How do we handle a late return?» comes from the procedure you actually wrote, with a link to it. Your experts get their time back, and the answer is the same whether it is given on Monday or Friday, by the senior or by the newest hire.</p>
-<h2>New colleagues are useful from day one</h2>
+</div><div class="sc-media"><figure><div class="lp-chat" data-illustration><div class="lp-bub lp-me">How do we handle a return after 30 days?</div><div class="lp-bub lp-ai"><small>trail · your brain</small>Returns after 30 days need approval from the team lead. Store credit, not cash, unless the item is faulty. <span class="lp-cite">[Returns procedure]</span></div></div></figure></div></div></div></section><section class="sc-s lp-s-alt" data-testid="showcase-section-3"><div class="lp-wrap"><div class="sc-split sc-media-right"><div class="sc-text"><span class="lp-eyebrow">04</span><h2>New colleagues are useful from day one</h2>
+
+
+
 <p>Onboarding usually means a stack of documents, a shared drive and a lot of «just ask me if anything is unclear». New people do not like to ask the same thing twice, so they guess.</p>
 <p>With a brain, a new colleague can simply ask: «Which customers are on the annual agreement?», «Who approves travel over 10,000 kroner?», «What is our standard warranty?» — and every answer shows the source, so they learn where things live while they work. Training material stops being something you read once and forget, and becomes something people can ask whenever they need it.</p>
-<h2>Every reply to a customer says the same thing</h2>
+</div><div class="sc-media"><figure><div class="lp-chat" data-illustration><div class="lp-bub lp-me">Who approves travel over 10,000 kroner?</div><div class="lp-bub lp-ai"><small>trail · your brain</small>The department head — and above 50,000 kroner the CFO as well. Book through the travel portal, not on your own card. <span class="lp-cite">[Travel policy 2026]</span></div></div></figure></div></div></div></section><section class="sc-s" data-testid="showcase-section-4"><div class="lp-wrap"><div class="sc-split sc-media-left"><div class="sc-text"><span class="lp-eyebrow">05</span><h2>Every reply to a customer says the same thing</h2>
+
+
+
 <p>When customer service agents, sales people and a chatbot each answer from their own memory, customers get three different answers to the same question. That costs trust, and sometimes money.</p>
 <p>With Trail, people and bots answer from the same approved knowledge. When a policy changes, you update the source once, and the brain follows. If a new document contradicts something the brain already knows — say, a new price list that disagrees with last year&#39;s — Trail flags the disagreement for a person to decide, instead of quietly mixing the two.</p>
-<h2>Sales gets answers it can trust</h2>
+</div><div class="sc-media"><figure><div class="lp-pcard"><h3>Price list</h3><p>A new source disagrees with what your brain already knows.</p><div class="lp-check"><span>Price list 2026 vs 2025</span><em class="lp-warn">2 sources disagree</em></div><div class="lp-check"><span>Decision</span><em>waiting for you</em></div></div></figure></div></div></div></section><section class="sc-s lp-s-alt" data-testid="showcase-section-5"><div class="lp-wrap"><div class="sc-split sc-media-right"><div class="sc-text"><span class="lp-eyebrow">06</span><h2>Sales gets answers it can trust</h2>
+
+
+
 <p>Sales teams live on offers, case stories, price notes and product details spread across mails and folders. Before a meeting, someone spends an hour looking for «the case we did for a company like this one».</p>
 <p>A brain built from your offers, case studies and pricing notes can answer «Which projects have we done for logistics companies, and what did they achieve?» with the sources attached — so the sales person can open the actual case before quoting it to a customer.</p>
-<h2>Ask your business, not just your documents</h2>
+</div><div class="sc-media"><figure><div class="lp-chat" data-illustration><div class="lp-bub lp-me">Which projects have we done for logistics companies?</div><div class="lp-bub lp-ai"><small>trail · your brain</small>Three: a route-planning portal for a freight forwarder, a customer chat for a port operator and a tender tool for a haulier. <span class="lp-cite">[Case studies]</span></div></div></figure></div></div></div></section><section class="sc-s" data-testid="showcase-section-6"><div class="lp-wrap"><div class="sc-split sc-media-left"><div class="sc-text"><span class="lp-eyebrow">07</span><h2>Ask your business, not just your documents</h2>
+
+
+
 <p>Board minutes, monthly reports and Excel exports hold the story of your business, but the story is spread over dozens of files. Trail reads them as they are — Word, Excel, PowerPoint and PDF — and keeps the numbers.</p>
 <p>That means you can ask a question like an owner would ask an analyst: «Why did gross margin drop in Q3?» and get an answer that ties the numbers to the decisions behind them, with every figure linked to the report it came from. Instead of a person spending a day assembling the picture, you get a first answer in seconds — and you can check every part of it.</p>
-<h2>Bigger organisations: a brain per department</h2>
+</div><div class="sc-media"><figure><div class="lp-chat" data-illustration><div class="lp-bub lp-me">Why did gross margin drop in Q3?</div><div class="lp-bub lp-ai"><small>trail · business analyst</small>Freight costs rose 22% after the carrier switch <span class="lp-cite">[Q3 revenue.xlsx]</span>, decided in June <span class="lp-cite">[Board minutes Q3]</span>. The Nordics held their margin by moving to annual contracts. <span class="lp-cite">[Sales playbook.docx]</span></div></div></figure></div></div></div></section><section class="sc-s lp-s-alt" data-testid="showcase-section-7"><div class="lp-wrap"><div class="sc-text sc-wide"><span class="lp-eyebrow">08</span><h2>Bigger organisations: a brain per department</h2>
 <p>In a larger organisation, knowledge has owners. HR knows the policies, finance knows the numbers, product knows the roadmap. Trail lets each department have its own brain, curated by its own experts, and reachable from the company&#39;s other systems. People ask in the place they already work; the department stays in charge of what is true.</p>
-<h2>Why this matters now</h2>
+</div></div></section><section class="sc-s" data-testid="showcase-section-8"><div class="lp-wrap"><div class="sc-text sc-wide"><span class="lp-eyebrow">09</span><h2>Why this matters now</h2>
 <p>Every company is getting the same AI models. Ask any of them a general question and you get the same answer your competitor gets. What sets you apart is what only you know — and whether your people and your AI can actually use it.</p>
 <p>There is also a quieter risk. When there is no good place to ask, people paste company knowledge into whatever AI assistant is on their own phone or laptop. That knowledge leaves your control, and the answer disappears when the chat closes. A shared brain gives people a better place to ask — one that runs under your rules.</p>
-<h2>What you can count on</h2>
-<ul>
-<li><strong>Answers with sources.</strong> Every answer shows which documents it is built on.</li>
-<li><strong>You decide what goes in.</strong> New knowledge waits for approval; nothing changes without a person saying yes.</li>
-<li><strong>Disagreements are flagged, not hidden.</strong> When two sources say different things, someone at your company decides.</li>
-<li><strong>Your data stays in the EU.</strong> Trail is hosted in Stockholm, Sweden, and answers are written by an EU language model.</li>
-<li><strong>It gets better with use.</strong> Questions and answers are measured, so weak spots become visible and can be fixed.</li>
-</ul>
-<h2>Where to start</h2>
+</div></div></section><section class="sc-s lp-s-alt" data-testid="showcase-section-9"><div class="lp-wrap"><div class="sc-text sc-wide"><span class="lp-eyebrow">10</span><h2>What you can count on</h2>
+<div class="sc-cards"><div class="sc-card" data-testid="showcase-card-0"><h3>Answers with sources</h3><p>Every answer shows which documents it is built on.</p></div><div class="sc-card" data-testid="showcase-card-1"><h3>You decide what goes in</h3><p>New knowledge waits for approval; nothing changes without a person saying yes.</p></div><div class="sc-card" data-testid="showcase-card-2"><h3>Disagreements are flagged, not hidden</h3><p>When two sources say different things, someone at your company decides.</p></div><div class="sc-card" data-testid="showcase-card-3"><h3>Your data stays in the EU</h3><p>Trail is hosted in Stockholm, Sweden, and answers are written by an EU language model.</p></div><div class="sc-card" data-testid="showcase-card-4"><h3>It gets better with use</h3><p>Questions and answers are measured, so weak spots become visible and can be fixed.</p></div></div>
+</div></div></section><section class="sc-s sc-cta" data-testid="showcase-cta"><div class="lp-wrap"><h2>Where to start</h2>
 <p>You do not need a big project. Most companies start with one area where the same questions come up again and again — the website, customer service or onboarding — and the documents they already have. Add those to a brain, let the people who know the material approve what goes in, and put the brain where the questions are asked.</p>
-<p>If you want to see how it works with your own material, <a href="/#contact">talk to us</a>.</p>
-</div><div class="post-footer"><div class="post-related">
+<p>If you want to see how it works with your own material, we will show you.</p>
+<p><a class="lp-btn lp-btn-primary" href="/#contact" data-testid="benefits-cta">Talk to us</a></p>
+</div></section><div class="lp-wrap"><div class="post-footer"><div class="post-related">
     <div class="post-related-label">Related</div>
     <ul><li><a href="/trails/dispatches/data-supremacy-starts-with-your-own-knowledge/">Data Supremacy Starts With Your Own Knowledge <span class="post-related-arrow">→</span></a></li><li><a href="/trails/how-trail-works/knowledge-that-compounds/">Why Your Knowledge Base Should Compile, Not Search <span class="post-related-arrow">→</span></a></li></ul>
-  </div><div class="post-tags"><a class="post-tag" href="/tags/business/">#business</a><a class="post-tag" href="/tags/benefits/">#benefits</a><a class="post-tag" href="/tags/customer-service/">#customer-service</a><a class="post-tag" href="/tags/onboarding/">#onboarding</a><a class="post-tag" href="/tags/knowledge/">#knowledge</a></div><a class="post-more" href="/trails/how-trail-works/">← MORE FROM HOW TRAIL WORKS</a></div></article></div>
+  </div><div class="post-tags"><a class="post-tag" href="/tags/business/">#business</a><a class="post-tag" href="/tags/benefits/">#benefits</a><a class="post-tag" href="/tags/customer-service/">#customer-service</a><a class="post-tag" href="/tags/onboarding/">#onboarding</a><a class="post-tag" href="/tags/knowledge/">#knowledge</a></div><a class="post-more" href="/trails/how-trail-works/">← MORE FROM HOW TRAIL WORKS</a></div></div></div></div>
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
