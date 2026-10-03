@@ -1399,7 +1399,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
       </div>
-      <div class="footer-copy">© 2026 Trail by <a href="https://broberg.ai" target="_blank" rel="noopener">broberg.ai</a>. As we may think. Site built with <a href="https://webhouse.app" target="_blank" rel="noopener">@webhouse/cms</a></div>
+      <div class="footer-copy">© 2026 Trail by <a href="https://broberg.ai" target="_blank" rel="noopener">broberg.ai</a>. As we may think. Site built with <a href="https://webhouse.app" target="_blank" rel="noopener">@webhouse/cms</a> · <a href="https://upmetrics.org/status/trail" data-testid="footer-version">Trail v0.1.1</a></div>
     </div>
   </footer>
   <script>
@@ -1843,7 +1843,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   navVars(); window.addEventListener('resize', navVars);
   function theme(){ return d.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
   if (!frame.getAttribute('src')) {
-    var q = new URLSearchParams({ theme: theme(), exit: wrap.dataset.exit, docs: wrap.dataset.docs });
+    var q = new URLSearchParams({ theme: theme(), exit: wrap.dataset.exit, docs: wrap.dataset.docs, version: wrap.dataset.version });
     frame.src = wrap.dataset.app + '?' + q.toString();
   }
   if (window.__obThemeObs) window.__obThemeObs.disconnect();

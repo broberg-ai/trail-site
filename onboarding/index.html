@@ -1268,7 +1268,7 @@ broberg-consent { display: none !important; }
 .ob-page { padding: calc(var(--nav-h, 72px) + var(--nav-pl, 24px)) var(--nav-pr, 24px) var(--nav-pl, 24px) var(--nav-pl, 24px); }
 .ob-frame-wrap { height: calc(100dvh - var(--nav-h, 72px) - 2 * var(--nav-pl, 24px)); min-height: 480px; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--bg); box-shadow: 0 40px 100px -40px rgba(0,0,0,.6); }
 .ob-frame { display: block; width: 100%; height: 100%; border: 0; }
-</style><section class="ob-page" data-testid="onboarding-page"><div class="ob-frame-wrap" data-testid="onboarding-root" data-app="/onboarding/app/" data-exit="https://app.trailmem.com" data-docs="https://docs.trailmem.com/"><iframe class="ob-frame" title="Trail onboarding — set up a brain in seven steps" data-testid="onboarding-frame"></iframe></div></section></div>
+</style><section class="ob-page" data-testid="onboarding-page"><div class="ob-frame-wrap" data-testid="onboarding-root" data-app="/onboarding/app/" data-exit="https://app.trailmem.com" data-docs="https://docs.trailmem.com/" data-version="0.1.1"><iframe class="ob-frame" title="Trail onboarding — set up a brain in seven steps" data-testid="onboarding-frame"></iframe></div></section></div>
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -1284,7 +1284,7 @@ broberg-consent { display: none !important; }
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
       </div>
-      <div class="footer-copy">© 2026 Trail by <a href="https://broberg.ai" target="_blank" rel="noopener">broberg.ai</a>. As we may think. Site built with <a href="https://webhouse.app" target="_blank" rel="noopener">@webhouse/cms</a></div>
+      <div class="footer-copy">© 2026 Trail by <a href="https://broberg.ai" target="_blank" rel="noopener">broberg.ai</a>. As we may think. Site built with <a href="https://webhouse.app" target="_blank" rel="noopener">@webhouse/cms</a> · <a href="https://upmetrics.org/status/trail" data-testid="footer-version">Trail v0.1.1</a></div>
     </div>
   </footer>
   <script>
@@ -1728,7 +1728,7 @@ broberg-consent { display: none !important; }
   navVars(); window.addEventListener('resize', navVars);
   function theme(){ return d.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
   if (!frame.getAttribute('src')) {
-    var q = new URLSearchParams({ theme: theme(), exit: wrap.dataset.exit, docs: wrap.dataset.docs });
+    var q = new URLSearchParams({ theme: theme(), exit: wrap.dataset.exit, docs: wrap.dataset.docs, version: wrap.dataset.version });
     frame.src = wrap.dataset.app + '?' + q.toString();
   }
   if (window.__obThemeObs) window.__obThemeObs.disconnect();
