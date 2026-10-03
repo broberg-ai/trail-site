@@ -1659,6 +1659,8 @@ broberg-consent { display: none !important; }
 /* The app fills the window under the site nav and lines up with the nav's own edges
    (trail logo on the left, «Initialize trail» on the right). No footer on this page. */
 .footer { display: none; }
+/* Tooltips in the top-left controls open BELOW the button, never across the back/forward arrows. */
+.kai .app-ctrl [data-hint]::after { top: calc(100% + 8px); left: 50%; right: auto; transform: translateX(-50%); }
 .dm-page { padding: var(--nav-h, 72px) var(--nav-pr, 24px) var(--nav-pl, 24px) var(--nav-pl, 24px); }
 .kai .app-frame { max-width: none; margin: 0; padding: 0; background: none; border-radius: 16px; }
 .kai .app { height: calc(100dvh - var(--nav-h, 72px) - var(--nav-pl, 24px)); min-height: 480px; border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 40px 100px -40px rgba(0,0,0,.6); }
@@ -1760,7 +1762,7 @@ i.dm-s1 { background: var(--clay); }
   </aside>
   <main class="app-main">
     <div class="app-bar">
-      <span class="app-ctrl"><button type="button" class="app-icon-btn hint-start" data-testid="demo-panel-toggle" aria-pressed="true" aria-label="Hide menu" data-hint="Hide menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg></button><button type="button" class="app-icon-btn hint-start app-nav-btn" data-testid="demo-nav-back" aria-disabled="true" aria-label="Back" data-hint="Nothing to go back to"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></button><button type="button" class="app-icon-btn hint-start app-nav-btn" data-testid="demo-nav-forward" aria-disabled="true" aria-label="Forward" data-hint="Nothing to go forward to"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></span>
+      <span class="app-ctrl"><button type="button" class="app-icon-btn hint-start" data-testid="demo-panel-toggle" aria-pressed="true" aria-label="Hide menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg></button><button type="button" class="app-icon-btn hint-start app-nav-btn" data-testid="demo-nav-back" aria-disabled="true" aria-label="Back" data-hint="Nothing to go back to"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></button><button type="button" class="app-icon-btn hint-start app-nav-btn" data-testid="demo-nav-forward" aria-disabled="true" aria-label="Forward" data-hint="Nothing to go forward to"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></span>
       <span class="app-title-wrap"><span class="app-conv-title" data-testid="demo-title"></span></span>
       <span class="grow"></span>
       <span class="dm-illus">Illustrative data</span>
@@ -2121,7 +2123,7 @@ i.dm-s1 { background: var(--clay); }
   }
   /* panel toggle */
   var toggle = root.querySelector('[data-testid="demo-panel-toggle"]');
-  function setSide(on){ app.classList.toggle('side-open', on); toggle.setAttribute('aria-pressed', String(on)); toggle.setAttribute('aria-label', on ? 'Hide menu' : 'Show menu'); toggle.dataset.hint = on ? 'Hide menu' : 'Show menu'; }
+  function setSide(on){ app.classList.toggle('side-open', on); toggle.setAttribute('aria-pressed', String(on)); toggle.setAttribute('aria-label', on ? 'Hide menu' : 'Show menu'); }
   if (window.matchMedia('(max-width:980px)').matches) setSide(false);
   toggle.addEventListener('click', function(){ setSide(!app.classList.contains('side-open')); });
   /* clicks */

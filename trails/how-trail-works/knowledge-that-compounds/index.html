@@ -1703,7 +1703,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   }
   /* panel toggle */
   var toggle = root.querySelector('[data-testid="demo-panel-toggle"]');
-  function setSide(on){ app.classList.toggle('side-open', on); toggle.setAttribute('aria-pressed', String(on)); toggle.setAttribute('aria-label', on ? 'Hide menu' : 'Show menu'); toggle.dataset.hint = on ? 'Hide menu' : 'Show menu'; }
+  function setSide(on){ app.classList.toggle('side-open', on); toggle.setAttribute('aria-pressed', String(on)); toggle.setAttribute('aria-label', on ? 'Hide menu' : 'Show menu'); }
   if (window.matchMedia('(max-width:980px)').matches) setSide(false);
   toggle.addEventListener('click', function(){ setSide(!app.classList.contains('side-open')); });
   /* clicks */
