@@ -175,6 +175,10 @@ svg { max-width: 100%; height: auto; }
 }
 @media (min-width: 768px) { .nav-cta { padding: 0.5rem 1rem; font-size: 0.875rem; } }
 .nav-cta:hover { background: var(--clay-btn); color: var(--fg-on-accent); }
+/* F302.17 — owner 3/10: in dark the cream pill was too white; it wears the
+   peach of Aidan's send-button hover permanently (--clay-d = #F0A886 in dark). */
+html[data-theme="dark"] .nav-cta { background: var(--clay-d); }
+html[data-theme="dark"] .nav-cta:hover { background: var(--clay-btn); }
 .nav-cta:active { transform: scale(0.97); }
 
 /* Ambient sound toggle — same shape as the theme toggle */
