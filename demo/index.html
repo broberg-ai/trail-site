@@ -1661,9 +1661,9 @@ broberg-consent { display: none !important; }
 .footer { display: none; }
 /* Tooltips in the top-left controls open BELOW the button, never across the back/forward arrows. */
 .kai .app-ctrl [data-hint]::after { top: calc(100% + 8px); left: 50%; right: auto; transform: translateX(-50%); }
-.dm-page { padding: var(--nav-h, 72px) var(--nav-pr, 24px) var(--nav-pl, 24px) var(--nav-pl, 24px); }
+.dm-page { padding: calc(var(--nav-h, 72px) + var(--nav-pl, 24px)) var(--nav-pr, 24px) var(--nav-pl, 24px) var(--nav-pl, 24px); }
 .kai .app-frame { max-width: none; margin: 0; padding: 0; background: none; border-radius: 16px; }
-.kai .app, .kai .app.app-simple { height: calc(100dvh - var(--nav-h, 72px) - var(--nav-pl, 24px)); min-height: 480px; border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 40px 100px -40px rgba(0,0,0,.6); }
+.kai .app, .kai .app.app-simple { height: calc(100dvh - var(--nav-h, 72px) - 2 * var(--nav-pl, 24px)); min-height: 480px; border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 40px 100px -40px rgba(0,0,0,.6); }
 .kai .app-frame.is-full { padding: 0; background: var(--card); z-index: 200; }
 .kai .app-frame.is-full .app { height: 100dvh; border-radius: 0; border: 0; }
 html.kai-full .nav { visibility: hidden; }
