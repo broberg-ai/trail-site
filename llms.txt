@@ -39,6 +39,7 @@
 ### research
 
 - [Niklas Luhmann's Zettelkasten & the LLM Revolution](https://www.trailmem.com/trails/research/niklas-luhmann-zettelkasten-llm-wiki/): How Luhmann's Zettelkasten method finally became practical with modern AI. Explore the 70-year gap between genius and accessibility.
+- [Research Lab: How Trail Measures Itself — and Gets Better](https://www.trailmem.com/trails/research/research-lab/): Answer keys, controls and side-by-side comparisons: how we test search and compilation against real brains, what the numbers changed, and who can use the Lab today.
 - [Scaling Trail from 200 to 100,000 Neurons: Engineering Architecture](https://www.trailmem.com/trails/research/scaling-trail-from-200-to-100000-neurons/): Learn how Trail scales from 200 to 100,000 neurons. Explore ingest, lint, and queue workloads, bottlenecks, and architectural solutions for knowledge engines.
 - [Three Agent Memory Architectures: Compile vs Retrieve vs Act](https://www.trailmem.com/trails/research/three-architectures-of-agent-memory/): Explore three agent memory architectures—retrieve, compile, and act patterns. Learn why Trail chose the compile pattern and the trade-offs involved.
 - [Trail vs NotebookLM: Source-Grounded Knowledge Tools](https://www.trailmem.com/trails/research/trail-and-notebooklm/): Compare Trail and NotebookLM: source-grounded AI tools for knowledge work. Explore their shared ethos and architectural differences.

@@ -119,6 +119,10 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/tags/lab/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/tags/lint/</loc>
     <priority>0.5</priority>
   </url>
@@ -184,11 +188,6 @@
   </url>
   <url>
     <loc>https://www.trailmem.com/tags/rag/</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.trailmem.com/tags/research-lab/</loc>
-    <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
@@ -304,6 +303,11 @@
   <url>
     <loc>https://www.trailmem.com/trails/research/niklas-luhmann-zettelkasten-llm-wiki/</loc>
     <lastmod>2026-06-24</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/trails/research/research-lab/</loc>
+    <lastmod>2026-10-03</lastmod>
     <priority>0.5</priority>
   </url>
   <url>

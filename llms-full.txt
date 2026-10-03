@@ -1575,6 +1575,81 @@ We think the architecture matters more than the model. We think Luhmann's design
 
 ---
 
+## Research Lab: How Trail Measures Itself — and Gets Better
+
+URL: https://www.trailmem.com/trails/research/research-lab/
+Updated: 2026-10-03
+
+Research Lab: How Trail Measures Itself — and Gets Better
+
+Answer keys, controls and side-by-side comparisons: how we test search and compilation against real brains, what the numbers changed, and who can use the Lab today.
+
+## Measuring instead of believing
+
+A knowledge engine makes two promises that are easy to say and hard to check: that the brain holds what its sources said, and that search finds it when someone asks. Research Lab is where we check both — with numbers, against answer keys, and with controls that prove the numbers mean something.
+
+> **Access today.** Research Lab is currently available only to the developers behind Trail. We use it to improve Trail for every customer. We are working on making it publicly available.
+
+## What the Lab is
+
+Research Lab is a workspace inside the Trail app with four tabs.
+
+**Search.** Ask a brain a question and see exactly what search returns, with a score on every hit. You choose what to search — the compiled brain, the original sources, or both — and how: by words, by meaning, or a hybrid of the two, with a slider for how much say meaning gets. You can switch on related and associative results to see what they add.
+
+**Compare.** Two columns side by side, A and B. Each column has its own setup — or its own brain. Same question, two answers: this is where you see whether a change actually helped.
+
+**Chat.** Ask in plain language and get an answer built on the basis you chose, with citations and 👍👎🚩 feedback. A good conversation can be saved back into the brain as a source; it then goes through the normal compile and curation steps, and claims the model made without a citation are left out.
+
+**Test sets.** The answer keys — questions where the right answer and the right source are known in advance — and the results of running a brain against them.
+
+You work with one brain at a time; Compare puts two side by side.
+
+## How we test
+
+The rule is simple: never judge quality by asking a model whether an answer *seems* good. Two strong models asked to name a source's topics agreed only about a third of the time. Quality has to be measured against something known to be right.
+
+So every test starts with an **answer key** built from a brain's own material. And every test runs with a **control**: the same questions with deliberately wrong answers. The control must score low — ours lands at 2–5 % — or the measurement cannot tell right from wrong, and a good number would mean nothing. When answers are judged, the judge sees them blind, in random order, and a re-judged sample must agree within a set limit.
+
+## What the measurements changed
+
+### Search: words, meaning, or both
+
+Trail can search by words (does the text contain what you asked?) and by meaning (is the text about what you asked, in other words?). Combining them sounds obviously better. The first measurement said it was not — hybrid was slightly worse at putting the right answer on top.
+
+So we tested weights instead of guessing. Giving meaning 0.15 of the vote came out best across all four test sets:
+
+- On the fair test set, hybrid put the right answer in the top five 59 % of the time against 53 % for words alone in one brain, and 75 % against 71 % in a customer's brain.
+- It is not a win everywhere: on one test set, words alone still ranked slightly better.
+- It costs time: 0.2–0.6 seconds more per question.
+
+Because of that, hybrid search is a per-brain choice, off by default and switched on where the measurement says it helps.
+
+### The brain itself: is the knowledge actually in there?
+
+In October we ran 306 questions with answer keys against one brain, three ways: answered from the compiled Neurons only, from the original sources only, and from both. Neurons alone scored clearly lowest and invented more (9.2 % of answers against 4.6 %). The diagnosis: about two thirds of the lost answers were lost in compiling, not in search.
+
+That pointed at the compile step, so we compiled the same 67 sources again with the current pipeline and measured the new brain with the same questions. The score rose from 1.26 to 1.76 on a 0–2 scale, invented answers halved from 9.2 % to 4.6 %, and coverage of the answer key went from 63 % to 97 %. The brain was switched to the recompiled version.
+
+### Choosing how a brain is compiled
+
+Compiling is where a source becomes knowledge, so the model that does it matters. We compare candidates on the real production compile step, against a throwaway brain, measuring how many known facts survive, what it costs and how long it takes. In one comparison the spread was 24 of 25 facts against 17 of 25 — and the same test also showed how easily a comparison lies: an older script had cut sources short, which flipped the verdict.
+
+## Brain Health: the same idea, every night
+
+Research Lab is where we experiment. **Brain Health** is the same discipline running on its own, per brain, with a spending cap so a nightly check never becomes a surprise on the bill. Today it checks, every night:
+
+- how many answers were given without pointing to a source, and
+- whether search still finds the right thing, measured against the answer key.
+
+Two more checks are planned and not yet running: trap questions (does the brain say "I don't know" when it should?) and claim checks (is what an answer says actually in its sources?). Results and trends show on the brain's Health page.
+
+## Why it matters
+
+Search is how people get knowledge out of a brain every day — in chat, in search, in the tools that call Trail. If it quietly gets worse, nobody notices until an answer is wrong. Research Lab is how we notice first, and how every change to Trail — to search, to compiling, to the models — is judged by what it does to real brains, not by what we expect it to do.
+
+
+---
+
 ## Scaling Trail from 200 to 100,000 Neurons: Engineering Architecture
 
 URL: https://www.trailmem.com/trails/research/scaling-trail-from-200-to-100000-neurons/
