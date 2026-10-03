@@ -578,7 +578,7 @@ Releases, announcements, and observations from the broader knowledge-infrastruct
 ## The Orchestration Layer: How broberg.ai Builds Software With Fifteen Agents
 
 URL: https://www.trailmem.com/trails/dispatches/the-orchestration-layer/
-Updated: 2026-09-02
+Updated: 2026-10-03
 
 The Orchestration Layer: How broberg.ai Builds Software With Fifteen Agents
 
@@ -683,6 +683,10 @@ The tell is that we did not build a demo of it. We build everything on it — th
 
 **Read more:** [broberg.ai](https://broberg.ai) · [cardmem — the core engine](https://broberg.ai/flagskibe/cardmem) · [Trail](https://trailmem.com)
 
+
+With many AI agents, the bottleneck is not writing code but remembering why, proving it works and staying in scope.
+cardmem enforces plan before code, real browser checks, gates before deployment and screenshot proof on every delivery.
+The agents caught bugs that fail green in each other's systems, and Trail keeps those lessons for every future session.
 
 ---
 
@@ -865,12 +869,16 @@ Bush saw this in 1945. Karpathy named it again in 2026. Trail implements it now.
 - Donald Hebb, *The Organization of Behavior*, 1949
 - For Trail's architectural specification and API, see [trail.broberg.ai/docs](https://trail.broberg.ai/docs)
 
+RAG does its work at query time on raw chunks; Trail does it at ingest time and stores the result as Neurons.
+Compiling costs more per source but less per query, and lets knowledge accumulate with provenance on every claim.
+RAG remains right for large, fast-changing corpora with lookup-style questions; Trail is built for knowledge that should compound.
+
 ---
 
 ## Does a Trail Get Smarter as It Grows? Knowledge Base Growth
 
 URL: https://www.trailmem.com/trails/how-trail-works/does-a-trail-get-smarter-as-it-grows/
-Updated: 2026-06-24
+Updated: 2026-10-03
 
 More sources should mean a better knowledge base. In practice, every system hits a point where adding material starts to subtract. Here is what compounds, what buckles, and where Trail's architecture deliberately bends the curve.
 
@@ -959,6 +967,10 @@ The organizations that get the most out of this are not the ones with the larges
 - For the architectural argument behind compile-time knowledge systems, see [Why Your Knowledge Base Should Compile, Not Search](/trails/how-trail-works/knowledge-that-compounds/)
 - For the technical case against pure RAG, see [Compile-Time Knowledge: A Technical Argument Against RAG](/trails/how-trail-works/compile-time-knowledge-vs-rag/)
 - For the historical lineage from Vannevar Bush's 1945 vision, see [As We May Think: The 1945 Vision That Became Trail](/the-1945-concept/)
+
+Coverage, cross-references, synthesis, lint and search sharpen as a Trail grows, while curator time, top-K retrieval and staleness degrade.
+Compile at ingest, the wiki-link graph, audience filtering, per-tenant scoping, decay and scheduled lint push that ceiling out.
+The sweet spot is 100 to 1,000 Neurons; past about 10,000 it is better to split into several Trails than keep growing one.
 
 ---
 
@@ -1069,6 +1081,10 @@ The brain does not search. It compiles. So does Trail.
 - Andrej Karpathy, *LLM Wiki* — published as a GitHub gist in April 2026
 - Donald Hebb, *The Organization of Behavior*, 1949 — origin of "neurons that fire together, wire together"
 - For a deeper dive into the visual lineage of Trail's microfilm-spool logo, see [As We May Think: The 1945 Vision That Became Trail](/the-1945-concept/)
+
+A brain integrates new experience into existing structure during consolidation, before any question is asked.
+RAG searches, answers and forgets, so knowledge never accumulates; Trail compiles sources into Neurons the way consolidation does.
+The result is knowledge that accumulates, structural provenance, a human curator, and Neurons that improve when the model improves.
 
 ---
 
@@ -1181,6 +1197,10 @@ This is the bet Trail represents. We think the architecture matters more than th
 - For implementation details, architectural specifications, and the case for compile-time architecture from an engineering perspective, see [Compile-Time Knowledge: A Technical Argument Against RAG](/trails/how-trail-works/compile-time-knowledge-vs-rag/)
 - For the historical lineage from Bush's 1945 vision to Trail, see [As We May Think: The 1945 Vision That Became Trail](/the-1945-concept/)
 
+A compile-time knowledge base builds a durable, organization-specific asset; a search-time system rebuilds nothing between queries.
+Compiling gives structural provenance, lower per-query cost at volume, and quality that improves rather than degrades with corpus size.
+To tell the two apart, ask a vendor for the compiled artifact, what happens on a source update, and where the curator fits.
+
 ---
 
 ## Lint: How a Trail Brain Keeps Itself Honest
@@ -1263,12 +1283,17 @@ Every finding lands in the curation queue as a candidate, with the evidence atta
 A knowledge base that is only ever added to gets bigger. One that is also linted gets better: stale pages get a second look, sources that changed become the new truth, disagreements surface instead of hiding, and nothing changes without a decision. Lint is how a Trail brain keeps itself honest — on a schedule you choose.
 
 
+Lint checks a brain for stale Neurons, orphans, dead links and contradictions, but never edits anything itself.
+Every finding becomes a candidate in the curation queue, where a person or the person's policy decides.
+Each brain sets its own lint policy, cadence, contradiction and maintenance switches, and memory fading.
+Scheduled contradiction lint checks the Neurons that have gone longest without a check first, up to 500 per pass.
+
 ---
 
 ## Trail's Curation Policy: Three Filters on the Gate
 
 URL: https://www.trailmem.com/trails/how-trail-works/three-filters-on-the-gate/
-Updated: 2026-06-24
+Updated: 2026-10-03
 
 Three Filters on the Gate: How Trail's Curation Policy Borrows from the Structure of Your Mind
 
@@ -1402,6 +1427,10 @@ Trail has three filters. The brain has three filters. This is not a coincidence.
 - Donald Hebb, *The Organization of Behavior*, 1949
 - For the companion essay on why Trail compiles instead of searches, see [How a Brain Actually Remembers](/trails/how-trail-works/how-a-brain-actually-remembers/)
 
+Trail's curation gate decides per candidate whether it is auto-approved, raised to a curator or rejected.
+It uses three filters: trusted pipeline, confidence threshold and no contradiction with existing Neurons; only the first was live when it was written.
+The filters mirror NLP's deletion, generalisation and distortion and the brain's gating, and none is sufficient alone.
+
 ---
 
 ## Trail's Nightly Corpus Processing: Scaling Knowledge Systems
@@ -1512,6 +1541,10 @@ That is the scaling plan. It is not an engineering tour de force. It is the resu
 - Andrej Karpathy, *LLM Wiki* — April 2026. Names the pattern Trail implements; does not address the scan-wall problem, which falls out once you try to operate the pattern at scale.
 - For Trail's full scaling analysis across queue, lint, and ingest at corpus sizes from 200 to 100,000 Neurons, see the engineering note [Scaling Trail from 200 to 100,000 Neurons](/trails/research/scaling-trail-from-200-to-100000-neurons/).
 
+A full nightly contradiction scan stops fitting in a night at around 8,000 Neurons.
+Parallelising, skipping unchanged pages or uniform sampling all fail because contradictions mostly come from recent edits.
+Trail caps each pass at 500 Neurons, so queue size and cost stay flat however large the brain grows.
+
 ---
 
 ## Research - Insights & Analysis
@@ -1526,7 +1559,7 @@ Deep dives into adjacent systems, benchmarks, and comparisons — from MemPalace
 ## Niklas Luhmann's Zettelkasten & the LLM Revolution
 
 URL: https://www.trailmem.com/trails/research/niklas-luhmann-zettelkasten-llm-wiki/
-Updated: 2026-06-24
+Updated: 2026-10-03
 
 Niklas Luhmann's Zettelkasten Has Been Waiting Seventy Years for the LLM
 
@@ -1622,6 +1655,10 @@ We think the architecture matters more than the model. We think Luhmann's design
 - Shuyi Wang, *Should You Actually Try the LLM-driven Wiki Pattern?*, Medium, April 2026 — the essay this piece draws on for the convergence analysis.
 - For Trail's architectural lineage from Bush's 1945 memex to today, see [Why Your Knowledge Base Should Compile, Not Search](/trails/how-trail-works/knowledge-that-compounds/).
 
+Luhmann's Zettelkasten and the LLM Wiki share the same architecture: compile first, network instead of hierarchy, entry-point index.
+Almost nobody ran Luhmann's method because of its bookkeeping cost, which a language model can now take over.
+Trail runs that pattern as infrastructure, adding multi-tenancy, a machine-readable schema and a curation queue, while judgment stays human.
+
 ---
 
 ## Research Lab: How Trail Measures Itself — and Gets Better
@@ -1697,12 +1734,17 @@ Two more checks are planned and not yet running: trap questions (does the brain 
 Search is how people get knowledge out of a brain every day — in chat, in search, in the tools that call Trail. If it quietly gets worse, nobody notices until an answer is wrong. Research Lab is how we notice first, and how every change to Trail — to search, to compiling, to the models — is judged by what it does to real brains, not by what we expect it to do.
 
 
+Research Lab measures whether a brain holds what its sources said and whether search finds it, against answer keys with controls.
+Hybrid search with meaning weighted at 0.15 helped on most test sets but costs time, so it is a per-brain opt-in.
+Recompiling one brain raised coverage of the answer key from 63 % to 97 % and halved invented answers.
+Brain Health runs the same checks nightly per brain, under a spending cap, and shows results on the Health page.
+
 ---
 
 ## Scaling Trail from 200 to 100,000 Neurons: Engineering Architecture
 
 URL: https://www.trailmem.com/trails/research/scaling-trail-from-200-to-100000-neurons/
-Updated: 2026-06-24
+Updated: 2026-10-03
 
 Scaling Trail from 200 to 100,000 Neurons: An Engineering Note
 
@@ -1864,12 +1906,16 @@ Sleep is bounded. Memory is bounded. The wiki, compiled continuously, is also bo
 - [How a Brain Actually Remembers](/trails/how-trail-works/how-a-brain-actually-remembers/) — the underlying claim that compile-time knowledge has to be consolidated periodically, not just retrieved.
 - [Compile-Time Knowledge vs. RAG](/trails/how-trail-works/compile-time-knowledge-vs-rag/) — why this whole scaling problem doesn't exist for retrieval-at-query systems, and why it's worth having anyway.
 
+Ingest cost stays flat per source regardless of corpus size, so it never becomes the bottleneck.
+Contradiction lint hits a wall around 8,000 Neurons and is bounded by a capped pass of 500 Neurons from then on.
+From about 25,000 Neurons the limit is curator attention, met with auto-approval and roles, while infrastructure scales by bigger machines, not rewrites.
+
 ---
 
 ## Three Agent Memory Architectures: Compile vs Retrieve vs Act
 
 URL: https://www.trailmem.com/trails/research/three-architectures-of-agent-memory/
-Updated: 2026-06-24
+Updated: 2026-10-03
 
 Three architectures of agent memory — and why Trail picked Compile
 
@@ -1942,12 +1988,16 @@ Start with the job. The architecture follows.
 - Garry Tan, *GBrain* repository on GitHub — the Fat Skills reference implementation.
 - For Trail's specific lineage from Vannevar Bush to Niklas Luhmann to today, see [Niklas Luhmann's Zettelkasten Has Been Waiting Seventy Years for the LLM](/trails/research/niklas-luhmann-zettelkasten-llm-wiki/).
 
+Agent memory comes in three patterns: retrieve (RAG), compile (LLM Wiki) and act (GBrain), each suited to a different job.
+Trail picked compile because its users have a few hundred to a few thousand sources whose value is in the connections.
+Trail accepts that compile is passive and strains at very large scale, and positions itself as the middle layer between retrieval and action.
+
 ---
 
 ## Trail vs NotebookLM: Source-Grounded Knowledge Tools
 
 URL: https://www.trailmem.com/trails/research/trail-and-notebooklm/
-Updated: 2026-06-24
+Updated: 2026-10-03
 
 Trail and NotebookLM: Same Ethos, Different Artifact
 
@@ -2018,5 +2068,9 @@ If you are picking a tool for the first kind of work, use NotebookLM. If you are
 - **Different strengths:** polished transient outputs (audio, mindmap, flashcards), versus a persistent knowledge graph.
 
 Pick the one that matches the job. For a lot of workloads, they are not substitutes — they answer different questions.
+
+Trail and NotebookLM share source-grounded, ingest-time work, isolated containers and structural citations.
+NotebookLM generates transient outputs from a basket of sources; Trail leaves a compiled, compounding graph of Neurons.
+Trail adds a curation queue and self-hosting; NotebookLM is better for polished outputs like audio overviews and research assistance.
 
 ---
