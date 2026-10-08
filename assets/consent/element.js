@@ -194,7 +194,7 @@ var Base = typeof HTMLElement === "undefined" ? class {
 } : HTMLElement;
 var BrobergConsentElement = class extends Base {
   static get observedAttributes() {
-    return ["lang"];
+    return ["lang", "hide-reopen"];
   }
   /** The headless manager. Read consent with `el.manager.has("analytics")`. */
   manager;
@@ -255,8 +255,17 @@ var BrobergConsentElement = class extends Base {
     this.unsubscribe = null;
     if (active === this) active = null;
   }
-  attributeChangedCallback() {
-    if (this.root) this.render();
+  attributeChangedCallback(name) {
+    if (!this.root) return;
+    if (name === "hide-reopen") {
+      const handle = this.root.querySelector('[data-testid="consent-reopen"]');
+      if (handle) handle.toggleAttribute("hidden", !this.reopenVisible());
+      return;
+    }
+    this.render();
+  }
+  reopenVisible() {
+    return this.view === "closed" && !this.manager.needsBanner() && !this.hasAttribute("hide-reopen");
   }
   /** Open the settings panel (what the reopen handle and footer links do). */
   open() {
@@ -312,9 +321,7 @@ var BrobergConsentElement = class extends Base {
   }
   render() {
     const t = this.t;
-    const hideReopen = this.hasAttribute("hide-reopen");
     const privacy = this.getAttribute("privacy-href");
-    const decided = !this.manager.needsBanner();
     const rec = this.manager.getRecord();
     const version = esc(this.getAttribute("policy-version") ?? "");
     const cats = this.manager.categories.map((c) => {
@@ -345,7 +352,7 @@ var BrobergConsentElement = class extends Base {
     <div class="meta">${version}${rec ? "" : ` \xB7 ${esc(t.noChoice)}`}${rec ? ` \xB7 <button class="linkbtn" data-act="withdraw" data-testid="consent-withdraw">${esc(document.querySelector(`[${ACTIVATED}]`) ? t.withdrawReload : t.withdraw)}</button>` : ""}</div>
   </div>
 </div>
-<button class="reopen${reopenCorner(this.getAttribute("reopen-position"))}" data-act="open" data-testid="consent-reopen" aria-label="${esc(t.panelTitle)}" ${this.view === "closed" && decided && !hideReopen ? "" : "hidden"}>${COOKIE_SVG}${esc(t.reopen)}</button>`;
+<button class="reopen${reopenCorner(this.getAttribute("reopen-position"))}" data-act="open" data-testid="consent-reopen" aria-label="${esc(t.panelTitle)}" ${this.reopenVisible() ? "" : "hidden"}>${COOKIE_SVG}${esc(t.reopen)}</button>`;
     this.root.querySelectorAll("[data-act]").forEach((b) => {
       b.addEventListener("click", () => {
         const act = b.dataset.act;
