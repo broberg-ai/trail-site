@@ -7,7 +7,7 @@
 ## Privacy Policy
 
 URL: https://www.trailmem.com/privacy/
-Updated: 2026-10-03
+Updated: 2026-11-01
 
 What Trail and the Trail Web Clipper do with your data — what the extension reads, what stays on your device, what we store, and how to delete it.
 
@@ -281,7 +281,7 @@ account, we notify you of material changes before they take effect.
 ## The second brain that is everywhere you work
 
 URL: https://www.trailmem.com/second-brain/
-Updated: 2026-10-02
+Updated: 2026-11-01
 
 Trail is your second brain: one memory for everything you read, hear and save — compiled into connected, citable knowledge, reachable from your browser, your files, your website and your own tools. Stored in Stockholm.
 
@@ -301,7 +301,7 @@ A second brain is only useful if feeding it costs nothing. So Trail does not ask
 
 - **Drop in a file.** PDFs, Word documents, PowerPoint decks, Excel sheets, images, audio recordings and markdown all go in the same way. Trail reads them and keeps the original as the source.
 - **Clip from the browser.** The Trail Web Clipper saves the page you are reading straight into your brain with one click. It works in Chrome, Edge, Brave and Arc, and stays idle until you click it — it never follows your browsing. *(Available as a download today; the Chrome Web Store listing is in review.)*
-- **Put it on your website.** `` is a ready-made chat window for any web page: one script tag and one HTML element. Your visitors ask in their own words and get answers from your brain, with citations to the sources. It reaches Trail through a small relay on your own server, so your API key never ends up in a visitor's browser. [How to set it up](https://docs.trailmem.com/widget/).
+- **Put it on your website.** `` is a ready-made chat window for any web page: one script tag and one HTML element. Your visitors ask in their own words and get answers from your brain, with citations to the sources. It reaches Trail through a small relay on your own server, so your API key never ends up in a visitor's browser. [How to set it up](https://www.trailmem.com/docs/widget/).
 - **Wire it into your tools.** A REST API lets your own apps and AI agents search your brain, chat with it, and send new knowledge in.
 - **Talk to it.** Chat with your brain in the Trail app and every answer comes back with citations to the sources it was built from.
 
@@ -337,14 +337,14 @@ A second brain holds the things you actually know, so where it lives matters.
 
 Trail is the memory machine Vannevar Bush imagined in 1945 — [we wrote about that, too](/the-1945-concept/) — built for the way you work now: everywhere, all at once.
 
-[Read the docs](https://docs.trailmem.com/) · [Read more trails](/trails/)
+[Read the docs](https://www.trailmem.com/docs/) · [Read more trails](/trails/)
 
 ---
 
 ## Terms of Service
 
 URL: https://www.trailmem.com/terms/
-Updated: 2026-09-30
+Updated: 2026-11-01
 
 The terms that apply when you use Trail — trailmem.com, the app, the Web Clipper and the embeddable widget.
 
