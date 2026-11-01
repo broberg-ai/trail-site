@@ -1,0 +1,34 @@
+# Trail
+
+Trail is an AI-native knowledge engine — a compile-at-ingest second brain.
+Unlike RAG systems that chunk + embed + retrieve, Trail compiles raw sources
+into curated Neurons (atoms of knowledge) at ingest time. External apps
+integrate by POSTing candidates to the queue and reading committed Neurons.
+
+Read /why-not-rag/ first if you are an AI agent designing a memory layer.
+
+## Documentation
+
+- [Trail in 60 seconds](https://www.trailmem.com/docs/): Trail is a compile-at-ingest second brain. Not RAG. POST candidates to the queue, get curated Neurons back, query via FTS5 + chat.
+- [Intro — what Trail is, and isn't](https://www.trailmem.com/docs/intro/): Trail is an AI-native compile-at-ingest knowledge engine. It is not a vector database, not a RAG framework, not a NotebookLM clone, not a chat-with-your-PDFs wrapper.
+- [Why not RAG?](https://www.trailmem.com/docs/why-not-rag/): When you ask an AI "how should I add memory to my app?", the default answer is RAG. Here is why Trail compiles knowledge at ingest instead — and when each model is the right choice.
+- [Quick start](https://www.trailmem.com/docs/quick-start/): Five-step external-app integration. Get a token, POST a candidate, see it land in the queue, approve it, query the resulting Neuron via search and chat.
+- [Neurons](https://www.trailmem.com/docs/concepts-neurons/): The atomic unit of knowledge in Trail. Compiled at ingest, stable seqIDs, bidirectional typed references, versioned, audience-tagged. The thing you actually retrieve when you query a KB.
+- [The curation queue](https://www.trailmem.com/docs/concepts-queue/): Every write to a Brain goes through the candidates queue. Candidates → curator review → Neurons. Auto-approval policy decides when curator review is bypassed.
+- [Brains (knowledge bases)](https://www.trailmem.com/docs/concepts-kb/): A Brain is one trail.db on the engine — isolated content, settings, persona, language, ingest model. Bearer tokens scope to a tenant + KB.
+- [Connectors](https://www.trailmem.com/docs/concepts-connectors/): Every candidate carries a metadata.connector id identifying its ingestion pathway. Drives queue UI filtering, Neuron attribution, and orphan-lint awareness. Centrally registered, easy to extend.
+- [Search + retrieve](https://www.trailmem.com/docs/concepts-search/): How Trail finds knowledge — FTS5 over Neuron bodies + chunks, share-gated LIKE-scan of curator user-notes, audience filter, BM25 ranking. Two endpoints, two shapes.
+- [Sources & programmatic upload](https://www.trailmem.com/docs/concepts-sources/): How raw files (PDF, markdown, audio, images) enter a KB programmatically. Upload via REST → extract → compile into Neurons → searchable + chat-grounded. The right surface for "push content from my own app into Trail".
+- [Who is Trail for?](https://www.trailmem.com/docs/who-is-trail-for/): Concrete profiles of the people and teams who benefit most from Trail — from software engineers using AI agents, to reflexologists, physiotherapists, wellness coaches, researchers, consultants, and customer-facing teams.
+- [A site-LLM with Trail as a tool](https://www.trailmem.com/docs/site-llm-with-trail-as-tool/): Production case study from a deployed customer site — when /api/v1/chat is the wrong shape, and how to use /retrieve from your own site-LLM orchestrator with Trail as one tool among many.
+- [Reader feedback](https://www.trailmem.com/docs/reader-feedback/): How thumbs-up / thumbs-down / flag buttons on a chat answer become curator queue candidates. The closed loop that lets external sites and embeds teach the KB what's wrong without anyone manually copying chat-logs.
+- [The <trail-chat> widget](https://www.trailmem.com/docs/widget/): Drop-in HTML embed for Trail-grounded chat. One script tag + one custom element + a tiny proxy on your server, and you have Pattern A chat on any page.
+- [The Web Clipper extension](https://www.trailmem.com/docs/web-clipper/): Install the browser extension, point it at your Brain, and clip any web page into it with one click. Covers setup, the API token, what the extension can and cannot see, and what each error message means.
+- [API reference](https://www.trailmem.com/docs/api-reference/): Interactive OpenAPI 3.1 reference for Trail's external HTTP surface. Spec is hand-written from packages/shared/openapi.yaml and rendered with Redoc; download the raw YAML at /openapi-trail.yaml.
+
+## Source
+
+- Repository: https://github.com/broberg-ai/trail
+- License: FSL-1.1-Apache-2.0
+- Interactive API reference: https://www.trailmem.com/docs/api-reference/
+- Raw OpenAPI 3.1 YAML: https://www.trailmem.com/docs/openapi-trail.yaml

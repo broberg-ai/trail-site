@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The &lt;trail-chat&gt; widget — trail · docs</title>
+  <meta name="description" content="Drop-in HTML embed for Trail-grounded chat. One script tag + one custom element + a tiny proxy on your server, and you have Pattern A chat on any page." />
+  <meta name="audience" content="both" />
+  <meta name="theme-color" content="#FAF9F5" />
+  <link rel="icon" type="image/svg+xml" href="/docs/favicon.svg" />
+  <link rel="apple-touch-icon" href="/docs/memx-logo.svg" />
+  <link rel="stylesheet" href="/docs/styles.css" />
+  <script>
+    (function(){try{var t=localStorage.getItem('trail.theme');document.documentElement.setAttribute('data-theme', t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+  </script>
+
+  <!-- webhouse.app enrichment -->
+  <meta name="generator" content="webhouse.app" />
+  <link rel="canonical" href="https://www.trailmem.com/docs/widget/" />
+  <meta property="og:title" content="The &amp;lt;trail-chat&amp;gt; widget — trail · docs" />
+  <meta property="og:description" content="Drop-in HTML embed for Trail-grounded chat. One script tag + one custom element + a tiny proxy on your server, and you have Pattern A chat on any page." />
+  <meta property="og:url" content="https://www.trailmem.com/docs/widget/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="trail: second brain" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The &amp;lt;trail-chat&amp;gt; widget — trail · docs" />
+  <meta name="twitter:description" content="Drop-in HTML embed for Trail-grounded chat. One script tag + one custom element + a tiny proxy on your server, and you have Pattern A chat on any page." />
+  <link rel="manifest" href="/manifest.json" />
+</head>
+<body>
+  <canvas id="trail-graph" aria-hidden="true"></canvas>
+  <nav class="nav">
+    <a href="/docs/" class="nav-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="40" height="40" role="img" aria-label="trail">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="16" cy="16" r="9" fill="none" stroke="#e8a87c" stroke-width="0.9" opacity="0.55"/>
+        <circle cx="16" cy="16" r="3.5" fill="#e8a87c"/>
+      </svg>
+      <span class="brand-text">tr<span class="logo-ai">ai</span>l</span>
+      <span class="brand-section">docs</span>
+    </a>
+    <div class="nav-links">
+      <a href="/docs/intro/">Docs</a>
+      <a href="/docs/api-reference/">API</a>
+      <a href="https://github.com/broberg-ai/trail/releases" rel="external">Changelog</a>
+    </div>
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a href="https://github.com/broberg-ai/trail" class="nav-icon" rel="external" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="nav-mobile" role="navigation" aria-label="Mobile menu" aria-hidden="true">
+    <a href="/docs/intro/">Docs</a>
+      <a href="/docs/api-reference/">API</a>
+      <a href="https://github.com/broberg-ai/trail/releases" rel="external">Changelog</a>
+    <a href="https://github.com/broberg-ai/trail">GitHub</a>
+  </div>
+  <div class="layout">
+    <nav class="sidebar" aria-label="Documentation navigation">
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Start here</h3>
+        <ul>
+          <li><a href="/docs/">Trail in 60 seconds</a></li>
+        <li><a href="/docs/intro/">Intro — what Trail is, and isn't</a></li>
+        <li><a href="/docs/why-not-rag/">Why not RAG?</a></li>
+        <li><a href="/docs/quick-start/">Quick start</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Concepts</h3>
+        <ul>
+          <li><a href="/docs/concepts-neurons/">Neurons</a></li>
+        <li><a href="/docs/concepts-queue/">The curation queue</a></li>
+        <li><a href="/docs/concepts-kb/">Brains (knowledge bases)</a></li>
+        <li><a href="/docs/concepts-connectors/">Connectors</a></li>
+        <li><a href="/docs/concepts-search/">Search + retrieve</a></li>
+        <li><a href="/docs/concepts-sources/">Sources &amp; programmatic upload</a></li>
+        <li><a href="/docs/reader-feedback/">Reader feedback</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Audiences</h3>
+        <ul>
+          <li><a href="/docs/who-is-trail-for/">Who is Trail for?</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Patterns</h3>
+        <ul>
+          <li><a href="/docs/site-llm-with-trail-as-tool/">A site-LLM with Trail as a tool</a></li>
+        <li><a href="/docs/widget/" class="active">The &lt;trail-chat&gt; widget</a></li>
+        <li><a href="/docs/web-clipper/">The Web Clipper extension</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">API</h3>
+        <ul>
+          <li><a href="/docs/api-reference/">API reference</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="content">
+      <article>
+        <header class="doc-header">
+          <h1>The &lt;trail-chat&gt; widget</h1>
+          <p class="doc-summary">Drop-in HTML embed for Trail-grounded chat. One script tag + one custom element + a tiny proxy on your server, and you have Pattern A chat on any page.</p>
+        </header>
+        <div class="doc-body">
+          <p>The <code>&lt;trail-chat&gt;</code> widget is Trail&#39;s turnkey Pattern A surface — a
+self-contained ESM bundle hosted at
+<code>https://widget.trailmem.com/v1/trail-chat.js</code> that any HTML page
+can embed in two lines. No framework required, no build step,
+no CSS conflicts (the widget renders in shadow DOM).</p>
+<p>If you want grounded chat over a Brain and you don&#39;t need the
+multi-tool composition of <a href="/docs/site-llm-with-trail-as-tool/">Pattern C</a>,
+this is the path.</p>
+<h2>The embed</h2>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span>&#x3C;script type="module"</span></span>
+<span class="line"><span>  src="https://widget.trailmem.com/v1/trail-chat.js">&#x3C;/script></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&#x3C;trail-chat</span></span>
+<span class="line"><span>  api="/api/chat-proxy"</span></span>
+<span class="line"><span>  theme="auto"</span></span>
+<span class="line"><span>  height="600px">&#x3C;/trail-chat></span></span></code></pre><p>That&#39;s it. The widget renders an input + answer-log panel inside
+the <code>&lt;trail-chat&gt;</code> element. Citations show under each answer.
+<svg class="lucide-inline vote-up" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="thumbs up" style="display:inline-block;vertical-align:-3px"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg> <svg class="lucide-inline vote-down" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="thumbs down" style="display:inline-block;vertical-align:-3px"><path d="M17 14V2"/><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"/></svg> <svg class="lucide-inline vote-flag" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="flag" style="display:inline-block;vertical-align:-3px"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a8 8 0 0 0-4 1"/><path d="M4 22V15"/></svg> feedback buttons close the loop into Trail&#39;s curator queue.</p>
+<h2>Why a proxy?</h2>
+<p>The <code>api</code> attribute points at <strong>your server</strong>, not at
+<code>engine.trailmem.com</code>. The widget POSTs to <code>${api}/chat</code> and
+<code>${api}/feedback</code>; your server forwards to Trail with the bearer
+token attached server-side.</p>
+<p><strong>Why not let the widget speak to Trail directly?</strong> Three reasons:</p>
+<ol>
+<li><strong>Token safety</strong>: a Trail bearer key in a browser-visible
+attribute leaks across page-source, browser-extensions, server
+logs, and screen-shares. Server-side proxy keeps the token where
+only your infra sees it.</li>
+<li><strong>Rate-limiting + abuse control</strong>: your proxy is where you
+throttle aggressive callers, deny known abusers, and add IP-level
+guards. Trail&#39;s engine has its own rate limits but they apply
+per-token, not per-end-user.</li>
+<li><strong>Logging + analytics</strong>: chats your end-users have are your
+data; the proxy is where you record + analyse, not Trail.</li>
+</ol>
+<p>Building the proxy is a 20-line Next.js route. Example below.</p>
+<h2>Next.js proxy example</h2>
+<p>Three files for a complete Pattern A setup on a Next.js site:</p>
+<h3>1. Environment</h3>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#6A737D"># .env.local</span></span>
+<span class="line"><span style="color:#E1E4E8">TRAIL_API_BASE</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">https://engine.trailmem.com</span></span>
+<span class="line"><span style="color:#E1E4E8">TRAIL_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">trail_live_…</span><span style="color:#6A737D">    # from app.trailmem.com/settings → API Keys</span></span>
+<span class="line"><span style="color:#E1E4E8">TRAIL_KB</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">your-kb-slug</span></span></code></pre><h3>2. Chat proxy</h3>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#6A737D">// app/api/chat-proxy/chat/route.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { NextRequest } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'next/server'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> TRAIL_BASE</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_API_BASE</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> TRAIL_KEY</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_API_KEY</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> TRAIL_KB</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_KB</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> POST</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">req</span><span style="color:#F97583">:</span><span style="color:#B392F0"> NextRequest</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> body</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> req.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> message</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> body.message;</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> sessionId</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#F97583"> |</span><span style="color:#79B8FF"> undefined</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> body.sessionId;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">message?.</span><span style="color:#B392F0">trim</span><span style="color:#E1E4E8">()) {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> Response.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">({ error: </span><span style="color:#9ECBFF">'message required'</span><span style="color:#E1E4E8"> }, { status: </span><span style="color:#79B8FF">400</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> res</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> fetch</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`${</span><span style="color:#79B8FF">TRAIL_BASE</span><span style="color:#9ECBFF">}/api/v1/chat`</span><span style="color:#E1E4E8">, {</span></span>
+<span class="line"><span style="color:#E1E4E8">    method: </span><span style="color:#9ECBFF">'POST'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    headers: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      'Content-Type'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'application/json'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      Authorization: </span><span style="color:#9ECBFF">`Bearer ${</span><span style="color:#79B8FF">TRAIL_KEY</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#E1E4E8">    body: </span><span style="color:#79B8FF">JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">stringify</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">      knowledgeBaseId: </span><span style="color:#79B8FF">TRAIL_KB</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      message,</span></span>
+<span class="line"><span style="color:#E1E4E8">      sessionId,</span></span>
+<span class="line"><span style="color:#E1E4E8">      audience: </span><span style="color:#9ECBFF">'public'</span><span style="color:#E1E4E8">,  </span><span style="color:#6A737D">// tone-tuned for end-user chat</span></span>
+<span class="line"><span style="color:#E1E4E8">    }),</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">res.ok) {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> text</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">text</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">catch</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> Response.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#E1E4E8">      { error: </span><span style="color:#9ECBFF">'trail_upstream'</span><span style="color:#E1E4E8">, detail: text.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">200</span><span style="color:#E1E4E8">) },</span></span>
+<span class="line"><span style="color:#E1E4E8">      { status: </span><span style="color:#79B8FF">502</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">    );</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> Response.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">());</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><h3>3. Feedback proxy</h3>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#6A737D">// app/api/chat-proxy/feedback/route.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { NextRequest } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'next/server'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> TRAIL_BASE</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_API_BASE</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> TRAIL_KEY</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_API_KEY</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> TRAIL_KB</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_KB</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> POST</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">req</span><span style="color:#F97583">:</span><span style="color:#B392F0"> NextRequest</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> body</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> req.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">[</span><span style="color:#9ECBFF">'up'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'down'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'flag'</span><span style="color:#E1E4E8">].</span><span style="color:#B392F0">includes</span><span style="color:#E1E4E8">(body.vote)) {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> Response.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">({ error: </span><span style="color:#9ECBFF">'invalid_vote'</span><span style="color:#E1E4E8"> }, { status: </span><span style="color:#79B8FF">400</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> ((body.vote </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'down'</span><span style="color:#F97583"> ||</span><span style="color:#E1E4E8"> body.vote </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'flag'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#F97583"> !</span><span style="color:#E1E4E8">body.reason?.</span><span style="color:#B392F0">trim</span><span style="color:#E1E4E8">()) {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> Response.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">({ error: </span><span style="color:#9ECBFF">'reason_required'</span><span style="color:#E1E4E8"> }, { status: </span><span style="color:#79B8FF">400</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> res</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> fetch</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#9ECBFF">    `${</span><span style="color:#79B8FF">TRAIL_BASE</span><span style="color:#9ECBFF">}/api/v1/knowledge-bases/${</span><span style="color:#79B8FF">TRAIL_KB</span><span style="color:#9ECBFF">}/reader-feedback`</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#E1E4E8">      method: </span><span style="color:#9ECBFF">'POST'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      headers: {</span></span>
+<span class="line"><span style="color:#9ECBFF">        'Content-Type'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'application/json'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        Authorization: </span><span style="color:#9ECBFF">`Bearer ${</span><span style="color:#79B8FF">TRAIL_KEY</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      },</span></span>
+<span class="line"><span style="color:#E1E4E8">      body: </span><span style="color:#79B8FF">JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">stringify</span><span style="color:#E1E4E8">(body),</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">res.ok) {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> text</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">text</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">catch</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> Response.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#E1E4E8">      { error: </span><span style="color:#9ECBFF">'trail_upstream'</span><span style="color:#E1E4E8">, detail: text.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">200</span><span style="color:#E1E4E8">) },</span></span>
+<span class="line"><span style="color:#E1E4E8">      { status: </span><span style="color:#79B8FF">502</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">    );</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> Response.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">());</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><p>Then embed with <code>api=&quot;/api/chat-proxy&quot;</code> and you&#39;re done.</p>
+<h2>Attributes</h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>api</code></td>
+<td><em>(required)</em></td>
+<td>Base URL of your chat-proxy. Widget POSTs to <code>${api}/chat</code> and <code>${api}/feedback</code>.</td>
+</tr>
+<tr>
+<td><code>theme</code></td>
+<td><code>auto</code></td>
+<td><code>light</code>, <code>dark</code>, or <code>auto</code> (follows <code>prefers-color-scheme</code>).</td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td><code>600px</code></td>
+<td>CSS height of the widget panel.</td>
+</tr>
+<tr>
+<td><code>placeholder</code></td>
+<td><code>Ask anything…</code></td>
+<td>Input placeholder text.</td>
+</tr>
+<tr>
+<td><code>cite-format</code></td>
+<td><code>inline</code></td>
+<td><code>inline</code> (citations under each answer), <code>footnote</code> (numbered + bibliography at end), or <code>off</code> (no citations rendered).</td>
+</tr>
+</tbody></table>
+<h2>Custom events</h2>
+<p>The widget dispatches three bubble + composed events your page can
+listen for:</p>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>trail-chat:ready</code></td>
+<td>Widget rendered + connected. Listen on <code>window</code> or any ancestor.</td>
+</tr>
+<tr>
+<td><code>trail-chat:answer</code></td>
+<td><code>{ question, answer, citations }</code> — full answer received.</td>
+</tr>
+<tr>
+<td><code>trail-chat:error</code></td>
+<td><code>{ message }</code> — fetch failed; user sees inline error in widget.</td>
+</tr>
+</tbody></table>
+<p>Example:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">document.</span><span style="color:#B392F0">querySelector</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'trail-chat'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'trail-chat:answer'</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">e</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#6A737D">  // Track answers in your analytics:</span></span>
+<span class="line"><span style="color:#E1E4E8">  analytics.</span><span style="color:#B392F0">track</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'trail_chat_answer'</span><span style="color:#E1E4E8">, {</span></span>
+<span class="line"><span style="color:#E1E4E8">    question: e.detail.question.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">80</span><span style="color:#E1E4E8">),</span></span>
+<span class="line"><span style="color:#E1E4E8">    citationCount: e.detail.citations?.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> ??</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span></code></pre><h2>Versions</h2>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>widget.trailmem.com/v1/trail-chat.js</code></td>
+<td>Current stable. ~26 kB gzipped.</td>
+</tr>
+</tbody></table>
+<p>Versioned URLs mean breaking changes ship at <code>/v2/</code> without breaking
+embedded sites — your <code>&lt;script&gt;</code> tag keeps pointing at <code>/v1/</code>
+until you choose to migrate.</p>
+<h2>What the widget is NOT</h2>
+<ul>
+<li><strong>Not a proxy-replacement.</strong> The widget speaks ONLY to your proxy.
+It will not work with <code>api=&quot;https://engine.trailmem.com/api/v1&quot;</code> —
+bearer tokens belong server-side.</li>
+<li><strong>Not a CMS.</strong> It doesn&#39;t manage Sources, edit Neurons, or expose
+the curator queue. Those live in the admin at <code>app.trailmem.com</code>.</li>
+<li><strong>Not chat history persistence.</strong> The widget keeps the current
+session in memory; reload = empty. If you want persistent history
+per end-user, pass <code>sessionId</code> from your proxy (Trail&#39;s chat API
+honours it).</li>
+<li><strong>Not custom theming beyond light/dark.</strong> Rich theming is a Phase 2
+feature; for now the widget matches <code>prefers-color-scheme</code> and
+uses Trail&#39;s accent colour. Override by wrapping in your own CSS
+custom-property scope: <code>--tc-accent</code>, <code>--tc-bg</code>, <code>--tc-fg</code>, etc.</li>
+</ul>
+<h2>Where to go next</h2>
+<ul>
+<li><a href="/docs/reader-feedback/">Reader feedback</a> — what the <svg class="lucide-inline vote-up" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="thumbs up" style="display:inline-block;vertical-align:-3px"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg> <svg class="lucide-inline vote-down" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="thumbs down" style="display:inline-block;vertical-align:-3px"><path d="M17 14V2"/><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"/></svg> <svg class="lucide-inline vote-flag" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="flag" style="display:inline-block;vertical-align:-3px"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a8 8 0 0 0-4 1"/><path d="M4 22V15"/></svg> buttons do
+and how the curator sees results in their queue.</li>
+<li><a href="/docs/site-llm-with-trail-as-tool/">A site-LLM with Trail as a tool</a> —
+Pattern C, the more powerful alternative when you need multi-tool
+composition (booking, calendar, catalog) alongside chat.</li>
+<li><a href="/docs/quick-start/">Quick start</a> — five-step integration including
+the bearer-token setup the proxy uses.</li>
+</ul>
+
+        </div>
+      </article>
+      <footer class="doc-footer">
+        <p>
+          Trail is open source on <a href="https://github.com/broberg-ai/trail">GitHub</a>
+          (FSL-1.1-Apache-2.0). Found a docs bug? Edit
+          <a href="https://github.com/broberg-ai/trail/blob/main/apps/docs/content/docs/widget.md">this page on GitHub</a>.
+        </p>
+      </footer>
+    </main>
+  </div>
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var body = document.body;
+      if (!btn || !menu) return;
+      function setOpen(open) {
+        body.dataset.menuOpen = open ? 'true' : 'false';
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+      btn.addEventListener('click', function () { setOpen(body.dataset.menuOpen !== 'true'); });
+      menu.addEventListener('click', function (e) {
+        if (e.target instanceof HTMLAnchorElement) setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    })();
+
+    (function () {
+      var tbtn = document.querySelector('.theme-toggle');
+      if (!tbtn) return;
+      tbtn.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('trail.theme', next); } catch (e) {}
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', next === 'dark' ? '#17140F' : '#FAF9F5');
+      });
+    })();
+  </script>
+  <script>
+/* Neuron-particle background — LIFTED VERBATIM from apps/landing.
+   Reads --graph-* CSS variables for color tokens, re-caches on theme
+   change via MutationObserver. Pauses on tab-hidden +
+   prefers-reduced-motion. */
+(function(){
+  const canvas = document.getElementById('trail-graph');
+  if (!canvas) return;
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const ctx = canvas.getContext('2d');
+  let animationFrameId = 0;
+  let running = false;
+  let particles = [];
+  const mouse = { x: null, y: null };
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  const colors = { node: '#1a1715', accent: '#e8a87c', line: '26, 23, 21', accentLine: '232, 168, 124' };
+  function refreshColors(){
+    const cs = getComputedStyle(document.documentElement);
+    const read = function(n, f){ return (cs.getPropertyValue(n).trim() || f); };
+    colors.node = read('--graph-node', colors.node);
+    colors.accent = read('--graph-accent', colors.accent);
+    colors.line = read('--graph-line', colors.line);
+    colors.accentLine = read('--graph-accent-line', colors.accentLine);
+  }
+  refreshColors();
+
+  if ('MutationObserver' in window) {
+    new MutationObserver(refreshColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  }
+
+  function resize(){
+    canvas.width = window.innerWidth * DPR;
+    canvas.height = window.innerHeight * DPR;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    initParticles();
+  }
+
+  function Particle(){
+    this.x = Math.random() * window.innerWidth;
+    this.y = Math.random() * window.innerHeight;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.baseRadius = Math.random() > 0.95 ? 3 : 1.5;
+    this.isAccent = Math.random() > 0.98;
+  }
+  Particle.prototype.update = function(){
+    this.x += this.vx;
+    this.y += this.vy;
+    if ((this.x < 0 && this.vx < 0) || (this.x > window.innerWidth && this.vx > 0)) this.vx = -this.vx;
+    if ((this.y < 0 && this.vy < 0) || (this.y > window.innerHeight && this.vy > 0)) this.vy = -this.vy;
+    if (mouse.x !== null && mouse.y !== null) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 100) { this.x -= dx * 0.01; this.y -= dy * 0.01; }
+    }
+  };
+  Particle.prototype.draw = function(){
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.baseRadius, 0, Math.PI * 2);
+    ctx.fillStyle = this.isAccent ? colors.accent : colors.node;
+    ctx.fill();
+  };
+
+  function initParticles(){
+    particles = [];
+    const count = Math.min(150, Math.floor((window.innerWidth * window.innerHeight) / 15000));
+    for (let i = 0; i < count; i++) particles.push(new Particle());
+  }
+
+  const LINK_DIST = 160;
+  const LINK_DIST_SQ = LINK_DIST * LINK_DIST;
+  function drawLines(){
+    for (let i = 0; i < particles.length; i++){
+      const pi = particles[i];
+      for (let j = i + 1; j < particles.length; j++){
+        const pj = particles[j];
+        const dx = pi.x - pj.x;
+        const dy = pi.y - pj.y;
+        const d2 = dx*dx + dy*dy;
+        if (d2 >= LINK_DIST_SQ) continue;
+        const opacity = 1 - (Math.sqrt(d2) / LINK_DIST);
+        ctx.beginPath();
+        if (pi.isAccent || pj.isAccent) {
+          ctx.strokeStyle = 'rgba(' + colors.accentLine + ', ' + (opacity * 0.5) + ')';
+        } else {
+          ctx.strokeStyle = 'rgba(' + colors.line + ', ' + (opacity * 0.18) + ')';
+        }
+        ctx.lineWidth = 0.6;
+        ctx.moveTo(pi.x, pi.y);
+        ctx.lineTo(pj.x, pj.y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  function renderOneFrame(){
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (const p of particles){ p.update(); p.draw(); }
+    drawLines();
+  }
+
+  function loop(){
+    if (!running) return;
+    renderOneFrame();
+    animationFrameId = requestAnimationFrame(loop);
+  }
+  function start(){
+    if (running || reduceMotion) return;
+    running = true;
+    loop();
+  }
+  function stop(){
+    running = false;
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    animationFrameId = 0;
+  }
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('mousemove', function(e){ mouse.x = e.clientX; mouse.y = e.clientY; });
+  window.addEventListener('mouseout', function(){ mouse.x = null; mouse.y = null; });
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) stop();
+    else start();
+  });
+
+  resize();
+  if (reduceMotion) {
+    renderOneFrame();
+  } else {
+    start();
+  }
+})();
+  </script>
+  <!-- F291 — @broberg/consent-cookie. categories="" because docs.trailmem.com sets
+       no statistics or marketing cookies (measured 29/9). -->
+  <broberg-consent policy-version="2026-09" categories="" lang="en" privacy-href="https://www.trailmem.com/privacy/" data-testid="consent-banner"
+    style="--card:var(--bg-card);--card-foreground:var(--fg);--primary:var(--accent);--primary-foreground:var(--on-accent);--muted-foreground:var(--fg-60);--border:var(--fg-20);--secondary:var(--fg-10)"></broberg-consent>
+  <script type="module" src="/docs/assets/consent/element.js"></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"The &lt;trail-chat&gt; widget — trail · docs","url":"https://www.trailmem.com/docs/widget/","description":"Drop-in HTML embed for Trail-grounded chat. One script tag + one custom element + a tiny proxy on your server, and you have Pattern A chat on any page.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"trail: second brain","url":"https://www.trailmem.com/"}}</script>
+</body>
+</html>

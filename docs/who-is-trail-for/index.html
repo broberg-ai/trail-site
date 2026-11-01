@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Who is Trail for? — trail · docs</title>
+  <meta name="description" content="Concrete profiles of the people and teams who benefit most from Trail — from software engineers using AI agents, to reflexologists, physiotherapists, wellness coaches, researchers, consultants, and customer-facing teams." />
+  <meta name="audience" content="human" />
+  <meta name="theme-color" content="#FAF9F5" />
+  <link rel="icon" type="image/svg+xml" href="/docs/favicon.svg" />
+  <link rel="apple-touch-icon" href="/docs/memx-logo.svg" />
+  <link rel="stylesheet" href="/docs/styles.css" />
+  <script>
+    (function(){try{var t=localStorage.getItem('trail.theme');document.documentElement.setAttribute('data-theme', t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+  </script>
+
+  <!-- webhouse.app enrichment -->
+  <meta name="generator" content="webhouse.app" />
+  <link rel="canonical" href="https://www.trailmem.com/docs/who-is-trail-for/" />
+  <meta property="og:title" content="Who is Trail for? — trail · docs" />
+  <meta property="og:description" content="Concrete profiles of the people and teams who benefit most from Trail — from software engineers using AI agents, to reflexologists, physiotherapists, wellness coaches, researchers, consultants, and customer-facing teams." />
+  <meta property="og:url" content="https://www.trailmem.com/docs/who-is-trail-for/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="trail: second brain" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Who is Trail for? — trail · docs" />
+  <meta name="twitter:description" content="Concrete profiles of the people and teams who benefit most from Trail — from software engineers using AI agents, to reflexologists, physiotherapists, wellness coaches, researchers, consultants, and customer-facing teams." />
+  <link rel="manifest" href="/manifest.json" />
+</head>
+<body>
+  <canvas id="trail-graph" aria-hidden="true"></canvas>
+  <nav class="nav">
+    <a href="/docs/" class="nav-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="40" height="40" role="img" aria-label="trail">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="16" cy="16" r="9" fill="none" stroke="#e8a87c" stroke-width="0.9" opacity="0.55"/>
+        <circle cx="16" cy="16" r="3.5" fill="#e8a87c"/>
+      </svg>
+      <span class="brand-text">tr<span class="logo-ai">ai</span>l</span>
+      <span class="brand-section">docs</span>
+    </a>
+    <div class="nav-links">
+      <a href="/docs/intro/">Docs</a>
+      <a href="/docs/api-reference/">API</a>
+      <a href="https://github.com/broberg-ai/trail/releases" rel="external">Changelog</a>
+    </div>
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a href="https://github.com/broberg-ai/trail" class="nav-icon" rel="external" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="nav-mobile" role="navigation" aria-label="Mobile menu" aria-hidden="true">
+    <a href="/docs/intro/">Docs</a>
+      <a href="/docs/api-reference/">API</a>
+      <a href="https://github.com/broberg-ai/trail/releases" rel="external">Changelog</a>
+    <a href="https://github.com/broberg-ai/trail">GitHub</a>
+  </div>
+  <div class="layout">
+    <nav class="sidebar" aria-label="Documentation navigation">
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Start here</h3>
+        <ul>
+          <li><a href="/docs/">Trail in 60 seconds</a></li>
+        <li><a href="/docs/intro/">Intro — what Trail is, and isn't</a></li>
+        <li><a href="/docs/why-not-rag/">Why not RAG?</a></li>
+        <li><a href="/docs/quick-start/">Quick start</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Concepts</h3>
+        <ul>
+          <li><a href="/docs/concepts-neurons/">Neurons</a></li>
+        <li><a href="/docs/concepts-queue/">The curation queue</a></li>
+        <li><a href="/docs/concepts-kb/">Brains (knowledge bases)</a></li>
+        <li><a href="/docs/concepts-connectors/">Connectors</a></li>
+        <li><a href="/docs/concepts-search/">Search + retrieve</a></li>
+        <li><a href="/docs/concepts-sources/">Sources &amp; programmatic upload</a></li>
+        <li><a href="/docs/reader-feedback/">Reader feedback</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Audiences</h3>
+        <ul>
+          <li><a href="/docs/who-is-trail-for/" class="active">Who is Trail for?</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Patterns</h3>
+        <ul>
+          <li><a href="/docs/site-llm-with-trail-as-tool/">A site-LLM with Trail as a tool</a></li>
+        <li><a href="/docs/widget/">The &lt;trail-chat&gt; widget</a></li>
+        <li><a href="/docs/web-clipper/">The Web Clipper extension</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">API</h3>
+        <ul>
+          <li><a href="/docs/api-reference/">API reference</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="content">
+      <article>
+        <header class="doc-header">
+          <h1>Who is Trail for?</h1>
+          <p class="doc-summary">Concrete profiles of the people and teams who benefit most from Trail — from software engineers using AI agents, to reflexologists, physiotherapists, wellness coaches, researchers, consultants, and customer-facing teams.</p>
+        </header>
+        <div class="doc-body">
+          <p>Trail is a general-purpose AI memory and second-brain platform. It is
+useful any time someone has a body of knowledge that (a) grows over
+time, (b) deserves to be cross-referenced rather than thrown into a
+chat window once per question, and (c) should answer back accurately,
+in your own voice, with citations.</p>
+<p>The profiles below are the ones we see most often. Each one ends with
+the concrete payoff — what changes the day you stop &quot;asking ChatGPT
+generic questions&quot; and start &quot;asking your own Trail&quot;.</p>
+<h2>Software engineering teams using AI agents</h2>
+<p><strong>The setup.</strong> You are running Claude Code, Cursor, Codex, or another
+AI coding agent against a real codebase. Every session burns through
+the context window before the agent finishes the task. The decisions
+you made yesterday — &quot;we picked Postgres over MongoDB because of
+write-heavy load&quot;, &quot;this bug only repros on iOS Safari with
+service-worker caching&quot; — vanish the moment the chat compacts.</p>
+<p><strong>What you put into Trail.</strong> ADRs (architecture decision records),
+caught bugs with their root-cause analyses, conventions established
+mid-session (&quot;all new LLM calls go through <code>spawnClaude</code>, never
+<code>fetch</code>&quot;), interop quirks between services, performance findings,
+prompt-engineering wins, configuration gotchas.</p>
+<p><strong>What Trail compiles.</strong> Each session writes Neurons via Trail&#39;s MCP
+server (<code>mcp__trail__write</code> for Claude Code; equivalent tools for
+Cursor + Codex). The Neurons are stable, citable, deduplicated by
+canonical seqID (<code>buddy_00000049</code>, <code>trail_00000163</code>), and
+cross-linked: the Neuron about your Postgres choice cites the Neuron
+about write-load benchmarks and is cited back from the Neuron about
+schema migrations.</p>
+<p><strong>What you get back.</strong> The next session — minutes or weeks later —
+starts by reading relevant Neurons via <code>mcp__trail__search</code> or
+<code>mcp__trail__recent_activity</code>. Caught bugs surface before they are
+re-caught. ADRs surface before someone unknowingly contradicts one.
+&quot;We&#39;ve solved this before, but where?&quot; stops being a guessing game.</p>
+<p><strong>Concrete payoff.</strong> No more re-deriving decisions every Monday.
+Multiple agents (Claude Code + Cursor + a planning Claude Desktop)
+share one memory; what one agent learns, the others can read. The
+context window stops being the limit on continuity.</p>
+<h2>Reflexologists and Traditional Chinese Medicine practitioners</h2>
+<p><strong>The setup.</strong> You have years of training, your own course notes,
+treatment protocols by indication, anatomy charts, meridian and point
+references, books in two or three languages, and notes from cases
+that worked unusually well. None of it is searchable in any
+meaningful way. When a client asks &quot;what about this combination?&quot;,
+you go from memory.</p>
+<p><strong>What you put into Trail.</strong> Your textbooks (PDF — Trail extracts
+text + image content via Vision), your typed treatment protocols,
+scanned handwritten notes (OCR&#39;d), client-specific learnings (kept
+as private user-notes on the relevant Neurons, not visible in chat
+unless you opt in), course slides, audio recordings of seminars
+(transcribed automatically), and reference glossaries of points,
+meridians, treatments, and conditions.</p>
+<p><strong>What Trail compiles.</strong> A graph of Neurons where treatment
+protocols cite specific points, points are part of meridians,
+conditions reference contraindications, and supersedence edges
+capture &quot;this 2024 guidance replaces the 2018 protocol&quot;. A custom
+schema declares your domain vocabulary so Trail&#39;s ingest pipeline
+knows that &quot;GB-21&quot; is a point, that &quot;Lung meridian&quot; is a meridian,
+and that &quot;frozen shoulder&quot; is a condition.</p>
+<p><strong>What you get back.</strong> Chat: &quot;What treatment combination should I
+consider for a client with chronic frozen shoulder who also has a
+known sensitivity to deep pressure?&quot; → grounded answer pulling from
+your own protocols, with citations to the exact Neurons. A patient
+education widget on your website (optional) lets new clients ask
+basic questions and get answers in your voice, citing your own
+material.</p>
+<p><strong>Concrete payoff.</strong> Twenty years of accumulated practice becomes
+one searchable, askable surface. Your &quot;Din tanke&quot; reflections — the
+private notes that would never make it into a published textbook —
+become part of your own consultation tool, opt-in shareable when
+they should be.</p>
+<h2>Physiotherapists and movement specialists</h2>
+<p><strong>The setup.</strong> Exercise libraries, anatomical references, peer-
+reviewed research papers, evidence-based protocols by condition,
+patient education sheets, course materials from CPD, your own clinical
+observations. You re-explain the same exercise rationale to fifty
+patients a year and you keep finding yourself searching for that
+specific paper that justified the timing of the eccentric phase.</p>
+<p><strong>What you put into Trail.</strong> Research papers (PDFs — Trail
+extracts methodology, results, and discussion sections into separate
+Neurons that cite each other), exercise protocols with anatomical
+reasoning, patient handouts, your CPD certifications and notes from
+courses, treatment outcome measurements, your own published or
+unpublished case studies.</p>
+<p><strong>What Trail compiles.</strong> Neurons for individual exercises (with
+indication, contraindication, dosage, progression), Neurons for
+conditions (with their typical evidence-based interventions),
+Neurons for principles (eccentric loading, motor control, pain
+neuroscience education), and bidirectional edges that let you
+traverse from &quot;patient with ACL graft at week 6&quot; to &quot;exercises
+appropriate for that phase&quot; to &quot;papers supporting the timing&quot;.</p>
+<p><strong>What you get back.</strong> Patient education becomes one ask: &quot;Generate
+a one-page handout for a patient at week 6 post-ACL with focus on
+quadriceps activation, citing our standard protocol.&quot; Continuing
+education stops feeling like running on a treadmill — every new
+course&#39;s notes get integrated into the same graph, with
+contradictions flagged automatically (Trail&#39;s lint pass catches
+&quot;this 2025 paper contradicts our 2022 protocol — should we update?&quot;).</p>
+<p><strong>Concrete payoff.</strong> The years of professional learning that
+typically live in shelves and Dropbox folders become an active
+consultation surface. New evidence integrates without overwriting
+your accumulated clinical wisdom — supersession is explicit, not
+silent.</p>
+<h2>Wellness coaches</h2>
+<p><strong>The setup.</strong> You blend several disciplines — nutrition,
+behavioral psychology, sleep science, stress physiology, breathwork,
+maybe somatic practices. Your sources cross fields: Huberman
+podcasts, peer-reviewed reviews, course materials from your
+certifications, books you have annotated, client-session notes,
+coaching frameworks. You translate this into client-friendly
+language a hundred times a year.</p>
+<p><strong>What you put into Trail.</strong> Podcast transcripts (audio in →
+transcribed → ingested), book annotations, certification course
+materials, coaching frameworks (NLP, Motivational Interviewing,
+SFBT, etc.), nutrition references, sleep-science summaries, your own
+client-anonymized case notes, the prompts and frameworks you have
+refined for specific challenges (sleep, weight, anxiety, habits).</p>
+<p><strong>What Trail compiles.</strong> A Neuron graph that cross-references
+nutrition advice to behavior-change frameworks to sleep science to
+motivational technique. When you mention &quot;low-glycemic load&quot; in one
+Neuron and &quot;blood-sugar variability&quot; in another, the wiki-link
+resolves automatically and the graph traversal lets you ask
+multi-discipline questions (&quot;What&#39;s the connection between
+post-meal walks and decision fatigue?&quot;) and get a synthesised
+answer with citations across your sources.</p>
+<p><strong>What you get back.</strong> Client-prep becomes &quot;Ask Trail: what do I
+already know about a client situation like this one?&quot; — not &quot;let me
+search my Notes app for fragments&quot;. Generating actionable client
+homework draws on your full library, in your voice, every time.
+Group programs and online courses can be authored faster because
+the source material is already organized as a queryable second
+brain.</p>
+<p><strong>Concrete payoff.</strong> Your eclectic, multi-disciplinary practice
+stops feeling like a stack of disconnected certifications and
+becomes one coherent worldview that compiles every time you add to
+it.</p>
+<h2>Health professionals (nurses, GPs, allied health)</h2>
+<p><strong>The setup.</strong> Clinical guidelines change. Drug interactions are
+remembered or not. Continuing education is mandatory and constantly
+adds new sources you may or may not look at again. Patient education
+materials need to be authoritative, current, and in plain language.</p>
+<p><strong>What you put into Trail.</strong> National clinical guidelines (NICE,
+local equivalents), CPD course materials, your specialty&#39;s seminal
+papers and reviews, drug-interaction references, patient-education
+templates, your own specialty-specific protocols, peer-reviewed
+journal subscriptions you actually skim.</p>
+<p><strong>What Trail compiles.</strong> A graph that knows which guideline
+supersedes which earlier version (supersession edges fire
+automatically when newer Neurons reference older ones), where
+specific drug interactions are documented, and which patient-
+education materials match which conditions. The lint pass flags
+contradictions between sources (a critical signal — &quot;the latest
+hypertension guideline contradicts what we taught in last year&#39;s
+CPD&quot;).</p>
+<p><strong>What you get back.</strong> Point-of-care queries: &quot;Is there a
+contraindication between [drug A] and [drug B] documented in any
+guideline I have ingested?&quot; Patient handouts in plain language:
+&quot;Generate a handout explaining post-operative wound care for a
+patient at a 5th-grade reading level, citing the relevant local
+guideline.&quot; CPD becomes cumulative rather than something that
+slips through your fingers between annual renewals.</p>
+<p><strong>Concrete payoff.</strong> Less time hunting through three different
+PDFs to confirm a guideline detail. Better-grounded patient
+education. A trail of which guidelines you have actually
+internalised — useful when you sit a competence renewal and want
+to know what your evidence base looks like.</p>
+<h2>Coaches more broadly (executive, business, life)</h2>
+<p><strong>The setup.</strong> Your value is your library of frameworks +
+your ability to apply them to specific clients. The frameworks
+come from books, courses, mentors, and your own experimentation.
+Most of the leverage is in the connections between them — which
+framework fits which client situation.</p>
+<p><strong>What you put into Trail.</strong> Books you have studied (digital or
+audiobook → transcribed), framework decks, certification course
+notes, your own modified versions of frameworks, coaching session
+notes (anonymized), client-archetype profiles, your prep notes
+from cases that felt unusually clear or unusually stuck.</p>
+<p><strong>What Trail compiles.</strong> Frameworks as Neurons, archetypes as
+Neurons, signals as Neurons. Edges relate &quot;client shows X signal&quot;
+→ &quot;consider framework Y&quot; → &quot;watch for failure mode Z&quot;. Your
+own experimental adaptations become first-class Neurons that
+cite the original framework via &quot;is-a&quot; or &quot;supersedes&quot; edges,
+preserving lineage.</p>
+<p><strong>What you get back.</strong> Pre-session prep: &quot;Given what I know about
+this client (private user-notes on their archetype Neuron), what
+framework am I underusing? Cite to my own materials.&quot; Group
+program design draws on the full library. Course or book authoring
+is a dialogue with your own compiled knowledge, not a search
+across folders.</p>
+<p><strong>Concrete payoff.</strong> Coaching becomes a deliberate practice with
+a memory. Your accumulated insight stops disappearing into
+session-notes folders and starts compounding.</p>
+<h2>Researchers, academics, and writers</h2>
+<p><strong>The setup.</strong> Papers, drafts, lab notebooks, citations, half-
+finished essays, slide decks, email threads with co-authors,
+conference notes. Most of it lives in folders organised by
+date or project, not by idea.</p>
+<p><strong>What you put into Trail.</strong> Papers (PDF → text + figure
+extraction), your draft chapters, your own published work,
+seminar notes, citation database, conference programmes, the
+dozens of &quot;this is interesting&quot;-tagged things you saved over the
+year and never came back to.</p>
+<p><strong>What Trail compiles.</strong> Concept-Neurons that cite specific
+papers, paper-Neurons that link to the concepts they argue,
+contradiction edges where two papers disagree, supersedence
+edges where a newer paper updates an older one. The graph is
+the research-network you wished you had been keeping all along
+— except now it builds itself.</p>
+<p><strong>What you get back.</strong> Citation finding for a paper you are
+writing: &quot;What have I read that supports the claim that X causes
+Y?&quot; Reading queue management: &quot;Which of the 47 papers tagged
+&#39;maybe relevant&#39; are actually cited by my drafts now?&quot;
+Cross-disciplinary connections: &quot;Show me Neurons that connect
+[domain A] and [domain B] — what&#39;s the bridge?&quot;</p>
+<p><strong>Concrete payoff.</strong> Writing becomes synthesis from a memory
+that has actually retained what you read, rather than a panicked
+search through your hard drive.</p>
+<h2>Consultants and boutique agencies</h2>
+<p><strong>The setup.</strong> You have a methodology. You have client
+deliverables. You have research that informs your point of view.
+You have proposals you have written. Each engagement is bespoke
+but draws on the same intellectual stock.</p>
+<p><strong>What you put into Trail.</strong> Methodology documentation, sanitised
+case studies, proposals (templates and shipped), industry
+research you reference, your own thought-leadership writing,
+slide decks, the post-mortems where you actually learned
+something the methodology didn&#39;t capture.</p>
+<p><strong>What Trail compiles.</strong> Methodology Neurons cite case-study
+Neurons that demonstrate them in practice. Case studies cite
+the industry research that justified the recommendation.
+Post-mortems supersede or contradict earlier methodology
+Neurons, capturing learning explicitly. Proposals compose from
+methodology + relevant case studies in a shape clients can read.</p>
+<p><strong>What you get back.</strong> Proposal drafting goes from &quot;search the
+shared drive&quot; to &quot;ask Trail to assemble the relevant case studies
+and methodology citations for a [vertical] [problem-type]
+engagement&quot;. New consultants onboard against a structured second-
+brain instead of a folder hierarchy. Brand voice stays consistent
+because the chat output draws from your own writing.</p>
+<p><strong>Concrete payoff.</strong> Tribal knowledge becomes institutional
+without ceasing to feel personal. The consultant who leaves
+takes a piece of expertise; the consultant who joins reads the
+Neurons.</p>
+<h2>Authors, thinkers, and the Luhmann audience</h2>
+<p><strong>The setup.</strong> You have a notebook (or twelve). You have read a
+lot. You think for a living. Your ideas live in fragments across
+years of journals, drafts, marginalia, screenshots of tweets,
+voice memos.</p>
+<p><strong>What you put into Trail.</strong> Books with annotations, your own
+journals (typed or scanned), drafts of essays, voice memos
+transcribed, screenshots ingested via Vision, the half-finished
+manuscripts you keep meaning to come back to.</p>
+<p><strong>What Trail compiles.</strong> A Zettelkasten built by an LLM that
+respects your own framing. Each idea becomes a focused Neuron
+that cites the source it came from and links to adjacent ideas.
+The &quot;Din tanke&quot; (your own reflection) layer is private by
+default — your own thinking is preserved alongside the source
+material it reacts to, but doesn&#39;t leak into chat unless you
+opt in per Neuron.</p>
+<p><strong>What you get back.</strong> Writing a new piece becomes a
+conversation with your own past thinking. A search-friendly
+Zettelkasten without the discipline cost: you don&#39;t have to
+hand-write every Neuron — Trail does the compile, you do the
+curation.</p>
+<p><strong>Concrete payoff.</strong> The book-or-essay that has been &quot;in your
+head for years&quot; stops being abstract. Your accumulated reading
+becomes a tool that can answer back, not a wall of unread spines.</p>
+<h2>Small and medium businesses</h2>
+<p><strong>The setup.</strong> Slack threads with the answer. Notion pages no one
+remembers. The team wiki that drifted out of date in 2023. The
+&quot;who knows about X?&quot; question that gets pinged to whoever answered
+it last time.</p>
+<p><strong>What you put into Trail.</strong> Existing Notion / Confluence /
+Slack-export content, vendor contracts, internal SOPs, post-
+mortems, customer-support knowledge, onboarding docs, decision
+logs.</p>
+<p><strong>What Trail compiles.</strong> A wiki that stays consistent because
+the lint pass surfaces orphans, contradictions, and stale
+content. New onboardings ingest into the same KB; the
+&quot;institutional memory&quot; actually accumulates instead of
+ossifying.</p>
+<p><strong>What you get back.</strong> New hires find answers without pinging
+seniors. Senior staff get pinged less. The &quot;where is that
+contract?&quot; search converges on a single source. Customer support
+gets an internal Trail to consult; sales gets one too.</p>
+<p><strong>Concrete payoff.</strong> Less context-switching for senior staff.
+Faster onboarding. Decisions stop having to be re-explained.</p>
+<h2>Customer-facing AI on your website</h2>
+<p><strong>The setup.</strong> You have a brand, a voice, and accumulated
+content. Generic chat-bots ground their answers in the open
+internet — not your offering, not your tone, frequently wrong.</p>
+<p><strong>What you put into Trail.</strong> Your product documentation, your
+positioning, FAQs, blog posts, sales materials, customer-support
+templates.</p>
+<p><strong>What Trail compiles.</strong> A KB that becomes the grounding source
+for a brand-aware AI assistant. The chat widget on your site
+hits Trail&#39;s <code>POST /api/v1/chat</code> with a tenant-scoped bearer
+token; answers cite the specific Neuron that grounded them; the
+voice is yours because the source material is yours.</p>
+<p><strong>What you get back.</strong> A chat widget that answers your actual
+questions, not generic ones. Sales-qualified leads from the
+chat are passed to a human with the conversation context.
+Conversion-killing hallucinations stop happening — if Trail does
+not have the answer, it says so.</p>
+<p><strong>Concrete payoff.</strong> Fewer support tickets that ask things your
+docs already answer. Higher conversion on landing pages because
+the chat closes the &quot;is this for me?&quot; gap. Brand-safe AI on the
+front page — finally.</p>
+<h2>How to know if Trail is right for you</h2>
+<p>A pragmatic checklist. Trail earns its keep when most of the following
+are true:</p>
+<ul>
+<li>The same fact appears in <strong>multiple sources</strong> in your library, and
+you would prefer one canonical answer.</li>
+<li>Your knowledge <strong>evolves</strong> — last year&#39;s truth is sometimes this
+year&#39;s mistake, and you need supersession to be explicit.</li>
+<li><strong>Provenance matters.</strong> &quot;Where did I learn that?&quot; is a question
+worth answering, whether for compliance, citation, or just
+intellectual honesty.</li>
+<li>Some kind of <strong>curator-in-the-loop</strong> is welcome (or required) —
+you don&#39;t trust an LLM to silently rewrite your knowledge base.</li>
+<li>You expect the system to get <strong>better the longer you use it</strong>, not
+flatter.</li>
+</ul>
+<p>If most of those describe you, the next step is the
+<a href="/docs/quick-start/">quick start</a> — five steps to a working Trail
+integration — or the deeper <a href="/docs/intro/">intro</a> on what Trail is and
+isn&#39;t compared to RAG, NotebookLM, and similar tools.</p>
+
+        </div>
+      </article>
+      <footer class="doc-footer">
+        <p>
+          Trail is open source on <a href="https://github.com/broberg-ai/trail">GitHub</a>
+          (FSL-1.1-Apache-2.0). Found a docs bug? Edit
+          <a href="https://github.com/broberg-ai/trail/blob/main/apps/docs/content/docs/who-is-trail-for.md">this page on GitHub</a>.
+        </p>
+      </footer>
+    </main>
+  </div>
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var body = document.body;
+      if (!btn || !menu) return;
+      function setOpen(open) {
+        body.dataset.menuOpen = open ? 'true' : 'false';
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+      btn.addEventListener('click', function () { setOpen(body.dataset.menuOpen !== 'true'); });
+      menu.addEventListener('click', function (e) {
+        if (e.target instanceof HTMLAnchorElement) setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    })();
+
+    (function () {
+      var tbtn = document.querySelector('.theme-toggle');
+      if (!tbtn) return;
+      tbtn.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('trail.theme', next); } catch (e) {}
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', next === 'dark' ? '#17140F' : '#FAF9F5');
+      });
+    })();
+  </script>
+  <script>
+/* Neuron-particle background — LIFTED VERBATIM from apps/landing.
+   Reads --graph-* CSS variables for color tokens, re-caches on theme
+   change via MutationObserver. Pauses on tab-hidden +
+   prefers-reduced-motion. */
+(function(){
+  const canvas = document.getElementById('trail-graph');
+  if (!canvas) return;
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const ctx = canvas.getContext('2d');
+  let animationFrameId = 0;
+  let running = false;
+  let particles = [];
+  const mouse = { x: null, y: null };
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  const colors = { node: '#1a1715', accent: '#e8a87c', line: '26, 23, 21', accentLine: '232, 168, 124' };
+  function refreshColors(){
+    const cs = getComputedStyle(document.documentElement);
+    const read = function(n, f){ return (cs.getPropertyValue(n).trim() || f); };
+    colors.node = read('--graph-node', colors.node);
+    colors.accent = read('--graph-accent', colors.accent);
+    colors.line = read('--graph-line', colors.line);
+    colors.accentLine = read('--graph-accent-line', colors.accentLine);
+  }
+  refreshColors();
+
+  if ('MutationObserver' in window) {
+    new MutationObserver(refreshColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  }
+
+  function resize(){
+    canvas.width = window.innerWidth * DPR;
+    canvas.height = window.innerHeight * DPR;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    initParticles();
+  }
+
+  function Particle(){
+    this.x = Math.random() * window.innerWidth;
+    this.y = Math.random() * window.innerHeight;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.baseRadius = Math.random() > 0.95 ? 3 : 1.5;
+    this.isAccent = Math.random() > 0.98;
+  }
+  Particle.prototype.update = function(){
+    this.x += this.vx;
+    this.y += this.vy;
+    if ((this.x < 0 && this.vx < 0) || (this.x > window.innerWidth && this.vx > 0)) this.vx = -this.vx;
+    if ((this.y < 0 && this.vy < 0) || (this.y > window.innerHeight && this.vy > 0)) this.vy = -this.vy;
+    if (mouse.x !== null && mouse.y !== null) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 100) { this.x -= dx * 0.01; this.y -= dy * 0.01; }
+    }
+  };
+  Particle.prototype.draw = function(){
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.baseRadius, 0, Math.PI * 2);
+    ctx.fillStyle = this.isAccent ? colors.accent : colors.node;
+    ctx.fill();
+  };
+
+  function initParticles(){
+    particles = [];
+    const count = Math.min(150, Math.floor((window.innerWidth * window.innerHeight) / 15000));
+    for (let i = 0; i < count; i++) particles.push(new Particle());
+  }
+
+  const LINK_DIST = 160;
+  const LINK_DIST_SQ = LINK_DIST * LINK_DIST;
+  function drawLines(){
+    for (let i = 0; i < particles.length; i++){
+      const pi = particles[i];
+      for (let j = i + 1; j < particles.length; j++){
+        const pj = particles[j];
+        const dx = pi.x - pj.x;
+        const dy = pi.y - pj.y;
+        const d2 = dx*dx + dy*dy;
+        if (d2 >= LINK_DIST_SQ) continue;
+        const opacity = 1 - (Math.sqrt(d2) / LINK_DIST);
+        ctx.beginPath();
+        if (pi.isAccent || pj.isAccent) {
+          ctx.strokeStyle = 'rgba(' + colors.accentLine + ', ' + (opacity * 0.5) + ')';
+        } else {
+          ctx.strokeStyle = 'rgba(' + colors.line + ', ' + (opacity * 0.18) + ')';
+        }
+        ctx.lineWidth = 0.6;
+        ctx.moveTo(pi.x, pi.y);
+        ctx.lineTo(pj.x, pj.y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  function renderOneFrame(){
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (const p of particles){ p.update(); p.draw(); }
+    drawLines();
+  }
+
+  function loop(){
+    if (!running) return;
+    renderOneFrame();
+    animationFrameId = requestAnimationFrame(loop);
+  }
+  function start(){
+    if (running || reduceMotion) return;
+    running = true;
+    loop();
+  }
+  function stop(){
+    running = false;
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    animationFrameId = 0;
+  }
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('mousemove', function(e){ mouse.x = e.clientX; mouse.y = e.clientY; });
+  window.addEventListener('mouseout', function(){ mouse.x = null; mouse.y = null; });
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) stop();
+    else start();
+  });
+
+  resize();
+  if (reduceMotion) {
+    renderOneFrame();
+  } else {
+    start();
+  }
+})();
+  </script>
+  <!-- F291 — @broberg/consent-cookie. categories="" because docs.trailmem.com sets
+       no statistics or marketing cookies (measured 29/9). -->
+  <broberg-consent policy-version="2026-09" categories="" lang="en" privacy-href="https://www.trailmem.com/privacy/" data-testid="consent-banner"
+    style="--card:var(--bg-card);--card-foreground:var(--fg);--primary:var(--accent);--primary-foreground:var(--on-accent);--muted-foreground:var(--fg-60);--border:var(--fg-20);--secondary:var(--fg-10)"></broberg-consent>
+  <script type="module" src="/docs/assets/consent/element.js"></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Who is Trail for? — trail · docs","url":"https://www.trailmem.com/docs/who-is-trail-for/","description":"Concrete profiles of the people and teams who benefit most from Trail — from software engineers using AI agents, to reflexologists, physiotherapists, wellness coaches, researchers, consultants, and customer-facing teams.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"trail: second brain","url":"https://www.trailmem.com/"}}</script>
+</body>
+</html>

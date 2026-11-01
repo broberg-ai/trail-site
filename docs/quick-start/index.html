@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quick start — trail · docs</title>
+  <meta name="description" content="Five-step external-app integration. Get a token, POST a candidate, see it land in the queue, approve it, query the resulting Neuron via search and chat." />
+  <meta name="audience" content="both" />
+  <meta name="theme-color" content="#FAF9F5" />
+  <link rel="icon" type="image/svg+xml" href="/docs/favicon.svg" />
+  <link rel="apple-touch-icon" href="/docs/memx-logo.svg" />
+  <link rel="stylesheet" href="/docs/styles.css" />
+  <script>
+    (function(){try{var t=localStorage.getItem('trail.theme');document.documentElement.setAttribute('data-theme', t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+  </script>
+
+  <!-- webhouse.app enrichment -->
+  <meta name="generator" content="webhouse.app" />
+  <link rel="canonical" href="https://www.trailmem.com/docs/quick-start/" />
+  <meta property="og:title" content="Quick start — trail · docs" />
+  <meta property="og:description" content="Five-step external-app integration. Get a token, POST a candidate, see it land in the queue, approve it, query the resulting Neuron via search and chat." />
+  <meta property="og:url" content="https://www.trailmem.com/docs/quick-start/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="trail: second brain" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quick start — trail · docs" />
+  <meta name="twitter:description" content="Five-step external-app integration. Get a token, POST a candidate, see it land in the queue, approve it, query the resulting Neuron via search and chat." />
+  <link rel="manifest" href="/manifest.json" />
+</head>
+<body>
+  <canvas id="trail-graph" aria-hidden="true"></canvas>
+  <nav class="nav">
+    <a href="/docs/" class="nav-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="40" height="40" role="img" aria-label="trail">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="16" cy="16" r="9" fill="none" stroke="#e8a87c" stroke-width="0.9" opacity="0.55"/>
+        <circle cx="16" cy="16" r="3.5" fill="#e8a87c"/>
+      </svg>
+      <span class="brand-text">tr<span class="logo-ai">ai</span>l</span>
+      <span class="brand-section">docs</span>
+    </a>
+    <div class="nav-links">
+      <a href="/docs/intro/">Docs</a>
+      <a href="/docs/api-reference/">API</a>
+      <a href="https://github.com/broberg-ai/trail/releases" rel="external">Changelog</a>
+    </div>
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a href="https://github.com/broberg-ai/trail" class="nav-icon" rel="external" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="nav-mobile" role="navigation" aria-label="Mobile menu" aria-hidden="true">
+    <a href="/docs/intro/">Docs</a>
+      <a href="/docs/api-reference/">API</a>
+      <a href="https://github.com/broberg-ai/trail/releases" rel="external">Changelog</a>
+    <a href="https://github.com/broberg-ai/trail">GitHub</a>
+  </div>
+  <div class="layout">
+    <nav class="sidebar" aria-label="Documentation navigation">
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Start here</h3>
+        <ul>
+          <li><a href="/docs/">Trail in 60 seconds</a></li>
+        <li><a href="/docs/intro/">Intro — what Trail is, and isn't</a></li>
+        <li><a href="/docs/why-not-rag/">Why not RAG?</a></li>
+        <li><a href="/docs/quick-start/" class="active">Quick start</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Concepts</h3>
+        <ul>
+          <li><a href="/docs/concepts-neurons/">Neurons</a></li>
+        <li><a href="/docs/concepts-queue/">The curation queue</a></li>
+        <li><a href="/docs/concepts-kb/">Brains (knowledge bases)</a></li>
+        <li><a href="/docs/concepts-connectors/">Connectors</a></li>
+        <li><a href="/docs/concepts-search/">Search + retrieve</a></li>
+        <li><a href="/docs/concepts-sources/">Sources &amp; programmatic upload</a></li>
+        <li><a href="/docs/reader-feedback/">Reader feedback</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Audiences</h3>
+        <ul>
+          <li><a href="/docs/who-is-trail-for/">Who is Trail for?</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Patterns</h3>
+        <ul>
+          <li><a href="/docs/site-llm-with-trail-as-tool/">A site-LLM with Trail as a tool</a></li>
+        <li><a href="/docs/widget/">The &lt;trail-chat&gt; widget</a></li>
+        <li><a href="/docs/web-clipper/">The Web Clipper extension</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">API</h3>
+        <ul>
+          <li><a href="/docs/api-reference/">API reference</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="content">
+      <article>
+        <header class="doc-header">
+          <h1>Quick start</h1>
+          <p class="doc-summary">Five-step external-app integration. Get a token, POST a candidate, see it land in the queue, approve it, query the resulting Neuron via search and chat.</p>
+        </header>
+        <div class="doc-body">
+          <p>This page walks an external app through the smallest end-to-end
+integration with a Trail engine: produce a candidate from your
+application, see it become a Neuron, query it back via REST.</p>
+<blockquote>
+<p><strong>API surface stability.</strong> REST endpoints under <code>/api/v1/...</code> are
+the contract; everything under <code>/api/internal/...</code> is private and
+may change without notice. The hand-written OpenAPI 3.1 spec at
+<code>/api-reference</code> (Phase 3) is the source of truth.</p>
+</blockquote>
+<h2>Prerequisites</h2>
+<p>You need:</p>
+<ol>
+<li><p>A Trail engine you can reach over HTTPS. For Christian&#39;s
+production fleet that is <code>engine.trailmem.com</code>. For local
+development, an engine running on <code>127.0.0.1:58021</code>.</p>
+</li>
+<li><p>A <strong>bearer token</strong> scoped to your tenant. Get one at
+<strong><a href="https://app.trailmem.com/settings">https://app.trailmem.com/settings</a></strong> → scroll to the
+<strong>API Keys</strong> section → click <strong>Create new key</strong> → copy the value
+(shown ONCE — the admin won&#39;t show it again, so save it now in
+your secret manager).</p>
+<p>Keys are <strong>tenant-scoped, not per-KB</strong> — one key authenticates
+against any KB owned by your tenant. If you operate multiple KBs
+under one tenant (e.g. <code>my-product-docs</code> and <code>internal-playbook</code>),
+the same key works for both.</p>
+</li>
+<li><p>The KB&#39;s slug (e.g. <code>my-product-docs</code>) — visible in the admin&#39;s KB
+URL: <code>https://app.trailmem.com/kb/{slug}/...</code>.</p>
+</li>
+</ol>
+<p>The examples below use shell variables you set once:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> TRAIL_API_BASE</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"https://engine.trailmem.com"</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> TRAIL_TOKEN</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"trail_live_…"</span><span style="color:#6A737D">   # from app.trailmem.com/settings → API Keys</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> TRAIL_KB</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"my-product-docs"</span></span></code></pre><h2>1. POST a candidate</h2>
+<p>A <strong>candidate</strong> is a proposed Neuron. It enters the curation queue
+and is reviewed (by a curator or by the auto-approval policy) before
+becoming part of the Brain.</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -sS</span><span style="color:#79B8FF"> -X</span><span style="color:#9ECBFF"> POST</span><span style="color:#9ECBFF"> "${</span><span style="color:#E1E4E8">TRAIL_API_BASE</span><span style="color:#9ECBFF">}/api/v1/queue/candidates"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> "Authorization: Bearer ${</span><span style="color:#E1E4E8">TRAIL_TOKEN</span><span style="color:#9ECBFF">}"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> "Content-Type: application/json"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -d</span><span style="color:#9ECBFF"> '{</span></span>
+<span class="line"><span style="color:#9ECBFF">    "kb": "'"${</span><span style="color:#E1E4E8">TRAIL_KB</span><span style="color:#9ECBFF">}"'",</span></span>
+<span class="line"><span style="color:#9ECBFF">    "kind": "external-feed",</span></span>
+<span class="line"><span style="color:#9ECBFF">    "title": "VIP customer escalation policy",</span></span>
+<span class="line"><span style="color:#9ECBFF">    "content": "When a VIP customer raises a ticket, page the on-call lead via PagerDuty within 5 minutes. Escalation overrides queue priority.",</span></span>
+<span class="line"><span style="color:#9ECBFF">    "metadata": {</span></span>
+<span class="line"><span style="color:#9ECBFF">      "connector": "api",</span></span>
+<span class="line"><span style="color:#9ECBFF">      "sourceUrl": "https://internal.example.com/policies/vip-escalation"</span></span>
+<span class="line"><span style="color:#9ECBFF">    }</span></span>
+<span class="line"><span style="color:#9ECBFF">  }'</span></span></code></pre><p>Response (HTTP 201):</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "candidateId"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"cand_…"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "status"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"pending"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "queueUrl"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"https://app.trailmem.com/kb/my-product-docs/queue#cand_…"</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><p>The candidate is now visible in the admin queue UI for review.</p>
+<h3>Candidate kinds</h3>
+<p>The <code>kind</code> field tells Trail what shape of candidate you are
+producing. Common values:</p>
+<table>
+<thead>
+<tr>
+<th><code>kind</code></th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>external-feed</code></td>
+<td>Programmatic content from your app (webhooks, integrations)</td>
+</tr>
+<tr>
+<td><code>chat</code></td>
+<td>A user question + curated answer pair</td>
+</tr>
+<tr>
+<td><code>user-correction</code></td>
+<td>A diff against an existing Neuron (provide its seqID in <code>metadata.targetNeuron</code>)</td>
+</tr>
+<tr>
+<td><code>lint-finding</code></td>
+<td>An automated finding from a lint detector you ran</td>
+</tr>
+</tbody></table>
+<p>If your candidate doesn&#39;t fit one of these, use <code>external-feed</code> —
+it&#39;s the catch-all for &quot;this came from outside Trail&quot;.</p>
+<h3><code>metadata.connector</code> is important</h3>
+<p>Every candidate should carry <code>metadata.connector</code> so the queue UI
+can filter by source and the Neuron page can show &quot;Created via
+&lt;connector&gt;&quot;. Use:</p>
+<ul>
+<li><code>api</code> — a generic external app calling the REST API</li>
+<li><code>mcp:claude-code</code> / <code>mcp:cursor</code> — set automatically when an AI agent writes via MCP</li>
+<li><code>slack</code>, <code>discord</code>, <code>notion</code>, <code>github</code>, <code>linear</code> — when you build a connector for that system</li>
+<li>A custom string for your app, e.g. <code>mycompany-zendesk-bridge</code></li>
+</ul>
+<p>See the <a href="https://github.com/broberg-ai/trail/blob/main/packages/shared/src/connectors.ts">connector registry</a> for the canonical list.</p>
+<h2>2. Approve the candidate</h2>
+<p>You can either:</p>
+<ul>
+<li><strong>Open the queue URL</strong> from the response and click <strong>Approve</strong> in
+the admin UI, or</li>
+<li><strong>Set the KB&#39;s auto-approval policy</strong> so candidates with
+sufficient confidence are approved without human review.</li>
+</ul>
+<p>Once approved, the candidate becomes a Neuron with a stable seqID
+like <code>myprod_a1b2c3d4</code>.</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -sS</span><span style="color:#79B8FF"> -X</span><span style="color:#9ECBFF"> POST</span><span style="color:#9ECBFF"> "${</span><span style="color:#E1E4E8">TRAIL_API_BASE</span><span style="color:#9ECBFF">}/api/v1/queue/candidates/${</span><span style="color:#E1E4E8">CANDIDATE_ID</span><span style="color:#9ECBFF">}/approve"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> "Authorization: Bearer ${</span><span style="color:#E1E4E8">TRAIL_TOKEN</span><span style="color:#9ECBFF">}"</span></span></code></pre><p>(In Phase 1 of these docs the approval REST is part of the internal
+admin surface; programmatic approval from external apps lands in
+Phase 3 of the docs roll-out.)</p>
+<h2>3. Search for the new Neuron</h2>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -sS</span><span style="color:#9ECBFF"> "${</span><span style="color:#E1E4E8">TRAIL_API_BASE</span><span style="color:#9ECBFF">}/api/v1/search?kb=${</span><span style="color:#E1E4E8">TRAIL_KB</span><span style="color:#9ECBFF">}&#x26;q=VIP%20escalation"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> "Authorization: Bearer ${</span><span style="color:#E1E4E8">TRAIL_TOKEN</span><span style="color:#9ECBFF">}"</span></span></code></pre><p>Response:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "hits"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#79B8FF">      "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"neuron_…"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "seqId"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"myprod_a1b2c3d4"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "title"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"VIP customer escalation policy"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "highlight"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"When a &#x3C;mark>VIP&#x3C;/mark> customer raises a ticket, page the on-call lead via PagerDuty within 5 minutes…"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "rank"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.91</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "kind"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"wiki"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "path"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"/wiki/vip-customer-escalation-policy.md"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  ],</span></span>
+<span class="line"><span style="color:#79B8FF">  "total"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><p>Search uses <strong>FTS5</strong> for full-text matching, plus a substring scan
+of opt-in user-notes (the curator&#39;s &quot;your take&quot; reflections that
+extend the Neuron&#39;s compiled content).</p>
+<h2>4. Ask a question via chat</h2>
+<p>For natural-language synthesis with citations:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -sS</span><span style="color:#79B8FF"> -X</span><span style="color:#9ECBFF"> POST</span><span style="color:#9ECBFF"> "${</span><span style="color:#E1E4E8">TRAIL_API_BASE</span><span style="color:#9ECBFF">}/api/v1/chat"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> "Authorization: Bearer ${</span><span style="color:#E1E4E8">TRAIL_TOKEN</span><span style="color:#9ECBFF">}"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> "Content-Type: application/json"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -d</span><span style="color:#9ECBFF"> '{</span></span>
+<span class="line"><span style="color:#9ECBFF">    "kb": "'"${</span><span style="color:#E1E4E8">TRAIL_KB</span><span style="color:#9ECBFF">}"'",</span></span>
+<span class="line"><span style="color:#9ECBFF">    "messages": [</span></span>
+<span class="line"><span style="color:#9ECBFF">      { "role": "user", "content": "How fast must a VIP escalation be paged?" }</span></span>
+<span class="line"><span style="color:#9ECBFF">    ]</span></span>
+<span class="line"><span style="color:#9ECBFF">  }'</span></span></code></pre><p>Response (streaming SSE; the final event holds the full answer):</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "answer"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"VIP escalations must be paged to the on-call lead within 5 minutes via PagerDuty. This overrides normal queue priority."</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "citations"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#79B8FF">      "seqId"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"myprod_a1b2c3d4"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "title"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"VIP customer escalation policy"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "url"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"https://app.trailmem.com/kb/my-product-docs/wiki/myprod_a1b2c3d4"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><p>The chat endpoint:</p>
+<ul>
+<li>Retrieves relevant Neurons via FTS5 + share-gated user-note search</li>
+<li>Builds a system prompt with the KB&#39;s persona + retrieved context</li>
+<li>Calls the configured chat model (default <code>claude-sonnet-4-6</code>)</li>
+<li>Returns synthesised answer + an array of citations resolving to
+Neuron URLs in the admin</li>
+</ul>
+<h2>5. Upload a Source file (PDF, markdown, audio, image, ...)</h2>
+<p>For programmatic Source-upload — e.g. your app&#39;s &quot;attach file&quot; flow
+or a scheduled importer — POST multipart-form:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -X</span><span style="color:#9ECBFF"> POST</span><span style="color:#9ECBFF"> "${</span><span style="color:#E1E4E8">TRAIL_API_BASE</span><span style="color:#9ECBFF">}/api/v1/knowledge-bases/${</span><span style="color:#E1E4E8">TRAIL_KB</span><span style="color:#9ECBFF">}/documents/upload"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> "Authorization: Bearer ${</span><span style="color:#E1E4E8">TRAIL_TOKEN</span><span style="color:#9ECBFF">}"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -F</span><span style="color:#9ECBFF"> "file=@./protocol.pdf"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -F</span><span style="color:#9ECBFF"> 'path=/protocols'</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -F</span><span style="color:#9ECBFF"> 'metadata={"connector":"myapp","sourceUrl":"https://internal.example.com/12","tags":["protocol"]}'</span></span></code></pre><p>Response (HTTP 201):</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"doc_..."</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "kind"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"source"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "filename"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"protocol.pdf"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "fileType"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"pdf"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "status"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"pending"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "seq"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">47</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "contentHash"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"9f8e7d6c..."</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><p>For text formats (md, txt, csv, html), the ingest pipeline triggers
+automatically and the Source compiles into Neurons within seconds.
+For binary formats (PDF, audio, images), upload returns immediately
+and the extractor + compile run async — poll <code>document.status</code> to
+track <code>pending → ready → processing → success</code>.</p>
+<p><strong>Duplicate handling (F162)</strong>: bytes-identical re-uploads return
+HTTP 409 with <code>code: &quot;duplicate_source&quot;</code> + the existing document&#39;s
+id. Append <code>?force=true</code> to upload anyway.</p>
+<p>Full lifecycle + supported formats + resumable chunked-upload
+protocol in <a href="/docs/concepts-sources/">Concepts: Sources</a>.</p>
+<h2>6. Read a single Neuron</h2>
+<p>If you have a seqID and want the raw Neuron:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -sS</span><span style="color:#9ECBFF"> "${</span><span style="color:#E1E4E8">TRAIL_API_BASE</span><span style="color:#9ECBFF">}/api/v1/neurons/${</span><span style="color:#E1E4E8">TRAIL_KB</span><span style="color:#9ECBFF">}/myprod_a1b2c3d4"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> "Authorization: Bearer ${</span><span style="color:#E1E4E8">TRAIL_TOKEN</span><span style="color:#9ECBFF">}"</span></span></code></pre><p>Response:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "seqId"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"myprod_a1b2c3d4"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "title"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"VIP customer escalation policy"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "content"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"# VIP customer escalation policy</span><span style="color:#79B8FF">\n\n</span><span style="color:#9ECBFF">When a VIP customer raises a ticket…"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "version"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "createdAt"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"2026-05-08T12:34:56Z"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "updatedAt"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"2026-05-08T12:34:56Z"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "tags"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"policy"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"escalation"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">  "links"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">    { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"cites"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">"target"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"myprod_e5f6a7b8"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><h2>Putting it together</h2>
+<p>Here is the same flow in TypeScript, suitable for dropping into a
+Slack listener, a webhook receiver, or any Node service:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> API_BASE</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_API_BASE</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> TOKEN</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_TOKEN</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> KB</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_KB</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> captureKnowledge</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">args</span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  title</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  content</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  sourceUrl</span><span style="color:#F97583">?:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">})</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Promise</span><span style="color:#E1E4E8">&#x3C;{ </span><span style="color:#FFAB70">candidateId</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8"> }> {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> res</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> fetch</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`${</span><span style="color:#79B8FF">API_BASE</span><span style="color:#9ECBFF">}/api/v1/queue/candidates`</span><span style="color:#E1E4E8">, {</span></span>
+<span class="line"><span style="color:#E1E4E8">    method: </span><span style="color:#9ECBFF">"POST"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    headers: {</span></span>
+<span class="line"><span style="color:#E1E4E8">      Authorization: </span><span style="color:#9ECBFF">`Bearer ${</span><span style="color:#79B8FF">TOKEN</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">      "Content-Type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"application/json"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#E1E4E8">    body: </span><span style="color:#79B8FF">JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">stringify</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">      kb: </span><span style="color:#79B8FF">KB</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      kind: </span><span style="color:#9ECBFF">"external-feed"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      title: args.title,</span></span>
+<span class="line"><span style="color:#E1E4E8">      content: args.content,</span></span>
+<span class="line"><span style="color:#E1E4E8">      metadata: {</span></span>
+<span class="line"><span style="color:#E1E4E8">        connector: </span><span style="color:#9ECBFF">"api"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        sourceUrl: args.sourceUrl,</span></span>
+<span class="line"><span style="color:#E1E4E8">      },</span></span>
+<span class="line"><span style="color:#E1E4E8">    }),</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">res.ok) {</span></span>
+<span class="line"><span style="color:#F97583">    throw</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`Trail candidate POST failed: ${</span><span style="color:#E1E4E8">res</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">status</span><span style="color:#9ECBFF">} ${</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> res</span><span style="color:#9ECBFF">.</span><span style="color:#B392F0">text</span><span style="color:#9ECBFF">()</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> ask</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">question</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Promise</span><span style="color:#E1E4E8">&#x3C;{ </span><span style="color:#FFAB70">answer</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">; </span><span style="color:#FFAB70">citations</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> unknown</span><span style="color:#E1E4E8">[] }> {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> res</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> fetch</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`${</span><span style="color:#79B8FF">API_BASE</span><span style="color:#9ECBFF">}/api/v1/chat`</span><span style="color:#E1E4E8">, {</span></span>
+<span class="line"><span style="color:#E1E4E8">    method: </span><span style="color:#9ECBFF">"POST"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    headers: {</span></span>
+<span class="line"><span style="color:#E1E4E8">      Authorization: </span><span style="color:#9ECBFF">`Bearer ${</span><span style="color:#79B8FF">TOKEN</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">      "Content-Type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"application/json"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#E1E4E8">    body: </span><span style="color:#79B8FF">JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">stringify</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">      kb: </span><span style="color:#79B8FF">KB</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      messages: [{ role: </span><span style="color:#9ECBFF">"user"</span><span style="color:#E1E4E8">, content: question }],</span></span>
+<span class="line"><span style="color:#E1E4E8">    }),</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">res.ok) {</span></span>
+<span class="line"><span style="color:#F97583">    throw</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`Trail chat failed: ${</span><span style="color:#E1E4E8">res</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">status</span><span style="color:#9ECBFF">} ${</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> res</span><span style="color:#9ECBFF">.</span><span style="color:#B392F0">text</span><span style="color:#9ECBFF">()</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><p>That is the entire integration surface for most apps. There is no
+vector store to keep in sync, no chunker to tune, no embedding-model
+upgrade to plan. Trail handles the compile-at-ingest middle.</p>
+<h2>Where to go next</h2>
+<ul>
+<li><strong>Want to see all endpoints?</strong> → <a href="/docs/api-reference/">API reference</a> (Phase 3)</li>
+<li><strong>Building an MCP-based AI agent?</strong> → Dedicated MCP integration guide coming soon</li>
+<li><strong>Designing a connector?</strong> → <a href="/docs/concepts-connectors/">Concepts: connectors</a></li>
+</ul>
+
+        </div>
+      </article>
+      <footer class="doc-footer">
+        <p>
+          Trail is open source on <a href="https://github.com/broberg-ai/trail">GitHub</a>
+          (FSL-1.1-Apache-2.0). Found a docs bug? Edit
+          <a href="https://github.com/broberg-ai/trail/blob/main/apps/docs/content/docs/quick-start.md">this page on GitHub</a>.
+        </p>
+      </footer>
+    </main>
+  </div>
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var body = document.body;
+      if (!btn || !menu) return;
+      function setOpen(open) {
+        body.dataset.menuOpen = open ? 'true' : 'false';
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+      btn.addEventListener('click', function () { setOpen(body.dataset.menuOpen !== 'true'); });
+      menu.addEventListener('click', function (e) {
+        if (e.target instanceof HTMLAnchorElement) setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    })();
+
+    (function () {
+      var tbtn = document.querySelector('.theme-toggle');
+      if (!tbtn) return;
+      tbtn.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('trail.theme', next); } catch (e) {}
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', next === 'dark' ? '#17140F' : '#FAF9F5');
+      });
+    })();
+  </script>
+  <script>
+/* Neuron-particle background — LIFTED VERBATIM from apps/landing.
+   Reads --graph-* CSS variables for color tokens, re-caches on theme
+   change via MutationObserver. Pauses on tab-hidden +
+   prefers-reduced-motion. */
+(function(){
+  const canvas = document.getElementById('trail-graph');
+  if (!canvas) return;
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const ctx = canvas.getContext('2d');
+  let animationFrameId = 0;
+  let running = false;
+  let particles = [];
+  const mouse = { x: null, y: null };
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  const colors = { node: '#1a1715', accent: '#e8a87c', line: '26, 23, 21', accentLine: '232, 168, 124' };
+  function refreshColors(){
+    const cs = getComputedStyle(document.documentElement);
+    const read = function(n, f){ return (cs.getPropertyValue(n).trim() || f); };
+    colors.node = read('--graph-node', colors.node);
+    colors.accent = read('--graph-accent', colors.accent);
+    colors.line = read('--graph-line', colors.line);
+    colors.accentLine = read('--graph-accent-line', colors.accentLine);
+  }
+  refreshColors();
+
+  if ('MutationObserver' in window) {
+    new MutationObserver(refreshColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  }
+
+  function resize(){
+    canvas.width = window.innerWidth * DPR;
+    canvas.height = window.innerHeight * DPR;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    initParticles();
+  }
+
+  function Particle(){
+    this.x = Math.random() * window.innerWidth;
+    this.y = Math.random() * window.innerHeight;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.baseRadius = Math.random() > 0.95 ? 3 : 1.5;
+    this.isAccent = Math.random() > 0.98;
+  }
+  Particle.prototype.update = function(){
+    this.x += this.vx;
+    this.y += this.vy;
+    if ((this.x < 0 && this.vx < 0) || (this.x > window.innerWidth && this.vx > 0)) this.vx = -this.vx;
+    if ((this.y < 0 && this.vy < 0) || (this.y > window.innerHeight && this.vy > 0)) this.vy = -this.vy;
+    if (mouse.x !== null && mouse.y !== null) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 100) { this.x -= dx * 0.01; this.y -= dy * 0.01; }
+    }
+  };
+  Particle.prototype.draw = function(){
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.baseRadius, 0, Math.PI * 2);
+    ctx.fillStyle = this.isAccent ? colors.accent : colors.node;
+    ctx.fill();
+  };
+
+  function initParticles(){
+    particles = [];
+    const count = Math.min(150, Math.floor((window.innerWidth * window.innerHeight) / 15000));
+    for (let i = 0; i < count; i++) particles.push(new Particle());
+  }
+
+  const LINK_DIST = 160;
+  const LINK_DIST_SQ = LINK_DIST * LINK_DIST;
+  function drawLines(){
+    for (let i = 0; i < particles.length; i++){
+      const pi = particles[i];
+      for (let j = i + 1; j < particles.length; j++){
+        const pj = particles[j];
+        const dx = pi.x - pj.x;
+        const dy = pi.y - pj.y;
+        const d2 = dx*dx + dy*dy;
+        if (d2 >= LINK_DIST_SQ) continue;
+        const opacity = 1 - (Math.sqrt(d2) / LINK_DIST);
+        ctx.beginPath();
+        if (pi.isAccent || pj.isAccent) {
+          ctx.strokeStyle = 'rgba(' + colors.accentLine + ', ' + (opacity * 0.5) + ')';
+        } else {
+          ctx.strokeStyle = 'rgba(' + colors.line + ', ' + (opacity * 0.18) + ')';
+        }
+        ctx.lineWidth = 0.6;
+        ctx.moveTo(pi.x, pi.y);
+        ctx.lineTo(pj.x, pj.y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  function renderOneFrame(){
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (const p of particles){ p.update(); p.draw(); }
+    drawLines();
+  }
+
+  function loop(){
+    if (!running) return;
+    renderOneFrame();
+    animationFrameId = requestAnimationFrame(loop);
+  }
+  function start(){
+    if (running || reduceMotion) return;
+    running = true;
+    loop();
+  }
+  function stop(){
+    running = false;
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    animationFrameId = 0;
+  }
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('mousemove', function(e){ mouse.x = e.clientX; mouse.y = e.clientY; });
+  window.addEventListener('mouseout', function(){ mouse.x = null; mouse.y = null; });
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) stop();
+    else start();
+  });
+
+  resize();
+  if (reduceMotion) {
+    renderOneFrame();
+  } else {
+    start();
+  }
+})();
+  </script>
+  <!-- F291 — @broberg/consent-cookie. categories="" because docs.trailmem.com sets
+       no statistics or marketing cookies (measured 29/9). -->
+  <broberg-consent policy-version="2026-09" categories="" lang="en" privacy-href="https://www.trailmem.com/privacy/" data-testid="consent-banner"
+    style="--card:var(--bg-card);--card-foreground:var(--fg);--primary:var(--accent);--primary-foreground:var(--on-accent);--muted-foreground:var(--fg-60);--border:var(--fg-20);--secondary:var(--fg-10)"></broberg-consent>
+  <script type="module" src="/docs/assets/consent/element.js"></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Quick start — trail · docs","url":"https://www.trailmem.com/docs/quick-start/","description":"Five-step external-app integration. Get a token, POST a candidate, see it land in the queue, approve it, query the resulting Neuron via search and chat.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"trail: second brain","url":"https://www.trailmem.com/"}}</script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brains (knowledge bases) — trail · docs</title>
+  <meta name="description" content="A Brain is one trail.db on the engine — isolated content, settings, persona, language, ingest model. Bearer tokens scope to a tenant + KB." />
+  <meta name="audience" content="both" />
+  <meta name="theme-color" content="#FAF9F5" />
+  <link rel="icon" type="image/svg+xml" href="/docs/favicon.svg" />
+  <link rel="apple-touch-icon" href="/docs/memx-logo.svg" />
+  <link rel="stylesheet" href="/docs/styles.css" />
+  <script>
+    (function(){try{var t=localStorage.getItem('trail.theme');document.documentElement.setAttribute('data-theme', t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+  </script>
+
+  <!-- webhouse.app enrichment -->
+  <meta name="generator" content="webhouse.app" />
+  <link rel="canonical" href="https://www.trailmem.com/docs/concepts-kb/" />
+  <meta property="og:title" content="Brains (knowledge bases) — trail · docs" />
+  <meta property="og:description" content="A Brain is one trail.db on the engine — isolated content, settings, persona, language, ingest model. Bearer tokens scope to a tenant + KB." />
+  <meta property="og:url" content="https://www.trailmem.com/docs/concepts-kb/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="trail: second brain" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Brains (knowledge bases) — trail · docs" />
+  <meta name="twitter:description" content="A Brain is one trail.db on the engine — isolated content, settings, persona, language, ingest model. Bearer tokens scope to a tenant + KB." />
+  <link rel="manifest" href="/manifest.json" />
+</head>
+<body>
+  <canvas id="trail-graph" aria-hidden="true"></canvas>
+  <nav class="nav">
+    <a href="/docs/" class="nav-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="40" height="40" role="img" aria-label="trail">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="16" cy="16" r="9" fill="none" stroke="#e8a87c" stroke-width="0.9" opacity="0.55"/>
+        <circle cx="16" cy="16" r="3.5" fill="#e8a87c"/>
+      </svg>
+      <span class="brand-text">tr<span class="logo-ai">ai</span>l</span>
+      <span class="brand-section">docs</span>
+    </a>
+    <div class="nav-links">
+      <a href="/docs/intro/">Docs</a>
+      <a href="/docs/api-reference/">API</a>
+      <a href="https://github.com/broberg-ai/trail/releases" rel="external">Changelog</a>
+    </div>
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a href="https://github.com/broberg-ai/trail" class="nav-icon" rel="external" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="nav-mobile" role="navigation" aria-label="Mobile menu" aria-hidden="true">
+    <a href="/docs/intro/">Docs</a>
+      <a href="/docs/api-reference/">API</a>
+      <a href="https://github.com/broberg-ai/trail/releases" rel="external">Changelog</a>
+    <a href="https://github.com/broberg-ai/trail">GitHub</a>
+  </div>
+  <div class="layout">
+    <nav class="sidebar" aria-label="Documentation navigation">
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Start here</h3>
+        <ul>
+          <li><a href="/docs/">Trail in 60 seconds</a></li>
+        <li><a href="/docs/intro/">Intro — what Trail is, and isn't</a></li>
+        <li><a href="/docs/why-not-rag/">Why not RAG?</a></li>
+        <li><a href="/docs/quick-start/">Quick start</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Concepts</h3>
+        <ul>
+          <li><a href="/docs/concepts-neurons/">Neurons</a></li>
+        <li><a href="/docs/concepts-queue/">The curation queue</a></li>
+        <li><a href="/docs/concepts-kb/" class="active">Brains (knowledge bases)</a></li>
+        <li><a href="/docs/concepts-connectors/">Connectors</a></li>
+        <li><a href="/docs/concepts-search/">Search + retrieve</a></li>
+        <li><a href="/docs/concepts-sources/">Sources &amp; programmatic upload</a></li>
+        <li><a href="/docs/reader-feedback/">Reader feedback</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Audiences</h3>
+        <ul>
+          <li><a href="/docs/who-is-trail-for/">Who is Trail for?</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Patterns</h3>
+        <ul>
+          <li><a href="/docs/site-llm-with-trail-as-tool/">A site-LLM with Trail as a tool</a></li>
+        <li><a href="/docs/widget/">The &lt;trail-chat&gt; widget</a></li>
+        <li><a href="/docs/web-clipper/">The Web Clipper extension</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">API</h3>
+        <ul>
+          <li><a href="/docs/api-reference/">API reference</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="content">
+      <article>
+        <header class="doc-header">
+          <h1>Brains (knowledge bases)</h1>
+          <p class="doc-summary">A Brain is one trail.db on the engine — isolated content, settings, persona, language, ingest model. Bearer tokens scope to a tenant + KB.</p>
+        </header>
+        <div class="doc-body">
+          <p>A <strong>Brain</strong> is the unit of isolation in Trail. One Brain is one
+<code>trail.db</code> SQLite file on the engine machine — its own
+Neurons, its own queue, its own settings, its own persona, its own
+auto-approval policy. Cross-KB queries are a deliberate exception
+(via wiki-link <code>[[kb:other/page]]</code> syntax); the default is that one
+Brain sees only itself.</p>
+<blockquote>
+<p><strong>Brain, KB, knowledge base — the same thing.</strong> «Brain» is what the
+product calls it and what you see in the admin. <code>knowledge-base</code> /
+<code>kb</code> is what the <strong>API paths, slugs and bearer-token scopes</strong> are
+called, and those have NOT changed: <code>/api/v1/knowledge-bases/...</code>
+still works exactly as before. Where this page talks about a route
+or a token scope it uses the API spelling on purpose — renaming it
+in prose would describe an endpoint that does not exist.</p>
+</blockquote>
+<h2>Tenancy</h2>
+<p>The hierarchy:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span>Organization (your account)</span></span>
+<span class="line"><span>  └─ Tenant (a billable unit, usually = customer)</span></span>
+<span class="line"><span>      └─ Brain  (`knowledge-base` in the API)</span></span>
+<span class="line"><span>          └─ Neurons</span></span></code></pre><p>A tenant can have multiple KBs (e.g. &quot;customer-facing knowledge&quot; and
+&quot;internal playbook&quot;). A bearer token is <strong>scoped to a tenant + KB</strong>
+— issuing a key for one KB does not grant access to others under the
+same tenant.</p>
+<p>In the deployed Fly fleet:</p>
+<ul>
+<li>Each tenant lives on exactly one engine (<code>trail-engine-001</code>,
+<code>trail-engine-002</code>, ...).</li>
+<li>The router (<code>engine.trailmem.com</code>, Phase 2 once fleet ≥ 2)
+resolves bearer-token → tenant → engine.</li>
+<li>Each tenant&#39;s <code>trail.db</code> lives on that engine&#39;s persistent volume.</li>
+</ul>
+<h2>Slugs</h2>
+<p>Every KB has a stable slug — kebab-case, unique per tenant — and a
+canonical UUID. Most API surfaces accept both interchangeably.
+The slug shows up in URLs and bearer-token scopes; the UUID is
+internal but exposed in JSON responses where needed:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span>/kb/my-product-docs/queue     ← admin URL</span></span>
+<span class="line"><span>my-product-docs               ← slug, accepted in API calls</span></span>
+<span class="line"><span>01H5...                       ← canonical UUID, also accepted</span></span></code></pre><p>Slug resolution is consistent across all v1 endpoints — if the slug
+exists, it resolves; if not, a 404 returns. No special slug-only or
+UUID-only routes.</p>
+<h2>KB-level settings</h2>
+<p>Each KB has its own per-KB settings, configured in the admin UI under
+<strong>Settings → Brain settings</strong>:</p>
+<h3>Language</h3>
+<p>Two-letter ISO code (<code>da</code>, <code>en</code>, <code>de</code>, <code>sv</code>, <code>no</code>, ...) that drives:</p>
+<ul>
+<li>The chat system prompt&#39;s &quot;answer in this language&quot; directive.</li>
+<li>The link-checker&#39;s <code>foldBilingual</code> heuristic — knows <code>og</code> ≈
+<code>and</code>, <code>i</code> ≈ <code>of</code> for DA↔EN drift.</li>
+<li>The ingest pipeline&#39;s compile-prompt language hint.</li>
+<li>The admin&#39;s reader-pane prose translation toggle.</li>
+</ul>
+<h3>Persona</h3>
+<p>Optional per-KB system-prompt override for tool + public audiences
+. Curator persona is global to keep admin tone consistent; the
+tool + public personas can be specialised per KB so a customer-facing
+chat sounds different from a professional-tool chat. Pattern C
+deployments don&#39;t usually need this (the site sets its own system
+prompt) — Pattern A deployments lean on it heavily.</p>
+<h3>Ingest backend + model + fallback chain</h3>
+<ul>
+<li><code>ingest_backend</code>: <code>claude-cli</code> (default, free under Max plan) or
+<code>openrouter</code>.</li>
+<li><code>ingest_model</code>: e.g. <code>gemini-2.5-flash</code>, <code>claude-sonnet-4-6</code>,
+<code>glm-4.6</code>.</li>
+<li><code>ingest_fallback_chain</code>: ordered list — on model failure, the
+runner skips to the next entry mid-job, keeping already-written
+Neurons.</li>
+</ul>
+<p>The admin&#39;s per-KB <strong>Settings → Brain settings</strong> panel includes a model-
+switcher dropdown that flips these live without a redeploy, plus a
+preview line that renders the effective fallback-chain as it would
+run today (e.g. <code>Flash → GLM → Qwen → Sonnet API</code>). The cost +
+quality dashboard at <code>/kb/:kbId/cost</code> shows which models are
+actually paying their way per KB.</p>
+<h3>Auto-approval policy</h3>
+<p>Per-KB confidence threshold + action-zone rules that decide which
+candidates skip curator review. See
+<a href="/docs/concepts-queue/">Concepts: Queue</a>.</p>
+<h3>Lint schedule</h3>
+<p>Per-KB cadence (1–90 days, weekly default) for the
+orphan/stale/contradiction lint pass. KB with rapid-changing
+knowledge: shorter cadence. Stable archival KB: monthly.</p>
+<h3>Backup retention</h3>
+<p>Continuous backups to Cloudflare R2. 30-day retention by
+default; curator can pull a <code>.vacuum.tar.gz</code> snapshot via the admin&#39;s
+backup health card.</p>
+<h2>What a KB is <em>not</em></h2>
+<p>A KB is <strong>not</strong>:</p>
+<ul>
+<li><strong>A schema-controlled database.</strong> Neurons are markdown; the shape
+varies per Neuron. The schema vocabulary system layers
+optional structure on top (per-KB entity types, attribute schemas),
+but the underlying store stays flexible.</li>
+<li><strong>A multi-tenant store.</strong> One KB = one tenant. Cross-tenant
+isolation is enforced at the data layer (<code>WHERE tenant_id = ?</code> on
+every query), not just at the API.</li>
+<li><strong>A document-storage bucket.</strong> Uploaded source files live in
+storage (Fly volume or Tigris S3); the KB holds the
+compiled Neurons + provenance references back to the sources.</li>
+<li><strong>Multilingual.</strong> A KB has one canonical language. Multilingual
+<em>sites</em> drive their two-language navigation by reading from
+separate KB-slugs (or by routing user-language to the appropriate
+KB).</li>
+</ul>
+<h2>How to think about KB granularity</h2>
+<p>Question to ask: &quot;Do these two areas of knowledge need to be
+queryable together?&quot;</p>
+<ul>
+<li><strong>Yes</strong> → one KB. The wiki-link + retrieve + chat surfaces work
+best within a single KB.</li>
+<li><strong>No</strong> → two KBs. Two bearer tokens, two settings panes, two
+ingest pipelines, no accidental cross-pollination.</li>
+</ul>
+<p>The deployed reflexology practice runs one KB (clinical knowledge for
+the public-facing chat). A multi-discipline coaching practice might
+run three (one per modality). A research group might run one per
+paper-set.</p>
+<h2>Where to go next</h2>
+<ul>
+<li><a href="/docs/concepts-neurons/">Concepts: Neurons</a> — what lives in a KB</li>
+<li><a href="/docs/concepts-queue/">Concepts: Queue</a> — how things enter the KB</li>
+<li><a href="/docs/concepts-connectors/">Concepts: Connectors</a> — what produces the
+candidates</li>
+<li><a href="/docs/api-reference/">API reference</a> — KB-scoped endpoints</li>
+</ul>
+
+        </div>
+      </article>
+      <footer class="doc-footer">
+        <p>
+          Trail is open source on <a href="https://github.com/broberg-ai/trail">GitHub</a>
+          (FSL-1.1-Apache-2.0). Found a docs bug? Edit
+          <a href="https://github.com/broberg-ai/trail/blob/main/apps/docs/content/docs/concepts-kb.md">this page on GitHub</a>.
+        </p>
+      </footer>
+    </main>
+  </div>
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var body = document.body;
+      if (!btn || !menu) return;
+      function setOpen(open) {
+        body.dataset.menuOpen = open ? 'true' : 'false';
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+      btn.addEventListener('click', function () { setOpen(body.dataset.menuOpen !== 'true'); });
+      menu.addEventListener('click', function (e) {
+        if (e.target instanceof HTMLAnchorElement) setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    })();
+
+    (function () {
+      var tbtn = document.querySelector('.theme-toggle');
+      if (!tbtn) return;
+      tbtn.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('trail.theme', next); } catch (e) {}
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', next === 'dark' ? '#17140F' : '#FAF9F5');
+      });
+    })();
+  </script>
+  <script>
+/* Neuron-particle background — LIFTED VERBATIM from apps/landing.
+   Reads --graph-* CSS variables for color tokens, re-caches on theme
+   change via MutationObserver. Pauses on tab-hidden +
+   prefers-reduced-motion. */
+(function(){
+  const canvas = document.getElementById('trail-graph');
+  if (!canvas) return;
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const ctx = canvas.getContext('2d');
+  let animationFrameId = 0;
+  let running = false;
+  let particles = [];
+  const mouse = { x: null, y: null };
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  const colors = { node: '#1a1715', accent: '#e8a87c', line: '26, 23, 21', accentLine: '232, 168, 124' };
+  function refreshColors(){
+    const cs = getComputedStyle(document.documentElement);
+    const read = function(n, f){ return (cs.getPropertyValue(n).trim() || f); };
+    colors.node = read('--graph-node', colors.node);
+    colors.accent = read('--graph-accent', colors.accent);
+    colors.line = read('--graph-line', colors.line);
+    colors.accentLine = read('--graph-accent-line', colors.accentLine);
+  }
+  refreshColors();
+
+  if ('MutationObserver' in window) {
+    new MutationObserver(refreshColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  }
+
+  function resize(){
+    canvas.width = window.innerWidth * DPR;
+    canvas.height = window.innerHeight * DPR;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    initParticles();
+  }
+
+  function Particle(){
+    this.x = Math.random() * window.innerWidth;
+    this.y = Math.random() * window.innerHeight;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.baseRadius = Math.random() > 0.95 ? 3 : 1.5;
+    this.isAccent = Math.random() > 0.98;
+  }
+  Particle.prototype.update = function(){
+    this.x += this.vx;
+    this.y += this.vy;
+    if ((this.x < 0 && this.vx < 0) || (this.x > window.innerWidth && this.vx > 0)) this.vx = -this.vx;
+    if ((this.y < 0 && this.vy < 0) || (this.y > window.innerHeight && this.vy > 0)) this.vy = -this.vy;
+    if (mouse.x !== null && mouse.y !== null) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 100) { this.x -= dx * 0.01; this.y -= dy * 0.01; }
+    }
+  };
+  Particle.prototype.draw = function(){
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.baseRadius, 0, Math.PI * 2);
+    ctx.fillStyle = this.isAccent ? colors.accent : colors.node;
+    ctx.fill();
+  };
+
+  function initParticles(){
+    particles = [];
+    const count = Math.min(150, Math.floor((window.innerWidth * window.innerHeight) / 15000));
+    for (let i = 0; i < count; i++) particles.push(new Particle());
+  }
+
+  const LINK_DIST = 160;
+  const LINK_DIST_SQ = LINK_DIST * LINK_DIST;
+  function drawLines(){
+    for (let i = 0; i < particles.length; i++){
+      const pi = particles[i];
+      for (let j = i + 1; j < particles.length; j++){
+        const pj = particles[j];
+        const dx = pi.x - pj.x;
+        const dy = pi.y - pj.y;
+        const d2 = dx*dx + dy*dy;
+        if (d2 >= LINK_DIST_SQ) continue;
+        const opacity = 1 - (Math.sqrt(d2) / LINK_DIST);
+        ctx.beginPath();
+        if (pi.isAccent || pj.isAccent) {
+          ctx.strokeStyle = 'rgba(' + colors.accentLine + ', ' + (opacity * 0.5) + ')';
+        } else {
+          ctx.strokeStyle = 'rgba(' + colors.line + ', ' + (opacity * 0.18) + ')';
+        }
+        ctx.lineWidth = 0.6;
+        ctx.moveTo(pi.x, pi.y);
+        ctx.lineTo(pj.x, pj.y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  function renderOneFrame(){
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (const p of particles){ p.update(); p.draw(); }
+    drawLines();
+  }
+
+  function loop(){
+    if (!running) return;
+    renderOneFrame();
+    animationFrameId = requestAnimationFrame(loop);
+  }
+  function start(){
+    if (running || reduceMotion) return;
+    running = true;
+    loop();
+  }
+  function stop(){
+    running = false;
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    animationFrameId = 0;
+  }
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('mousemove', function(e){ mouse.x = e.clientX; mouse.y = e.clientY; });
+  window.addEventListener('mouseout', function(){ mouse.x = null; mouse.y = null; });
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) stop();
+    else start();
+  });
+
+  resize();
+  if (reduceMotion) {
+    renderOneFrame();
+  } else {
+    start();
+  }
+})();
+  </script>
+  <!-- F291 — @broberg/consent-cookie. categories="" because docs.trailmem.com sets
+       no statistics or marketing cookies (measured 29/9). -->
+  <broberg-consent policy-version="2026-09" categories="" lang="en" privacy-href="https://www.trailmem.com/privacy/" data-testid="consent-banner"
+    style="--card:var(--bg-card);--card-foreground:var(--fg);--primary:var(--accent);--primary-foreground:var(--on-accent);--muted-foreground:var(--fg-60);--border:var(--fg-20);--secondary:var(--fg-10)"></broberg-consent>
+  <script type="module" src="/docs/assets/consent/element.js"></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Brains (knowledge bases) — trail · docs","url":"https://www.trailmem.com/docs/concepts-kb/","description":"A Brain is one trail.db on the engine — isolated content, settings, persona, language, ingest model. Bearer tokens scope to a tenant + KB.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"trail: second brain","url":"https://www.trailmem.com/"}}</script>
+</body>
+</html>

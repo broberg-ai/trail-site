@@ -5,6 +5,70 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.trailmem.com/docs/api-reference/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/concepts-connectors/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/concepts-kb/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/concepts-neurons/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/concepts-queue/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/concepts-search/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/concepts-sources/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/intro/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/quick-start/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/reader-feedback/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/site-llm-with-trail-as-tool/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/web-clipper/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/who-is-trail-for/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/why-not-rag/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.trailmem.com/docs/widget/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.trailmem.com/</loc>
     <priority>1.0</priority>
   </url>

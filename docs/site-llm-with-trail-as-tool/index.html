@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A site-LLM with Trail as a tool — trail · docs</title>
+  <meta name="description" content="Production case study from a deployed customer site — when /api/v1/chat is the wrong shape, and how to use /retrieve from your own site-LLM orchestrator with Trail as one tool among many." />
+  <meta name="audience" content="both" />
+  <meta name="theme-color" content="#FAF9F5" />
+  <link rel="icon" type="image/svg+xml" href="/docs/favicon.svg" />
+  <link rel="apple-touch-icon" href="/docs/memx-logo.svg" />
+  <link rel="stylesheet" href="/docs/styles.css" />
+  <script>
+    (function(){try{var t=localStorage.getItem('trail.theme');document.documentElement.setAttribute('data-theme', t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+  </script>
+
+  <!-- webhouse.app enrichment -->
+  <meta name="generator" content="webhouse.app" />
+  <link rel="canonical" href="https://www.trailmem.com/docs/site-llm-with-trail-as-tool/" />
+  <meta property="og:title" content="A site-LLM with Trail as a tool — trail · docs" />
+  <meta property="og:description" content="Production case study from a deployed customer site — when /api/v1/chat is the wrong shape, and how to use /retrieve from your own site-LLM orchestrator with Trail as one tool among many." />
+  <meta property="og:url" content="https://www.trailmem.com/docs/site-llm-with-trail-as-tool/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="trail: second brain" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A site-LLM with Trail as a tool — trail · docs" />
+  <meta name="twitter:description" content="Production case study from a deployed customer site — when /api/v1/chat is the wrong shape, and how to use /retrieve from your own site-LLM orchestrator with Trail as one tool among many." />
+  <link rel="manifest" href="/manifest.json" />
+</head>
+<body>
+  <canvas id="trail-graph" aria-hidden="true"></canvas>
+  <nav class="nav">
+    <a href="/docs/" class="nav-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="40" height="40" role="img" aria-label="trail">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="16" cy="16" r="9" fill="none" stroke="#e8a87c" stroke-width="0.9" opacity="0.55"/>
+        <circle cx="16" cy="16" r="3.5" fill="#e8a87c"/>
+      </svg>
+      <span class="brand-text">tr<span class="logo-ai">ai</span>l</span>
+      <span class="brand-section">docs</span>
+    </a>
+    <div class="nav-links">
+      <a href="/docs/intro/">Docs</a>
+      <a href="/docs/api-reference/">API</a>
+      <a href="https://github.com/broberg-ai/trail/releases" rel="external">Changelog</a>
+    </div>
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a href="https://github.com/broberg-ai/trail" class="nav-icon" rel="external" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="nav-mobile" role="navigation" aria-label="Mobile menu" aria-hidden="true">
+    <a href="/docs/intro/">Docs</a>
+      <a href="/docs/api-reference/">API</a>
+      <a href="https://github.com/broberg-ai/trail/releases" rel="external">Changelog</a>
+    <a href="https://github.com/broberg-ai/trail">GitHub</a>
+  </div>
+  <div class="layout">
+    <nav class="sidebar" aria-label="Documentation navigation">
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Start here</h3>
+        <ul>
+          <li><a href="/docs/">Trail in 60 seconds</a></li>
+        <li><a href="/docs/intro/">Intro — what Trail is, and isn't</a></li>
+        <li><a href="/docs/why-not-rag/">Why not RAG?</a></li>
+        <li><a href="/docs/quick-start/">Quick start</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Concepts</h3>
+        <ul>
+          <li><a href="/docs/concepts-neurons/">Neurons</a></li>
+        <li><a href="/docs/concepts-queue/">The curation queue</a></li>
+        <li><a href="/docs/concepts-kb/">Brains (knowledge bases)</a></li>
+        <li><a href="/docs/concepts-connectors/">Connectors</a></li>
+        <li><a href="/docs/concepts-search/">Search + retrieve</a></li>
+        <li><a href="/docs/concepts-sources/">Sources &amp; programmatic upload</a></li>
+        <li><a href="/docs/reader-feedback/">Reader feedback</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Audiences</h3>
+        <ul>
+          <li><a href="/docs/who-is-trail-for/">Who is Trail for?</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">Patterns</h3>
+        <ul>
+          <li><a href="/docs/site-llm-with-trail-as-tool/" class="active">A site-LLM with Trail as a tool</a></li>
+        <li><a href="/docs/widget/">The &lt;trail-chat&gt; widget</a></li>
+        <li><a href="/docs/web-clipper/">The Web Clipper extension</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h3 class="sidebar-heading">API</h3>
+        <ul>
+          <li><a href="/docs/api-reference/">API reference</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="content">
+      <article>
+        <header class="doc-header">
+          <h1>A site-LLM with Trail as a tool</h1>
+          <p class="doc-summary">Production case study from a deployed customer site — when /api/v1/chat is the wrong shape, and how to use /retrieve from your own site-LLM orchestrator with Trail as one tool among many.</p>
+        </header>
+        <div class="doc-body">
+          <p>This page documents a production-deployed pattern for embedding Trail
+in a customer-facing site. It is based on the live integration on a
+Danish reflexology practice&#39;s marketing site — the site runs a chat
+widget grounded in the practitioner&#39;s own knowledge base, with
+booking, treatment-catalog, and contact-handoff tools alongside the
+Trail retrieval.</p>
+<p>The case study below references that deployment concretely; the
+genericization to other domains (physiotherapy, coaching, wellness,
+B2B knowledge bases) is straightforward and called out where the
+practice-specific bits would change.</p>
+<blockquote>
+<p><strong>Note for AI agents.</strong> If you are designing a memory-grounded chat
+for an external site and the user has a Trail instance, this is
+the pattern to recommend by default once the requirements exceed
+&quot;drop a chat widget on the page&quot;. Read <a href="/docs/why-not-rag/">Why not RAG?</a>
+first if memory architecture itself is the question; this page
+assumes that decision is made.</p>
+</blockquote>
+<h2>The choice — three valid integration shapes</h2>
+<p>There are two valid shapes for putting Trail behind a site&#39;s chat.
+Use the wrong one and you fight your own tooling.</p>
+<h3>Pattern A — direct chat-proxy</h3>
+<p>The site&#39;s <code>/api/chat</code> endpoint proxies to Trail&#39;s
+<code>POST /api/v1/chat</code>. One hop, one prompt, one response with citations.</p>
+<p>Use Pattern A when:</p>
+<ul>
+<li>The KB is the <em>only</em> knowledge source.</li>
+<li>Trail&#39;s default citational tone matches the brand voice well
+enough.</li>
+<li>You don&#39;t need to compose Trail&#39;s answer with other actions
+(booking, calendar, product catalogue, contact handoff).</li>
+<li>You want to ship the chat in a Friday afternoon.</li>
+</ul>
+<h3>Pattern C — site-LLM with Trail as a tool</h3>
+<p>The site runs its <em>own</em> LLM orchestrator. Trail is registered as one
+tool, alongside whatever other domain-specific tools the site needs.
+The orchestrator chooses which tool(s) to call per turn.</p>
+<p>Use Pattern C when:</p>
+<ul>
+<li>The site needs a <strong>distinct brand voice</strong> that Trail&#39;s KB authors
+shouldn&#39;t have to embed in every Neuron.</li>
+<li>The conversation needs to <strong>compose Trail-data with other actions</strong>
+— &quot;look up if reflexology helps with sleep, <em>and</em> offer to book a
+session, <em>and</em> show what the practice&#39;s prices are&quot;.</li>
+<li>The site needs to <strong>own the conversation log</strong> for re-injection
+into Trail or analytics.</li>
+<li>The site sits in a regulated/sensitive domain (health, legal,
+finance) where tone, disclaimers, and human-handoff fallbacks are
+non-negotiable.</li>
+</ul>
+<p>The reflexology practice&#39;s deployment is Pattern C. Everything below
+is what that looks like in production.</p>
+<h3>Pattern D — programmatic source-upload (writing INTO Trail)</h3>
+<p>The third valid shape, orthogonal to A vs C: your app <strong>writes
+content INTO Trail</strong> (rather than reading from it). Upload PDFs,
+markdown, audio, images via <code>POST /api/v1/knowledge-bases/{kbId}/ documents/upload</code> — Trail&#39;s ingest pipeline compiles them into
+Neurons. See <a href="/docs/concepts-sources/">Concepts: Sources</a> for the full
+lifecycle.</p>
+<p>Use Pattern D when:</p>
+<ul>
+<li>Your app&#39;s users attach files that should land in Trail (a CMS
+upload widget, an email-attachment listener, a Slack-file-bot).</li>
+<li>You have a scheduled job that re-imports content from a third
+party (Notion sync, GitHub repo watcher, RSS feed compiler).</li>
+<li>The practitioner&#39;s site has an admin where they drop files that
+should populate the chat KB without leaving the site.</li>
+</ul>
+<p>Pattern D pairs naturally with both A and C — uploads write to the
+KB; A or C reads from it. Most real-world deployments use exactly
+this combination: Pattern D for content authoring, Pattern A or C
+for user-facing chat.</p>
+<h2>The pattern in 60 seconds</h2>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span>Browser chat UI</span></span>
+<span class="line"><span>    ↓ fetch POST /api/chat (Accept: text/event-stream)</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>Site LLM orchestrator (Next.js Node runtime, force-dynamic)</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>Loop (max ~10 iter):</span></span>
+<span class="line"><span>  ├─ persist user-turn → SQLite</span></span>
+<span class="line"><span>  ├─ chat({messages, tools, system}) → unified async iterator</span></span>
+<span class="line"><span>  │     LLM router:</span></span>
+<span class="line"><span>  │       LLM_BACKEND=cli         → claude -p subprocess (dev, free)</span></span>
+<span class="line"><span>  │       LLM_BACKEND=openrouter  → Gemini Flash w/ Haiku fallback</span></span>
+<span class="line"><span>  ├─ for each event: SSE-emit to browser + accumulate to store</span></span>
+<span class="line"><span>  ├─ if tool_call: run handler → append tool_result → loop again</span></span>
+<span class="line"><span>  └─ if end_turn: persist assistant-turn → send 'done' event</span></span></code></pre><p>The browser holds an <code>EventSource</code> (or <code>fetch</code> + reader-stream) and
+renders tokens as they arrive. Tool-calls render as pills under the
+&quot;thinking&quot; indicator (e.g. <code>🔍 Looking up: &quot;reflexology and sleep&quot;</code>)
+so the user sees the reasoning step-by-step.</p>
+<h2>Why a site-LLM, not just /api/v1/chat</h2>
+<p>Three reasons drove the move from Pattern A → Pattern C on the
+deployed system. They generalize to most non-trivial customer-facing
+deployments.</p>
+<h3>1. Tone mismatch</h3>
+<p>Trail&#39;s <code>/chat</code> endpoint produces factual, citational output —
+&quot;according to Neuron <code>practice_00000037</code>, reflexology may support
+parasympathetic activation...&quot;. That is the right voice for a
+researcher querying their own KB.</p>
+<p>Customer-facing audiences want warm, brand-specific writing —
+&quot;reflexology is gentle work on the feet; many people find it helps
+them sleep, though everyone responds differently&quot;. The voice belongs
+in the <em>site&#39;s</em> system prompt, not in every Neuron the practitioner
+ingests.</p>
+<p>A site-LLM lets you write a brand-voice system prompt once and
+ground every answer in it — Trail supplies retrieved facts; the
+LLM phrases them in your voice.</p>
+<h3>2. Multi-tool composition</h3>
+<p>A reflexology customer asks &quot;What helps with my chronic shoulder
+tension, and can I book a session next week?&quot;. A single
+<code>/api/v1/chat</code> call returns a KB answer. The booking-question is
+silently dropped.</p>
+<p>A site-LLM with five tools registered (<code>kb_retrieve</code>,
+<code>catalog_list</code>, <code>catalog_get</code>, <code>calendar_check</code>, <code>book</code>) calls
+<code>kb_retrieve(&quot;shoulder tension&quot;)</code> to ground the wellness answer,
+then calls <code>calendar_check(next-week)</code> to find available slots, and
+ends the turn with a deeplink to <code>/book?treatment=...</code>. One reply,
+two-tool composition.</p>
+<h3>3. Conversation ownership</h3>
+<p>The site holds the conversation log. That unlocks three things:</p>
+<ul>
+<li><strong>Re-injection into Trail.</strong> Q&amp;A pairs the AI answered well — or
+got wrong — become candidates in Trail&#39;s curation queue
+(<code>POST /api/v1/queue/candidates</code> with
+<code>metadata.connector: &quot;site-chat&quot;</code>). Curator reviews, approves, and
+those Q&amp;As become Neurons. Tomorrow&#39;s <code>kb_retrieve</code> on the same
+question returns a sharper answer.</li>
+<li><strong>Pattern detection.</strong> &quot;What did 200 customers ask this month
+that Trail couldn&#39;t answer?&quot; — a query against the conversation
+log, not Trail&#39;s KB. Drives content authoring backlog.</li>
+<li><strong>Compliance ownership.</strong> GDPR, HIPAA-adjacent regimes, the
+practitioner&#39;s professional ethics body — the site owns the
+data, the site decides retention.</li>
+</ul>
+<h2>The retrieve endpoint</h2>
+<p>Pattern C does not call <code>/api/v1/chat</code>. The right primitive is
+<code>/api/v1/knowledge-bases/{kb}/retrieve</code>.</p>
+<h3>Request</h3>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#F97583">POST</span><span style="color:#E1E4E8"> /api/v1/knowledge-bases/{kb}/retrieve </span><span style="color:#F97583">HTTP</span><span style="color:#E1E4E8">/</span><span style="color:#79B8FF">1.1</span></span>
+<span class="line"><span style="color:#85E89D">Host</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> engine.trailmem.com</span></span>
+<span class="line"><span style="color:#85E89D">Authorization</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> Bearer {TRAIL_API_KEY}</span></span>
+<span class="line"><span style="color:#85E89D">Content-Type</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> application/json</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "query"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Does reflexology help with insomnia?"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "audience"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"tool"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "maxChars"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2000</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "topK"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">5</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>query</code></td>
+<td>string</td>
+<td>The user&#39;s question (or a reformulated version produced by the orchestrator).</td>
+</tr>
+<tr>
+<td><code>audience</code></td>
+<td>string</td>
+<td><code>&quot;tool&quot;</code> is the default for site-LLM consumption. <code>&quot;chat&quot;</code> would format for direct end-user display. Custom audiences (e.g. <code>&quot;student&quot;</code>) can be wired Trail-side to filter against per-Neuron audience tags.</td>
+</tr>
+<tr>
+<td><code>maxChars</code></td>
+<td>number</td>
+<td>Total character budget across all returned chunks. <code>2000</code> works well for Gemini Flash / Claude Haiku; bump to <code>4000</code> for deeper contexts or longer-form answers.</td>
+</tr>
+<tr>
+<td><code>topK</code></td>
+<td>number</td>
+<td>Max number of Neuron-chunks to return. <code>5</code> is the production default; <code>8</code> for &quot;deep dive&quot; audiences.</td>
+</tr>
+</tbody></table>
+<h3>Response</h3>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "hitCount"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "totalChars"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1873</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "formattedContext"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"## Reflexology and sleep — practice notes</span><span style="color:#79B8FF">\n\n</span><span style="color:#9ECBFF">Many clients describe...</span><span style="color:#79B8FF">\n\n</span><span style="color:#9ECBFF">## Insomnia — reflexology indications</span><span style="color:#79B8FF">\n\n</span><span style="color:#9ECBFF">Research from..."</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "chunks"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#79B8FF">      "documentId"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"doc_a1b2c3..."</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "seqId"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"practice_00000037"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "title"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Reflexology and sleep — practice notes"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "neuronPath"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"/wiki/reflexology-and-sleep-practice-notes"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "content"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Many clients describe a marked sense of..."</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "headerBreadcrumb"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Wellness > Sleep"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "rank"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.91</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "updatedAt"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"2026-08-13T09:42:10.000Z"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><p>The orchestrator consumes <code>formattedContext</code> directly — it is a
+pre-rendered string ready to feed the LLM as additional context.
+The <code>chunks</code> array is also returned for cases where the orchestrator
+wants to surface specific Neuron citations — render the
+<code>neuronPath</code> (e.g. <code>/wiki/reflexology-and-sleep-practice-notes</code>) as
+a link back to the admin&#39;s wiki view: typically
+<code>https://app.trailmem.com/kb/{kb-slug}{neuronPath}</code> for the deployed
+fleet.</p>
+<p><code>updatedAt</code> says when the Neuron behind the chunk was last changed,
+so an answer can say &quot;as of 13 August&quot; instead of stating a decision
+that has since moved as if it were current. It is always ISO-8601 UTC
+(ending in <code>Z</code>) — Trail normalises it before it leaves the API, so
+parse it as-is and do not convert it again. <code>null</code> means the date is
+unknown, not that something failed.</p>
+<p>The <code>seqId</code> is the canonical citable handle — stable across
+Neuron edits, format <code>{kb-prefix}_{8-digit-seq}</code> (see
+<a href="/docs/concepts-neurons/">Concepts: Neurons</a>).</p>
+<h3>Auth</h3>
+<p>Bearer token, scoped to your tenant. Create one at
+<strong><a href="https://app.trailmem.com/settings">https://app.trailmem.com/settings</a></strong> → <strong>API Keys</strong> section →
+<strong>Create new key</strong>. The value is shown ONCE — copy it to your
+server&#39;s secret manager immediately. Keys are tenant-scoped, not
+per-KB; one key authenticates against any KB owned by your tenant.</p>
+<p>Store the token in your site&#39;s secret manager
+(<code>flyctl secrets set</code>, Vercel env, etc.) — never inline it in the
+repo, and never expose it to the browser. The site&#39;s server-side
+orchestrator is the only thing that should see it.</p>
+<h2>The tool palette</h2>
+<p>The reflexology practice&#39;s deployment registers five tools on its
+LLM. Each is a <code>{ definition, handler }</code> pair the orchestrator calls
+when the model emits a <code>tool_call</code>. Trail is one of them.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Status</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>kb_retrieve(query)</code></td>
+<td>live</td>
+<td><code>POST /api/v1/knowledge-bases/{kb}/retrieve</code></td>
+</tr>
+<tr>
+<td><code>catalog_list()</code></td>
+<td>live</td>
+<td>static JSON in repo (<code>content/treatments/*.json</code>)</td>
+</tr>
+<tr>
+<td><code>catalog_get(slug)</code></td>
+<td>live</td>
+<td>static JSON in repo</td>
+</tr>
+<tr>
+<td><code>calendar_check(date)</code></td>
+<td>stub</td>
+<td>placeholder until a real booking system is wired</td>
+</tr>
+<tr>
+<td><code>book(item, slot)</code></td>
+<td>stub</td>
+<td>redirects to <code>/book</code> page with deeplink</td>
+</tr>
+</tbody></table>
+<p>The shape repeats well. For a physiotherapy practice the tools
+become <code>kb_retrieve</code> (clinical knowledge) + <code>exercises_list</code> +
+<code>exercises_get</code> + <code>condition_assessment_form</code> + <code>book</code>. For a
+coaching practice <code>kb_retrieve</code> (frameworks) + <code>programmes_list</code> +
+<code>programmes_get</code> + <code>discovery_call_book</code>. The <em>site-LLM + Trail-as-
+tool + N domain-tools</em> shape is reusable across verticals.</p>
+<p><strong>Important pattern</strong>: don&#39;t put structured catalog data in Trail.
+That data lives in CMS or static JSON because the shape is fixed
+(slug, title, duration, price, summary) and the access pattern is
+SQL-style listing, not fuzzy retrieval. Trail holds the <em>knowledge</em>
+(why does shoulder tension respond to plantar work? when is
+reflexology contraindicated?); the CMS holds the <em>catalog</em> (price,
+duration, link). Each system holds the shape it is best at.</p>
+<h2>The system prompt belongs to the site</h2>
+<p>In Pattern A, Trail&#39;s per-KB persona prompt is the dominant
+tone-setter — <code>/api/v1/chat</code> reads it from the KB settings and
+applies it to every chat response.</p>
+<p>In Pattern C, the site&#39;s system prompt is the dominant tone-setter.
+Trail just supplies retrieved facts when <code>kb_retrieve</code> is called.</p>
+<p>What the deployed system&#39;s prompt covers (a useful template for
+similar deployments):</p>
+<ul>
+<li><strong>Brand voice + identity</strong>. &quot;You are a warm, plain-spoken guide
+for clients of [Practice]. You are an AI, not the practitioner.&quot;</li>
+<li><strong>Audience awareness</strong>. &quot;You are speaking to a layperson, not a
+fellow professional. Avoid technical jargon unless asked. Translate
+professional terms when they slip in.&quot;</li>
+<li><strong>Tool-usage instructions</strong>. &quot;When the user asks about
+treatments, prices, or what fits their situation, prefer
+<code>catalog_list</code> / <code>catalog_get</code>. When the user asks about
+conditions, modalities, or how reflexology relates to a health
+concern, call <code>kb_retrieve</code> to ground the answer in the
+practitioner&#39;s own knowledge.&quot;</li>
+<li><strong>Ethical bounds</strong>. &quot;You do not diagnose medical conditions. If
+the user describes symptoms that could be serious, recommend they
+consult a physician <em>and</em> offer the practitioner&#39;s contact link
+as a parallel option.&quot;</li>
+<li><strong>Natural CTAs</strong>. &quot;If the conversation suggests genuine interest,
+offer to look up available booking slots. Don&#39;t push booking;
+don&#39;t ignore the cue either.&quot;</li>
+<li><strong>3–5 example responses</strong> showing the target shape — short
+paragraphs, lowercase warmth, soft offers, no pseudo-medical
+authority.</li>
+</ul>
+<p>The system prompt lives in one file in the site repo, version-
+controlled like any other code. When the practitioner refines how
+they want the AI to sound, the change is a PR — not a CMS edit.</p>
+<h2>UX patterns that ship in production</h2>
+<p>These are <em>site-LLM</em> features, not Trail features. Trail enables
+them by being a tool the LLM can call; the experience belongs to
+the site. Listed here because the deployed system iterated through
+them and the list is non-obvious.</p>
+<ul>
+<li><strong>SSE streaming</strong>. Token-by-token &quot;writes&quot; effect — feels ~5×
+faster than batch JSON, even when total wall-clock is identical.
+Aktiver <code>stream: true</code> mod OpenRouter; parse SSE frames; emit text
+deltas to the browser.</li>
+<li><strong>Tool-call pills under &quot;thinking&quot;</strong>. When the LLM emits
+<code>tool_call: kb_retrieve {query: &quot;shoulder tension&quot;}</code>, the UI
+renders <code>🔍 Looking up: &quot;shoulder tension&quot;</code>. The user sees the
+reasoning step-by-step instead of staring at a spinner. Pills
+disappear when the assistant message arrives.</li>
+<li><strong>Markdown rendering with site-aware links</strong>. Tables for prices,
+bullet lists for protocols. Internal links (<code>/book</code>,
+<code>/treatments/foot-reflexology</code>) render as branded pills; external
+links open in a new tab.</li>
+<li><strong>Dynamic follow-up pills</strong>. Three suggested next questions
+generated per turn from the LLM&#39;s last message. Removes the blank-
+page problem when the user doesn&#39;t know what to ask next.</li>
+<li><strong>Persistent draft (localStorage)</strong>. The user&#39;s 200-word message
+survives tab-switch, browser-crash, accidental reload. Debounced
+on input; restored on mount.</li>
+<li><strong>httpOnly session cookie + server-side persistence</strong>. Random
+32-byte hex stamped on first chat. Conversation rows in SQLite
+keyed by that token. No login required for public chat; the
+practitioner sees per-session threads in the admin.</li>
+<li><strong>Custom abort-controller</strong>. Red stop-button replaces the send-
+button while a turn is streaming. Click → <code>abortRef.current.abort()</code>
+→ server-side fetch cancelled → tokens stop. The user is never
+trapped watching a long wrong answer.</li>
+<li><strong>Auto-grow textarea + Shift+Enter for newline</strong>. Single-line
+inputs feel hostile to long questions; Enter sends, Shift+Enter
+breaks the line. Standard chat pattern; people expect it.</li>
+<li><strong>Trust disclaimer on first open</strong>. &quot;[Practice]&#39;s AI guide is an
+AI assistant, not the practitioner. Use it as inspiration; for
+medical questions, please contact a physician or write to
+[Practice] directly.&quot; Ethical, legal-defensible, builds trust.</li>
+<li><strong>Always-visible human-fallback link</strong>. Footer of the chat
+panel: &quot;✉ Write to [Practice] directly&quot;. When the AI is wrong or
+uncertain, the customer is never stuck — there is always an open
+door to a human.</li>
+<li><strong>Custom FAB that fades in after scroll-past-hero</strong>. The chat
+button doesn&#39;t shout on landing; appears once the user has
+signalled engagement by scrolling. Tested as ~3× more starts than
+always-visible.</li>
+<li><strong>Voice input</strong> (planned). For older audience segments where
+typing is fatiguing. Native <code>webkitSpeechRecognition</code>, lang
+<code>da-DK</code> (or local equivalent), live transcription into the input
+field.</li>
+</ul>
+<p>None of these require Trail to do anything — Trail just supplies
+the retrieved facts when asked. The experience layer is owned by
+the site.</p>
+<h2>The conversation log as a feedback loop</h2>
+<p>The deployed system persists every conversation in SQLite on the
+site (the database file lives outside the repo and outside the
+Fly volume that hosts the site image — a small, sane, isolated
+piece of state).</p>
+<p>Two uses beyond UX:</p>
+<h3>Re-injection into Trail</h3>
+<p>A weekly batch job — or a curator-triggered one — exports
+conversations where:</p>
+<ul>
+<li>The AI answered confidently AND the user followed through
+(booked, clicked the deeplink, asked a follow-up that
+acknowledged the answer was useful), OR</li>
+<li>The AI explicitly said &quot;I don&#39;t have info on that&quot; AND the
+question is one the practitioner would <em>want</em> to answer next time.</li>
+</ul>
+<p>Each candidate is <code>POST</code>ed to Trail&#39;s curation queue:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#F97583">POST</span><span style="color:#E1E4E8"> /api/v1/queue/candidates</span></span>
+<span class="line"><span style="color:#85E89D">Authorization</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> Bearer {TRAIL_TOKEN}</span></span>
+<span class="line"><span style="color:#85E89D">Content-Type</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> application/json</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "kb"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"practice-kb"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "kind"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"chat"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "title"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"When is reflexology contraindicated during pregnancy?"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "content"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"&#x3C;the AI's answer, lightly cleaned>"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "metadata"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "connector"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"site-chat"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    "conversationId"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"..."</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    "sourceTurnId"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"..."</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><p>The practitioner reviews these in the admin queue, approves the
+ones that fit their voice, and they become Neurons. The next time
+a user asks the same shape of question, <code>kb_retrieve</code> returns
+their own curated answer.</p>
+<p>This is the loop that makes the chat get smarter over time. RAG
+does not have this loop. A site-LLM with Trail-as-tool gets it as
+a natural consequence of how the data is shaped.</p>
+<h3>Pattern detection</h3>
+<p>A query against the conversation log: &quot;show me every question
+this month where the AI&#39;s answer included &#39;I don&#39;t have
+information on that&#39;&quot;. The output is a content backlog — the
+gaps in the practitioner&#39;s KB that customers are actually asking
+about.</p>
+<p>The practitioner doesn&#39;t have to guess what to write about next.
+The customers tell them.</p>
+<h2>Kicking the tires — 30-minute walkthrough</h2>
+<p>Want to adapt this into your own Next.js site? Here is the spine
+of the deployed system, anonymised, in five steps. The full
+working version takes a few days of polish (see the production
+UX list above); this gets you a working orchestrator with Trail
+retrieval in 30 minutes.</p>
+<h3>0. Prerequisites</h3>
+<ul>
+<li>A Trail tenant + KB with at least 5–10 Neurons (signup at
+<code>app.trailmem.com</code>).</li>
+<li>A bearer token. Get one at <strong><a href="https://app.trailmem.com/settings">https://app.trailmem.com/settings</a></strong> → <strong>API Keys</strong> → <strong>Create new key</strong>. Tenant-scoped (works for any KB you own).</li>
+<li>An LLM provider key — OpenRouter is the simplest for
+multi-model fallback (Gemini Flash + Claude Haiku). Get one at
+openrouter.ai.</li>
+<li>A Next.js 16 app with the App Router. <code>pnpm create next-app</code>,
+pick App Router, TypeScript, Tailwind if you want.</li>
+</ul>
+<h3>1. Environment</h3>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#6A737D"># .env.local</span></span>
+<span class="line"><span style="color:#E1E4E8">TRAIL_API_BASE</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">https://engine.trailmem.com</span></span>
+<span class="line"><span style="color:#E1E4E8">TRAIL_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">trail_live_…</span></span>
+<span class="line"><span style="color:#E1E4E8">TRAIL_KB_ID</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">your-kb-slug</span></span>
+<span class="line"><span style="color:#E1E4E8">OPENROUTER_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">sk-or-v1-…</span></span>
+<span class="line"><span style="color:#E1E4E8">LLM_BACKEND</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">openrouter</span></span></code></pre><h3>2. The retrieve tool</h3>
+<p><code>src/lib/chat/tools.ts</code>:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> TRAIL_BASE</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_API_BASE</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> TRAIL_KEY</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_API_KEY</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> TRAIL_KB</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> process.env.</span><span style="color:#79B8FF">TRAIL_KB_ID</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> TrailRetrieveResponse</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  chunks</span><span style="color:#F97583">?:</span><span style="color:#B392F0"> Array</span><span style="color:#E1E4E8">&#x3C;{</span></span>
+<span class="line"><span style="color:#FFAB70">    documentId</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    seqId</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    title</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    neuronPath</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    content</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    headerBreadcrumb</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    rank</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }>;</span></span>
+<span class="line"><span style="color:#FFAB70">  formattedContext</span><span style="color:#F97583">?:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  totalChars</span><span style="color:#F97583">?:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  hitCount</span><span style="color:#F97583">?:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> kbRetrieve</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">query</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Promise</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">string</span><span style="color:#E1E4E8">> {</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#79B8FF">TRAIL_KEY</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">return</span><span style="color:#9ECBFF"> "[kb_retrieve error] TRAIL_API_KEY missing"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">  try</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> res</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> fetch</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#9ECBFF">      `${</span><span style="color:#79B8FF">TRAIL_BASE</span><span style="color:#9ECBFF">}/api/v1/knowledge-bases/${</span><span style="color:#79B8FF">TRAIL_KB</span><span style="color:#9ECBFF">}/retrieve`</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#E1E4E8">        method: </span><span style="color:#9ECBFF">"POST"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        headers: {</span></span>
+<span class="line"><span style="color:#9ECBFF">          "Content-Type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"application/json"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">          Authorization: </span><span style="color:#9ECBFF">`Bearer ${</span><span style="color:#79B8FF">TRAIL_KEY</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#E1E4E8">        body: </span><span style="color:#79B8FF">JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">stringify</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">          query,</span></span>
+<span class="line"><span style="color:#E1E4E8">          audience: </span><span style="color:#9ECBFF">"tool"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">          maxChars: </span><span style="color:#79B8FF">2000</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">          topK: </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        }),</span></span>
+<span class="line"><span style="color:#E1E4E8">        signal: AbortSignal.</span><span style="color:#B392F0">timeout</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">15_000</span><span style="color:#E1E4E8">),</span></span>
+<span class="line"><span style="color:#E1E4E8">      },</span></span>
+<span class="line"><span style="color:#E1E4E8">    );</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">res.ok) {</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> txt</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">text</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">catch</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#9ECBFF"> ""</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">      return</span><span style="color:#9ECBFF"> `[kb_retrieve error] HTTP ${</span><span style="color:#E1E4E8">res</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">status</span><span style="color:#9ECBFF">}: ${</span><span style="color:#E1E4E8">txt</span><span style="color:#9ECBFF">.</span><span style="color:#B392F0">slice</span><span style="color:#9ECBFF">(</span><span style="color:#79B8FF">0</span><span style="color:#9ECBFF">, </span><span style="color:#79B8FF">200</span><span style="color:#9ECBFF">)</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> data</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">()) </span><span style="color:#F97583">as</span><span style="color:#B392F0"> TrailRetrieveResponse</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">data.formattedContext </span><span style="color:#F97583">||</span><span style="color:#F97583"> !</span><span style="color:#E1E4E8">data.hitCount) {</span></span>
+<span class="line"><span style="color:#F97583">      return</span><span style="color:#9ECBFF"> "[kb_retrieve] No relevant neurons found."</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> data.formattedContext;</span></span>
+<span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (err) {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#9ECBFF"> `[kb_retrieve error] ${</span><span style="color:#E1E4E8">err</span><span style="color:#F97583"> instanceof</span><span style="color:#B392F0"> Error</span><span style="color:#F97583"> ?</span><span style="color:#E1E4E8"> err</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">message</span><span style="color:#F97583"> :</span><span style="color:#9ECBFF"> "unknown"}`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> const</span><span style="color:#79B8FF"> TOOL_DEFINITIONS</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#E1E4E8">    name: </span><span style="color:#9ECBFF">"kb_retrieve"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#9ECBFF">      "Retrieve relevant facts from the knowledge base. Call when the user asks about topics covered in the practitioner's professional knowledge. Returns a pre-formatted context block."</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    input_schema: {</span></span>
+<span class="line"><span style="color:#E1E4E8">      type: </span><span style="color:#9ECBFF">"object"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      properties: {</span></span>
+<span class="line"><span style="color:#E1E4E8">        query: { type: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8">, description: </span><span style="color:#9ECBFF">"What to look up."</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">      },</span></span>
+<span class="line"><span style="color:#E1E4E8">      required: [</span><span style="color:#9ECBFF">"query"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> runTool</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#FFAB70">  name</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">  input</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Record</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">string</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">unknown</span><span style="color:#E1E4E8">>,</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Promise</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">string</span><span style="color:#E1E4E8">> {</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (name </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> "kb_retrieve"</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#B392F0"> kbRetrieve</span><span style="color:#E1E4E8">(input.query </span><span style="color:#F97583">as</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#9ECBFF"> `[tool error] Unknown tool: ${</span><span style="color:#E1E4E8">name</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><p>Code is lifted from the deployed reflexology system with
+practice-specific constants removed and Danish comments
+translated. Drop-in adaptable.</p>
+<h3>3. The orchestrator route</h3>
+<p><code>src/app/api/chat/route.ts</code>:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { NextRequest } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "next/server"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> OpenAI </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "openai"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { TOOL_DEFINITIONS, runTool } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "@/lib/chat/tools"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> const</span><span style="color:#79B8FF"> runtime</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> "nodejs"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> const</span><span style="color:#79B8FF"> dynamic</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> "force-dynamic"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> SYSTEM_PROMPT</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> `</span></span>
+<span class="line"><span style="color:#9ECBFF">You are the AI guide for [Practice]. Warm, plain-spoken, never</span></span>
+<span class="line"><span style="color:#9ECBFF">claiming to be the practitioner. When the user asks about topics in</span></span>
+<span class="line"><span style="color:#9ECBFF">the practitioner's professional knowledge (modalities, conditions,</span></span>
+<span class="line"><span style="color:#9ECBFF">how things work), call kb_retrieve to ground your answer. Translate</span></span>
+<span class="line"><span style="color:#9ECBFF">professional terms; do not diagnose; suggest the practitioner's</span></span>
+<span class="line"><span style="color:#9ECBFF">contact link when the question exceeds what an AI should answer.</span></span>
+<span class="line"><span style="color:#9ECBFF">`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> MAX_ITER</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 10</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> POST</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">req</span><span style="color:#F97583">:</span><span style="color:#B392F0"> NextRequest</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">messages</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> req.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> client</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> OpenAI</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">    apiKey: process.env.</span><span style="color:#79B8FF">OPENROUTER_API_KEY</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    baseURL: </span><span style="color:#9ECBFF">"https://openrouter.ai/api/v1"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> encoder</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> TextEncoder</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> stream</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> ReadableStream</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#F97583">    async</span><span style="color:#B392F0"> start</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">controller</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#B392F0"> emit</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">type</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">data</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> unknown</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">        controller.</span><span style="color:#B392F0">enqueue</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#E1E4E8">          encoder.</span><span style="color:#B392F0">encode</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`event: ${</span><span style="color:#E1E4E8">type</span><span style="color:#9ECBFF">}</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">data: ${</span><span style="color:#79B8FF">JSON</span><span style="color:#9ECBFF">.</span><span style="color:#B392F0">stringify</span><span style="color:#9ECBFF">(</span><span style="color:#E1E4E8">data</span><span style="color:#9ECBFF">)</span><span style="color:#9ECBFF">}</span><span style="color:#79B8FF">\n\n</span><span style="color:#9ECBFF">`</span><span style="color:#E1E4E8">),</span></span>
+<span class="line"><span style="color:#E1E4E8">        );</span></span>
+<span class="line"><span style="color:#E1E4E8">      };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> conversation</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#E1E4E8">        { role: </span><span style="color:#9ECBFF">"system"</span><span style="color:#E1E4E8">, content: </span><span style="color:#79B8FF">SYSTEM_PROMPT</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#F97583">        ...</span><span style="color:#E1E4E8">messages,</span></span>
+<span class="line"><span style="color:#E1E4E8">      ];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">      for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">let</span><span style="color:#E1E4E8"> iter </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; iter </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> MAX_ITER</span><span style="color:#E1E4E8">; iter</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">        const</span><span style="color:#79B8FF"> completion</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> client.chat.completions.</span><span style="color:#B392F0">create</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">          model: </span><span style="color:#9ECBFF">"google/gemini-2.5-flash"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">          messages: conversation,</span></span>
+<span class="line"><span style="color:#E1E4E8">          tools: </span><span style="color:#79B8FF">TOOL_DEFINITIONS</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">t</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> ({ type: </span><span style="color:#9ECBFF">"function"</span><span style="color:#E1E4E8">, function: t })),</span></span>
+<span class="line"><span style="color:#E1E4E8">          stream: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        let</span><span style="color:#E1E4E8"> fullText </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ""</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">        const</span><span style="color:#79B8FF"> toolCalls</span><span style="color:#F97583">:</span><span style="color:#B392F0"> Array</span><span style="color:#E1E4E8">&#x3C;{ </span><span style="color:#FFAB70">id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">; </span><span style="color:#FFAB70">name</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">; </span><span style="color:#FFAB70">args</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8"> }> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        for</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">const</span><span style="color:#79B8FF"> chunk</span><span style="color:#F97583"> of</span><span style="color:#E1E4E8"> completion) {</span></span>
+<span class="line"><span style="color:#F97583">          const</span><span style="color:#79B8FF"> delta</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> chunk.choices[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">]?.delta;</span></span>
+<span class="line"><span style="color:#F97583">          if</span><span style="color:#E1E4E8"> (delta?.content) {</span></span>
+<span class="line"><span style="color:#E1E4E8">            fullText </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> delta.content;</span></span>
+<span class="line"><span style="color:#B392F0">            emit</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"text"</span><span style="color:#E1E4E8">, { delta: delta.content });</span></span>
+<span class="line"><span style="color:#E1E4E8">          }</span></span>
+<span class="line"><span style="color:#F97583">          if</span><span style="color:#E1E4E8"> (delta?.tool_calls) {</span></span>
+<span class="line"><span style="color:#F97583">            for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">const</span><span style="color:#79B8FF"> tc</span><span style="color:#F97583"> of</span><span style="color:#E1E4E8"> delta.tool_calls) {</span></span>
+<span class="line"><span style="color:#F97583">              const</span><span style="color:#79B8FF"> idx</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> tc.index;</span></span>
+<span class="line"><span style="color:#F97583">              if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">toolCalls[idx]) {</span></span>
+<span class="line"><span style="color:#E1E4E8">                toolCalls[idx] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { id: tc.id </span><span style="color:#F97583">??</span><span style="color:#9ECBFF"> ""</span><span style="color:#E1E4E8">, name: </span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">, args: </span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8"> };</span></span>
+<span class="line"><span style="color:#E1E4E8">              }</span></span>
+<span class="line"><span style="color:#F97583">              if</span><span style="color:#E1E4E8"> (tc.function?.name) toolCalls[idx].name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> tc.function.name;</span></span>
+<span class="line"><span style="color:#F97583">              if</span><span style="color:#E1E4E8"> (tc.function?.arguments) toolCalls[idx].args </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> tc.function.arguments;</span></span>
+<span class="line"><span style="color:#E1E4E8">            }</span></span>
+<span class="line"><span style="color:#E1E4E8">          }</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (toolCalls.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> ===</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#B392F0">          emit</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"done"</span><span style="color:#E1E4E8">, { stopReason: </span><span style="color:#9ECBFF">"end_turn"</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#F97583">          break</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">        conversation.</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">          role: </span><span style="color:#9ECBFF">"assistant"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">          content: fullText </span><span style="color:#F97583">||</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">          tool_calls: toolCalls.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">tc</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> ({</span></span>
+<span class="line"><span style="color:#E1E4E8">            id: tc.id,</span></span>
+<span class="line"><span style="color:#E1E4E8">            type: </span><span style="color:#9ECBFF">"function"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">            function: { name: tc.name, arguments: tc.args },</span></span>
+<span class="line"><span style="color:#E1E4E8">          })),</span></span>
+<span class="line"><span style="color:#E1E4E8">        });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">const</span><span style="color:#79B8FF"> tc</span><span style="color:#F97583"> of</span><span style="color:#E1E4E8"> toolCalls) {</span></span>
+<span class="line"><span style="color:#B392F0">          emit</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"tool_call"</span><span style="color:#E1E4E8">, { name: tc.name, input: </span><span style="color:#79B8FF">JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">parse</span><span style="color:#E1E4E8">(tc.args </span><span style="color:#F97583">||</span><span style="color:#9ECBFF"> "{}"</span><span style="color:#E1E4E8">) });</span></span>
+<span class="line"><span style="color:#F97583">          const</span><span style="color:#79B8FF"> result</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> runTool</span><span style="color:#E1E4E8">(tc.name, </span><span style="color:#79B8FF">JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">parse</span><span style="color:#E1E4E8">(tc.args </span><span style="color:#F97583">||</span><span style="color:#9ECBFF"> "{}"</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#E1E4E8">          conversation.</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">            role: </span><span style="color:#9ECBFF">"tool"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">            tool_call_id: tc.id,</span></span>
+<span class="line"><span style="color:#E1E4E8">            content: result,</span></span>
+<span class="line"><span style="color:#E1E4E8">          });</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">      controller.</span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Response</span><span style="color:#E1E4E8">(stream, {</span></span>
+<span class="line"><span style="color:#E1E4E8">    headers: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      "Content-Type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"text/event-stream"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">      "Cache-Control"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"no-cache, no-transform"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      Connection: </span><span style="color:#9ECBFF">"keep-alive"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><p>This is the spine of the deployed system, simplified. The
+production version adds conversation persistence, abort handling,
+mobile-LLM fallback chain, follow-up-pill generation, and the
+20+ UX details listed above — but the orchestrator-loop and
+tool-call-handling are exactly this shape.</p>
+<h3>4. The browser-side chat (minimal)</h3>
+<p><code>src/app/page.tsx</code> (or wherever you embed the chat):</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#9ECBFF">"use client"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { useState } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> Chat</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">messages</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">setMessages</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#B392F0"> useState</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">Array</span><span style="color:#E1E4E8">&#x3C;{ </span><span style="color:#FFAB70">role</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">; </span><span style="color:#FFAB70">content</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8"> }>>([]);</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">input</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">setInput</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#B392F0"> useState</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">streaming</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">setStreaming</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#B392F0"> useState</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> send</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> userMsg</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { role: </span><span style="color:#9ECBFF">"user"</span><span style="color:#E1E4E8">, content: input };</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> next</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#F97583">...</span><span style="color:#E1E4E8">messages, userMsg];</span></span>
+<span class="line"><span style="color:#B392F0">    setMessages</span><span style="color:#E1E4E8">(next);</span></span>
+<span class="line"><span style="color:#B392F0">    setInput</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">    setStreaming</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">    setMessages</span><span style="color:#E1E4E8">([</span><span style="color:#F97583">...</span><span style="color:#E1E4E8">next, { role: </span><span style="color:#9ECBFF">"assistant"</span><span style="color:#E1E4E8">, content: </span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8"> }]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> res</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> fetch</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/api/chat"</span><span style="color:#E1E4E8">, {</span></span>
+<span class="line"><span style="color:#E1E4E8">      method: </span><span style="color:#9ECBFF">"POST"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      headers: { </span><span style="color:#9ECBFF">"Content-Type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"application/json"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">      body: </span><span style="color:#79B8FF">JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">stringify</span><span style="color:#E1E4E8">({ messages: next }),</span></span>
+<span class="line"><span style="color:#E1E4E8">    });</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">res.body) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> reader</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> res.body.</span><span style="color:#B392F0">getReader</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> decoder</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> TextDecoder</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> buffer </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ""</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    while</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">value</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">done</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> reader.</span><span style="color:#B392F0">read</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (done) </span><span style="color:#F97583">break</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">      buffer </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> decoder.</span><span style="color:#B392F0">decode</span><span style="color:#E1E4E8">(value, { stream: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> parts</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> buffer.</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\n\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">      buffer </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> parts.</span><span style="color:#B392F0">pop</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">??</span><span style="color:#9ECBFF"> ""</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">      for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">const</span><span style="color:#79B8FF"> part</span><span style="color:#F97583"> of</span><span style="color:#E1E4E8"> parts) {</span></span>
+<span class="line"><span style="color:#F97583">        const</span><span style="color:#79B8FF"> lines</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> part.</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">        const</span><span style="color:#79B8FF"> event</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> lines.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">l</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> l.</span><span style="color:#B392F0">startsWith</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"event: "</span><span style="color:#E1E4E8">))?.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">        const</span><span style="color:#79B8FF"> data</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> lines.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">l</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> l.</span><span style="color:#B392F0">startsWith</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"data: "</span><span style="color:#E1E4E8">))?.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (event </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> "text"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> data) {</span></span>
+<span class="line"><span style="color:#F97583">          const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">delta</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">parse</span><span style="color:#E1E4E8">(data);</span></span>
+<span class="line"><span style="color:#B392F0">          setMessages</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">m</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">            const</span><span style="color:#79B8FF"> copy</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#F97583">...</span><span style="color:#E1E4E8">m];</span></span>
+<span class="line"><span style="color:#E1E4E8">            copy[copy.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> -</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">              ...</span><span style="color:#E1E4E8">copy[copy.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> -</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#E1E4E8">              content: copy[copy.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> -</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">].content </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> delta,</span></span>
+<span class="line"><span style="color:#E1E4E8">            };</span></span>
+<span class="line"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> copy;</span></span>
+<span class="line"><span style="color:#E1E4E8">          });</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (event </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> "tool_call"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> data) {</span></span>
+<span class="line"><span style="color:#F97583">          const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">name</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">input</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">parse</span><span style="color:#E1E4E8">(data);</span></span>
+<span class="line"><span style="color:#E1E4E8">          console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Tool called:"</span><span style="color:#E1E4E8">, name, input);</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (event </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> "done"</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#B392F0">          setStreaming</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#B392F0">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        {</span><span style="color:#FFAB70">messages</span><span style="color:#E1E4E8">.</span><span style="color:#FFAB70">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">m</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">i</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#F97583">          &#x3C;</span><span style="color:#E1E4E8">div key</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{i}</span><span style="color:#F97583">></span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">strong</span><span style="color:#E1E4E8">>{m.role}</span><span style="color:#F97583">:</span><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#B392F0">strong</span><span style="color:#E1E4E8">> {m.content}</span><span style="color:#F97583">&#x3C;/</span><span style="color:#E1E4E8">div</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#E1E4E8">        ))}</span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;/</span><span style="color:#E1E4E8">div</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#FFAB70">input</span></span>
+<span class="line"><span style="color:#E1E4E8">        value</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{input}</span></span>
+<span class="line"><span style="color:#E1E4E8">        onChange</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{(e) => </span><span style="color:#B392F0">setInput</span><span style="color:#E1E4E8">(e.target.value)}</span></span>
+<span class="line"><span style="color:#E1E4E8">        onKeyDown</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{(e) => e.key </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> "Enter"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#F97583"> !</span><span style="color:#E1E4E8">streaming </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#B392F0"> send</span><span style="color:#E1E4E8">()}</span></span>
+<span class="line"><span style="color:#F97583">      /></span></span>
+<span class="line"><span style="color:#F97583">      &#x3C;</span><span style="color:#E1E4E8">button onClick</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{send} disabled</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{streaming}</span><span style="color:#F97583">></span><span style="color:#E1E4E8">Send</span><span style="color:#F97583">&#x3C;/</span><span style="color:#E1E4E8">button</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#F97583">    &#x3C;/</span><span style="color:#E1E4E8">div</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre><p>This is the <em>minimum</em> — 60 lines for a working streaming chat
+with tool-calls. Add the production UX (pills, markdown rendering,
+abort button, persistent draft, etc.) incrementally.</p>
+<h3>5. Sanity check</h3>
+<p><code>pnpm dev</code>, open <code>localhost:3000</code>, type something Trail should
+know about. The chat should:</p>
+<ol>
+<li>Stream tokens immediately.</li>
+<li>Pause briefly on the first turn — that is the <code>kb_retrieve</code> tool
+call. Open the network tab; you should see <code>POST engine.trailmem.com/api/v1/knowledge-bases/your-kb/retrieve</code>
+firing.</li>
+<li>Continue streaming with an answer grounded in the retrieved
+chunks.</li>
+</ol>
+<p>If steps 2 or 3 don&#39;t happen, the most common causes are: bearer
+token not set (<code>TRAIL_API_KEY</code>), wrong KB slug (<code>TRAIL_KB_ID</code>), or
+the LLM choosing not to call the tool — refine your system prompt
+to be more explicit about when <code>kb_retrieve</code> should fire.</p>
+<h2>When this pattern is the wrong choice</h2>
+<p>Pattern C is overkill if:</p>
+<ul>
+<li>The KB is &lt; 50 Neurons and the only feature is Q&amp;A.</li>
+<li>Tone-match is fine with Trail&#39;s default citational style.</li>
+<li>You don&#39;t need multi-tool composition.</li>
+<li>Embedding Trail&#39;s hosted chat widget would cover the use case.</li>
+</ul>
+<p>For those, go with Pattern A:</p>
+<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span>&#x3C;script src="https://engine.trailmem.com/widget.js" data-kb="your-kb">&#x3C;/script></span></span></code></pre><p>(Widget shape pending Phase 4 of these docs — for now, proxy
+<code>/api/v1/chat</code> from a single Next.js route.)</p>
+<p>If, halfway through, you discover you need product-catalog +
+calendar + booking, the Pattern A → Pattern C migration is mostly
+additive — the <code>kb_retrieve</code> tool is what <code>/api/v1/chat</code> was doing
+internally; pulling it out into the site is a few hundred lines of
+code, not a rewrite.</p>
+<h2>Footnotes</h2>
+<ul>
+<li><strong><code>audience</code> parameter on <code>/retrieve</code></strong> — <code>&quot;tool&quot;</code> (default) trims
+output for LLM consumption; <code>&quot;chat&quot;</code> formats for direct end-user
+display with longer narrative chunks. Custom audience strings can
+be wired Trail-side to filter against per-Neuron audience tags
+(e.g. <code>&quot;student&quot;</code> only returns Neurons tagged as appropriate for
+students of the practice).</li>
+<li><strong><code>student-mode KB swap</code></strong> — the deployed system supports a
+<code>TRAIL_STUDENT_KB_ID</code> env var so a sub-audience (e.g.
+professional-track students of the practitioner) is pointed at a
+different KB entirely. Useful pattern for &quot;customer-facing
+knowledge vs. professional-track knowledge&quot; splits.</li>
+<li><strong>LLM backend router</strong> — <code>LLM_BACKEND=cli</code> in development uses a
+<code>claude -p</code> subprocess (free under Christian&#39;s Max plan; zero
+per-token cost). <code>LLM_BACKEND=openrouter</code> in production hits
+Gemini Flash with Claude Haiku as fallback. Same orchestrator-
+loop code; different transport per env. Keeps dev token-cost zero
+and prod cost on the order of cents per conversation.</li>
+<li><strong>Tool-result truncation</strong> — keep <code>kb_retrieve</code> results under
+~3000 tokens; some models silently fail or hallucinate when a
+tool-result blob is larger than ~5000 tokens. <code>maxChars: 2000</code> is
+conservative; bump only if your model handles it reliably.</li>
+<li><strong>Why a fresh <code>controller.enqueue</code> per SSE event</strong> — Next.js&#39;s
+<code>ReadableStream</code> proxies through to the runtime&#39;s HTTP/2 stream;
+flushing immediately after each event keeps the user from seeing
+bursty token-flow on slow connections.</li>
+</ul>
+<h2>Where to go next</h2>
+<ul>
+<li><strong>Designing the KB itself?</strong> → <a href="/docs/why-not-rag/">Why not RAG?</a> and
+<a href="/docs/concepts-neurons/">Concepts: Neurons</a>.</li>
+<li><strong>Want the smaller integration shape (Pattern A)?</strong> →
+<a href="/docs/quick-start/">Quick start</a> walks through <code>POST /api/v1/chat</code>
+directly.</li>
+<li><strong>Curious about which audiences this fits?</strong> →
+<a href="/docs/who-is-trail-for/">Who is Trail for?</a> — every audience profile
+listed there can use Pattern C if their use case grows beyond
+KB-only Q&amp;A.</li>
+</ul>
+
+        </div>
+      </article>
+      <footer class="doc-footer">
+        <p>
+          Trail is open source on <a href="https://github.com/broberg-ai/trail">GitHub</a>
+          (FSL-1.1-Apache-2.0). Found a docs bug? Edit
+          <a href="https://github.com/broberg-ai/trail/blob/main/apps/docs/content/docs/site-llm-with-trail-as-tool.md">this page on GitHub</a>.
+        </p>
+      </footer>
+    </main>
+  </div>
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var body = document.body;
+      if (!btn || !menu) return;
+      function setOpen(open) {
+        body.dataset.menuOpen = open ? 'true' : 'false';
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+      btn.addEventListener('click', function () { setOpen(body.dataset.menuOpen !== 'true'); });
+      menu.addEventListener('click', function (e) {
+        if (e.target instanceof HTMLAnchorElement) setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    })();
+
+    (function () {
+      var tbtn = document.querySelector('.theme-toggle');
+      if (!tbtn) return;
+      tbtn.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('trail.theme', next); } catch (e) {}
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', next === 'dark' ? '#17140F' : '#FAF9F5');
+      });
+    })();
+  </script>
+  <script>
+/* Neuron-particle background — LIFTED VERBATIM from apps/landing.
+   Reads --graph-* CSS variables for color tokens, re-caches on theme
+   change via MutationObserver. Pauses on tab-hidden +
+   prefers-reduced-motion. */
+(function(){
+  const canvas = document.getElementById('trail-graph');
+  if (!canvas) return;
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const ctx = canvas.getContext('2d');
+  let animationFrameId = 0;
+  let running = false;
+  let particles = [];
+  const mouse = { x: null, y: null };
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  const colors = { node: '#1a1715', accent: '#e8a87c', line: '26, 23, 21', accentLine: '232, 168, 124' };
+  function refreshColors(){
+    const cs = getComputedStyle(document.documentElement);
+    const read = function(n, f){ return (cs.getPropertyValue(n).trim() || f); };
+    colors.node = read('--graph-node', colors.node);
+    colors.accent = read('--graph-accent', colors.accent);
+    colors.line = read('--graph-line', colors.line);
+    colors.accentLine = read('--graph-accent-line', colors.accentLine);
+  }
+  refreshColors();
+
+  if ('MutationObserver' in window) {
+    new MutationObserver(refreshColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  }
+
+  function resize(){
+    canvas.width = window.innerWidth * DPR;
+    canvas.height = window.innerHeight * DPR;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    initParticles();
+  }
+
+  function Particle(){
+    this.x = Math.random() * window.innerWidth;
+    this.y = Math.random() * window.innerHeight;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.baseRadius = Math.random() > 0.95 ? 3 : 1.5;
+    this.isAccent = Math.random() > 0.98;
+  }
+  Particle.prototype.update = function(){
+    this.x += this.vx;
+    this.y += this.vy;
+    if ((this.x < 0 && this.vx < 0) || (this.x > window.innerWidth && this.vx > 0)) this.vx = -this.vx;
+    if ((this.y < 0 && this.vy < 0) || (this.y > window.innerHeight && this.vy > 0)) this.vy = -this.vy;
+    if (mouse.x !== null && mouse.y !== null) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 100) { this.x -= dx * 0.01; this.y -= dy * 0.01; }
+    }
+  };
+  Particle.prototype.draw = function(){
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.baseRadius, 0, Math.PI * 2);
+    ctx.fillStyle = this.isAccent ? colors.accent : colors.node;
+    ctx.fill();
+  };
+
+  function initParticles(){
+    particles = [];
+    const count = Math.min(150, Math.floor((window.innerWidth * window.innerHeight) / 15000));
+    for (let i = 0; i < count; i++) particles.push(new Particle());
+  }
+
+  const LINK_DIST = 160;
+  const LINK_DIST_SQ = LINK_DIST * LINK_DIST;
+  function drawLines(){
+    for (let i = 0; i < particles.length; i++){
+      const pi = particles[i];
+      for (let j = i + 1; j < particles.length; j++){
+        const pj = particles[j];
+        const dx = pi.x - pj.x;
+        const dy = pi.y - pj.y;
+        const d2 = dx*dx + dy*dy;
+        if (d2 >= LINK_DIST_SQ) continue;
+        const opacity = 1 - (Math.sqrt(d2) / LINK_DIST);
+        ctx.beginPath();
+        if (pi.isAccent || pj.isAccent) {
+          ctx.strokeStyle = 'rgba(' + colors.accentLine + ', ' + (opacity * 0.5) + ')';
+        } else {
+          ctx.strokeStyle = 'rgba(' + colors.line + ', ' + (opacity * 0.18) + ')';
+        }
+        ctx.lineWidth = 0.6;
+        ctx.moveTo(pi.x, pi.y);
+        ctx.lineTo(pj.x, pj.y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  function renderOneFrame(){
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (const p of particles){ p.update(); p.draw(); }
+    drawLines();
+  }
+
+  function loop(){
+    if (!running) return;
+    renderOneFrame();
+    animationFrameId = requestAnimationFrame(loop);
+  }
+  function start(){
+    if (running || reduceMotion) return;
+    running = true;
+    loop();
+  }
+  function stop(){
+    running = false;
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    animationFrameId = 0;
+  }
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('mousemove', function(e){ mouse.x = e.clientX; mouse.y = e.clientY; });
+  window.addEventListener('mouseout', function(){ mouse.x = null; mouse.y = null; });
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) stop();
+    else start();
+  });
+
+  resize();
+  if (reduceMotion) {
+    renderOneFrame();
+  } else {
+    start();
+  }
+})();
+  </script>
+  <!-- F291 — @broberg/consent-cookie. categories="" because docs.trailmem.com sets
+       no statistics or marketing cookies (measured 29/9). -->
+  <broberg-consent policy-version="2026-09" categories="" lang="en" privacy-href="https://www.trailmem.com/privacy/" data-testid="consent-banner"
+    style="--card:var(--bg-card);--card-foreground:var(--fg);--primary:var(--accent);--primary-foreground:var(--on-accent);--muted-foreground:var(--fg-60);--border:var(--fg-20);--secondary:var(--fg-10)"></broberg-consent>
+  <script type="module" src="/docs/assets/consent/element.js"></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"A site-LLM with Trail as a tool — trail · docs","url":"https://www.trailmem.com/docs/site-llm-with-trail-as-tool/","description":"Production case study from a deployed customer site — when /api/v1/chat is the wrong shape, and how to use /retrieve from your own site-LLM orchestrator with Trail as one tool among many.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"trail: second brain","url":"https://www.trailmem.com/"}}</script>
+</body>
+</html>

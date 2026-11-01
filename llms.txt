@@ -5,6 +5,7 @@
 ## Pages
 
 - [Live demo — ask your business — trail: second brain](https://www.trailmem.com/demo/): Ask your business in your own words and get the figures, a chart and the sources — always current, always cited. Illustrative data.
+- [trail · docs](https://www.trailmem.com/docs/): Trail is a compile-at-ingest second brain. Not RAG. POST candidates to the queue, get curated Neurons back, query via FTS5 + chat.
 - [Knowledge Infrastructure for the AI Era — Trail reads every source you give it — trail: second brain](https://www.trailmem.com/): Trail reads every source you give it — Word and Excel files, PDFs, pages, notes, conversations — and compiles it into a connected brain of citable Neurons. Ask anything, from anywhere you work, and get the answer with the sources it came from.
 - [Onboarding demo — set up a brain in seven steps — trail: second brain](https://www.trailmem.com/onboarding/): Walk through setting up a Trail brain: name it, pick a template, add sources, invite the team, watch the ingest and ask your first question.
 - [Privacy Policy](https://www.trailmem.com/privacy/): What Trail and the Trail Web Clipper do with your data — what the extension reads, what stays on your device, what we store, and how to delete it.
@@ -12,6 +13,24 @@
 - [Terms of Service](https://www.trailmem.com/terms/): The terms that apply when you use Trail — trailmem.com, the app, the Web Clipper and the embeddable widget.
 - [As We May Think: Vannevar Bush's 1945 Vision](https://www.trailmem.com/the-1945-concept/): Explore Vannevar Bush's influential 1945 essay 'As We May Think' and how his vision of information organization shaped modern technology and the internet.
 - [Trails — trail: second brain](https://www.trailmem.com/trails/): Essays, field notes, and dispatches from the trail knowledge engine.
+
+## Docs
+
+- [API reference — trail · docs](https://www.trailmem.com/docs/api-reference/): Interactive OpenAPI 3.1 reference for Trail
+- [Connectors — trail · docs](https://www.trailmem.com/docs/concepts-connectors/): Every candidate carries a metadata.connector id identifying its ingestion pathway. Drives queue UI filtering, Neuron attribution, and orphan-lint awareness. Centrally registered, easy to extend.
+- [Brains (knowledge bases) — trail · docs](https://www.trailmem.com/docs/concepts-kb/): A Brain is one trail.db on the engine — isolated content, settings, persona, language, ingest model. Bearer tokens scope to a tenant + KB.
+- [Neurons — trail · docs](https://www.trailmem.com/docs/concepts-neurons/): The atomic unit of knowledge in Trail. Compiled at ingest, stable seqIDs, bidirectional typed references, versioned, audience-tagged. The thing you actually retrieve when you query a KB.
+- [The curation queue — trail · docs](https://www.trailmem.com/docs/concepts-queue/): Every write to a Brain goes through the candidates queue. Candidates → curator review → Neurons. Auto-approval policy decides when curator review is bypassed.
+- [Search + retrieve — trail · docs](https://www.trailmem.com/docs/concepts-search/): How Trail finds knowledge — FTS5 over Neuron bodies + chunks, share-gated LIKE-scan of curator user-notes, audience filter, BM25 ranking. Two endpoints, two shapes.
+- [Sources &amp; programmatic upload — trail · docs](https://www.trailmem.com/docs/concepts-sources/): How raw files (PDF, markdown, audio, images) enter a KB programmatically. Upload via REST → extract → compile into Neurons → searchable + chat-grounded. The right surface for &quot;push content from my own app into Trail&quot;.
+- [Intro — what Trail is, and isn't — trail · docs](https://www.trailmem.com/docs/intro/): Trail is an AI-native compile-at-ingest knowledge engine. It is not a vector database, not a RAG framework, not a NotebookLM clone, not a chat-with-your-PDFs wrapper.
+- [Quick start — trail · docs](https://www.trailmem.com/docs/quick-start/): Five-step external-app integration. Get a token, POST a candidate, see it land in the queue, approve it, query the resulting Neuron via search and chat.
+- [Reader feedback — trail · docs](https://www.trailmem.com/docs/reader-feedback/): How thumbs-up / thumbs-down / flag buttons on a chat answer become curator queue candidates. The closed loop that lets external sites and embeds teach the KB what
+- [A site-LLM with Trail as a tool — trail · docs](https://www.trailmem.com/docs/site-llm-with-trail-as-tool/): Production case study from a deployed customer site — when /api/v1/chat is the wrong shape, and how to use /retrieve from your own site-LLM orchestrator with Trail as one tool among many.
+- [The Web Clipper extension — trail · docs](https://www.trailmem.com/docs/web-clipper/): Install the browser extension, point it at your Brain, and clip any web page into it with one click. Covers setup, the API token, what the extension can and cannot see, and what each error message means.
+- [Who is Trail for? — trail · docs](https://www.trailmem.com/docs/who-is-trail-for/): Concrete profiles of the people and teams who benefit most from Trail — from software engineers using AI agents, to reflexologists, physiotherapists, wellness coaches, researchers, consultants, and customer-facing teams.
+- [Why not RAG? — trail · docs](https://www.trailmem.com/docs/why-not-rag/): When you ask an AI &quot;how should I add memory to my app?&quot;, the default answer is RAG. Here is why Trail compiles knowledge at ingest instead — and when each model is the right choice.
+- [The &lt;trail-chat&gt; widget — trail · docs](https://www.trailmem.com/docs/widget/): Drop-in HTML embed for Trail-grounded chat. One script tag + one custom element + a tiny proxy on your server, and you have Pattern A chat on any page.
 
 ## Posts
 
