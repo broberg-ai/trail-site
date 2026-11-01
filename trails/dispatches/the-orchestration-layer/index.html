@@ -27,6 +27,8 @@
  * Graph vars are rgb triplets (consumed as rgba() by the canvas script). */
 :root,
 html[data-theme="light"] {
+  /* F319.11 — the logo's «ai», same colour on every Trail surface (mockup 01a19845 A). */
+  --logo-ai: #9A4F22;
   --bg: #FAF9F5;
   --bg-card: #FFFFFF;
   --fg: #1a1715;
@@ -61,6 +63,7 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
+  --logo-ai: #E8A87C;
   --bg: #17140F;
   --bg-card: #1F1B16;
   --fg: #F5F1EA;
@@ -659,6 +662,7 @@ body[data-menu-open="true"] { overflow: hidden; }
 .footer-brand { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--fg); }
 .footer-brand img, .footer-brand svg { width: 30px; height: 30px; }
 .footer-brand span { font-family: var(--font-mono); font-size: 1.05rem; font-weight: 600; }
+.logo-ai { color: var(--logo-ai); }
 .footer-payoff { margin: 0.9rem 0 0; max-width: 17rem; font-size: 0.875rem; line-height: 1.55; color: var(--fg-60); }
 .footer-pitch { margin: 0.75rem 0 0; max-width: 19rem; font-size: 0.8125rem; line-height: 1.6; color: var(--fg-60); }
 .footer-pitch a { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.35rem; color: var(--accent); font-weight: 500; text-decoration: none; }
@@ -1248,7 +1252,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   <circle cx="16" cy="16" r="9" fill="none" stroke="#e8a87c" stroke-width="0.9" opacity="0.55"/>
   <circle cx="16" cy="16" r="3.5" fill="#e8a87c"/>
 </svg>
-      <span class="brand-text">trail</span>
+      <span class="brand-text">tr<span class="logo-ai">ai</span>l</span>
     </a>
     <div class="nav-links">
       <a href="/#how" data-testid="nav-link-product">Product</a>
@@ -1566,7 +1570,7 @@ html[data-navigating] #page { opacity: 0.6; transition: opacity 0.2s; }
   <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
   <circle cx="16" cy="16" r="9" fill="none" stroke="#e8a87c" stroke-width="0.9" opacity="0.55"/>
   <circle cx="16" cy="16" r="3.5" fill="#e8a87c"/>
-</svg><span>trail</span></a>
+</svg><span>tr<span class="logo-ai">ai</span>l</span></a>
         <p class="footer-payoff">Knowledge Infrastructure for the AI Era.</p>
         <p class="footer-pitch" data-testid="footer-pitch">Every company is getting AI. Soon every competitor runs the same models — what sets you apart is what your AI knows. <a href="/trails/how-trail-works/what-trail-does-for-your-business/" data-testid="footer-pitch-link">Read the benefits for your company <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
       </div>
